@@ -13,14 +13,12 @@
         <flowNodeRef>t_archive</flowNodeRef>
       </lane>
     </laneSet>
-
     <startEvent id="start" name="Bill presented" />
     <task id="t_pay" name="Process payment" />
     <task id="t_receipt" name="Print receipt" />
     <task id="t_reconcile" name="Daily reconciliation" />
     <task id="t_archive" name="Archive paper slip" />
     <endEvent id="end" name="Settled" />
-
     <sequenceFlow id="f1" sourceRef="start" targetRef="t_pay" />
     <sequenceFlow id="f2" sourceRef="t_pay" targetRef="t_receipt" />
     <sequenceFlow id="f3" sourceRef="t_receipt" targetRef="t_reconcile" />

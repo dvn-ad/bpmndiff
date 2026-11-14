@@ -9,7 +9,6 @@
       <task id="t4" name="Authorize discount" />
     </subProcess>
     <endEvent id="end" name="Admission approved" />
-
     <sequenceFlow id="f1" sourceRef="start" targetRef="t1" />
     <sequenceFlow id="f2" sourceRef="t1" targetRef="t2" />
     <sequenceFlow id="f3" sourceRef="t2" targetRef="sub_bill" />

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" id="defs_steps_v1" targetNamespace="http://bpmndiff.org/taxonomy">
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="defs_steps_v1" targetNamespace="http://bpmndiff.org/taxonomy">
   <process id="proc_steps" name="Patient Registration (v1)">
     <startEvent id="start" name="Patient arrives" />
     <task id="t_old" name="Take paper form" />
@@ -7,11 +7,10 @@
     <task id="t_save" name="Save patient data" />
     <task id="t_type" name="General patient intake" />
     <task id="t_notify" name="Notify doctors" />
-    <boundaryEvent id="b_timer" name="Timeout limit" attachedToRef="t_check" cancelActivity="true">
+    <boundaryEvent id="b_timer" name="Timeout limit" attachedToRef="t_check">
       <timerEventDefinition id="ted1" />
     </boundaryEvent>
     <endEvent id="end" name="Completed" />
-
     <sequenceFlow id="f1" sourceRef="start" targetRef="t_old" />
     <sequenceFlow id="f2" sourceRef="t_old" targetRef="t_check" />
     <sequenceFlow id="f3" sourceRef="t_check" targetRef="t_save" />
@@ -19,4 +18,65 @@
     <sequenceFlow id="f5" sourceRef="t_type" targetRef="t_notify" />
     <sequenceFlow id="f6" sourceRef="t_notify" targetRef="end" />
   </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_proc_steps">
+    <bpmndi:BPMNPlane id="BPMNPlane_proc_steps" bpmnElement="proc_steps">
+      <bpmndi:BPMNShape id="BPMNShape_start" bpmnElement="start">
+        <dc:Bounds x="80" y="102" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="71" y="143" width="55" height="28" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_t_old" bpmnElement="t_old">
+        <dc:Bounds x="216" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_t_check" bpmnElement="t_check">
+        <dc:Bounds x="416" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_t_save" bpmnElement="t_save">
+        <dc:Bounds x="616" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_t_type" bpmnElement="t_type">
+        <dc:Bounds x="816" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_t_notify" bpmnElement="t_notify">
+        <dc:Bounds x="1016" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_end" bpmnElement="end">
+        <dc:Bounds x="1216" y="102" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1198" y="143" width="72" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_b_timer" bpmnElement="b_timer">
+        <dc:Bounds x="448" y="142" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="437" y="183" width="58" height="28" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_f1" bpmnElement="f1">
+        <di:waypoint x="116" y="120" />
+        <di:waypoint x="216" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_f2" bpmnElement="f2">
+        <di:waypoint x="316" y="120" />
+        <di:waypoint x="416" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_f3" bpmnElement="f3">
+        <di:waypoint x="516" y="120" />
+        <di:waypoint x="616" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_f4" bpmnElement="f4">
+        <di:waypoint x="716" y="120" />
+        <di:waypoint x="816" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_f5" bpmnElement="f5">
+        <di:waypoint x="916" y="120" />
+        <di:waypoint x="1016" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_f6" bpmnElement="f6">
+        <di:waypoint x="1116" y="120" />
+        <di:waypoint x="1216" y="120" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
 </definitions>

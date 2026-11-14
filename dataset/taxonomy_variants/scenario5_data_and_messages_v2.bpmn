@@ -5,19 +5,15 @@
     <participant id="p_lab" name="External Lab" />
     <messageFlow id="mf_lab" name="Send test sample" sourceRef="t_order" targetRef="p_lab" />
   </collaboration>
-
   <dataStore id="ds_emr" name="PatientEMR" />
-
   <process id="proc_hosp" name="Lab Diagnostics (v2)">
     <startEvent id="start" name="Patient examined" />
     <task id="t_order" name="Order blood test" />
     <task id="t_record" name="Record lab test" />
     <endEvent id="end" name="Diagnostics complete" />
-
     <sequenceFlow id="f1" sourceRef="start" targetRef="t_order" />
     <sequenceFlow id="f2" sourceRef="t_order" targetRef="t_record" />
     <sequenceFlow id="f3" sourceRef="t_record" targetRef="end" />
-
     <dataStoreReference id="ds_ref_emr" dataStoreRef="ds_emr" />
   </process>
 </definitions>

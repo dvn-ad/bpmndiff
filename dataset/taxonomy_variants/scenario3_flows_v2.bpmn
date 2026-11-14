@@ -11,7 +11,6 @@
     <parallelGateway id="gw_par_join" name="Join parallel" />
     <exclusiveGateway id="gw_join" name="Merge" />
     <endEvent id="end" name="Discharged" />
-
     <sequenceFlow id="f1" sourceRef="start" targetRef="t_copay" />
     <sequenceFlow id="f2" sourceRef="t_copay" targetRef="t_id" />
     <sequenceFlow id="f3" sourceRef="t_id" targetRef="gw1" />
