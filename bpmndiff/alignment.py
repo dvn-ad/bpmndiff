@@ -372,9 +372,10 @@ def _structural_similarity(
     elif na.family == nb.family:
         type_bonus = 0.10
 
-    id_bonus = 0.25 if (na.id == nb.id and len(na.id) >= 8) else 0.0
+    id_bonus = 0.50 if na.id == nb.id else 0.0
+    name_bonus = 0.45 if (na.name.strip() and normalize_label(na.name) == normalize_label(nb.name)) else 0.0
 
-    score = min(1.0, 0.65 * context + 0.20 * degree + type_bonus + id_bonus)
+    score = min(1.0, 0.65 * context + 0.20 * degree + type_bonus + id_bonus + name_bonus)
     return score, f"structural context {context:.2f}, degree {degree:.2f}"
 
 

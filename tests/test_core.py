@@ -115,7 +115,7 @@ class DiffTests(unittest.TestCase):
         b = make_model("b", ["Check form", "Store form"])
         comparison = diff_models(a, b, DiffOptions(bisimulation=False))
         self.assertTrue(comparison.behavior["equivalent"])
-        self.assertTrue(any(op["op"] == "RENAME" for op in comparison.operations))
+        self.assertTrue(any(op["op"] in {"RENAME", "RENAME_NODE"} for op in comparison.operations))
         self.assertEqual(comparison.fusion["overall"], "non_behavioral_rename")
 
     def test_swimlane_rename_is_not_reported_as_task_movement(self):
@@ -130,11 +130,11 @@ class DiffTests(unittest.TestCase):
 
         comparison = diff_models(a, b, DiffOptions(bisimulation=False))
 
-        renames = [op for op in comparison.operations if op["op"] == "RENAME_SWIMLANE"]
+        renames = [op for op in comparison.operations if op["op"] in {"RENAME_SWIMLANE", "RENAME_LANE"}]
         self.assertEqual(len(renames), 1)
         self.assertEqual(renames[0]["before"]["name"], "Operations")
         self.assertEqual(renames[0]["after"]["name"], "Service")
-        self.assertFalse(any(op["op"] == "CHANGE_SWIMLANE" for op in comparison.operations))
+        self.assertFalse(any(op["op"] in {"CHANGE_SWIMLANE", "MOVE_LANE"} for op in comparison.operations))
         self.assertTrue(comparison.behavior["equivalent"])
         self.assertEqual(comparison.fusion["overall"], "non_behavioral_rename")
 
@@ -150,12 +150,12 @@ class DiffTests(unittest.TestCase):
 
         comparison = diff_models(a, b, DiffOptions(bisimulation=False))
 
-        changes = [op for op in comparison.operations if op["op"] == "CHANGE_SWIMLANE"]
+        changes = [op for op in comparison.operations if op["op"] in {"CHANGE_SWIMLANE", "MOVE_LANE"}]
         self.assertEqual(len(changes), 1)
         self.assertEqual(changes[0]["before"]["name"], "Review")
         self.assertEqual(changes[0]["before"]["lane"], "Operations")
         self.assertEqual(changes[0]["after"]["lane"], "Finance")
-        self.assertFalse(any(op["op"] == "RENAME_SWIMLANE" for op in comparison.operations))
+        self.assertFalse(any(op["op"] in {"RENAME_SWIMLANE", "RENAME_LANE"} for op in comparison.operations))
         self.assertTrue(comparison.behavior["equivalent"])
         self.assertEqual(comparison.fusion["overall"], "non_behavioral_swimlane_change")
 
@@ -163,7 +163,7 @@ class DiffTests(unittest.TestCase):
         a = make_model("a", ["Check form", "Save form"])
         b = make_model("b", ["Check form", "Verify form", "Save form"])
         comparison = diff_models(a, b, DiffOptions(bisimulation=False))
-        self.assertTrue(any(op["op"] == "INSERT" for op in comparison.operations))
+        self.assertTrue(any(op["op"] in {"INSERT", "INSERT_NODE"} for op in comparison.operations))
         self.assertFalse(comparison.behavior["equivalent"])
         self.assertIn("behavioral_change", comparison.fusion["overall"])
 
@@ -172,7 +172,7 @@ class DiffTests(unittest.TestCase):
         b = make_model("b", ["Approve", "Reject"], kind="and")
         comparison = diff_models(a, b, DiffOptions(bisimulation=False))
         ops = [op["op"] for op in comparison.operations]
-        self.assertIn("CHANGE_GATEWAY_TYPE", ops)
+        self.assertTrue("GATEWAY_TYPE_CHANGE" in ops or "CHANGE_GATEWAY_TYPE" in ops)
         self.assertFalse(comparison.behavior["equivalent"])
 
 

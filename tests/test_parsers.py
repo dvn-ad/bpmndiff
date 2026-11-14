@@ -152,6 +152,52 @@ class ParserTests(unittest.TestCase):
         with self.assertRaises(ParseError):
             load_model(path)
 
+    def test_bpmn_extended_attributes(self):
+        bpmn_content = """<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" id="defs">
+  <collaboration id="collab">
+    <participant id="p1" name="Hospital" processRef="proc" />
+    <participant id="p2" name="Patient" />
+    <messageFlow id="mf1" name="Insurance query" sourceRef="user_task" targetRef="p2" />
+  </collaboration>
+  <process id="proc" name="Extended Process">
+    <userTask id="user_task" name="Review Claim">
+      <multiInstanceLoopCharacteristics isSequential="false" />
+    </userTask>
+    <boundaryEvent id="timer_b" name="24h timeout" attachedToRef="user_task" cancelActivity="false">
+      <timerEventDefinition id="ted1" />
+    </boundaryEvent>
+    <serviceTask id="svc_task" name="Auto Check">
+      <standardLoopCharacteristics />
+    </serviceTask>
+    <exclusiveGateway id="gw1" name="Decision" default="f_def" gatewayDirection="Diverging" />
+    <sequenceFlow id="f_def" sourceRef="gw1" targetRef="svc_task" />
+    <dataObject id="d1" name="ClaimRecord" />
+    <dataStoreReference id="ds1" name="ClaimsDB" />
+    <subProcess id="sub1" name="Verification Subprocess">
+      <task id="inner_t1" name="Check Police Report" />
+    </subProcess>
+  </process>
+</definitions>"""
+        model = load_model(self._write(".bpmn", bpmn_content))
+        self.assertEqual(model.nodes["user_task"].task_type, "user")
+        self.assertEqual(model.nodes["user_task"].marker, "multi_instance_parallel")
+        self.assertEqual(model.nodes["timer_b"].kind, "boundary_event")
+        self.assertEqual(model.nodes["timer_b"].event_definition, "timer")
+        self.assertEqual(model.nodes["timer_b"].attached_to, "user_task")
+        self.assertFalse(model.nodes["timer_b"].cancel_activity)
+        self.assertEqual(model.nodes["svc_task"].task_type, "service")
+        self.assertEqual(model.nodes["svc_task"].marker, "loop")
+        self.assertEqual(model.nodes["gw1"].gateway_direction, "split")
+        self.assertEqual(model.nodes["gw1"].default_flow, "f_def")
+        self.assertTrue(model.edges[0].is_default)
+        self.assertEqual(len(model.message_flows), 1)
+        self.assertEqual(model.message_flows[0].name, "Insurance query")
+        self.assertIn("d1", model.data_elements)
+        self.assertIn("ds1", model.data_elements)
+        self.assertEqual(model.nodes["sub1"].kind, "subprocess")
+        self.assertIn("inner_t1", model.nodes)
+
     def test_missing_file(self):
         with self.assertRaises(ParseError):
             load_model("/definitely/not/here.xpdl")

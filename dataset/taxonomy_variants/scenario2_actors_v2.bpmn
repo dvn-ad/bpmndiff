@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" id="defs_actors_v2" targetNamespace="http://bpmndiff.org/taxonomy">
+  <process id="proc_actors" name="Payment Settlement (v2)">
+    <laneSet id="ls2">
+      <lane id="lane_cashier" name="Cashier Officer">
+        <flowNodeRef>t_pay</flowNodeRef>
+      </lane>
+      <lane id="lane_ops" name="Operations">
+        <flowNodeRef>t_receipt</flowNodeRef>
+        <flowNodeRef>t_reconcile</flowNodeRef>
+      </lane>
+      <lane id="lane_auditor" name="Auditor">
+        <flowNodeRef>t_archive</flowNodeRef>
+      </lane>
+    </laneSet>
+
+    <startEvent id="start" name="Bill presented" />
+    <task id="t_pay" name="Process payment" />
+    <task id="t_receipt" name="Print receipt" />
+    <task id="t_reconcile" name="Daily reconciliation" />
+    <task id="t_archive" name="Archive paper slip" />
+    <endEvent id="end" name="Settled" />
+
+    <sequenceFlow id="f1" sourceRef="start" targetRef="t_pay" />
+    <sequenceFlow id="f2" sourceRef="t_pay" targetRef="t_receipt" />
+    <sequenceFlow id="f3" sourceRef="t_receipt" targetRef="t_reconcile" />
+    <sequenceFlow id="f4" sourceRef="t_reconcile" targetRef="t_archive" />
+    <sequenceFlow id="f5" sourceRef="t_archive" targetRef="end" />
+  </process>
+</definitions>

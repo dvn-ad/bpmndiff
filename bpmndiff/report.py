@@ -46,27 +46,26 @@ def _format_operation(operation: dict) -> str:
     detail = operation.get("detail", "")
     target = _op_target(operation)
     review = "  [needs review]" if operation.get("needs_review") else ""
-    if op in {"RENAME", "CHANGE_TYPE", "CHANGE_GATEWAY_TYPE"}:
+    if op in {"RENAME_NODE", "RENAME"}:
         before = (operation.get("before") or {}).get("name", "?")
         after = (operation.get("after") or {}).get("name", "?")
-        if op == "RENAME":
-            return f'RENAME               "{before}" -> "{after}"{review}'
-        return f"{op:<20} {before}  [{detail}]{review}"
-    if op == "RENAME_SWIMLANE":
+        subtype = f" ({operation['subtype']})" if "subtype" in operation else ""
+        return f'{op:<20} "{before}" -> "{after}"{subtype}{review}'
+    if op in {"RENAME_LANE", "RENAME_SWIMLANE"}:
         before = (operation.get("before") or {}).get("name", "?")
         after = (operation.get("after") or {}).get("name", "?")
-        return f'RENAME_SWIMLANE     "{before}" -> "{after}"{review}'
-    if op == "CHANGE_SWIMLANE":
+        return f'{op:<20} "{before}" -> "{after}"{review}'
+    if op in {"MOVE_LANE", "CHANGE_SWIMLANE"}:
         before = operation.get("before") or {}
         after = operation.get("after") or {}
         before_lane = before.get("lane") or "(unassigned)"
         after_lane = after.get("lane") or "(unassigned)"
         return (
-            f'CHANGE_SWIMLANE     {before.get("name", "?")}: '
+            f'{op:<20} {before.get("name", "?")}: '
             f'"{before_lane}" -> "{after_lane}"{review}'
         )
-    if op in {"DELETE", "DELETE_FLOW"}:
-        return f"{op:<20} {target}{review}"
+    if detail:
+        return f"{op:<20} {detail}{review}"
     return f"{op:<20} {target}{review}"
 
 
@@ -105,8 +104,14 @@ def _render_a_text(result: dict) -> str:
     lines.append(f" Edit script ({len(result['operations'])} operations)")
     lines.append("-" * 78)
     if result["operations"]:
+        current_cat = None
         for operation in result["operations"]:
-            lines.append("  " + _format_operation(operation))
+            cat = operation.get("category")
+            cat_name = operation.get("category_name")
+            if cat and cat != current_cat:
+                current_cat = cat
+                lines.append(f"  [{cat}. {cat_name}]")
+            lines.append("    " + _format_operation(operation))
     else:
         lines.append("  (no differences)")
     lines.append("")
@@ -331,10 +336,16 @@ def _render_a_markdown(result: dict) -> str:
     ]
     if result["operations"]:
         rows = [
-            [op["op"], _op_target(op), op.get("detail", ""), "yes" if op.get("needs_review") else "no"]
+            [
+                f"{op.get('category', '-')}. {op.get('category_name', '')}" if op.get("category") else "-",
+                op["op"],
+                _op_target(op),
+                op.get("detail", ""),
+                "yes" if op.get("needs_review") else "no",
+            ]
             for op in result["operations"]
         ]
-        lines.append(_md_table(["Operation", "Element", "Detail", "Review"], rows))
+        lines.append(_md_table(["Category", "Operation", "Element", "Detail", "Review"], rows))
     else:
         lines.append("_No differences._")
 

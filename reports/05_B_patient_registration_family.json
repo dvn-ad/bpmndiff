@@ -3,7 +3,7 @@
   "reference": {
     "id": "719fb5f1-29f2-4d52-b698-c3d78dafd11e",
     "name": "General new patient registration",
-    "source": "C:\\nanda\\ITS\\matkul\\SEM 5\\Sistem Enterprise\\ES_FP\\BPMN Diagrams Dataset of Functional Requirements\\XPDL Dataset\\52.Mini hospital (FO).General new patient registration\\Diagram 1.xpdl",
+    "source": "/home/mendoan/Projects/bpmndiff/BPMN Diagrams Dataset of Functional Requirements/XPDL Dataset/52.Mini hospital (FO).General new patient registration/Diagram 1.xpdl",
     "format": "xpdl",
     "pool": "General new patient registration",
     "stats": {
@@ -19,7 +19,7 @@
     {
       "id": "719fb5f1-29f2-4d52-b698-c3d78dafd11e",
       "name": "Corporate new patient registration",
-      "source": "C:\\nanda\\ITS\\matkul\\SEM 5\\Sistem Enterprise\\ES_FP\\BPMN Diagrams Dataset of Functional Requirements\\XPDL Dataset\\53.Mini hospital (FO).Corporate new patient registration\\Diagram 1.xpdl",
+      "source": "/home/mendoan/Projects/bpmndiff/BPMN Diagrams Dataset of Functional Requirements/XPDL Dataset/53.Mini hospital (FO).Corporate new patient registration/Diagram 1.xpdl",
       "format": "xpdl",
       "pool": "Corporate new patient registration",
       "stats": {
@@ -34,7 +34,7 @@
     {
       "id": "719fb5f1-29f2-4d52-b698-c3d78dafd11e",
       "name": "General inpatient registration",
-      "source": "C:\\nanda\\ITS\\matkul\\SEM 5\\Sistem Enterprise\\ES_FP\\BPMN Diagrams Dataset of Functional Requirements\\XPDL Dataset\\54.Mini hospital (FO).General inpatient registration\\Diagram 1.xpdl",
+      "source": "/home/mendoan/Projects/bpmndiff/BPMN Diagrams Dataset of Functional Requirements/XPDL Dataset/54.Mini hospital (FO).General inpatient registration/Diagram 1.xpdl",
       "format": "xpdl",
       "pool": "General inpatient registration",
       "stats": {
@@ -49,7 +49,7 @@
     {
       "id": "719fb5f1-29f2-4d52-b698-c3d78dafd11e",
       "name": "Corporate inpatient registration",
-      "source": "C:\\nanda\\ITS\\matkul\\SEM 5\\Sistem Enterprise\\ES_FP\\BPMN Diagrams Dataset of Functional Requirements\\XPDL Dataset\\55.Mini hospital (FO).Corporate inpatient registration\\Diagram 1.xpdl",
+      "source": "/home/mendoan/Projects/bpmndiff/BPMN Diagrams Dataset of Functional Requirements/XPDL Dataset/55.Mini hospital (FO).Corporate inpatient registration/Diagram 1.xpdl",
       "format": "xpdl",
       "pool": "Corporate inpatient registration",
       "stats": {
@@ -119,6 +119,7 @@
         "DELETE": 1,
         "INSERT": 13,
         "RENAME": 6,
+        "CHANGE_SWIMLANE": 2,
         "DELETE_FLOW": 7,
         "INSERT_FLOW": 23
       },
@@ -156,6 +157,7 @@
         "DELETE": 1,
         "INSERT": 13,
         "RENAME": 6,
+        "CHANGE_SWIMLANE": 1,
         "DELETE_FLOW": 2,
         "INSERT_FLOW": 18
       },
@@ -901,7 +903,7 @@
       "reference": {
         "id": "719fb5f1-29f2-4d52-b698-c3d78dafd11e",
         "name": "General new patient registration",
-        "source": "C:\\nanda\\ITS\\matkul\\SEM 5\\Sistem Enterprise\\ES_FP\\BPMN Diagrams Dataset of Functional Requirements\\XPDL Dataset\\52.Mini hospital (FO).General new patient registration\\Diagram 1.xpdl",
+        "source": "/home/mendoan/Projects/bpmndiff/BPMN Diagrams Dataset of Functional Requirements/XPDL Dataset/52.Mini hospital (FO).General new patient registration/Diagram 1.xpdl",
         "format": "xpdl",
         "pool": "General new patient registration",
         "stats": {
@@ -916,7 +918,7 @@
       "variant": {
         "id": "719fb5f1-29f2-4d52-b698-c3d78dafd11e",
         "name": "Corporate new patient registration",
-        "source": "C:\\nanda\\ITS\\matkul\\SEM 5\\Sistem Enterprise\\ES_FP\\BPMN Diagrams Dataset of Functional Requirements\\XPDL Dataset\\53.Mini hospital (FO).Corporate new patient registration\\Diagram 1.xpdl",
+        "source": "/home/mendoan/Projects/bpmndiff/BPMN Diagrams Dataset of Functional Requirements/XPDL Dataset/53.Mini hospital (FO).Corporate new patient registration/Diagram 1.xpdl",
         "format": "xpdl",
         "pool": "Corporate new patient registration",
         "stats": {
@@ -1498,7 +1500,7 @@
       "reference": {
         "id": "719fb5f1-29f2-4d52-b698-c3d78dafd11e",
         "name": "General new patient registration",
-        "source": "C:\\nanda\\ITS\\matkul\\SEM 5\\Sistem Enterprise\\ES_FP\\BPMN Diagrams Dataset of Functional Requirements\\XPDL Dataset\\52.Mini hospital (FO).General new patient registration\\Diagram 1.xpdl",
+        "source": "/home/mendoan/Projects/bpmndiff/BPMN Diagrams Dataset of Functional Requirements/XPDL Dataset/52.Mini hospital (FO).General new patient registration/Diagram 1.xpdl",
         "format": "xpdl",
         "pool": "General new patient registration",
         "stats": {
@@ -1513,7 +1515,7 @@
       "variant": {
         "id": "719fb5f1-29f2-4d52-b698-c3d78dafd11e",
         "name": "General inpatient registration",
-        "source": "C:\\nanda\\ITS\\matkul\\SEM 5\\Sistem Enterprise\\ES_FP\\BPMN Diagrams Dataset of Functional Requirements\\XPDL Dataset\\54.Mini hospital (FO).General inpatient registration\\Diagram 1.xpdl",
+        "source": "/home/mendoan/Projects/bpmndiff/BPMN Diagrams Dataset of Functional Requirements/XPDL Dataset/54.Mini hospital (FO).General inpatient registration/Diagram 1.xpdl",
         "format": "xpdl",
         "pool": "General inpatient registration",
         "stats": {
@@ -2183,6 +2185,48 @@
           "detail": "\"displays the registration information to a table in the form\" -> \"Displays an inpatient registration form\"",
           "label": "meaning_changed",
           "score": 0.667,
+          "confidence": "high",
+          "needs_review": false
+        },
+        {
+          "op": "CHANGE_SWIMLANE",
+          "element": "swimlane",
+          "before": {
+            "id": "60a134a2-21b0-471e-99c9-976a90b0d9e6",
+            "name": "Enter the patient's address",
+            "kind": "task",
+            "kind_label": "task",
+            "lane": "FO"
+          },
+          "after": {
+            "id": "c9ee3cd8-78da-417a-9cf9-0edac7cbbf33",
+            "name": "Reads the Patient database",
+            "kind": "task",
+            "kind_label": "task",
+            "lane": "System"
+          },
+          "detail": "Enter the patient's address: \"FO\" -> \"System\"",
+          "confidence": "high",
+          "needs_review": false
+        },
+        {
+          "op": "CHANGE_SWIMLANE",
+          "element": "swimlane",
+          "before": {
+            "id": "6ca283da-c642-4d6d-950c-8c3afdc9982d",
+            "name": "Selects the register button",
+            "kind": "task",
+            "kind_label": "task",
+            "lane": "FO"
+          },
+          "after": {
+            "id": "bcb8ec3c-1ab7-435c-ac99-5cbe6299d637",
+            "name": "Selects a register button",
+            "kind": "task",
+            "kind_label": "task",
+            "lane": "System"
+          },
+          "detail": "Selects the register button: \"FO\" -> \"System\"",
           "confidence": "high",
           "needs_review": false
         },
@@ -3080,6 +3124,7 @@
           "DELETE": 1,
           "INSERT": 13,
           "RENAME": 6,
+          "CHANGE_SWIMLANE": 2,
           "DELETE_FLOW": 7,
           "INSERT_FLOW": 23
         }
@@ -3090,7 +3135,7 @@
       "reference": {
         "id": "719fb5f1-29f2-4d52-b698-c3d78dafd11e",
         "name": "General new patient registration",
-        "source": "C:\\nanda\\ITS\\matkul\\SEM 5\\Sistem Enterprise\\ES_FP\\BPMN Diagrams Dataset of Functional Requirements\\XPDL Dataset\\52.Mini hospital (FO).General new patient registration\\Diagram 1.xpdl",
+        "source": "/home/mendoan/Projects/bpmndiff/BPMN Diagrams Dataset of Functional Requirements/XPDL Dataset/52.Mini hospital (FO).General new patient registration/Diagram 1.xpdl",
         "format": "xpdl",
         "pool": "General new patient registration",
         "stats": {
@@ -3105,7 +3150,7 @@
       "variant": {
         "id": "719fb5f1-29f2-4d52-b698-c3d78dafd11e",
         "name": "Corporate inpatient registration",
-        "source": "C:\\nanda\\ITS\\matkul\\SEM 5\\Sistem Enterprise\\ES_FP\\BPMN Diagrams Dataset of Functional Requirements\\XPDL Dataset\\55.Mini hospital (FO).Corporate inpatient registration\\Diagram 1.xpdl",
+        "source": "/home/mendoan/Projects/bpmndiff/BPMN Diagrams Dataset of Functional Requirements/XPDL Dataset/55.Mini hospital (FO).Corporate inpatient registration/Diagram 1.xpdl",
         "format": "xpdl",
         "pool": "Corporate inpatient registration",
         "stats": {
@@ -3777,6 +3822,27 @@
           "score": 0.609,
           "confidence": "low",
           "needs_review": true
+        },
+        {
+          "op": "CHANGE_SWIMLANE",
+          "element": "swimlane",
+          "before": {
+            "id": "60a134a2-21b0-471e-99c9-976a90b0d9e6",
+            "name": "Enter the patient's address",
+            "kind": "task",
+            "kind_label": "task",
+            "lane": "FO"
+          },
+          "after": {
+            "id": "c9ee3cd8-78da-417a-9cf9-0edac7cbbf33",
+            "name": "Reads the Patient database",
+            "kind": "task",
+            "kind_label": "task",
+            "lane": "System"
+          },
+          "detail": "Enter the patient's address: \"FO\" -> \"System\"",
+          "confidence": "high",
+          "needs_review": false
         },
         {
           "op": "DELETE_FLOW",
@@ -4573,6 +4639,7 @@
           "DELETE": 1,
           "INSERT": 13,
           "RENAME": 6,
+          "CHANGE_SWIMLANE": 1,
           "DELETE_FLOW": 2,
           "INSERT_FLOW": 18
         }

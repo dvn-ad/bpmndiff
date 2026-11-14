@@ -159,7 +159,43 @@ def run_demo(dataset: Path | None = None, out_dir: Path | None = None) -> int:
     output = out_dir or (Path.cwd() / "reports")
     output.mkdir(parents=True, exist_ok=True)
 
-    scenarios = [
+    tax_dir = Path(__file__).resolve().parent.parent / "dataset" / "taxonomy_variants"
+    taxonomy_scenarios = []
+    if tax_dir.is_dir():
+        taxonomy_scenarios = [
+            (
+                "A",
+                "Taxonomy 1: Steps (Tasks and Events)",
+                [tax_dir / "scenario1_steps_v1.bpmn", tax_dir / "scenario1_steps_v2.bpmn"],
+                "Covers INSERT_NODE, DELETE_NODE, RENAME_NODE, NODE_TYPE_CHANGE, MARKER_CHANGE, BOUNDARY_CHANGE",
+            ),
+            (
+                "A",
+                "Taxonomy 2: Actors (Lanes and Pools)",
+                [tax_dir / "scenario2_actors_v1.bpmn", tax_dir / "scenario2_actors_v2.bpmn"],
+                "Covers MOVE_LANE, RENAME_LANE, INSERT_LANE, DELETE_LANE",
+            ),
+            (
+                "A",
+                "Taxonomy 3: Sequence, Flow, and Branching",
+                [tax_dir / "scenario3_flows_v1.bpmn", tax_dir / "scenario3_flows_v2.bpmn"],
+                "Covers REORDER, GATEWAY_TYPE_CHANGE, INSERT_FLOW, DELETE_FLOW, FLOW_CONDITION_CHANGE, PARALLELIZE",
+            ),
+            (
+                "A",
+                "Taxonomy 4: Sub-process Structure",
+                [tax_dir / "scenario4_subprocesses_v1.bpmn", tax_dir / "scenario4_subprocesses_v2.bpmn"],
+                "Covers EXTRACT_SUBPROCESS, INLINE_SUBPROCESS",
+            ),
+            (
+                "A",
+                "Taxonomy 5: Data and Cross-Pool Communication",
+                [tax_dir / "scenario5_data_and_messages_v1.bpmn", tax_dir / "scenario5_data_and_messages_v2.bpmn"],
+                "Covers MESSAGE_FLOW_CHANGE, DATA_CHANGE",
+            ),
+        ]
+
+    scenarios = taxonomy_scenarios + [
         (
             "A",
             "Old vs. new patient registration",
@@ -211,7 +247,10 @@ def run_demo(dataset: Path | None = None, out_dir: Path | None = None) -> int:
 
     for index, (mode, title, prefixes, description) in enumerate(scenarios, start=1):
         try:
-            paths = [_find_model(root, prefix) for prefix in prefixes]
+            if prefixes and isinstance(prefixes[0], Path):
+                paths = prefixes
+            else:
+                paths = [_find_model(root, prefix) for prefix in prefixes]
             models = [load_model(str(path)) for path in paths]
             if mode == "A":
                 result = diff_models(models[0], models[1], options).to_dict()

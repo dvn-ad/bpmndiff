@@ -1,5 +1,70 @@
 [
   {
+    "scenario": "Taxonomy 1: Steps (Tasks and Events)",
+    "mode": "A",
+    "description": "Covers INSERT_NODE, DELETE_NODE, RENAME_NODE, NODE_TYPE_CHANGE, MARKER_CHANGE, BOUNDARY_CHANGE",
+    "models": [
+      "Patient Registration (v1)",
+      "Patient Registration (v2)"
+    ],
+    "verdict": "semantic_and_behavioral_change",
+    "trace_equivalent": false,
+    "details": "9 operations",
+    "report": "01_A_taxonomy_1__steps__tasks_and_events.md"
+  },
+  {
+    "scenario": "Taxonomy 2: Actors (Lanes and Pools)",
+    "mode": "A",
+    "description": "Covers MOVE_LANE, RENAME_LANE, INSERT_LANE, DELETE_LANE",
+    "models": [
+      "Payment Settlement (v1)",
+      "Payment Settlement (v2)"
+    ],
+    "verdict": "non_behavioral_swimlane_change",
+    "trace_equivalent": true,
+    "details": "3 operations",
+    "report": "02_A_taxonomy_2__actors__lanes_and_pools.md"
+  },
+  {
+    "scenario": "Taxonomy 3: Sequence, Flow, and Branching",
+    "mode": "A",
+    "description": "Covers REORDER, GATEWAY_TYPE_CHANGE, INSERT_FLOW, DELETE_FLOW, FLOW_CONDITION_CHANGE, PARALLELIZE",
+    "models": [
+      "Patient Discharge (v1)",
+      "Patient Discharge (v2)"
+    ],
+    "verdict": "behavioral_change",
+    "trace_equivalent": false,
+    "details": "21 operations",
+    "report": "03_A_taxonomy_3__sequence__flow__and_branching.md"
+  },
+  {
+    "scenario": "Taxonomy 4: Sub-process Structure",
+    "mode": "A",
+    "description": "Covers EXTRACT_SUBPROCESS, INLINE_SUBPROCESS",
+    "models": [
+      "Clinical and Billing Check (v1)",
+      "Clinical and Billing Check (v2)"
+    ],
+    "verdict": "semantic_and_behavioral_change",
+    "trace_equivalent": false,
+    "details": "11 operations",
+    "report": "04_A_taxonomy_4__sub_process_structure.md"
+  },
+  {
+    "scenario": "Taxonomy 5: Data and Cross-Pool Communication",
+    "mode": "A",
+    "description": "Covers MESSAGE_FLOW_CHANGE, DATA_CHANGE",
+    "models": [
+      "Lab Diagnostics (v1)",
+      "Lab Diagnostics (v2)"
+    ],
+    "verdict": "unchanged",
+    "trace_equivalent": true,
+    "details": "3 operations",
+    "report": "05_A_taxonomy_5__data_and_cross_pool_communication.md"
+  },
+  {
     "scenario": "Old vs. new patient registration",
     "mode": "A",
     "description": "51 vs 52 \u00b7 old patient vs general new patient registration",
@@ -9,8 +74,8 @@
     ],
     "verdict": "semantic_and_behavioral_change",
     "trace_equivalent": false,
-    "details": "11 operations",
-    "report": "01_A_old_vs__new_patient_registration.md"
+    "details": "12 operations",
+    "report": "06_A_old_vs__new_patient_registration.md"
   },
   {
     "scenario": "General vs. corporate new patient registration",
@@ -23,7 +88,7 @@
     "verdict": "semantic_and_behavioral_change",
     "trace_equivalent": false,
     "details": "5 operations",
-    "report": "02_A_general_vs__corporate_new_patient_registration.md"
+    "report": "07_A_general_vs__corporate_new_patient_registration.md"
   },
   {
     "scenario": "General vs. corporate inpatient registration",
@@ -35,8 +100,8 @@
     ],
     "verdict": "semantic_change",
     "trace_equivalent": true,
-    "details": "2 operations",
-    "report": "03_A_general_vs__corporate_inpatient_registration.md"
+    "details": "3 operations",
+    "report": "08_A_general_vs__corporate_inpatient_registration.md"
   },
   {
     "scenario": "General patient cashier vs. down payment",
@@ -48,8 +113,8 @@
     ],
     "verdict": "semantic_and_behavioral_change",
     "trace_equivalent": false,
-    "details": "31 operations",
-    "report": "04_A_general_patient_cashier_vs__down_payment.md"
+    "details": "45 operations",
+    "report": "09_A_general_patient_cashier_vs__down_payment.md"
   },
   {
     "scenario": "Patient registration family",
@@ -64,7 +129,7 @@
     "verdict": "semantic_and_behavioral_change, semantic_and_behavioral_change, semantic_and_behavioral_change",
     "trace_equivalent": false,
     "details": "11 core elements",
-    "report": "05_B_patient_registration_family.md"
+    "report": "10_B_patient_registration_family.md"
   },
   {
     "scenario": "Patient registration evolution chain",
@@ -78,6 +143,6 @@
     "verdict": "semantic_and_behavioral_change -> semantic_and_behavioral_change",
     "trace_equivalent": false,
     "details": "0 reverts, oracle consistent=True",
-    "report": "06_C_patient_registration_evolution_chain.md"
+    "report": "11_C_patient_registration_evolution_chain.md"
   }
 ]

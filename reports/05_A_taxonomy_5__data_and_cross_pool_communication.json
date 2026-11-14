@@ -1,0 +1,260 @@
+{
+  "mode": "A",
+  "reference": {
+    "id": "proc_hosp",
+    "name": "Lab Diagnostics (v1)",
+    "source": "/home/mendoan/Projects/bpmndiff/dataset/taxonomy_variants/scenario5_data_and_messages_v1.bpmn",
+    "format": "bpmn",
+    "pool": "Hospital",
+    "stats": {
+      "nodes": 4,
+      "edges": 3,
+      "tasks": 2,
+      "gateways": 0,
+      "events": 2,
+      "lanes": 0,
+      "message_flows": 0,
+      "data_elements": 2
+    }
+  },
+  "variant": {
+    "id": "proc_hosp",
+    "name": "Lab Diagnostics (v2)",
+    "source": "/home/mendoan/Projects/bpmndiff/dataset/taxonomy_variants/scenario5_data_and_messages_v2.bpmn",
+    "format": "bpmn",
+    "pool": "Hospital",
+    "stats": {
+      "nodes": 4,
+      "edges": 3,
+      "tasks": 2,
+      "gateways": 0,
+      "events": 2,
+      "lanes": 0,
+      "message_flows": 1,
+      "data_elements": 2
+    }
+  },
+  "alignment": {
+    "counts": {
+      "identical": 4,
+      "synonym": 0,
+      "meaning_changed": 0,
+      "unmatched": 0,
+      "matched": 4,
+      "needs_review": 0
+    },
+    "pairs": [
+      {
+        "a": "Diagnostics complete",
+        "b": "Diagnostics complete",
+        "label": "identical",
+        "score": 1.0,
+        "reason": "exact normalised label",
+        "confidence": "high",
+        "needs_review": false,
+        "llm_reason": "",
+        "a_id": "end",
+        "b_id": "end"
+      },
+      {
+        "a": "Order blood test",
+        "b": "Order blood test",
+        "label": "identical",
+        "score": 1.0,
+        "reason": "exact normalised label",
+        "confidence": "high",
+        "needs_review": false,
+        "llm_reason": "",
+        "a_id": "t_order",
+        "b_id": "t_order"
+      },
+      {
+        "a": "Patient examined",
+        "b": "Patient examined",
+        "label": "identical",
+        "score": 1.0,
+        "reason": "exact normalised label",
+        "confidence": "high",
+        "needs_review": false,
+        "llm_reason": "",
+        "a_id": "start",
+        "b_id": "start"
+      },
+      {
+        "a": "Record lab test",
+        "b": "Record lab test",
+        "label": "identical",
+        "score": 1.0,
+        "reason": "exact normalised label, same element ID",
+        "confidence": "high",
+        "needs_review": false,
+        "llm_reason": "",
+        "a_id": "t_record",
+        "b_id": "t_record"
+      }
+    ]
+  },
+  "operations": [
+    {
+      "op": "DATA_CHANGE",
+      "legacy_op": "DATA_CHANGE",
+      "category": 5,
+      "category_name": "Data and cross-pool communication",
+      "element": "data",
+      "before": null,
+      "after": {
+        "id": "ds_emr",
+        "name": "PatientEMR",
+        "kind": "data_store",
+        "connected_nodes": []
+      },
+      "detail": "data store added: \"PatientEMR\"",
+      "confidence": "high",
+      "needs_review": false
+    },
+    {
+      "op": "DATA_CHANGE",
+      "legacy_op": "DATA_CHANGE",
+      "category": 5,
+      "category_name": "Data and cross-pool communication",
+      "element": "data",
+      "before": {
+        "id": "ds_lab",
+        "name": "LabReportsDB",
+        "kind": "data_store",
+        "connected_nodes": []
+      },
+      "after": null,
+      "detail": "data store removed: \"LabReportsDB\"",
+      "confidence": "high",
+      "needs_review": false
+    },
+    {
+      "op": "MESSAGE_FLOW_CHANGE",
+      "legacy_op": "MESSAGE_FLOW_CHANGE",
+      "category": 5,
+      "category_name": "Data and cross-pool communication",
+      "element": "message_flow",
+      "before": null,
+      "after": {
+        "source": "t_order",
+        "target": "p_lab",
+        "name": "Send test sample"
+      },
+      "detail": "message flow added from \"t_order\" to \"p_lab\"",
+      "confidence": "high",
+      "needs_review": false
+    }
+  ],
+  "behavior": {
+    "equivalent": true,
+    "inconclusive": false,
+    "method": "trace_equivalence (tau-closure + subset construction)",
+    "counterexample": null,
+    "dfa_states": {
+      "reference": 3,
+      "variant": 3
+    },
+    "truncated": false,
+    "reference_lts": {
+      "states": 5,
+      "transitions": 4,
+      "final_states": 1,
+      "deadlock_states": 0,
+      "truncated": false
+    },
+    "variant_lts": {
+      "states": 5,
+      "transitions": 4,
+      "final_states": 1,
+      "deadlock_states": 0,
+      "truncated": false
+    },
+    "branching_bisimulation": {
+      "equivalent": true,
+      "reason": "initial states are in the same partition block",
+      "checked": true,
+      "blocks": 4,
+      "iterations": 2
+    },
+    "trace_samples": {
+      "reference": {
+        "count": 1,
+        "traces": [
+          [
+            "Order blood test",
+            "Record lab test"
+          ]
+        ],
+        "truncated": false
+      },
+      "variant": {
+        "count": 1,
+        "traces": [
+          [
+            "Order blood test",
+            "Record lab test"
+          ]
+        ],
+        "truncated": false
+      }
+    }
+  },
+  "fragments": {
+    "count": 6,
+    "affected": []
+  },
+  "fusion": {
+    "overall": "unchanged",
+    "needs_review": false,
+    "element_verdicts": [
+      {
+        "a": "Diagnostics complete",
+        "b": "Diagnostics complete",
+        "label": "identical",
+        "verdict": "unchanged",
+        "behaviour_scope": "unchanged",
+        "equivalent": true,
+        "needs_review": false
+      },
+      {
+        "a": "Order blood test",
+        "b": "Order blood test",
+        "label": "identical",
+        "verdict": "unchanged",
+        "behaviour_scope": "unchanged",
+        "equivalent": true,
+        "needs_review": false
+      },
+      {
+        "a": "Patient examined",
+        "b": "Patient examined",
+        "label": "identical",
+        "verdict": "unchanged",
+        "behaviour_scope": "unchanged",
+        "equivalent": true,
+        "needs_review": false
+      },
+      {
+        "a": "Record lab test",
+        "b": "Record lab test",
+        "label": "identical",
+        "verdict": "unchanged",
+        "behaviour_scope": "unchanged",
+        "equivalent": true,
+        "needs_review": false
+      }
+    ],
+    "verdict_counts": {
+      "unchanged": 4
+    },
+    "operation_counts": {
+      "DATA_CHANGE": 2,
+      "MESSAGE_FLOW_CHANGE": 1
+    },
+    "legacy_operation_counts": {
+      "DATA_CHANGE": 2,
+      "MESSAGE_FLOW_CHANGE": 1
+    }
+  }
+}

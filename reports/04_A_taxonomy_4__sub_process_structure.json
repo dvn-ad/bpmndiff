@@ -1,0 +1,553 @@
+{
+  "mode": "A",
+  "reference": {
+    "id": "proc_sub",
+    "name": "Clinical and Billing Check (v1)",
+    "source": "/home/mendoan/Projects/bpmndiff/dataset/taxonomy_variants/scenario4_subprocesses_v1.bpmn",
+    "format": "bpmn",
+    "pool": "",
+    "stats": {
+      "nodes": 7,
+      "edges": 4,
+      "tasks": 5,
+      "gateways": 0,
+      "events": 2,
+      "lanes": 0,
+      "message_flows": 0,
+      "data_elements": 0
+    }
+  },
+  "variant": {
+    "id": "proc_sub",
+    "name": "Clinical and Billing Check (v2)",
+    "source": "/home/mendoan/Projects/bpmndiff/dataset/taxonomy_variants/scenario4_subprocesses_v2.bpmn",
+    "format": "bpmn",
+    "pool": "",
+    "stats": {
+      "nodes": 7,
+      "edges": 4,
+      "tasks": 5,
+      "gateways": 0,
+      "events": 2,
+      "lanes": 0,
+      "message_flows": 0,
+      "data_elements": 0
+    }
+  },
+  "alignment": {
+    "counts": {
+      "identical": 6,
+      "synonym": 0,
+      "meaning_changed": 1,
+      "unmatched": 0,
+      "matched": 7,
+      "needs_review": 0
+    },
+    "pairs": [
+      {
+        "a": "Admission approved",
+        "b": "Admission approved",
+        "label": "identical",
+        "score": 1.0,
+        "reason": "exact normalised label",
+        "confidence": "high",
+        "needs_review": false,
+        "llm_reason": "",
+        "a_id": "end",
+        "b_id": "end"
+      },
+      {
+        "a": "Admission request",
+        "b": "Admission request",
+        "label": "identical",
+        "score": 1.0,
+        "reason": "exact normalised label",
+        "confidence": "high",
+        "needs_review": false,
+        "llm_reason": "",
+        "a_id": "start",
+        "b_id": "start"
+      },
+      {
+        "a": "Authorize discount",
+        "b": "Authorize discount",
+        "label": "identical",
+        "score": 1.0,
+        "reason": "exact normalised label",
+        "confidence": "high",
+        "needs_review": false,
+        "llm_reason": "",
+        "a_id": "t4",
+        "b_id": "t4"
+      },
+      {
+        "a": "Check insurance coverage",
+        "b": "Check insurance coverage",
+        "label": "identical",
+        "score": 1.0,
+        "reason": "exact normalised label",
+        "confidence": "high",
+        "needs_review": false,
+        "llm_reason": "",
+        "a_id": "t3",
+        "b_id": "t3"
+      },
+      {
+        "a": "Consult specialist",
+        "b": "Consult specialist",
+        "label": "identical",
+        "score": 1.0,
+        "reason": "exact normalised label",
+        "confidence": "high",
+        "needs_review": false,
+        "llm_reason": "",
+        "a_id": "t2",
+        "b_id": "t2"
+      },
+      {
+        "a": "Verify lab results",
+        "b": "Verify lab results",
+        "label": "identical",
+        "score": 1.0,
+        "reason": "exact normalised label",
+        "confidence": "high",
+        "needs_review": false,
+        "llm_reason": "",
+        "a_id": "t1",
+        "b_id": "t1"
+      },
+      {
+        "a": "Billing verification",
+        "b": "Clinical verification",
+        "label": "meaning_changed",
+        "score": 0.626,
+        "reason": "token overlap 0.50, string 0.81, sequence 0.78",
+        "confidence": "high",
+        "needs_review": false,
+        "llm_reason": "",
+        "a_id": "sub_bill",
+        "b_id": "sub_medical"
+      }
+    ]
+  },
+  "operations": [
+    {
+      "op": "RENAME_NODE",
+      "legacy_op": "RENAME",
+      "category": 1,
+      "category_name": "Steps (tasks and events)",
+      "element": "node",
+      "before": {
+        "id": "sub_bill",
+        "name": "Billing verification",
+        "kind": "subprocess",
+        "kind_label": "subprocess",
+        "task_type": "abstract",
+        "event_definition": "none",
+        "marker": "none",
+        "attached_to": null,
+        "cancel_activity": true,
+        "lane": "",
+        "pool": ""
+      },
+      "after": {
+        "id": "sub_medical",
+        "name": "Clinical verification",
+        "kind": "subprocess",
+        "kind_label": "subprocess",
+        "task_type": "abstract",
+        "event_definition": "none",
+        "marker": "none",
+        "attached_to": null,
+        "cancel_activity": true,
+        "lane": "",
+        "pool": ""
+      },
+      "detail": "\"Billing verification\" -> \"Clinical verification\" (meaning_changed)",
+      "label": "meaning_changed",
+      "is_synonym": false,
+      "subtype": "meaning_changed",
+      "score": 0.626,
+      "confidence": "high",
+      "needs_review": false
+    },
+    {
+      "op": "DELETE_FLOW",
+      "legacy_op": "DELETE_FLOW",
+      "category": 3,
+      "category_name": "Sequence, flow, and branching",
+      "element": "flow",
+      "before": {
+        "source": "Admission request",
+        "target": "Verify lab results",
+        "source_id": "start",
+        "target_id": "t1"
+      },
+      "after": null,
+      "detail": "flow removed (1x)",
+      "label": "unmatched",
+      "confidence": "high",
+      "needs_review": false
+    },
+    {
+      "op": "DELETE_FLOW",
+      "legacy_op": "DELETE_FLOW",
+      "category": 3,
+      "category_name": "Sequence, flow, and branching",
+      "element": "flow",
+      "before": {
+        "source": "Billing verification",
+        "target": "Admission approved",
+        "source_id": "sub_bill",
+        "target_id": "end"
+      },
+      "after": null,
+      "detail": "flow removed (1x)",
+      "label": "unmatched",
+      "confidence": "high",
+      "needs_review": false
+    },
+    {
+      "op": "DELETE_FLOW",
+      "legacy_op": "DELETE_FLOW",
+      "category": 3,
+      "category_name": "Sequence, flow, and branching",
+      "element": "flow",
+      "before": {
+        "source": "Consult specialist",
+        "target": "Billing verification",
+        "source_id": "t2",
+        "target_id": "sub_bill"
+      },
+      "after": null,
+      "detail": "flow removed (1x)",
+      "label": "unmatched",
+      "confidence": "high",
+      "needs_review": false
+    },
+    {
+      "op": "DELETE_FLOW",
+      "legacy_op": "DELETE_FLOW",
+      "category": 3,
+      "category_name": "Sequence, flow, and branching",
+      "element": "flow",
+      "before": {
+        "source": "Verify lab results",
+        "target": "Consult specialist",
+        "source_id": "t1",
+        "target_id": "t2"
+      },
+      "after": null,
+      "detail": "flow removed (1x)",
+      "label": "unmatched",
+      "confidence": "high",
+      "needs_review": false
+    },
+    {
+      "op": "INSERT_FLOW",
+      "legacy_op": "INSERT_FLOW",
+      "category": 3,
+      "category_name": "Sequence, flow, and branching",
+      "element": "flow",
+      "before": null,
+      "after": {
+        "source": "Admission request",
+        "target": "Clinical verification",
+        "source_id": "start",
+        "target_id": "sub_medical"
+      },
+      "detail": "flow added (1x)",
+      "label": "unmatched",
+      "confidence": "high",
+      "needs_review": false
+    },
+    {
+      "op": "INSERT_FLOW",
+      "legacy_op": "INSERT_FLOW",
+      "category": 3,
+      "category_name": "Sequence, flow, and branching",
+      "element": "flow",
+      "before": null,
+      "after": {
+        "source": "Authorize discount",
+        "target": "Admission approved",
+        "source_id": "t4",
+        "target_id": "end"
+      },
+      "detail": "flow added (1x)",
+      "label": "unmatched",
+      "confidence": "high",
+      "needs_review": false
+    },
+    {
+      "op": "INSERT_FLOW",
+      "legacy_op": "INSERT_FLOW",
+      "category": 3,
+      "category_name": "Sequence, flow, and branching",
+      "element": "flow",
+      "before": null,
+      "after": {
+        "source": "Check insurance coverage",
+        "target": "Authorize discount",
+        "source_id": "t3",
+        "target_id": "t4"
+      },
+      "detail": "flow added (1x)",
+      "label": "unmatched",
+      "confidence": "high",
+      "needs_review": false
+    },
+    {
+      "op": "INSERT_FLOW",
+      "legacy_op": "INSERT_FLOW",
+      "category": 3,
+      "category_name": "Sequence, flow, and branching",
+      "element": "flow",
+      "before": null,
+      "after": {
+        "source": "Clinical verification",
+        "target": "Check insurance coverage",
+        "source_id": "sub_medical",
+        "target_id": "t3"
+      },
+      "detail": "flow added (1x)",
+      "label": "unmatched",
+      "confidence": "high",
+      "needs_review": false
+    },
+    {
+      "op": "EXTRACT_SUBPROCESS",
+      "legacy_op": "EXTRACT_SUBPROCESS",
+      "category": 4,
+      "category_name": "Sub-process structure",
+      "element": "subprocess",
+      "before": {
+        "tasks": [
+          "Consult specialist",
+          "Verify lab results"
+        ]
+      },
+      "after": {
+        "subprocess": "Clinical verification"
+      },
+      "detail": "elements ['Consult specialist', 'Verify lab results'] extracted into sub-process \"Clinical verification\"",
+      "confidence": "high",
+      "needs_review": false
+    },
+    {
+      "op": "INLINE_SUBPROCESS",
+      "legacy_op": "INLINE_SUBPROCESS",
+      "category": 4,
+      "category_name": "Sub-process structure",
+      "element": "subprocess",
+      "before": {
+        "subprocess": "Billing verification"
+      },
+      "after": {
+        "tasks": [
+          "Authorize discount",
+          "Check insurance coverage"
+        ]
+      },
+      "detail": "sub-process \"Billing verification\" inlined into root tasks ['Authorize discount', 'Check insurance coverage']",
+      "confidence": "high",
+      "needs_review": false
+    }
+  ],
+  "behavior": {
+    "equivalent": false,
+    "inconclusive": false,
+    "method": "trace_equivalence (tau-closure + subset construction)",
+    "counterexample": {
+      "direction": "variant_only",
+      "trace": [
+        "Billing verification",
+        "Check insurance coverage",
+        "Authorize discount"
+      ],
+      "detail": "only this model can execute the differing task and still complete"
+    },
+    "dfa_states": {
+      "reference": 4,
+      "variant": 4
+    },
+    "truncated": false,
+    "reference_lts": {
+      "states": 6,
+      "transitions": 5,
+      "final_states": 1,
+      "deadlock_states": 0,
+      "truncated": false
+    },
+    "variant_lts": {
+      "states": 6,
+      "transitions": 5,
+      "final_states": 1,
+      "deadlock_states": 0,
+      "truncated": false
+    },
+    "branching_bisimulation": {
+      "equivalent": false,
+      "reason": "initial states are separated by partition refinement",
+      "checked": true,
+      "blocks": 8,
+      "iterations": 3
+    },
+    "trace_samples": {
+      "reference": {
+        "count": 1,
+        "traces": [
+          [
+            "Verify lab results",
+            "Consult specialist",
+            "Billing verification"
+          ]
+        ],
+        "truncated": false
+      },
+      "variant": {
+        "count": 1,
+        "traces": [
+          [
+            "Billing verification",
+            "Check insurance coverage",
+            "Authorize discount"
+          ]
+        ],
+        "truncated": false
+      }
+    }
+  },
+  "fragments": {
+    "count": 7,
+    "affected": [
+      {
+        "id": "R-root",
+        "entry": "(start)",
+        "exit": "(end)",
+        "size": 7,
+        "nodes": [
+          "Admission approved",
+          "Admission request",
+          "Billing verification",
+          "Verify lab results",
+          "Consult specialist",
+          "Check insurance coverage",
+          "Authorize discount"
+        ],
+        "node_ids": [
+          "end",
+          "start",
+          "sub_bill",
+          "t1",
+          "t2",
+          "t3",
+          "t4"
+        ],
+        "status": "checked",
+        "equivalent": false,
+        "method": "trace_equivalence (tau-closure + subset construction)",
+        "counterexample": {
+          "direction": "variant_only",
+          "trace": [
+            "Billing verification",
+            "Check insurance coverage",
+            "Authorize discount"
+          ],
+          "detail": "only this model can execute the differing task and still complete"
+        },
+        "states": {
+          "reference": 6,
+          "variant": 6
+        }
+      }
+    ]
+  },
+  "fusion": {
+    "overall": "semantic_and_behavioral_change",
+    "needs_review": false,
+    "element_verdicts": [
+      {
+        "a": "Admission approved",
+        "b": "Admission approved",
+        "label": "identical",
+        "verdict": "unchanged",
+        "behaviour_scope": "unchanged",
+        "equivalent": true,
+        "needs_review": false
+      },
+      {
+        "a": "Admission request",
+        "b": "Admission request",
+        "label": "identical",
+        "verdict": "unchanged",
+        "behaviour_scope": "unchanged",
+        "equivalent": true,
+        "needs_review": false
+      },
+      {
+        "a": "Authorize discount",
+        "b": "Authorize discount",
+        "label": "identical",
+        "verdict": "unchanged",
+        "behaviour_scope": "unchanged",
+        "equivalent": true,
+        "needs_review": false
+      },
+      {
+        "a": "Check insurance coverage",
+        "b": "Check insurance coverage",
+        "label": "identical",
+        "verdict": "unchanged",
+        "behaviour_scope": "unchanged",
+        "equivalent": true,
+        "needs_review": false
+      },
+      {
+        "a": "Consult specialist",
+        "b": "Consult specialist",
+        "label": "identical",
+        "verdict": "unchanged",
+        "behaviour_scope": "unchanged",
+        "equivalent": true,
+        "needs_review": false
+      },
+      {
+        "a": "Verify lab results",
+        "b": "Verify lab results",
+        "label": "identical",
+        "verdict": "unchanged",
+        "behaviour_scope": "unchanged",
+        "equivalent": true,
+        "needs_review": false
+      },
+      {
+        "a": "Billing verification",
+        "b": "Clinical verification",
+        "label": "meaning_changed",
+        "verdict": "semantic_change",
+        "behaviour_scope": "R-root",
+        "equivalent": false,
+        "needs_review": false
+      }
+    ],
+    "verdict_counts": {
+      "unchanged": 6,
+      "semantic_change": 1
+    },
+    "operation_counts": {
+      "RENAME_NODE": 1,
+      "DELETE_FLOW": 4,
+      "INSERT_FLOW": 4,
+      "EXTRACT_SUBPROCESS": 1,
+      "INLINE_SUBPROCESS": 1
+    },
+    "legacy_operation_counts": {
+      "RENAME": 1,
+      "DELETE_FLOW": 4,
+      "INSERT_FLOW": 4,
+      "EXTRACT_SUBPROCESS": 1,
+      "INLINE_SUBPROCESS": 1
+    }
+  }
+}

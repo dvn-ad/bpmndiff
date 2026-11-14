@@ -2,10 +2,16 @@
 
 | Model | Format | Nodes | Flows | Source |
 |---|---|---|---|---|
-| Reference | xpdl | 12 | 12 | C:\nanda\ITS\matkul\SEM 5\Sistem Enterprise\ES_FP\BPMN Diagrams Dataset of Functional Requirements\XPDL Dataset\51.Mini hospital (FO).Registration of old patients\Diagram 1.xpdl |
-| Variant | xpdl | 12 | 12 | C:\nanda\ITS\matkul\SEM 5\Sistem Enterprise\ES_FP\BPMN Diagrams Dataset of Functional Requirements\XPDL Dataset\52.Mini hospital (FO).General new patient registration\Diagram 1.xpdl |
+| Reference | xpdl | 12 | 12 | /home/mendoan/Projects/bpmndiff/BPMN Diagrams Dataset of Functional Requirements/XPDL Dataset/51.Mini hospital (FO).Registration of old patients/Diagram 1.xpdl |
+| Variant | xpdl | 12 | 12 | /home/mendoan/Projects/bpmndiff/BPMN Diagrams Dataset of Functional Requirements/XPDL Dataset/52.Mini hospital (FO).General new patient registration/Diagram 1.xpdl |
 
-## Edit script
+## Alignment Summary
+
+| Identical | Synonym | Meaning Changed | Deleted | Inserted | Needs Review |
+|---|---|---|---|---|---|
+| 8 | 0 | 2 | 2 | 2 | 0 |
+
+## Edit script (11 operations)
 
 | Operation | Element | Detail | Review |
 |---|---|---|---|

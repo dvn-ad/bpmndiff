@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" id="defs_flows_v2" targetNamespace="http://bpmndiff.org/taxonomy">
+  <process id="proc_flows" name="Patient Discharge (v2)">
+    <startEvent id="start" name="Discharge initiated" />
+    <task id="t_copay" name="Collect copay" />
+    <task id="t_id" name="Verify ID" />
+    <parallelGateway id="gw1" name="Check bill status" />
+    <parallelGateway id="gw_par_split" name="Split parallel" />
+    <task id="t_voucher" name="Issue pharmacy voucher" />
+    <task id="t_followup" name="Book follow-up" />
+    <parallelGateway id="gw_par_join" name="Join parallel" />
+    <exclusiveGateway id="gw_join" name="Merge" />
+    <endEvent id="end" name="Discharged" />
+
+    <sequenceFlow id="f1" sourceRef="start" targetRef="t_copay" />
+    <sequenceFlow id="f2" sourceRef="t_copay" targetRef="t_id" />
+    <sequenceFlow id="f3" sourceRef="t_id" targetRef="gw1" />
+    <sequenceFlow id="f_cond" sourceRef="gw1" targetRef="gw_par_split">
+      <conditionExpression>amount &gt; 500</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="f_p1" sourceRef="gw_par_split" targetRef="t_voucher" />
+    <sequenceFlow id="f_p2" sourceRef="gw_par_split" targetRef="t_followup" />
+    <sequenceFlow id="f_j1" sourceRef="t_voucher" targetRef="gw_par_join" />
+    <sequenceFlow id="f_j2" sourceRef="t_followup" targetRef="gw_par_join" />
+    <sequenceFlow id="f_join" sourceRef="gw_par_join" targetRef="gw_join" />
+    <sequenceFlow id="f_default" sourceRef="gw1" targetRef="gw_join" />
+    <sequenceFlow id="f_end" sourceRef="gw_join" targetRef="end" />
+  </process>
+</definitions>

@@ -3,7 +3,7 @@
   "reference": {
     "id": "719fb5f1-29f2-4d52-b698-c3d78dafd11e",
     "name": "General inpatient registration",
-    "source": "C:\\nanda\\ITS\\matkul\\SEM 5\\Sistem Enterprise\\ES_FP\\BPMN Diagrams Dataset of Functional Requirements\\XPDL Dataset\\54.Mini hospital (FO).General inpatient registration\\Diagram 1.xpdl",
+    "source": "/home/mendoan/Projects/bpmndiff/BPMN Diagrams Dataset of Functional Requirements/XPDL Dataset/54.Mini hospital (FO).General inpatient registration/Diagram 1.xpdl",
     "format": "xpdl",
     "pool": "General inpatient registration",
     "stats": {
@@ -18,7 +18,7 @@
   "variant": {
     "id": "719fb5f1-29f2-4d52-b698-c3d78dafd11e",
     "name": "Corporate inpatient registration",
-    "source": "C:\\nanda\\ITS\\matkul\\SEM 5\\Sistem Enterprise\\ES_FP\\BPMN Diagrams Dataset of Functional Requirements\\XPDL Dataset\\55.Mini hospital (FO).Corporate inpatient registration\\Diagram 1.xpdl",
+    "source": "/home/mendoan/Projects/bpmndiff/BPMN Diagrams Dataset of Functional Requirements/XPDL Dataset/55.Mini hospital (FO).Corporate inpatient registration/Diagram 1.xpdl",
     "format": "xpdl",
     "pool": "Corporate inpatient registration",
     "stats": {
@@ -374,6 +374,27 @@
       "detail": "\"Displays the registration information\" -> \"Risplays the registration information\"",
       "label": "synonym",
       "score": 0.88,
+      "confidence": "high",
+      "needs_review": false
+    },
+    {
+      "op": "CHANGE_SWIMLANE",
+      "element": "swimlane",
+      "before": {
+        "id": "bcb8ec3c-1ab7-435c-ac99-5cbe6299d637",
+        "name": "Selects a register button",
+        "kind": "task",
+        "kind_label": "task",
+        "lane": "System"
+      },
+      "after": {
+        "id": "bcb8ec3c-1ab7-435c-ac99-5cbe6299d637",
+        "name": "Selects a register button",
+        "kind": "task",
+        "kind_label": "task",
+        "lane": "FO"
+      },
+      "detail": "Selects a register button: \"System\" -> \"FO\"",
       "confidence": "high",
       "needs_review": false
     }
@@ -754,7 +775,8 @@
       "semantic_change": 1
     },
     "operation_counts": {
-      "RENAME": 2
+      "RENAME": 2,
+      "CHANGE_SWIMLANE": 1
     }
   }
 }

@@ -2,10 +2,16 @@
 
 | Model | Format | Nodes | Flows | Source |
 |---|---|---|---|---|
-| Reference | xpdl | 22 | 23 | C:\nanda\ITS\matkul\SEM 5\Sistem Enterprise\ES_FP\BPMN Diagrams Dataset of Functional Requirements\XPDL Dataset\58.Mini hospital (cashier).General patient cashier\Diagram 1.xpdl |
-| Variant | xpdl | 15 | 17 | C:\nanda\ITS\matkul\SEM 5\Sistem Enterprise\ES_FP\BPMN Diagrams Dataset of Functional Requirements\XPDL Dataset\59.Mini hospital (cashier).Down payment\Diagram 1.xpdl |
+| Reference | xpdl | 22 | 23 | /home/mendoan/Projects/bpmndiff/BPMN Diagrams Dataset of Functional Requirements/XPDL Dataset/58.Mini hospital (cashier).General patient cashier/Diagram 1.xpdl |
+| Variant | xpdl | 15 | 17 | /home/mendoan/Projects/bpmndiff/BPMN Diagrams Dataset of Functional Requirements/XPDL Dataset/59.Mini hospital (cashier).Down payment/Diagram 1.xpdl |
 
-## Edit script
+## Alignment Summary
+
+| Identical | Synonym | Meaning Changed | Deleted | Inserted | Needs Review |
+|---|---|---|---|---|---|
+| 7 | 0 | 6 | 9 | 2 | 0 |
+
+## Edit script (31 operations)
 
 | Operation | Element | Detail | Review |
 |---|---|---|---|

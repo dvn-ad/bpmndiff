@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" id="defs_flows_v1" targetNamespace="http://bpmndiff.org/taxonomy">
+  <process id="proc_flows" name="Patient Discharge (v1)">
+    <startEvent id="start" name="Discharge initiated" />
+    <task id="t_id" name="Verify ID" />
+    <task id="t_copay" name="Collect copay" />
+    <exclusiveGateway id="gw1" name="Check bill status" default="f_default" />
+    <task id="t_voucher" name="Issue pharmacy voucher" />
+    <task id="t_followup" name="Book follow-up" />
+    <exclusiveGateway id="gw_join" name="Merge" />
+    <endEvent id="end" name="Discharged" />
+
+    <sequenceFlow id="f1" sourceRef="start" targetRef="t_id" />
+    <sequenceFlow id="f2" sourceRef="t_id" targetRef="t_copay" />
+    <sequenceFlow id="f3" sourceRef="t_copay" targetRef="gw1" />
+    <sequenceFlow id="f_cond" sourceRef="gw1" targetRef="t_voucher">
+      <conditionExpression>amount &gt; 100</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="f_default" sourceRef="gw1" targetRef="gw_join" />
+    <sequenceFlow id="f_seq" sourceRef="t_voucher" targetRef="t_followup" />
+    <sequenceFlow id="f_join" sourceRef="t_followup" targetRef="gw_join" />
+    <sequenceFlow id="f_end" sourceRef="gw_join" targetRef="end" />
+  </process>
+</definitions>

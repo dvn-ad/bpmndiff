@@ -1,0 +1,324 @@
+{
+  "mode": "A",
+  "reference": {
+    "id": "proc_actors",
+    "name": "Payment Settlement (v1)",
+    "source": "/home/mendoan/Projects/bpmndiff/dataset/taxonomy_variants/scenario2_actors_v1.bpmn",
+    "format": "bpmn",
+    "pool": "",
+    "stats": {
+      "nodes": 6,
+      "edges": 5,
+      "tasks": 4,
+      "gateways": 0,
+      "events": 2,
+      "lanes": 3,
+      "message_flows": 0,
+      "data_elements": 0
+    }
+  },
+  "variant": {
+    "id": "proc_actors",
+    "name": "Payment Settlement (v2)",
+    "source": "/home/mendoan/Projects/bpmndiff/dataset/taxonomy_variants/scenario2_actors_v2.bpmn",
+    "format": "bpmn",
+    "pool": "",
+    "stats": {
+      "nodes": 6,
+      "edges": 5,
+      "tasks": 4,
+      "gateways": 0,
+      "events": 2,
+      "lanes": 3,
+      "message_flows": 0,
+      "data_elements": 0
+    }
+  },
+  "alignment": {
+    "counts": {
+      "identical": 6,
+      "synonym": 0,
+      "meaning_changed": 0,
+      "unmatched": 0,
+      "matched": 6,
+      "needs_review": 0
+    },
+    "pairs": [
+      {
+        "a": "Archive paper slip",
+        "b": "Archive paper slip",
+        "label": "identical",
+        "score": 1.0,
+        "reason": "exact normalised label, same element ID",
+        "confidence": "high",
+        "needs_review": false,
+        "llm_reason": "",
+        "a_id": "t_archive",
+        "b_id": "t_archive"
+      },
+      {
+        "a": "Bill presented",
+        "b": "Bill presented",
+        "label": "identical",
+        "score": 1.0,
+        "reason": "exact normalised label",
+        "confidence": "high",
+        "needs_review": false,
+        "llm_reason": "",
+        "a_id": "start",
+        "b_id": "start"
+      },
+      {
+        "a": "Daily reconciliation",
+        "b": "Daily reconciliation",
+        "label": "identical",
+        "score": 1.0,
+        "reason": "exact normalised label, same element ID",
+        "confidence": "high",
+        "needs_review": false,
+        "llm_reason": "",
+        "a_id": "t_reconcile",
+        "b_id": "t_reconcile"
+      },
+      {
+        "a": "Print receipt",
+        "b": "Print receipt",
+        "label": "identical",
+        "score": 1.0,
+        "reason": "exact normalised label, same element ID",
+        "confidence": "high",
+        "needs_review": false,
+        "llm_reason": "",
+        "a_id": "t_receipt",
+        "b_id": "t_receipt"
+      },
+      {
+        "a": "Process payment",
+        "b": "Process payment",
+        "label": "identical",
+        "score": 1.0,
+        "reason": "exact normalised label",
+        "confidence": "high",
+        "needs_review": false,
+        "llm_reason": "",
+        "a_id": "t_pay",
+        "b_id": "t_pay"
+      },
+      {
+        "a": "Settled",
+        "b": "Settled",
+        "label": "identical",
+        "score": 1.0,
+        "reason": "exact normalised label",
+        "confidence": "high",
+        "needs_review": false,
+        "llm_reason": "",
+        "a_id": "end",
+        "b_id": "end"
+      }
+    ]
+  },
+  "operations": [
+    {
+      "op": "MOVE_LANE",
+      "legacy_op": "CHANGE_SWIMLANE",
+      "category": 2,
+      "category_name": "Actors (lanes and pools)",
+      "element": "swimlane",
+      "before": {
+        "id": "t_receipt",
+        "name": "Print receipt",
+        "kind": "task",
+        "kind_label": "task",
+        "task_type": "abstract",
+        "event_definition": "none",
+        "marker": "none",
+        "attached_to": null,
+        "cancel_activity": true,
+        "lane": "Cashier",
+        "pool": ""
+      },
+      "after": {
+        "id": "t_receipt",
+        "name": "Print receipt",
+        "kind": "task",
+        "kind_label": "task",
+        "task_type": "abstract",
+        "event_definition": "none",
+        "marker": "none",
+        "attached_to": null,
+        "cancel_activity": true,
+        "lane": "Operations",
+        "pool": ""
+      },
+      "detail": "Print receipt: \"Cashier\" -> \"Operations\"",
+      "confidence": "high",
+      "needs_review": false
+    },
+    {
+      "op": "RENAME_LANE",
+      "legacy_op": "RENAME_SWIMLANE",
+      "category": 2,
+      "category_name": "Actors (lanes and pools)",
+      "element": "swimlane",
+      "before": {
+        "name": "Cashier"
+      },
+      "after": {
+        "name": "Cashier Officer"
+      },
+      "detail": "\"Cashier\" -> \"Cashier Officer\"",
+      "confidence": "high",
+      "needs_review": false
+    },
+    {
+      "op": "RENAME_LANE",
+      "legacy_op": "RENAME_SWIMLANE",
+      "category": 2,
+      "category_name": "Actors (lanes and pools)",
+      "element": "swimlane",
+      "before": {
+        "name": "Temporary Staff"
+      },
+      "after": {
+        "name": "Auditor"
+      },
+      "detail": "\"Temporary Staff\" -> \"Auditor\"",
+      "confidence": "high",
+      "needs_review": false
+    }
+  ],
+  "behavior": {
+    "equivalent": true,
+    "inconclusive": false,
+    "method": "trace_equivalence (tau-closure + subset construction)",
+    "counterexample": null,
+    "dfa_states": {
+      "reference": 5,
+      "variant": 5
+    },
+    "truncated": false,
+    "reference_lts": {
+      "states": 7,
+      "transitions": 6,
+      "final_states": 1,
+      "deadlock_states": 0,
+      "truncated": false
+    },
+    "variant_lts": {
+      "states": 7,
+      "transitions": 6,
+      "final_states": 1,
+      "deadlock_states": 0,
+      "truncated": false
+    },
+    "branching_bisimulation": {
+      "equivalent": true,
+      "reason": "initial states are in the same partition block",
+      "checked": true,
+      "blocks": 6,
+      "iterations": 2
+    },
+    "trace_samples": {
+      "reference": {
+        "count": 1,
+        "traces": [
+          [
+            "Process payment",
+            "Print receipt",
+            "Daily reconciliation",
+            "Archive paper slip"
+          ]
+        ],
+        "truncated": false
+      },
+      "variant": {
+        "count": 1,
+        "traces": [
+          [
+            "Process payment",
+            "Print receipt",
+            "Daily reconciliation",
+            "Archive paper slip"
+          ]
+        ],
+        "truncated": false
+      }
+    }
+  },
+  "fragments": {
+    "count": 15,
+    "affected": []
+  },
+  "fusion": {
+    "overall": "non_behavioral_swimlane_change",
+    "needs_review": false,
+    "element_verdicts": [
+      {
+        "a": "Archive paper slip",
+        "b": "Archive paper slip",
+        "label": "identical",
+        "verdict": "unchanged",
+        "behaviour_scope": "unchanged",
+        "equivalent": true,
+        "needs_review": false
+      },
+      {
+        "a": "Bill presented",
+        "b": "Bill presented",
+        "label": "identical",
+        "verdict": "unchanged",
+        "behaviour_scope": "unchanged",
+        "equivalent": true,
+        "needs_review": false
+      },
+      {
+        "a": "Daily reconciliation",
+        "b": "Daily reconciliation",
+        "label": "identical",
+        "verdict": "unchanged",
+        "behaviour_scope": "unchanged",
+        "equivalent": true,
+        "needs_review": false
+      },
+      {
+        "a": "Print receipt",
+        "b": "Print receipt",
+        "label": "identical",
+        "verdict": "unchanged",
+        "behaviour_scope": "unchanged",
+        "equivalent": true,
+        "needs_review": false
+      },
+      {
+        "a": "Process payment",
+        "b": "Process payment",
+        "label": "identical",
+        "verdict": "unchanged",
+        "behaviour_scope": "unchanged",
+        "equivalent": true,
+        "needs_review": false
+      },
+      {
+        "a": "Settled",
+        "b": "Settled",
+        "label": "identical",
+        "verdict": "unchanged",
+        "behaviour_scope": "unchanged",
+        "equivalent": true,
+        "needs_review": false
+      }
+    ],
+    "verdict_counts": {
+      "unchanged": 6
+    },
+    "operation_counts": {
+      "MOVE_LANE": 1,
+      "RENAME_LANE": 2
+    },
+    "legacy_operation_counts": {
+      "CHANGE_SWIMLANE": 1,
+      "RENAME_SWIMLANE": 2
+    }
+  }
+}

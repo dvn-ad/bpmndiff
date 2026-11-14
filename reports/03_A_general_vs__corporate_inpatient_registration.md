@@ -2,15 +2,22 @@
 
 | Model | Format | Nodes | Flows | Source |
 |---|---|---|---|---|
-| Reference | xpdl | 24 | 26 | C:\nanda\ITS\matkul\SEM 5\Sistem Enterprise\ES_FP\BPMN Diagrams Dataset of Functional Requirements\XPDL Dataset\54.Mini hospital (FO).General inpatient registration\Diagram 1.xpdl |
-| Variant | xpdl | 24 | 26 | C:\nanda\ITS\matkul\SEM 5\Sistem Enterprise\ES_FP\BPMN Diagrams Dataset of Functional Requirements\XPDL Dataset\55.Mini hospital (FO).Corporate inpatient registration\Diagram 1.xpdl |
+| Reference | xpdl | 24 | 26 | /home/mendoan/Projects/bpmndiff/BPMN Diagrams Dataset of Functional Requirements/XPDL Dataset/54.Mini hospital (FO).General inpatient registration/Diagram 1.xpdl |
+| Variant | xpdl | 24 | 26 | /home/mendoan/Projects/bpmndiff/BPMN Diagrams Dataset of Functional Requirements/XPDL Dataset/55.Mini hospital (FO).Corporate inpatient registration/Diagram 1.xpdl |
 
-## Edit script
+## Alignment Summary
+
+| Identical | Synonym | Meaning Changed | Deleted | Inserted | Needs Review |
+|---|---|---|---|---|---|
+| 22 | 1 | 1 | 0 | 0 | 0 |
+
+## Edit script (3 operations)
 
 | Operation | Element | Detail | Review |
 |---|---|---|---|
 | RENAME | Wants to register Inpatient for general patients | "Wants to register Inpatient for general patients" -> "Wants to register Inpatient for corporate patients" | no |
 | RENAME | Displays the registration information | "Displays the registration information" -> "Risplays the registration information" | no |
+| CHANGE_SWIMLANE | Selects a register button | Selects a register button: "System" -> "FO" | no |
 
 ## Behavioural verification
 
@@ -30,5 +37,5 @@
 **semantic_change**
 
 - Element verdicts: `{'unchanged': 22, 'non_behavioral_rename': 1, 'semantic_change': 1}`
-- Operations: `{'RENAME': 2}`
+- Operations: `{'RENAME': 2, 'CHANGE_SWIMLANE': 1}`
 - Needs review: False

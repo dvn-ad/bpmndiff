@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" id="defs_steps_v2" targetNamespace="http://bpmndiff.org/taxonomy">
+  <process id="proc_steps" name="Patient Registration (v2)">
+    <startEvent id="start" name="Patient arrives" />
+    <task id="t_new" name="Verify insurance eligibility" />
+    <serviceTask id="t_check" name="Check ID" />
+    <task id="t_save" name="Store patient data" />
+    <task id="t_type" name="Corporate patient intake" />
+    <task id="t_notify" name="Notify doctors">
+      <multiInstanceLoopCharacteristics isSequential="false" />
+    </task>
+    <boundaryEvent id="b_timer" name="Timeout limit" attachedToRef="t_check" cancelActivity="false">
+      <timerEventDefinition id="ted1" />
+    </boundaryEvent>
+    <endEvent id="end" name="Completed" />
+
+    <sequenceFlow id="f1" sourceRef="start" targetRef="t_new" />
+    <sequenceFlow id="f2" sourceRef="t_new" targetRef="t_check" />
+    <sequenceFlow id="f3" sourceRef="t_check" targetRef="t_save" />
+    <sequenceFlow id="f4" sourceRef="t_save" targetRef="t_type" />
+    <sequenceFlow id="f5" sourceRef="t_type" targetRef="t_notify" />
+    <sequenceFlow id="f6" sourceRef="t_notify" targetRef="end" />
+  </process>
+</definitions>

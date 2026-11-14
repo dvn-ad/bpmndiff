@@ -1,0 +1,859 @@
+{
+  "mode": "A",
+  "reference": {
+    "id": "proc_flows",
+    "name": "Patient Discharge (v1)",
+    "source": "/home/mendoan/Projects/bpmndiff/dataset/taxonomy_variants/scenario3_flows_v1.bpmn",
+    "format": "bpmn",
+    "pool": "",
+    "stats": {
+      "nodes": 8,
+      "edges": 8,
+      "tasks": 4,
+      "gateways": 2,
+      "events": 2,
+      "lanes": 0,
+      "message_flows": 0,
+      "data_elements": 0
+    }
+  },
+  "variant": {
+    "id": "proc_flows",
+    "name": "Patient Discharge (v2)",
+    "source": "/home/mendoan/Projects/bpmndiff/dataset/taxonomy_variants/scenario3_flows_v2.bpmn",
+    "format": "bpmn",
+    "pool": "",
+    "stats": {
+      "nodes": 10,
+      "edges": 11,
+      "tasks": 4,
+      "gateways": 4,
+      "events": 2,
+      "lanes": 0,
+      "message_flows": 0,
+      "data_elements": 0
+    }
+  },
+  "alignment": {
+    "counts": {
+      "identical": 8,
+      "synonym": 0,
+      "meaning_changed": 0,
+      "unmatched": 2,
+      "matched": 8,
+      "needs_review": 0
+    },
+    "pairs": [
+      {
+        "a": "Book follow-up",
+        "b": "Book follow-up",
+        "label": "identical",
+        "score": 1.0,
+        "reason": "exact normalised label, same element ID",
+        "confidence": "high",
+        "needs_review": false,
+        "llm_reason": "",
+        "a_id": "t_followup",
+        "b_id": "t_followup"
+      },
+      {
+        "a": "Collect copay",
+        "b": "Collect copay",
+        "label": "identical",
+        "score": 1.0,
+        "reason": "exact normalised label",
+        "confidence": "high",
+        "needs_review": false,
+        "llm_reason": "",
+        "a_id": "t_copay",
+        "b_id": "t_copay"
+      },
+      {
+        "a": "Discharge initiated",
+        "b": "Discharge initiated",
+        "label": "identical",
+        "score": 1.0,
+        "reason": "exact normalised label",
+        "confidence": "high",
+        "needs_review": false,
+        "llm_reason": "",
+        "a_id": "start",
+        "b_id": "start"
+      },
+      {
+        "a": "Discharged",
+        "b": "Discharged",
+        "label": "identical",
+        "score": 1.0,
+        "reason": "exact normalised label",
+        "confidence": "high",
+        "needs_review": false,
+        "llm_reason": "",
+        "a_id": "end",
+        "b_id": "end"
+      },
+      {
+        "a": "Issue pharmacy voucher",
+        "b": "Issue pharmacy voucher",
+        "label": "identical",
+        "score": 1.0,
+        "reason": "exact normalised label, same element ID",
+        "confidence": "high",
+        "needs_review": false,
+        "llm_reason": "",
+        "a_id": "t_voucher",
+        "b_id": "t_voucher"
+      },
+      {
+        "a": "Verify ID",
+        "b": "Verify ID",
+        "label": "identical",
+        "score": 1.0,
+        "reason": "exact normalised label",
+        "confidence": "high",
+        "needs_review": false,
+        "llm_reason": "",
+        "a_id": "t_id",
+        "b_id": "t_id"
+      },
+      {
+        "a": "Check bill status",
+        "b": "Check bill status",
+        "label": "identical",
+        "score": 1.0,
+        "reason": "structural context 0.20, degree 1.00",
+        "confidence": "high",
+        "needs_review": false,
+        "llm_reason": "",
+        "a_id": "gw1",
+        "b_id": "gw1"
+      },
+      {
+        "a": "Merge",
+        "b": "Merge",
+        "label": "identical",
+        "score": 1.0,
+        "reason": "structural context 0.50, degree 1.00",
+        "confidence": "high",
+        "needs_review": false,
+        "llm_reason": "",
+        "a_id": "gw_join",
+        "b_id": "gw_join"
+      },
+      {
+        "a": null,
+        "b": "Split parallel",
+        "label": "unmatched",
+        "score": 0.0,
+        "reason": "",
+        "confidence": "high",
+        "needs_review": false,
+        "llm_reason": "",
+        "b_id": "gw_par_split"
+      },
+      {
+        "a": null,
+        "b": "Join parallel",
+        "label": "unmatched",
+        "score": 0.0,
+        "reason": "",
+        "confidence": "high",
+        "needs_review": false,
+        "llm_reason": "",
+        "b_id": "gw_par_join"
+      }
+    ]
+  },
+  "operations": [
+    {
+      "op": "INSERT_NODE",
+      "legacy_op": "INSERT",
+      "category": 1,
+      "category_name": "Steps (tasks and events)",
+      "element": "node",
+      "before": null,
+      "after": {
+        "id": "gw_par_join",
+        "name": "Join parallel",
+        "kind": "and",
+        "kind_label": "parallel gateway (AND)",
+        "task_type": "abstract",
+        "event_definition": "none",
+        "marker": "none",
+        "attached_to": null,
+        "cancel_activity": true,
+        "lane": "",
+        "pool": ""
+      },
+      "detail": "added parallel gateway (AND)",
+      "label": "unmatched",
+      "confidence": "high",
+      "needs_review": false
+    },
+    {
+      "op": "INSERT_NODE",
+      "legacy_op": "INSERT",
+      "category": 1,
+      "category_name": "Steps (tasks and events)",
+      "element": "node",
+      "before": null,
+      "after": {
+        "id": "gw_par_split",
+        "name": "Split parallel",
+        "kind": "and",
+        "kind_label": "parallel gateway (AND)",
+        "task_type": "abstract",
+        "event_definition": "none",
+        "marker": "none",
+        "attached_to": null,
+        "cancel_activity": true,
+        "lane": "",
+        "pool": ""
+      },
+      "detail": "added parallel gateway (AND)",
+      "label": "unmatched",
+      "confidence": "high",
+      "needs_review": false
+    },
+    {
+      "op": "DELETE_FLOW",
+      "legacy_op": "DELETE_FLOW",
+      "category": 3,
+      "category_name": "Sequence, flow, and branching",
+      "element": "flow",
+      "before": {
+        "source": "Book follow-up",
+        "target": "Merge",
+        "source_id": "t_followup",
+        "target_id": "gw_join"
+      },
+      "after": null,
+      "detail": "flow removed (1x)",
+      "label": "unmatched",
+      "confidence": "high",
+      "needs_review": false
+    },
+    {
+      "op": "DELETE_FLOW",
+      "legacy_op": "DELETE_FLOW",
+      "category": 3,
+      "category_name": "Sequence, flow, and branching",
+      "element": "flow",
+      "before": {
+        "source": "Check bill status",
+        "target": "Issue pharmacy voucher",
+        "source_id": "gw1",
+        "target_id": "t_voucher"
+      },
+      "after": null,
+      "detail": "flow removed (1x)",
+      "label": "unmatched",
+      "confidence": "high",
+      "needs_review": false
+    },
+    {
+      "op": "DELETE_FLOW",
+      "legacy_op": "DELETE_FLOW",
+      "category": 3,
+      "category_name": "Sequence, flow, and branching",
+      "element": "flow",
+      "before": {
+        "source": "Collect copay",
+        "target": "Check bill status",
+        "source_id": "t_copay",
+        "target_id": "gw1"
+      },
+      "after": null,
+      "detail": "flow removed (1x)",
+      "label": "unmatched",
+      "confidence": "high",
+      "needs_review": false
+    },
+    {
+      "op": "DELETE_FLOW",
+      "legacy_op": "DELETE_FLOW",
+      "category": 3,
+      "category_name": "Sequence, flow, and branching",
+      "element": "flow",
+      "before": {
+        "source": "Discharge initiated",
+        "target": "Verify ID",
+        "source_id": "start",
+        "target_id": "t_id"
+      },
+      "after": null,
+      "detail": "flow removed (1x)",
+      "label": "unmatched",
+      "confidence": "high",
+      "needs_review": false
+    },
+    {
+      "op": "DELETE_FLOW",
+      "legacy_op": "DELETE_FLOW",
+      "category": 3,
+      "category_name": "Sequence, flow, and branching",
+      "element": "flow",
+      "before": {
+        "source": "Issue pharmacy voucher",
+        "target": "Book follow-up",
+        "source_id": "t_voucher",
+        "target_id": "t_followup"
+      },
+      "after": null,
+      "detail": "flow removed (1x)",
+      "label": "unmatched",
+      "confidence": "high",
+      "needs_review": false
+    },
+    {
+      "op": "DELETE_FLOW",
+      "legacy_op": "DELETE_FLOW",
+      "category": 3,
+      "category_name": "Sequence, flow, and branching",
+      "element": "flow",
+      "before": {
+        "source": "Verify ID",
+        "target": "Collect copay",
+        "source_id": "t_id",
+        "target_id": "t_copay"
+      },
+      "after": null,
+      "detail": "flow removed (1x)",
+      "label": "unmatched",
+      "confidence": "high",
+      "needs_review": false
+    },
+    {
+      "op": "FLOW_CONDITION_CHANGE",
+      "legacy_op": "FLOW_CONDITION_CHANGE",
+      "category": 3,
+      "category_name": "Sequence, flow, and branching",
+      "element": "flow",
+      "before": {
+        "condition": "",
+        "is_default": true,
+        "source": "Check bill status",
+        "target": "Merge"
+      },
+      "after": {
+        "condition": "",
+        "is_default": false,
+        "source": "Check bill status",
+        "target": "Merge"
+      },
+      "detail": "default flow: True -> False",
+      "confidence": "high",
+      "needs_review": false
+    },
+    {
+      "op": "GATEWAY_TYPE_CHANGE",
+      "legacy_op": "CHANGE_GATEWAY_TYPE",
+      "category": 3,
+      "category_name": "Sequence, flow, and branching",
+      "element": "gateway",
+      "before": {
+        "id": "gw1",
+        "name": "Check bill status",
+        "kind": "xor",
+        "kind_label": "exclusive gateway (XOR)",
+        "task_type": "abstract",
+        "event_definition": "none",
+        "marker": "none",
+        "attached_to": null,
+        "cancel_activity": true,
+        "lane": "",
+        "pool": ""
+      },
+      "after": {
+        "id": "gw1",
+        "name": "Check bill status",
+        "kind": "and",
+        "kind_label": "parallel gateway (AND)",
+        "task_type": "abstract",
+        "event_definition": "none",
+        "marker": "none",
+        "attached_to": null,
+        "cancel_activity": true,
+        "lane": "",
+        "pool": ""
+      },
+      "detail": "XOR -> AND",
+      "label": "identical",
+      "confidence": "high",
+      "needs_review": false
+    },
+    {
+      "op": "INSERT_FLOW",
+      "legacy_op": "INSERT_FLOW",
+      "category": 3,
+      "category_name": "Sequence, flow, and branching",
+      "element": "flow",
+      "before": null,
+      "after": {
+        "source": "Book follow-up",
+        "target": "Join parallel",
+        "source_id": "t_followup",
+        "target_id": "gw_par_join"
+      },
+      "detail": "flow added (1x)",
+      "label": "unmatched",
+      "confidence": "high",
+      "needs_review": false
+    },
+    {
+      "op": "INSERT_FLOW",
+      "legacy_op": "INSERT_FLOW",
+      "category": 3,
+      "category_name": "Sequence, flow, and branching",
+      "element": "flow",
+      "before": null,
+      "after": {
+        "source": "Check bill status",
+        "target": "Split parallel",
+        "source_id": "gw1",
+        "target_id": "gw_par_split"
+      },
+      "detail": "flow added (1x)",
+      "label": "unmatched",
+      "confidence": "high",
+      "needs_review": false
+    },
+    {
+      "op": "INSERT_FLOW",
+      "legacy_op": "INSERT_FLOW",
+      "category": 3,
+      "category_name": "Sequence, flow, and branching",
+      "element": "flow",
+      "before": null,
+      "after": {
+        "source": "Collect copay",
+        "target": "Verify ID",
+        "source_id": "t_copay",
+        "target_id": "t_id"
+      },
+      "detail": "flow added (1x)",
+      "label": "unmatched",
+      "confidence": "high",
+      "needs_review": false
+    },
+    {
+      "op": "INSERT_FLOW",
+      "legacy_op": "INSERT_FLOW",
+      "category": 3,
+      "category_name": "Sequence, flow, and branching",
+      "element": "flow",
+      "before": null,
+      "after": {
+        "source": "Discharge initiated",
+        "target": "Collect copay",
+        "source_id": "start",
+        "target_id": "t_copay"
+      },
+      "detail": "flow added (1x)",
+      "label": "unmatched",
+      "confidence": "high",
+      "needs_review": false
+    },
+    {
+      "op": "INSERT_FLOW",
+      "legacy_op": "INSERT_FLOW",
+      "category": 3,
+      "category_name": "Sequence, flow, and branching",
+      "element": "flow",
+      "before": null,
+      "after": {
+        "source": "Issue pharmacy voucher",
+        "target": "Join parallel",
+        "source_id": "t_voucher",
+        "target_id": "gw_par_join"
+      },
+      "detail": "flow added (1x)",
+      "label": "unmatched",
+      "confidence": "high",
+      "needs_review": false
+    },
+    {
+      "op": "INSERT_FLOW",
+      "legacy_op": "INSERT_FLOW",
+      "category": 3,
+      "category_name": "Sequence, flow, and branching",
+      "element": "flow",
+      "before": null,
+      "after": {
+        "source": "Join parallel",
+        "target": "Merge",
+        "source_id": "gw_par_join",
+        "target_id": "gw_join"
+      },
+      "detail": "flow added (1x)",
+      "label": "unmatched",
+      "confidence": "high",
+      "needs_review": false
+    },
+    {
+      "op": "INSERT_FLOW",
+      "legacy_op": "INSERT_FLOW",
+      "category": 3,
+      "category_name": "Sequence, flow, and branching",
+      "element": "flow",
+      "before": null,
+      "after": {
+        "source": "Split parallel",
+        "target": "Book follow-up",
+        "source_id": "gw_par_split",
+        "target_id": "t_followup"
+      },
+      "detail": "flow added (1x)",
+      "label": "unmatched",
+      "confidence": "high",
+      "needs_review": false
+    },
+    {
+      "op": "INSERT_FLOW",
+      "legacy_op": "INSERT_FLOW",
+      "category": 3,
+      "category_name": "Sequence, flow, and branching",
+      "element": "flow",
+      "before": null,
+      "after": {
+        "source": "Split parallel",
+        "target": "Issue pharmacy voucher",
+        "source_id": "gw_par_split",
+        "target_id": "t_voucher"
+      },
+      "detail": "flow added (1x)",
+      "label": "unmatched",
+      "confidence": "high",
+      "needs_review": false
+    },
+    {
+      "op": "INSERT_FLOW",
+      "legacy_op": "INSERT_FLOW",
+      "category": 3,
+      "category_name": "Sequence, flow, and branching",
+      "element": "flow",
+      "before": null,
+      "after": {
+        "source": "Verify ID",
+        "target": "Check bill status",
+        "source_id": "t_id",
+        "target_id": "gw1"
+      },
+      "detail": "flow added (1x)",
+      "label": "unmatched",
+      "confidence": "high",
+      "needs_review": false
+    },
+    {
+      "op": "PARALLELIZE",
+      "legacy_op": "PARALLELIZE",
+      "category": 3,
+      "category_name": "Sequence, flow, and branching",
+      "element": "node",
+      "before": {
+        "nodes": [
+          "Book follow-up",
+          "Issue pharmacy voucher"
+        ]
+      },
+      "after": {
+        "nodes": [
+          "Book follow-up",
+          "Issue pharmacy voucher"
+        ]
+      },
+      "detail": "\"Book follow-up\" and \"Issue pharmacy voucher\" made parallel via AND gateway",
+      "confidence": "high",
+      "needs_review": false
+    },
+    {
+      "op": "REORDER",
+      "legacy_op": "REORDER",
+      "category": 3,
+      "category_name": "Sequence, flow, and branching",
+      "element": "node",
+      "before": {
+        "first": "Verify ID",
+        "second": "Collect copay"
+      },
+      "after": {
+        "first": "Collect copay",
+        "second": "Verify ID"
+      },
+      "detail": "execution order swapped between \"Verify ID\" and \"Collect copay\"",
+      "confidence": "high",
+      "needs_review": false
+    }
+  ],
+  "behavior": {
+    "equivalent": false,
+    "inconclusive": false,
+    "method": "trace_equivalence (tau-closure + subset construction)",
+    "counterexample": {
+      "direction": "variant_only",
+      "trace": [
+        "Collect copay",
+        "Verify ID",
+        "Book follow-up",
+        "Issue pharmacy voucher"
+      ],
+      "detail": "only this model can execute the differing task and still complete"
+    },
+    "dfa_states": {
+      "reference": 5,
+      "variant": 6
+    },
+    "truncated": false,
+    "reference_lts": {
+      "states": 9,
+      "transitions": 9,
+      "final_states": 1,
+      "deadlock_states": 0,
+      "truncated": false
+    },
+    "variant_lts": {
+      "states": 32,
+      "transitions": 61,
+      "final_states": 1,
+      "deadlock_states": 0,
+      "truncated": false
+    },
+    "branching_bisimulation": {
+      "equivalent": false,
+      "reason": "initial states are separated by partition refinement",
+      "checked": true,
+      "blocks": 11,
+      "iterations": 3
+    },
+    "trace_samples": {
+      "reference": {
+        "count": 2,
+        "traces": [
+          [
+            "Verify ID",
+            "Collect copay"
+          ],
+          [
+            "Verify ID",
+            "Collect copay",
+            "Issue pharmacy voucher",
+            "Book follow-up"
+          ]
+        ],
+        "truncated": false
+      },
+      "variant": {
+        "count": 2,
+        "traces": [
+          [
+            "Collect copay",
+            "Verify ID",
+            "Book follow-up",
+            "Issue pharmacy voucher"
+          ],
+          [
+            "Collect copay",
+            "Verify ID",
+            "Issue pharmacy voucher",
+            "Book follow-up"
+          ]
+        ],
+        "truncated": false
+      }
+    }
+  },
+  "fragments": {
+    "count": 12,
+    "affected": [
+      {
+        "id": "R03",
+        "entry": "(start)",
+        "exit": "Collect copay",
+        "size": 3,
+        "nodes": [
+          "Discharge initiated",
+          "Collect copay",
+          "Verify ID"
+        ],
+        "node_ids": [
+          "start",
+          "t_copay",
+          "t_id"
+        ],
+        "status": "checked",
+        "equivalent": false,
+        "method": "trace_equivalence (tau-closure + subset construction)",
+        "counterexample": {
+          "direction": "variant_only",
+          "trace": [
+            "Collect copay",
+            "Verify ID"
+          ],
+          "detail": "only this model can execute the differing task and still complete"
+        },
+        "states": {
+          "reference": 4,
+          "variant": 4
+        }
+      },
+      {
+        "id": "R08",
+        "entry": "Verify ID",
+        "exit": "Merge",
+        "size": 6,
+        "nodes": [
+          "Check bill status",
+          "Merge",
+          "Collect copay",
+          "Book follow-up",
+          "Verify ID",
+          "Issue pharmacy voucher"
+        ],
+        "node_ids": [
+          "gw1",
+          "gw_join",
+          "t_copay",
+          "t_followup",
+          "t_id",
+          "t_voucher"
+        ],
+        "status": "checked",
+        "equivalent": false,
+        "method": "trace_equivalence (tau-closure + subset construction)",
+        "counterexample": {
+          "direction": "variant_only",
+          "trace": [
+            "Collect copay",
+            "Verify ID",
+            "Book follow-up",
+            "Issue pharmacy voucher"
+          ],
+          "detail": "only this model can execute the differing task and still complete"
+        },
+        "states": {
+          "reference": 7,
+          "variant": 19
+        }
+      }
+    ]
+  },
+  "fusion": {
+    "overall": "behavioral_change",
+    "needs_review": false,
+    "element_verdicts": [
+      {
+        "a": "Book follow-up",
+        "b": "Book follow-up",
+        "label": "identical",
+        "verdict": "unchanged",
+        "behaviour_scope": "unchanged",
+        "equivalent": true,
+        "needs_review": false
+      },
+      {
+        "a": "Collect copay",
+        "b": "Collect copay",
+        "label": "identical",
+        "verdict": "unchanged",
+        "behaviour_scope": "unchanged",
+        "equivalent": true,
+        "needs_review": false
+      },
+      {
+        "a": "Discharge initiated",
+        "b": "Discharge initiated",
+        "label": "identical",
+        "verdict": "unchanged",
+        "behaviour_scope": "unchanged",
+        "equivalent": true,
+        "needs_review": false
+      },
+      {
+        "a": "Discharged",
+        "b": "Discharged",
+        "label": "identical",
+        "verdict": "unchanged",
+        "behaviour_scope": "unchanged",
+        "equivalent": true,
+        "needs_review": false
+      },
+      {
+        "a": "Issue pharmacy voucher",
+        "b": "Issue pharmacy voucher",
+        "label": "identical",
+        "verdict": "unchanged",
+        "behaviour_scope": "unchanged",
+        "equivalent": true,
+        "needs_review": false
+      },
+      {
+        "a": "Verify ID",
+        "b": "Verify ID",
+        "label": "identical",
+        "verdict": "unchanged",
+        "behaviour_scope": "unchanged",
+        "equivalent": true,
+        "needs_review": false
+      },
+      {
+        "a": "Check bill status",
+        "b": "Check bill status",
+        "label": "identical",
+        "verdict": "behavioral_change",
+        "behaviour_scope": "R06",
+        "equivalent": false,
+        "needs_review": false
+      },
+      {
+        "a": "Merge",
+        "b": "Merge",
+        "label": "identical",
+        "verdict": "unchanged",
+        "behaviour_scope": "unchanged",
+        "equivalent": true,
+        "needs_review": false
+      },
+      {
+        "a": null,
+        "b": "Split parallel",
+        "label": "unmatched",
+        "verdict": "structural_change",
+        "behaviour_scope": "element",
+        "equivalent": false,
+        "needs_review": false
+      },
+      {
+        "a": null,
+        "b": "Join parallel",
+        "label": "unmatched",
+        "verdict": "structural_change",
+        "behaviour_scope": "element",
+        "equivalent": false,
+        "needs_review": false
+      }
+    ],
+    "verdict_counts": {
+      "unchanged": 7,
+      "behavioral_change": 1,
+      "structural_change": 2
+    },
+    "operation_counts": {
+      "INSERT_NODE": 2,
+      "DELETE_FLOW": 6,
+      "FLOW_CONDITION_CHANGE": 1,
+      "GATEWAY_TYPE_CHANGE": 1,
+      "INSERT_FLOW": 9,
+      "PARALLELIZE": 1,
+      "REORDER": 1
+    },
+    "legacy_operation_counts": {
+      "INSERT": 2,
+      "DELETE_FLOW": 6,
+      "FLOW_CONDITION_CHANGE": 1,
+      "CHANGE_GATEWAY_TYPE": 1,
+      "INSERT_FLOW": 9,
+      "PARALLELIZE": 1,
+      "REORDER": 1
+    }
+  }
+}
