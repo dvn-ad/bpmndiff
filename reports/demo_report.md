@@ -1,14 +1,14 @@
 # bpmndiff demo report
 
-Dataset: `/home/mendoan/Projects/ES_FP/BPMN Diagrams Dataset of Functional Requirements/XPDL Dataset`
+Dataset: `C:\nanda\ITS\matkul\SEM 5\Sistem Enterprise\ES_FP\BPMN Diagrams Dataset of Functional Requirements\XPDL Dataset`
 
 | Scenario | Mode | Verdict | Trace equivalent | Details |
 |---|---|---|---|---|
-| Old vs. new patient registration | A | semantic_and_behavioral_change | no | 10 operations |
+| Old vs. new patient registration | A | semantic_and_behavioral_change | no | 11 operations |
 | General vs. corporate new patient registration | A | semantic_and_behavioral_change | no | 5 operations |
 | General vs. corporate inpatient registration | A | semantic_change | yes | 2 operations |
-| General patient cashier vs. down payment | A | semantic_and_behavioral_change | no | 32 operations |
-| Patient registration family | B | semantic_and_behavioral_change, semantic_and_behavioral_change, semantic_and_behavioral_change | no | 12 core elements |
+| General patient cashier vs. down payment | A | semantic_and_behavioral_change | no | 31 operations |
+| Patient registration family | B | semantic_and_behavioral_change, semantic_and_behavioral_change, semantic_and_behavioral_change | no | 11 core elements |
 | Patient registration evolution chain | C | semantic_and_behavioral_change -> semantic_and_behavioral_change | no | 0 reverts, oracle consistent=True |
 
 ## Scenario details
@@ -19,7 +19,7 @@ Dataset: `/home/mendoan/Projects/ES_FP/BPMN Diagrams Dataset of Functional Requi
 - Models: Registration of old patients, General new patient registration
 - Verdict: **semantic_and_behavioral_change**
 - Trace equivalent: False
-- Details: 10 operations
+- Details: 11 operations
 - Report: [01_A_old_vs__new_patient_registration.md](01_A_old_vs__new_patient_registration.md)
 
 ### General vs. corporate new patient registration
@@ -46,7 +46,7 @@ Dataset: `/home/mendoan/Projects/ES_FP/BPMN Diagrams Dataset of Functional Requi
 - Models: General patient cashier, Down payment
 - Verdict: **semantic_and_behavioral_change**
 - Trace equivalent: False
-- Details: 32 operations
+- Details: 31 operations
 - Report: [04_A_general_patient_cashier_vs__down_payment.md](04_A_general_patient_cashier_vs__down_payment.md)
 
 ### Patient registration family
@@ -55,7 +55,7 @@ Dataset: `/home/mendoan/Projects/ES_FP/BPMN Diagrams Dataset of Functional Requi
 - Models: General new patient registration, Corporate new patient registration, General inpatient registration, Corporate inpatient registration
 - Verdict: **semantic_and_behavioral_change, semantic_and_behavioral_change, semantic_and_behavioral_change**
 - Trace equivalent: False
-- Details: 12 core elements
+- Details: 11 core elements
 - Report: [05_B_patient_registration_family.md](05_B_patient_registration_family.md)
 
 ### Patient registration evolution chain

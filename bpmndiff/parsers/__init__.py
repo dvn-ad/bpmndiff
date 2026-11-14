@@ -46,6 +46,21 @@ def text_of(element: ET.Element | None) -> str:
     return (element.text or "").strip()
 
 
+def _bpmn_bounds(element: ET.Element) -> tuple[float, float, float, float] | None:
+    bounds = first_child(element, "Bounds")
+    if bounds is None:
+        return None
+    try:
+        return (
+            float(bounds.attrib["x"]),
+            float(bounds.attrib["y"]),
+            float(bounds.attrib["width"]),
+            float(bounds.attrib["height"]),
+        )
+    except (KeyError, ValueError):
+        return None
+
+
 def _graphics_box(element: ET.Element) -> tuple[float, float, float, float] | None:
     """Extract (x, y, width, height) from a BizAgi-style graphic block."""
     node_infos = first_child(element, "NodeGraphicsInfos")
@@ -278,10 +293,14 @@ def parse_bpmn(path: str, process: str | None = None) -> ProcessModel:
 
     # Lane membership.
     lane_of: dict[str, str] = {}
+    lane_names_by_id: dict[str, str] = {}
     for lane in descendants(proc, "lane"):
         lane_name = lane.attrib.get("name", "")
         if lane_name and lane_name not in model.lanes:
             model.lanes.append(lane_name)
+        lane_id = lane.attrib.get("id", "")
+        if lane_id:
+            lane_names_by_id[lane_id] = lane_name
         for ref in children(lane, "flowNodeRef"):
             if text_of(ref):
                 lane_of[text_of(ref)] = lane_name
@@ -304,6 +323,45 @@ def parse_bpmn(path: str, process: str | None = None) -> ProcessModel:
             pool=pool_name,
         )
         model.add_node(node)
+
+    # Some BPMN exporters omit flowNodeRef; recover lane assignment from DI
+    # shapes when both lane and flow-node bounds are available.
+    lane_shapes: dict[
+        str, tuple[tuple[float, float, float, float], bool]
+    ] = {}
+    node_shapes: dict[str, tuple[float, float, float, float]] = {}
+    for shape in descendants(root, "BPMNShape"):
+        element_id = shape.attrib.get("bpmnElement", "")
+        bounds = _bpmn_bounds(shape)
+        if bounds is None:
+            continue
+        if element_id in lane_names_by_id:
+            horizontal = shape.attrib.get("isHorizontal", "true").lower() != "false"
+            lane_shapes[element_id] = (bounds, horizontal)
+        elif element_id in model.nodes:
+            node_shapes[element_id] = bounds
+
+    for node_id, (x, y, width, height) in node_shapes.items():
+        node = model.nodes[node_id]
+        if node.lane:
+            continue
+        center_x = x + width / 2
+        center_y = y + height / 2
+        containing_lanes = []
+        for lane_id, (lane_bounds, horizontal) in lane_shapes.items():
+            lane_x, lane_y, lane_width, lane_height = lane_bounds
+            in_lane = (
+                lane_y <= center_y <= lane_y + lane_height
+                if horizontal
+                else lane_x <= center_x <= lane_x + lane_width
+            )
+            if in_lane:
+                span = lane_height if horizontal else lane_width
+                containing_lanes.append(
+                    (span, lane_names_by_id[lane_id])
+                )
+        if containing_lanes:
+            node.lane = min(containing_lanes)[1]
 
     for index, flow in enumerate(descendants(proc, "sequenceFlow")):
         source = flow.attrib.get("sourceRef", "")

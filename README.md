@@ -214,7 +214,11 @@ scoped behavioural checks. Fragment checks treat sinks as successful exits
 ### 5. Edit script and fusion
 
 Supported operations: `INSERT`, `DELETE`, `RENAME`, `CHANGE_TYPE`,
-`CHANGE_GATEWAY_TYPE`, plus `INSERT_FLOW` / `DELETE_FLOW`.
+`CHANGE_GATEWAY_TYPE`, `RENAME_SWIMLANE`, `CHANGE_SWIMLANE`, plus
+`INSERT_FLOW` / `DELETE_FLOW`. Swimlane renames are inferred from matched
+nodes whose lane name changed; a `CHANGE_SWIMLANE` operation identifies a
+matched node reassigned to a different lane. These organizational changes do
+not alter control-flow equivalence.
 
 Per-element fusion follows the table in the specification:
 

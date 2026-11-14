@@ -179,6 +179,11 @@ def label_similarity(a: str, b: str) -> tuple[float, str]:
     if na == nb:
         return 1.0, "exact normalised label"
 
+    is_inv_a = "invisible" in na
+    is_inv_b = "invisible" in nb
+    if is_inv_a != is_inv_b:
+        return 0.0, "invisible vs named task mismatch"
+
     ta, tb = canonical_tokens(a), canonical_tokens(b)
     if ta and ta == tb:
         return 0.94, "semantic synonym (canonical tokens)"
@@ -187,21 +192,24 @@ def label_similarity(a: str, b: str) -> tuple[float, str]:
     char = jaro_winkler(na, nb)
     sequence = SequenceMatcher(None, na, nb).ratio()
 
-    # Long labels: token overlap dominates.  Very similar strings are often
-    # typos/spelling variants, so character similarity gets a high weight.
-    if len(ta) >= 3 and len(tb) >= 3:
-        score = max(dice, 0.72 * char)
-        if sequence >= 0.88:
-            score = max(score, 0.97 * sequence)
-        elif char >= 0.88:
-            score = max(score, 0.96 * char)
-        reason = f"token overlap {dice:.2f}, string {char:.2f}, sequence {sequence:.2f}"
+    # Short typo / spelling variant for 1-token labels (e.g. "Displays" vs "Risplays")
+    if len(ta) <= 1 and len(tb) <= 1 and (sequence >= 0.80 or char >= 0.85):
+        score = max(sequence, char)
+        return min(score, 0.95), f"typo sequence {sequence:.2f}, char {char:.2f}"
+
+    if dice == 0:
+        if na in nb or nb in na:
+            score = 0.86
+            reason = "containment"
+        else:
+            return min(sequence * 0.4, 0.30), f"no token overlap (sequence {sequence:.2f})"
     else:
-        score = max(char, dice)
-        reason = f"string {char:.2f}"
-    if na in nb or nb in na:
-        score = max(score, 0.86)
-        reason += ", containment"
+        score = max(dice, 0.55 * dice + 0.45 * sequence)
+        if sequence >= 0.85 or char >= 0.90:
+            score = max(score, 0.88)
+        if na in nb or nb in na:
+            score = max(score, 0.86)
+        reason = f"token overlap {dice:.2f}, string {char:.2f}, sequence {sequence:.2f}"
 
     # Domain contrasts ("general" vs "corporate", "inpatient" vs
     # "outpatient", ...) change the business meaning even when the remaining
@@ -267,6 +275,8 @@ class Alignment:
     pair_of_b: dict[str, Pair] = field(default_factory=dict)
 
     def add(self, pair: Pair) -> None:
+        if pair in self.pairs:
+            return
         self.pairs.append(pair)
         if pair.a is not None:
             self.pair_of_a[pair.a] = pair
@@ -312,13 +322,43 @@ def _context_labels(model: ProcessModel, node_id: str) -> set[str]:
     return labels
 
 
-def _structural_similarity(a: ProcessModel, a_id: str, b: ProcessModel, b_id: str) -> tuple[float, str]:
+def _is_invisible(node: Node) -> bool:
+    return "invisible" in node.name.lower()
+
+
+def _structural_similarity(
+    a: ProcessModel,
+    a_id: str,
+    b: ProcessModel,
+    b_id: str,
+    alignment: Alignment | None = None,
+) -> tuple[float, str]:
     na, nb = a.nodes[a_id], b.nodes[b_id]
+
+    aligned_matches = 0
+    total_neighbors = 0
+    if alignment is not None:
+        preds_a = set(a.predecessors(a_id))
+        succs_a = set(a.successors(a_id))
+        preds_b = set(b.predecessors(b_id))
+        succs_b = set(b.successors(b_id))
+        for pa in preds_a:
+            if pa in alignment.a_to_b and alignment.a_to_b[pa] in preds_b:
+                aligned_matches += 1
+        for sa in succs_a:
+            if sa in alignment.a_to_b and alignment.a_to_b[sa] in succs_b:
+                aligned_matches += 1
+        total_neighbors = len(preds_a) + len(succs_a)
+
     ca, cb = _context_labels(a, a_id), _context_labels(b, b_id)
     if ca and cb:
         context = len(ca & cb) / len(ca | cb)
     else:
         context = 0.0
+
+    if total_neighbors > 0:
+        context = max(context, aligned_matches / total_neighbors)
+
     deg_a = (a.in_degree(a_id), a.out_degree(a_id))
     deg_b = (b.in_degree(b_id), b.out_degree(b_id))
     degree = 1.0 - (abs(deg_a[0] - deg_b[0]) + abs(deg_a[1] - deg_b[1])) / max(
@@ -329,21 +369,29 @@ def _structural_similarity(a: ProcessModel, a_id: str, b: ProcessModel, b_id: st
         type_bonus = 0.18
     elif na.is_gateway and nb.is_gateway:
         type_bonus = 0.04
-    score = min(1.0, 0.68 * context + 0.22 * degree + type_bonus)
+    elif na.family == nb.family:
+        type_bonus = 0.10
+
+    id_bonus = 0.25 if (na.id == nb.id and len(na.id) >= 8) else 0.0
+
+    score = min(1.0, 0.65 * context + 0.20 * degree + type_bonus + id_bonus)
     return score, f"structural context {context:.2f}, degree {degree:.2f}"
 
 
 def _initial_pairs(a: ProcessModel, b: ProcessModel, config: AlignmentConfig) -> list[Pair]:
     candidates: list[tuple[float, str, str, str]] = []
     for na in a.nodes.values():
-        if na.is_gateway or not na.name.strip():
+        if na.is_gateway or not na.name.strip() or _is_invisible(na):
             continue
         for nb in b.nodes.values():
-            if nb.is_gateway or not nb.name.strip():
+            if nb.is_gateway or not nb.name.strip() or _is_invisible(nb):
                 continue
             if na.family != nb.family:
                 continue
             score, reason = label_similarity(na.name, nb.name)
+            if na.id == nb.id and len(na.id) >= 8:
+                score = max(score, 0.65)
+                reason += ", same element ID"
             if score >= config.match_threshold:
                 candidates.append((score, na.id, nb.id, reason))
     candidates.sort(key=lambda item: (-item[0], a.nodes[item[1]].display_name.lower()))
@@ -380,9 +428,12 @@ def _initial_pairs(a: ProcessModel, b: ProcessModel, config: AlignmentConfig) ->
 def _structural_pairs(
     a: ProcessModel, b: ProcessModel, alignment: Alignment, config: AlignmentConfig
 ) -> list[Pair]:
-    """Pair gateways and unnamed events using their matched neighbourhood."""
+    """Pair gateways, unnamed events and invisible tasks using their matched neighbourhood."""
     used_a = set(alignment.pair_of_a)
     used_b = set(alignment.pair_of_b)
+    pairs: list[Pair] = []
+
+    # Pass 1: Gateways and unnamed events
     candidates: list[tuple[float, str, str, str]] = []
     for na in a.nodes.values():
         if na.id in used_a:
@@ -400,27 +451,56 @@ def _structural_pairs(
                 continue
             if na.is_event and nb.is_event and na.kind != nb.kind and "event" not in (na.kind, nb.kind):
                 continue
-            score, reason = _structural_similarity(a, na.id, b, nb.id)
+            score, reason = _structural_similarity(a, na.id, b, nb.id, alignment)
             if score >= config.structural_threshold:
                 candidates.append((score, na.id, nb.id, reason))
     candidates.sort(key=lambda item: (-item[0], item[1]))
-    pairs: list[Pair] = []
     for score, a_id, b_id, reason in candidates:
         if a_id in used_a or b_id in used_b:
             continue
         used_a.add(a_id)
         used_b.add(b_id)
-        pairs.append(
-            Pair(
-                a_id,
-                b_id,
-                "identical",
-                score,
-                reason,
-                confidence="medium" if score < config.review_high else "high",
-                needs_review=False,
-            )
+        p = Pair(
+            a_id,
+            b_id,
+            "identical",
+            score,
+            reason,
+            confidence="medium" if score < config.review_high else "high",
+            needs_review=False,
         )
+        pairs.append(p)
+        alignment.add(p)
+
+    # Pass 2: Invisible tasks / dummy routing tasks
+    inv_candidates: list[tuple[float, str, str, str]] = []
+    for na in a.nodes.values():
+        if na.id in used_a or not _is_invisible(na):
+            continue
+        for nb in b.nodes.values():
+            if nb.id in used_b or not _is_invisible(nb):
+                continue
+            score, reason = _structural_similarity(a, na.id, b, nb.id, alignment)
+            if score >= config.structural_threshold:
+                inv_candidates.append((score, na.id, nb.id, reason))
+    inv_candidates.sort(key=lambda item: (-item[0], item[1]))
+    for score, a_id, b_id, reason in inv_candidates:
+        if a_id in used_a or b_id in used_b:
+            continue
+        used_a.add(a_id)
+        used_b.add(b_id)
+        p = Pair(
+            a_id,
+            b_id,
+            "identical",
+            score,
+            reason,
+            confidence="medium" if score < config.review_high else "high",
+            needs_review=False,
+        )
+        pairs.append(p)
+        alignment.add(p)
+
     return pairs
 
 

@@ -9,7 +9,7 @@
     ],
     "verdict": "semantic_and_behavioral_change",
     "trace_equivalent": false,
-    "details": "10 operations",
+    "details": "11 operations",
     "report": "01_A_old_vs__new_patient_registration.md"
   },
   {
@@ -48,7 +48,7 @@
     ],
     "verdict": "semantic_and_behavioral_change",
     "trace_equivalent": false,
-    "details": "32 operations",
+    "details": "31 operations",
     "report": "04_A_general_patient_cashier_vs__down_payment.md"
   },
   {
@@ -63,7 +63,7 @@
     ],
     "verdict": "semantic_and_behavioral_change, semantic_and_behavioral_change, semantic_and_behavioral_change",
     "trace_equivalent": false,
-    "details": "12 core elements",
+    "details": "11 core elements",
     "report": "05_B_patient_registration_family.md"
   },
   {

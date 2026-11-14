@@ -95,9 +95,17 @@ def _write(path: str, content: str) -> None:
 
 
 def _emit(result: dict, args: argparse.Namespace) -> None:
-    if args.format == "json":
+    fmt = args.format
+    if args.out and fmt == "text":
+        ext = os.path.splitext(args.out)[1].lower()
+        if ext in {".md", ".markdown"}:
+            fmt = "markdown"
+        elif ext == ".json":
+            fmt = "json"
+
+    if fmt == "json":
         content = render_json(result)
-    elif args.format == "markdown":
+    elif fmt == "markdown":
         content = render_markdown(result)
     else:
         content = render_text(result)

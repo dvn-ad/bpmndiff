@@ -82,6 +82,37 @@ BPMN = """<?xml version="1.0" encoding="UTF-8"?>
 </definitions>
 """
 
+BPMN_WITH_LANE_DI = """<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+             xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+             xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" id="defs">
+  <process id="proc" name="Process">
+    <laneSet id="ls">
+      <lane id="cashier" name="Cashier" />
+      <lane id="system" name="System" />
+    </laneSet>
+    <task id="cashier-task" name="Take payment" />
+    <task id="system-task" name="Save payment" />
+  </process>
+  <bpmndi:BPMNDiagram id="diagram">
+    <bpmndi:BPMNPlane id="plane" bpmnElement="proc">
+      <bpmndi:BPMNShape id="cashier-shape" bpmnElement="cashier" isHorizontal="true">
+        <dc:Bounds x="0" y="0" width="300" height="100" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="system-shape" bpmnElement="system" isHorizontal="true">
+        <dc:Bounds x="0" y="100" width="300" height="100" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="cashier-task-shape" bpmnElement="cashier-task">
+        <dc:Bounds x="280" y="20" width="60" height="30" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="system-task-shape" bpmnElement="system-task">
+        <dc:Bounds x="280" y="120" width="60" height="30" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>
+"""
+
 
 class ParserTests(unittest.TestCase):
     def _write(self, suffix: str, content: str) -> str:
@@ -110,6 +141,11 @@ class ParserTests(unittest.TestCase):
         self.assertEqual(model.nodes["task"].lane, "Front office")
         self.assertEqual(model.start_nodes(), ["start"])
         self.assertEqual(model.end_nodes(), ["end"])
+
+    def test_bpmn_lane_geometry_fallback(self):
+        model = load_model(self._write(".bpmn", BPMN_WITH_LANE_DI))
+        self.assertEqual(model.nodes["cashier-task"].lane, "Cashier")
+        self.assertEqual(model.nodes["system-task"].lane, "System")
 
     def test_unsupported_root(self):
         path = self._write(".xml", "<root><child /></root>")

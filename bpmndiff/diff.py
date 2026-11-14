@@ -83,10 +83,85 @@ def _node_ref(model: ProcessModel, node_id: str) -> dict:
     }
 
 
+def _lane_operations(
+    reference: ProcessModel, variant: ProcessModel, alignment: Alignment
+) -> list[dict]:
+    reference_lanes = set(reference.lanes) | {node.lane for node in reference.nodes.values() if node.lane}
+    variant_lanes = set(variant.lanes) | {node.lane for node in variant.nodes.values() if node.lane}
+    assignments: Counter[tuple[str, str]] = Counter()
+    for pair in alignment.matched_pairs:
+        before = reference.nodes[pair.a].lane
+        after = variant.nodes[pair.b].lane
+        if before and after:
+            assignments[(before, after)] += 1
+
+    rename_candidates: dict[str, list[tuple[str, int]]] = {}
+    for (before, after), count in assignments.items():
+        if before not in variant_lanes and after not in reference_lanes:
+            rename_candidates.setdefault(before, []).append((after, count))
+
+    lane_renames: dict[str, str] = {}
+    for before, candidates in rename_candidates.items():
+        best_count = max(count for _, count in candidates)
+        best = [after for after, count in candidates if count == best_count]
+        if len(best) != 1:
+            continue
+        after = best[0]
+        incoming = [
+            (source, count)
+            for (source, target), count in assignments.items()
+            if target == after
+            and source not in variant_lanes
+            and target not in reference_lanes
+        ]
+        reverse_count = max(count for _, count in incoming)
+        reverse = [source for source, count in incoming if count == reverse_count]
+        if reverse_count == best_count and reverse == [before]:
+            lane_renames[before] = after
+
+    operations: list[dict] = []
+    for before, after in sorted(lane_renames.items()):
+        operations.append(
+            {
+                "op": "RENAME_SWIMLANE",
+                "element": "swimlane",
+                "before": {"name": before},
+                "after": {"name": after},
+                "detail": f'"{before}" -> "{after}"',
+                "confidence": "high",
+                "needs_review": False,
+            }
+        )
+
+    for pair in alignment.matched_pairs:
+        before = reference.nodes[pair.a]
+        after = variant.nodes[pair.b]
+        expected_lane = lane_renames.get(before.lane, before.lane)
+        if expected_lane == after.lane:
+            continue
+        if before.lane == after.lane:
+            continue
+        operations.append(
+            {
+                "op": "CHANGE_SWIMLANE",
+                "element": "swimlane",
+                "before": _node_ref(reference, before.id),
+                "after": _node_ref(variant, after.id),
+                "detail": (
+                    f'{before.display_name}: "{before.lane or "(unassigned)"}" -> '
+                    f'"{after.lane or "(unassigned)"}"'
+                ),
+                "confidence": "high",
+                "needs_review": False,
+            }
+        )
+    return operations
+
+
 def _build_operations(
     reference: ProcessModel, variant: ProcessModel, alignment: Alignment
 ) -> list[dict]:
-    operations: list[dict] = []
+    operations: list[dict] = _lane_operations(reference, variant, alignment)
 
     for pair in alignment.matched_pairs:
         a = reference.nodes[pair.a]
@@ -213,10 +288,12 @@ def _build_operations(
         "DELETE": 0,
         "INSERT": 1,
         "RENAME": 2,
+        "RENAME_SWIMLANE": 3,
         "CHANGE_TYPE": 3,
         "CHANGE_GATEWAY_TYPE": 4,
-        "DELETE_FLOW": 5,
-        "INSERT_FLOW": 6,
+        "CHANGE_SWIMLANE": 5,
+        "DELETE_FLOW": 6,
+        "INSERT_FLOW": 7,
     }
     operations.sort(key=lambda op: (order.get(op["op"], 99), str(op.get("before") or op.get("after"))))
     return operations
@@ -464,7 +541,10 @@ def diff_models(
     needs_review = sum(1 for pair in alignment.pairs if pair.needs_review)
     has_structural = any(op["op"] in {"INSERT", "DELETE"} for op in operations)
     has_semantic = any(pair.label == "meaning_changed" for pair in alignment.pairs)
-    has_rename = operation_counts.get("RENAME", 0) > 0
+    has_rename = (
+        operation_counts.get("RENAME", 0) > 0
+        or operation_counts.get("RENAME_SWIMLANE", 0) > 0
+    )
     equivalent = behavior.get("equivalent")
 
     if not operations:
@@ -479,6 +559,8 @@ def diff_models(
         overall = "semantic_change"
     elif has_structural:
         overall = "structural_change_non_behavioral"
+    elif operation_counts.get("CHANGE_SWIMLANE", 0) > 0:
+        overall = "non_behavioral_swimlane_change"
     elif has_rename:
         overall = "non_behavioral_rename"
     else:

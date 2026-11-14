@@ -52,6 +52,19 @@ def _format_operation(operation: dict) -> str:
         if op == "RENAME":
             return f'RENAME               "{before}" -> "{after}"{review}'
         return f"{op:<20} {before}  [{detail}]{review}"
+    if op == "RENAME_SWIMLANE":
+        before = (operation.get("before") or {}).get("name", "?")
+        after = (operation.get("after") or {}).get("name", "?")
+        return f'RENAME_SWIMLANE     "{before}" -> "{after}"{review}'
+    if op == "CHANGE_SWIMLANE":
+        before = operation.get("before") or {}
+        after = operation.get("after") or {}
+        before_lane = before.get("lane") or "(unassigned)"
+        after_lane = after.get("lane") or "(unassigned)"
+        return (
+            f'CHANGE_SWIMLANE     {before.get("name", "?")}: '
+            f'"{before_lane}" -> "{after_lane}"{review}'
+        )
     if op in {"DELETE", "DELETE_FLOW"}:
         return f"{op:<20} {target}{review}"
     return f"{op:<20} {target}{review}"
@@ -283,6 +296,8 @@ def _md_table(headers: list[str], rows: list[list[str]]) -> str:
 
 def _render_a_markdown(result: dict) -> str:
     ref, var = result["reference"], result["variant"]
+    alignment = result.get("alignment", {})
+    counts = alignment.get("counts", {})
     behavior, fusion = result["behavior"], result["fusion"]
     lines = [
         f"# Pairwise comparison: {ref['name']} vs {var['name']}",
@@ -295,7 +310,23 @@ def _render_a_markdown(result: dict) -> str:
             ],
         ),
         "",
-        "## Edit script",
+        "## Alignment Summary",
+        "",
+        _md_table(
+            ["Identical", "Synonym", "Meaning Changed", "Deleted", "Inserted", "Needs Review"],
+            [
+                [
+                    str(counts.get("identical", 0)),
+                    str(counts.get("synonym", 0)),
+                    str(counts.get("meaning_changed", 0)),
+                    str(len([p for p in alignment.get("pairs", []) if p.get("a") and not p.get("b")])),
+                    str(len([p for p in alignment.get("pairs", []) if p.get("b") and not p.get("a")])),
+                    str(counts.get("needs_review", 0)),
+                ]
+            ],
+        ),
+        "",
+        f"## Edit script ({len(result['operations'])} operations)",
         "",
     ]
     if result["operations"]:
@@ -317,6 +348,11 @@ def _render_a_markdown(result: dict) -> str:
     bisim = behavior.get("branching_bisimulation")
     if bisim:
         lines.append(f"- Branching bisimulation: **{_behavior_word(bisim.get('equivalent'))}**")
+
+    if behavior.get("traces_a"):
+        lines += ["", "### Reference trace sample", ""]
+        for tr in behavior["traces_a"][:3]:
+            lines.append(f"- `{_trace(tr)}`")
 
     lines += ["", f"## SESE fragments ({result['fragments']['count']} regions)", ""]
     if result["fragments"]["affected"]:

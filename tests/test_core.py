@@ -101,6 +101,15 @@ class DecompositionTests(unittest.TestCase):
 
 
 class DiffTests(unittest.TestCase):
+    @staticmethod
+    def _assign_lanes(model: ProcessModel, assignments: dict[str, str]) -> ProcessModel:
+        for node in model.nodes.values():
+            if node.name in assignments:
+                node.lane = assignments[node.name]
+                if node.lane not in model.lanes:
+                    model.lanes.append(node.lane)
+        return model
+
     def test_rename_only_is_non_behavioural(self):
         a = make_model("a", ["Check form", "Save form"])
         b = make_model("b", ["Check form", "Store form"])
@@ -108,6 +117,47 @@ class DiffTests(unittest.TestCase):
         self.assertTrue(comparison.behavior["equivalent"])
         self.assertTrue(any(op["op"] == "RENAME" for op in comparison.operations))
         self.assertEqual(comparison.fusion["overall"], "non_behavioral_rename")
+
+    def test_swimlane_rename_is_not_reported_as_task_movement(self):
+        a = self._assign_lanes(
+            make_model("a", ["Review", "Approve"]),
+            {"Review": "Operations", "Approve": "Finance"},
+        )
+        b = self._assign_lanes(
+            make_model("b", ["Review", "Approve"]),
+            {"Review": "Service", "Approve": "Finance"},
+        )
+
+        comparison = diff_models(a, b, DiffOptions(bisimulation=False))
+
+        renames = [op for op in comparison.operations if op["op"] == "RENAME_SWIMLANE"]
+        self.assertEqual(len(renames), 1)
+        self.assertEqual(renames[0]["before"]["name"], "Operations")
+        self.assertEqual(renames[0]["after"]["name"], "Service")
+        self.assertFalse(any(op["op"] == "CHANGE_SWIMLANE" for op in comparison.operations))
+        self.assertTrue(comparison.behavior["equivalent"])
+        self.assertEqual(comparison.fusion["overall"], "non_behavioral_rename")
+
+    def test_task_moved_between_existing_swimlanes(self):
+        a = self._assign_lanes(
+            make_model("a", ["Review", "Approve"]),
+            {"Review": "Operations", "Approve": "Finance"},
+        )
+        b = self._assign_lanes(
+            make_model("b", ["Review", "Approve"]),
+            {"Review": "Finance", "Approve": "Finance"},
+        )
+
+        comparison = diff_models(a, b, DiffOptions(bisimulation=False))
+
+        changes = [op for op in comparison.operations if op["op"] == "CHANGE_SWIMLANE"]
+        self.assertEqual(len(changes), 1)
+        self.assertEqual(changes[0]["before"]["name"], "Review")
+        self.assertEqual(changes[0]["before"]["lane"], "Operations")
+        self.assertEqual(changes[0]["after"]["lane"], "Finance")
+        self.assertFalse(any(op["op"] == "RENAME_SWIMLANE" for op in comparison.operations))
+        self.assertTrue(comparison.behavior["equivalent"])
+        self.assertEqual(comparison.fusion["overall"], "non_behavioral_swimlane_change")
 
     def test_insert_operation_and_behaviour_change(self):
         a = make_model("a", ["Check form", "Save form"])

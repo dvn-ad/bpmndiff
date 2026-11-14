@@ -13,7 +13,7 @@ code and the demo evidence. The user-facing guide is [`../README.md`](../README.
 | SESE/RPST decomposition | `bpmndiff/decomposition.py`; dominator/postdominator candidate regions + boundary check | `test_regions_*`; affected regions in reports |
 | Relabel variant from alignment | `relabel_map()` in `alignment.py`, passed to LTS construction | `test_relabel_map_restores_equivalence` |
 | Per-fragment equivalence, only where behaviour differs | `diff._fragment_results()`; smallest affected region, inserted-node expansion, `open_ends=True` | 52/53 fragment `R05` returns a variant-only counterexample |
-| Edit ops: INSERT / DELETE / RENAME / CHANGE_GATEWAY_TYPE | `diff._build_operations()`; also `CHANGE_TYPE`, `INSERT_FLOW`, `DELETE_FLOW` | 52/53: INSERT + RENAME + flows; `test_gateway_type_change` |
+| Edit ops: INSERT / DELETE / RENAME / CHANGE_GATEWAY_TYPE / RENAME_SWIMLANE / CHANGE_SWIMLANE | `diff._build_operations()`; also `CHANGE_TYPE`, `INSERT_FLOW`, `DELETE_FLOW` | 52/53: INSERT + RENAME + flows; `test_gateway_type_change`; swimlane diff tests |
 | Pure-Python LTS, tau-closure, determinisation, trace compare | `bpmndiff/lts.py` | `test_sequential_models_equivalent`, `test_xor_vs_and_differ` |
 | Branching bisimulation via partition refinement | `bpmndiff/bisimulation.py`; tau-closure signatures | 54/55: equivalent; XOR/AND: separated |
 | Fusion matrix (four classes × behaviour) | `fusion` block in `diff.py` | `reports/*.md` |
