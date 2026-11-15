@@ -3,8 +3,5 @@
 __pycache__/
 *.egg-info/
 tasks/
-future.md
-spec.md
 .agents/
 AGENTS.md
-tasks/
