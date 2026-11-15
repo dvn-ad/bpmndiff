@@ -66,6 +66,23 @@ difference depends on whether the condition participates in the LTS execution.
 | Lane-only changes | — | `non_behavioral_swimlane_change` |
 | Exploration truncated | — | `inconclusive_behavior` |
 
+## 3b. Semantic detection layer (pair labelling)
+
+The semantic stage resolves *what a label pair means*, before fusion:
+
+| Mechanism | Code | Trigger | Label produced | Fusion effect |
+| --- | --- | --- | --- | --- |
+| Exact normalised label | `normalize_label` | equal after lowercasing / punctuation / whitespace normalisation | `identical` | unchanged |
+| Typo / spelling variant (1-token labels) | `label_similarity` | `SequenceMatcher.ratio ≥ 0.80` or Jaro-Winkler char-similarity ≥ 0.85 | high score (capped 0.95) → `synonym` if ≥ `synonym_threshold` (0.72) | treated as synonym → `non_behavioral_rename` when behaviour confirms equivalence |
+| Synonym (canonical token equivalence) | `canonical_tokens` + `_SYNONYMS` / `_PHRASES` | canonical token sets equal | `synonym` (score 0.94) | `non_behavioral_rename` |
+| Meaning change | `_CONTRAST_GROUPS` | different members of the same contrast group (`general`↔`corporate`, `old`↔`new`, `inpatient`↔`outpatient`, …) | `meaning_changed` (score capped ≤ 0.68) | `semantic_change`, plus behavioural check |
+| Ambiguous | `label_similarity` mid-range | score in `[review_low, review_high)` | `needs_review` | LLM adjudication (opt-in) or manual review |
+
+Resolution order in `_initial_pairs`: normalised labels equal → `identical`;
+else score ≥ 0.72 → `synonym`; else → `meaning_changed`. A pure rename
+(synonym + equivalent behaviour) results in a `RENAME_NODE` with subtype
+`synonym`; a semantic change results in subtype `meaning_changed`.
+
 ## 4. Current implementation status of the taxonomy
 
 - **Fully implemented**: operation emission, category assignment, fusion mapping, reporting (`bpmndiff/diff.py`, `bpmndiff/report.py`).
