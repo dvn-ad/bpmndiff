@@ -3,7 +3,9 @@
 A dependency-free Python prototype for comparing business process models
 across formats. It implements the pipeline described in
 [`docs/overview.md`](docs/overview.md) and the follow-up requirements in
-[`docs/feedback.md`](docs/feedback.md):
+[`docs/feedback.md`](docs/feedback.md). The full taxonomy of detectable
+operations — and which scope aspect each one maps to — lives in
+[`docs/taxonomy.md`](docs/taxonomy.md):
 
 ```
 parse & normalise (drop layout)
@@ -219,6 +221,10 @@ Supported operations: `INSERT`, `DELETE`, `RENAME`, `CHANGE_TYPE`,
 nodes whose lane name changed; a `CHANGE_SWIMLANE` operation identifies a
 matched node reassigned to a different lane. These organizational changes do
 not alter control-flow equivalence.
+
+The complete operation taxonomy — which operation detects which scope element
+and compared aspect — is specified in
+[`docs/taxonomy.md`](docs/taxonomy.md).
 
 Per-element fusion follows the table in the specification:
 
