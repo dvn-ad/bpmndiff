@@ -1,0 +1,158 @@
+{
+  "schema_version": "change-v1",
+  "dataset": "bpmndiff-synthetic-v1",
+  "base_id": "63",
+  "variant": "k2_keep",
+  "k": 2,
+  "id_policy": "keep",
+  "mutations": [
+    {
+      "kind": "node_type_change",
+      "node_id": "Id_082521f7-2373-493e-b116-ed46f8443646",
+      "before": "task",
+      "after": "userTask"
+    },
+    {
+      "kind": "rename_node",
+      "node_id": "Id_0a7a1082-affb-4bc8-bfb1-91f073d72dde",
+      "before": "Enters the medical record ID number",
+      "after": "Enters the financial record ID number"
+    }
+  ],
+  "operations": [
+    {
+      "schema_version": "change-v1",
+      "change": {
+        "type": "NODE_TYPE_CHANGE",
+        "legacy_type": "CHANGE_TYPE",
+        "category": 1,
+        "category_name": "Steps (tasks and events)",
+        "element": "node",
+        "before": {
+          "id": "Id_082521f7-2373-493e-b116-ed46f8443646",
+          "name": "Queries database",
+          "kind": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "lane": "System",
+          "pool": "Updates Patient Information"
+        },
+        "after": {
+          "id": "Id_082521f7-2373-493e-b116-ed46f8443646",
+          "name": "Queries database",
+          "kind": "task",
+          "task_type": "user",
+          "event_definition": "none",
+          "marker": "none",
+          "lane": "System",
+          "pool": "Updates Patient Information"
+        },
+        "detail": "abstract task -> user task",
+        "confidence": "high",
+        "needs_review": false
+      },
+      "evidence": {
+        "alignment": [],
+        "structural_context": [],
+        "observations": [
+          {
+            "source": "operation",
+            "description": "abstract task -> user task",
+            "value": {
+              "before": {
+                "id": "Id_082521f7-2373-493e-b116-ed46f8443646",
+                "name": "Queries database",
+                "kind": "task",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "none",
+                "lane": "System",
+                "pool": "Updates Patient Information"
+              },
+              "after": {
+                "id": "Id_082521f7-2373-493e-b116-ed46f8443646",
+                "name": "Queries database",
+                "kind": "task",
+                "task_type": "user",
+                "event_definition": "none",
+                "marker": "none",
+                "lane": "System",
+                "pool": "Updates Patient Information"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "schema_version": "change-v1",
+      "change": {
+        "type": "RENAME_NODE",
+        "legacy_type": "RENAME",
+        "category": 1,
+        "category_name": "Steps (tasks and events)",
+        "element": "node",
+        "before": {
+          "id": "Id_0a7a1082-affb-4bc8-bfb1-91f073d72dde",
+          "name": "Enters the medical record ID number",
+          "kind": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "lane": "ED",
+          "pool": "Updates Patient Information"
+        },
+        "after": {
+          "id": "Id_0a7a1082-affb-4bc8-bfb1-91f073d72dde",
+          "name": "Enters the financial record ID number",
+          "kind": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "lane": "ED",
+          "pool": "Updates Patient Information"
+        },
+        "detail": "\"Enters the medical record ID number\" -> \"Enters the financial record ID number\" (synonym)",
+        "confidence": "high",
+        "needs_review": false,
+        "label": "synonym",
+        "subtype": "synonym",
+        "is_synonym": true,
+        "score": 0.88
+      },
+      "evidence": {
+        "alignment": [],
+        "structural_context": [],
+        "observations": [
+          {
+            "source": "operation",
+            "description": "\"Enters the medical record ID number\" -> \"Enters the financial record ID number\" (synonym)",
+            "value": {
+              "before": {
+                "id": "Id_0a7a1082-affb-4bc8-bfb1-91f073d72dde",
+                "name": "Enters the medical record ID number",
+                "kind": "task",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "none",
+                "lane": "ED",
+                "pool": "Updates Patient Information"
+              },
+              "after": {
+                "id": "Id_0a7a1082-affb-4bc8-bfb1-91f073d72dde",
+                "name": "Enters the financial record ID number",
+                "kind": "task",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "none",
+                "lane": "ED",
+                "pool": "Updates Patient Information"
+              }
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

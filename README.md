@@ -45,6 +45,12 @@ python3 -m bpmndiff reference.xpdl variant.xpdl
 
 # Machine-readable output
 python3 -m bpmndiff a.xpdl b.xpdl --format json --out diff.json
+
+# Rebuild the synthetic 30-pair dataset (5 bases × k=1/2/4 × kept/new IDs)
+python3 -m bpmndiff generate
+
+# Score all four alignment modes against the generated ground truth
+python3 -m bpmndiff evaluate
 ```
 
 Optional installation as a console command, in a local virtual environment:
@@ -99,6 +105,49 @@ files.
 
 ---
 
+## Synthetic dataset & evaluation
+
+`bpmndiff generate` builds **30 mutation pairs** from five diagrams
+(`56`, `57`, `58`, `63`, `65` in the converted-XPDL dataset): `k = 1, 2, 4`
+injected changes, each with element IDs kept and with every XML ID
+regenerated. Every pair ships with a `change-v1` ground truth derived from the
+generator's element-identity map, and each ground-truth record validates
+against `schema/change-v1.json`.
+
+Ground truth follows the edit-script contract in
+[`docs/changes.md`](docs/changes.md): an inserted node is one `INSERT_NODE`
+plus the new flows among matched nodes, while flows incident to a deleted node
+are implied by its single `DELETE_NODE` and are not counted twice.
+
+```bash
+python3 -m bpmndiff generate   # dataset/synthetic/ (reference, variants, GT, manifest)
+python3 -m bpmndiff evaluate   # results/pilot.csv + pilot_pairs.csv + summaries
+```
+
+Pilot result (operation-level Precision / Recall / F1 over all 30 pairs):
+
+| Alignment mode | F1 (IDs kept) | F1 (IDs regenerated) | F1 (all) | FP | FN |
+|---|---:|---:|---:|---:|---:|
+| `id` | 1.000 | 0.075 | 0.197 | 687 | 30 |
+| `name` | 0.248 | 0.244 | 0.246 | 596 | 18 |
+| `structure` | 0.129 | 0.129 | 0.129 | 692 | 62 |
+| `hybrid` | 1.000 | 1.000 | 1.000 | 0 | 0 |
+
+`results/pilot.csv` breaks these numbers down per change type and per mode;
+`results/error_analysis.md` describes the three most frequent failure
+patterns with a concrete generated pair for each.
+
+The headline is identifier churn: `id` alignment is exact while IDs survive and
+collapses when a re-export renames every element. `hybrid` recovers the
+injected edit script exactly on this pilot, which is expected because the
+mutations stay within the signals hybrid combines. `name` alignment still
+detects renames well (F1 `1.000` for `RENAME_NODE`, `NODE_TYPE_CHANGE`,
+`MARKER_CHANGE`, `MOVE_LANE`) but produces flow-level false positives around
+unnamed gateways, and `structure` alignment skips structurally symmetric
+nodes and therefore misses both the node edit and its incident flows.
+
+---
+
 ## CLI reference
 
 ```
@@ -109,6 +158,10 @@ bpmndiff FILES... [--format {text,json,markdown}]
          [--threshold 0.45] [--fail-on-change]
 
 bpmndiff demo [--dataset PATH] [--out DIR]
+
+bpmndiff generate [--dataset DIR] [--out DIR] [--bases 56,57,58,63,65] [--seed SALT]
+bpmndiff evaluate [--manifest PATH] [--out DIR]
+                  [--modes id,name,structure,hybrid] [--bisimulation]
 ```
 
 | Option | Meaning |
@@ -121,6 +174,9 @@ bpmndiff demo [--dataset PATH] [--out DIR]
 | `--llm` | Send only ambiguous label pairs to an OpenAI-compatible endpoint. |
 | `--threshold` | Minimum label similarity for the lexical stage (default 0.45). |
 | `--fail-on-change` | Exit with status 1 when trace equivalence is `False` (CI gate). |
+| `generate --bases` | Comma-separated base diagram IDs (default: `56,57,58,63,65`). |
+| `evaluate --manifest` | Synthetic dataset manifest (default: `dataset/synthetic/manifest.json`). |
+| `evaluate --modes` | Alignment modes to score (default: all four). |
 
 Exit codes: `0` success, `1` behavioural change with `--fail-on-change`,
 `2` parse/input error.
@@ -259,10 +315,14 @@ FP/
 │   ├── lts.py             # token game, tau-closure, determinisation, traces
 │   ├── bisimulation.py    # partition-refinement behavioural check
 │   ├── diff.py            # edit script, fragment checks, fusion verdicts
+│   ├── generator.py       # synthetic mutation dataset + change-v1 ground truth
+│   ├── evaluation.py      # P/R/F1 per change type and alignment mode
 │   ├── report.py          # text / Markdown / JSON renderers
-│   └── cli.py             # argparse CLI + dataset demo
+│   └── cli.py             # argparse CLI, dataset demo, generate/evaluate
 ├── tests/                 # unittest suite (no third-party test runner)
 ├── reports/               # generated demo artefacts
+├── dataset/synthetic/     # generated reference/variant pairs + manifest
+├── results/               # pilot.csv, pair metrics, summary and error analysis
 ├── docs/                  # source specification documents
 └── pyproject.toml
 ```

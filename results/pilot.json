@@ -1,0 +1,1532 @@
+{
+  "manifest": "bpmndiff-synthetic-v1",
+  "bases": 5,
+  "counts": {
+    "id": {
+      "keep_ids": {
+        "RENAME_NODE": {
+          "tp": 6,
+          "fp": 0,
+          "fn": 0,
+          "support": 6,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "INSERT_NODE": {
+          "tp": 7,
+          "fp": 0,
+          "fn": 0,
+          "support": 7,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "INSERT_FLOW": {
+          "tp": 18,
+          "fp": 0,
+          "fn": 0,
+          "support": 18,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "DELETE_FLOW": {
+          "tp": 7,
+          "fp": 0,
+          "fn": 0,
+          "support": 7,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "NODE_TYPE_CHANGE": {
+          "tp": 4,
+          "fp": 0,
+          "fn": 0,
+          "support": 4,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "RENAME_LANE": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "DELETE_NODE": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0,
+          "support": 3,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "FLOW_CONDITION_CHANGE": {
+          "tp": 4,
+          "fp": 0,
+          "fn": 0,
+          "support": 4,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "DATA_CHANGE": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "MARKER_CHANGE": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0,
+          "support": 3,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "MOVE_LANE": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "support": 2,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "GATEWAY_TYPE_CHANGE": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0,
+          "support": 3,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "ALL": {
+          "tp": 59,
+          "fp": 0,
+          "fn": 0,
+          "support": 59,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        }
+      },
+      "new_ids": {
+        "INSERT_NODE": {
+          "tp": 7,
+          "fp": 228,
+          "fn": 0,
+          "support": 7,
+          "precision": 0.0298,
+          "recall": 1.0,
+          "f1": 0.0579
+        },
+        "DELETE_NODE": {
+          "tp": 3,
+          "fp": 228,
+          "fn": 0,
+          "support": 3,
+          "precision": 0.013,
+          "recall": 1.0,
+          "f1": 0.0256
+        },
+        "RENAME_NODE": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 6,
+          "support": 6,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "INSERT_FLOW": {
+          "tp": 18,
+          "fp": 229,
+          "fn": 0,
+          "support": 18,
+          "precision": 0.0729,
+          "recall": 1.0,
+          "f1": 0.1358
+        },
+        "DELETE_FLOW": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 7,
+          "support": 7,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "NODE_TYPE_CHANGE": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 4,
+          "support": 4,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "RENAME_LANE": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "support": 1,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "INSERT_LANE": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 0,
+          "support": 0,
+          "precision": 0.0,
+          "recall": 1.0,
+          "f1": 0.0
+        },
+        "DELETE_LANE": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 0,
+          "support": 0,
+          "precision": 0.0,
+          "recall": 1.0,
+          "f1": 0.0
+        },
+        "FLOW_CONDITION_CHANGE": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 4,
+          "support": 4,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "DATA_CHANGE": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "MARKER_CHANGE": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 3,
+          "support": 3,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "MOVE_LANE": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2,
+          "support": 2,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "GATEWAY_TYPE_CHANGE": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 3,
+          "support": 3,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "ALL": {
+          "tp": 29,
+          "fp": 687,
+          "fn": 30,
+          "support": 59,
+          "precision": 0.0405,
+          "recall": 0.4915,
+          "f1": 0.0748
+        }
+      },
+      "all": {
+        "RENAME_NODE": {
+          "tp": 6,
+          "fp": 0,
+          "fn": 6,
+          "support": 12,
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.6667
+        },
+        "INSERT_NODE": {
+          "tp": 14,
+          "fp": 228,
+          "fn": 0,
+          "support": 14,
+          "precision": 0.0579,
+          "recall": 1.0,
+          "f1": 0.1094
+        },
+        "DELETE_NODE": {
+          "tp": 6,
+          "fp": 228,
+          "fn": 0,
+          "support": 6,
+          "precision": 0.0256,
+          "recall": 1.0,
+          "f1": 0.05
+        },
+        "INSERT_FLOW": {
+          "tp": 36,
+          "fp": 229,
+          "fn": 0,
+          "support": 36,
+          "precision": 0.1358,
+          "recall": 1.0,
+          "f1": 0.2392
+        },
+        "DELETE_FLOW": {
+          "tp": 7,
+          "fp": 0,
+          "fn": 7,
+          "support": 14,
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.6667
+        },
+        "NODE_TYPE_CHANGE": {
+          "tp": 4,
+          "fp": 0,
+          "fn": 4,
+          "support": 8,
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.6667
+        },
+        "RENAME_LANE": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 1,
+          "support": 2,
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.6667
+        },
+        "INSERT_LANE": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 0,
+          "support": 0,
+          "precision": 0.0,
+          "recall": 1.0,
+          "f1": 0.0
+        },
+        "DELETE_LANE": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 0,
+          "support": 0,
+          "precision": 0.0,
+          "recall": 1.0,
+          "f1": 0.0
+        },
+        "FLOW_CONDITION_CHANGE": {
+          "tp": 4,
+          "fp": 0,
+          "fn": 4,
+          "support": 8,
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.6667
+        },
+        "DATA_CHANGE": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "support": 2,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "MARKER_CHANGE": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 3,
+          "support": 6,
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.6667
+        },
+        "MOVE_LANE": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 2,
+          "support": 4,
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.6667
+        },
+        "GATEWAY_TYPE_CHANGE": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 3,
+          "support": 6,
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.6667
+        },
+        "ALL": {
+          "tp": 88,
+          "fp": 687,
+          "fn": 30,
+          "support": 118,
+          "precision": 0.1135,
+          "recall": 0.7458,
+          "f1": 0.1971
+        }
+      }
+    },
+    "name": {
+      "keep_ids": {
+        "INSERT_NODE": {
+          "tp": 7,
+          "fp": 72,
+          "fn": 0,
+          "support": 7,
+          "precision": 0.0886,
+          "recall": 1.0,
+          "f1": 0.1628
+        },
+        "DELETE_NODE": {
+          "tp": 3,
+          "fp": 72,
+          "fn": 0,
+          "support": 3,
+          "precision": 0.04,
+          "recall": 1.0,
+          "f1": 0.0769
+        },
+        "RENAME_NODE": {
+          "tp": 6,
+          "fp": 0,
+          "fn": 0,
+          "support": 6,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "INSERT_FLOW": {
+          "tp": 18,
+          "fp": 151,
+          "fn": 0,
+          "support": 18,
+          "precision": 0.1065,
+          "recall": 1.0,
+          "f1": 0.1925
+        },
+        "DELETE_FLOW": {
+          "tp": 4,
+          "fp": 0,
+          "fn": 3,
+          "support": 7,
+          "precision": 1.0,
+          "recall": 0.5714,
+          "f1": 0.7273
+        },
+        "NODE_TYPE_CHANGE": {
+          "tp": 4,
+          "fp": 0,
+          "fn": 0,
+          "support": 4,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "RENAME_LANE": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "FLOW_CONDITION_CHANGE": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 3,
+          "support": 4,
+          "precision": 1.0,
+          "recall": 0.25,
+          "f1": 0.4
+        },
+        "DATA_CHANGE": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "MARKER_CHANGE": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0,
+          "support": 3,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "MOVE_LANE": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "support": 2,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "GATEWAY_TYPE_CHANGE": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 3,
+          "support": 3,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "ALL": {
+          "tp": 50,
+          "fp": 295,
+          "fn": 9,
+          "support": 59,
+          "precision": 0.1449,
+          "recall": 0.8475,
+          "f1": 0.2475
+        }
+      },
+      "new_ids": {
+        "INSERT_NODE": {
+          "tp": 7,
+          "fp": 72,
+          "fn": 0,
+          "support": 7,
+          "precision": 0.0886,
+          "recall": 1.0,
+          "f1": 0.1628
+        },
+        "DELETE_NODE": {
+          "tp": 3,
+          "fp": 72,
+          "fn": 0,
+          "support": 3,
+          "precision": 0.04,
+          "recall": 1.0,
+          "f1": 0.0769
+        },
+        "RENAME_NODE": {
+          "tp": 6,
+          "fp": 0,
+          "fn": 0,
+          "support": 6,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "INSERT_FLOW": {
+          "tp": 18,
+          "fp": 154,
+          "fn": 0,
+          "support": 18,
+          "precision": 0.1047,
+          "recall": 1.0,
+          "f1": 0.1895
+        },
+        "DELETE_FLOW": {
+          "tp": 4,
+          "fp": 3,
+          "fn": 3,
+          "support": 7,
+          "precision": 0.5714,
+          "recall": 0.5714,
+          "f1": 0.5714
+        },
+        "NODE_TYPE_CHANGE": {
+          "tp": 4,
+          "fp": 0,
+          "fn": 0,
+          "support": 4,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "RENAME_LANE": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "FLOW_CONDITION_CHANGE": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 3,
+          "support": 4,
+          "precision": 1.0,
+          "recall": 0.25,
+          "f1": 0.4
+        },
+        "DATA_CHANGE": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "MARKER_CHANGE": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0,
+          "support": 3,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "MOVE_LANE": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "support": 2,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "GATEWAY_TYPE_CHANGE": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 3,
+          "support": 3,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "ALL": {
+          "tp": 50,
+          "fp": 301,
+          "fn": 9,
+          "support": 59,
+          "precision": 0.1425,
+          "recall": 0.8475,
+          "f1": 0.2439
+        }
+      },
+      "all": {
+        "INSERT_NODE": {
+          "tp": 14,
+          "fp": 144,
+          "fn": 0,
+          "support": 14,
+          "precision": 0.0886,
+          "recall": 1.0,
+          "f1": 0.1628
+        },
+        "DELETE_NODE": {
+          "tp": 6,
+          "fp": 144,
+          "fn": 0,
+          "support": 6,
+          "precision": 0.04,
+          "recall": 1.0,
+          "f1": 0.0769
+        },
+        "RENAME_NODE": {
+          "tp": 12,
+          "fp": 0,
+          "fn": 0,
+          "support": 12,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "INSERT_FLOW": {
+          "tp": 36,
+          "fp": 305,
+          "fn": 0,
+          "support": 36,
+          "precision": 0.1056,
+          "recall": 1.0,
+          "f1": 0.191
+        },
+        "DELETE_FLOW": {
+          "tp": 8,
+          "fp": 3,
+          "fn": 6,
+          "support": 14,
+          "precision": 0.7273,
+          "recall": 0.5714,
+          "f1": 0.64
+        },
+        "NODE_TYPE_CHANGE": {
+          "tp": 8,
+          "fp": 0,
+          "fn": 0,
+          "support": 8,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "RENAME_LANE": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "support": 2,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "FLOW_CONDITION_CHANGE": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 6,
+          "support": 8,
+          "precision": 1.0,
+          "recall": 0.25,
+          "f1": 0.4
+        },
+        "DATA_CHANGE": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "support": 2,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "MARKER_CHANGE": {
+          "tp": 6,
+          "fp": 0,
+          "fn": 0,
+          "support": 6,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "MOVE_LANE": {
+          "tp": 4,
+          "fp": 0,
+          "fn": 0,
+          "support": 4,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "GATEWAY_TYPE_CHANGE": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 6,
+          "support": 6,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "ALL": {
+          "tp": 100,
+          "fp": 596,
+          "fn": 18,
+          "support": 118,
+          "precision": 0.1437,
+          "recall": 0.8475,
+          "f1": 0.2457
+        }
+      }
+    },
+    "structure": {
+      "keep_ids": {
+        "RENAME_NODE": {
+          "tp": 2,
+          "fp": 4,
+          "fn": 4,
+          "support": 6,
+          "precision": 0.3333,
+          "recall": 0.3333,
+          "f1": 0.3333
+        },
+        "INSERT_NODE": {
+          "tp": 5,
+          "fp": 107,
+          "fn": 2,
+          "support": 7,
+          "precision": 0.0446,
+          "recall": 0.7143,
+          "f1": 0.084
+        },
+        "DELETE_NODE": {
+          "tp": 1,
+          "fp": 107,
+          "fn": 2,
+          "support": 3,
+          "precision": 0.0093,
+          "recall": 0.3333,
+          "f1": 0.018
+        },
+        "INSERT_FLOW": {
+          "tp": 12,
+          "fp": 124,
+          "fn": 6,
+          "support": 18,
+          "precision": 0.0882,
+          "recall": 0.6667,
+          "f1": 0.1558
+        },
+        "DELETE_FLOW": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 7,
+          "support": 7,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "NODE_TYPE_CHANGE": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 2,
+          "support": 4,
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.6667
+        },
+        "RENAME_LANE": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "support": 1,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "INSERT_LANE": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 0,
+          "support": 0,
+          "precision": 0.0,
+          "recall": 1.0,
+          "f1": 0.0
+        },
+        "DELETE_LANE": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 0,
+          "support": 0,
+          "precision": 0.0,
+          "recall": 1.0,
+          "f1": 0.0
+        },
+        "MOVE_LANE": {
+          "tp": 1,
+          "fp": 2,
+          "fn": 1,
+          "support": 2,
+          "precision": 0.3333,
+          "recall": 0.5,
+          "f1": 0.4
+        },
+        "FLOW_CONDITION_CHANGE": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 3,
+          "support": 4,
+          "precision": 1.0,
+          "recall": 0.25,
+          "f1": 0.4
+        },
+        "DATA_CHANGE": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "MARKER_CHANGE": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 1,
+          "support": 3,
+          "precision": 1.0,
+          "recall": 0.6667,
+          "f1": 0.8
+        },
+        "GATEWAY_TYPE_CHANGE": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 2,
+          "support": 3,
+          "precision": 1.0,
+          "recall": 0.3333,
+          "f1": 0.5
+        },
+        "ALL": {
+          "tp": 28,
+          "fp": 346,
+          "fn": 31,
+          "support": 59,
+          "precision": 0.0749,
+          "recall": 0.4746,
+          "f1": 0.1293
+        }
+      },
+      "new_ids": {
+        "RENAME_NODE": {
+          "tp": 2,
+          "fp": 4,
+          "fn": 4,
+          "support": 6,
+          "precision": 0.3333,
+          "recall": 0.3333,
+          "f1": 0.3333
+        },
+        "INSERT_NODE": {
+          "tp": 5,
+          "fp": 107,
+          "fn": 2,
+          "support": 7,
+          "precision": 0.0446,
+          "recall": 0.7143,
+          "f1": 0.084
+        },
+        "DELETE_NODE": {
+          "tp": 1,
+          "fp": 107,
+          "fn": 2,
+          "support": 3,
+          "precision": 0.0093,
+          "recall": 0.3333,
+          "f1": 0.018
+        },
+        "INSERT_FLOW": {
+          "tp": 12,
+          "fp": 124,
+          "fn": 6,
+          "support": 18,
+          "precision": 0.0882,
+          "recall": 0.6667,
+          "f1": 0.1558
+        },
+        "DELETE_FLOW": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 7,
+          "support": 7,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "NODE_TYPE_CHANGE": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 2,
+          "support": 4,
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.6667
+        },
+        "RENAME_LANE": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "support": 1,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "INSERT_LANE": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 0,
+          "support": 0,
+          "precision": 0.0,
+          "recall": 1.0,
+          "f1": 0.0
+        },
+        "DELETE_LANE": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 0,
+          "support": 0,
+          "precision": 0.0,
+          "recall": 1.0,
+          "f1": 0.0
+        },
+        "MOVE_LANE": {
+          "tp": 1,
+          "fp": 2,
+          "fn": 1,
+          "support": 2,
+          "precision": 0.3333,
+          "recall": 0.5,
+          "f1": 0.4
+        },
+        "FLOW_CONDITION_CHANGE": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 3,
+          "support": 4,
+          "precision": 1.0,
+          "recall": 0.25,
+          "f1": 0.4
+        },
+        "DATA_CHANGE": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "MARKER_CHANGE": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 1,
+          "support": 3,
+          "precision": 1.0,
+          "recall": 0.6667,
+          "f1": 0.8
+        },
+        "GATEWAY_TYPE_CHANGE": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 2,
+          "support": 3,
+          "precision": 1.0,
+          "recall": 0.3333,
+          "f1": 0.5
+        },
+        "ALL": {
+          "tp": 28,
+          "fp": 346,
+          "fn": 31,
+          "support": 59,
+          "precision": 0.0749,
+          "recall": 0.4746,
+          "f1": 0.1293
+        }
+      },
+      "all": {
+        "RENAME_NODE": {
+          "tp": 4,
+          "fp": 8,
+          "fn": 8,
+          "support": 12,
+          "precision": 0.3333,
+          "recall": 0.3333,
+          "f1": 0.3333
+        },
+        "INSERT_NODE": {
+          "tp": 10,
+          "fp": 214,
+          "fn": 4,
+          "support": 14,
+          "precision": 0.0446,
+          "recall": 0.7143,
+          "f1": 0.084
+        },
+        "DELETE_NODE": {
+          "tp": 2,
+          "fp": 214,
+          "fn": 4,
+          "support": 6,
+          "precision": 0.0093,
+          "recall": 0.3333,
+          "f1": 0.018
+        },
+        "INSERT_FLOW": {
+          "tp": 24,
+          "fp": 248,
+          "fn": 12,
+          "support": 36,
+          "precision": 0.0882,
+          "recall": 0.6667,
+          "f1": 0.1558
+        },
+        "DELETE_FLOW": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 14,
+          "support": 14,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "NODE_TYPE_CHANGE": {
+          "tp": 4,
+          "fp": 0,
+          "fn": 4,
+          "support": 8,
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.6667
+        },
+        "RENAME_LANE": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2,
+          "support": 2,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "INSERT_LANE": {
+          "tp": 0,
+          "fp": 2,
+          "fn": 0,
+          "support": 0,
+          "precision": 0.0,
+          "recall": 1.0,
+          "f1": 0.0
+        },
+        "DELETE_LANE": {
+          "tp": 0,
+          "fp": 2,
+          "fn": 0,
+          "support": 0,
+          "precision": 0.0,
+          "recall": 1.0,
+          "f1": 0.0
+        },
+        "MOVE_LANE": {
+          "tp": 2,
+          "fp": 4,
+          "fn": 2,
+          "support": 4,
+          "precision": 0.3333,
+          "recall": 0.5,
+          "f1": 0.4
+        },
+        "FLOW_CONDITION_CHANGE": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 6,
+          "support": 8,
+          "precision": 1.0,
+          "recall": 0.25,
+          "f1": 0.4
+        },
+        "DATA_CHANGE": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "support": 2,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "MARKER_CHANGE": {
+          "tp": 4,
+          "fp": 0,
+          "fn": 2,
+          "support": 6,
+          "precision": 1.0,
+          "recall": 0.6667,
+          "f1": 0.8
+        },
+        "GATEWAY_TYPE_CHANGE": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 4,
+          "support": 6,
+          "precision": 1.0,
+          "recall": 0.3333,
+          "f1": 0.5
+        },
+        "ALL": {
+          "tp": 56,
+          "fp": 692,
+          "fn": 62,
+          "support": 118,
+          "precision": 0.0749,
+          "recall": 0.4746,
+          "f1": 0.1293
+        }
+      }
+    },
+    "hybrid": {
+      "keep_ids": {
+        "RENAME_NODE": {
+          "tp": 6,
+          "fp": 0,
+          "fn": 0,
+          "support": 6,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "INSERT_NODE": {
+          "tp": 7,
+          "fp": 0,
+          "fn": 0,
+          "support": 7,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "INSERT_FLOW": {
+          "tp": 18,
+          "fp": 0,
+          "fn": 0,
+          "support": 18,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "DELETE_FLOW": {
+          "tp": 7,
+          "fp": 0,
+          "fn": 0,
+          "support": 7,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "NODE_TYPE_CHANGE": {
+          "tp": 4,
+          "fp": 0,
+          "fn": 0,
+          "support": 4,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "RENAME_LANE": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "DELETE_NODE": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0,
+          "support": 3,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "FLOW_CONDITION_CHANGE": {
+          "tp": 4,
+          "fp": 0,
+          "fn": 0,
+          "support": 4,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "DATA_CHANGE": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "MARKER_CHANGE": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0,
+          "support": 3,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "MOVE_LANE": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "support": 2,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "GATEWAY_TYPE_CHANGE": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0,
+          "support": 3,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "ALL": {
+          "tp": 59,
+          "fp": 0,
+          "fn": 0,
+          "support": 59,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        }
+      },
+      "new_ids": {
+        "RENAME_NODE": {
+          "tp": 6,
+          "fp": 0,
+          "fn": 0,
+          "support": 6,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "INSERT_NODE": {
+          "tp": 7,
+          "fp": 0,
+          "fn": 0,
+          "support": 7,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "INSERT_FLOW": {
+          "tp": 18,
+          "fp": 0,
+          "fn": 0,
+          "support": 18,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "DELETE_FLOW": {
+          "tp": 7,
+          "fp": 0,
+          "fn": 0,
+          "support": 7,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "NODE_TYPE_CHANGE": {
+          "tp": 4,
+          "fp": 0,
+          "fn": 0,
+          "support": 4,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "RENAME_LANE": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "DELETE_NODE": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0,
+          "support": 3,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "FLOW_CONDITION_CHANGE": {
+          "tp": 4,
+          "fp": 0,
+          "fn": 0,
+          "support": 4,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "DATA_CHANGE": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "support": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "MARKER_CHANGE": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0,
+          "support": 3,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "MOVE_LANE": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "support": 2,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "GATEWAY_TYPE_CHANGE": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0,
+          "support": 3,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "ALL": {
+          "tp": 59,
+          "fp": 0,
+          "fn": 0,
+          "support": 59,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        }
+      },
+      "all": {
+        "RENAME_NODE": {
+          "tp": 12,
+          "fp": 0,
+          "fn": 0,
+          "support": 12,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "INSERT_NODE": {
+          "tp": 14,
+          "fp": 0,
+          "fn": 0,
+          "support": 14,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "INSERT_FLOW": {
+          "tp": 36,
+          "fp": 0,
+          "fn": 0,
+          "support": 36,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "DELETE_FLOW": {
+          "tp": 14,
+          "fp": 0,
+          "fn": 0,
+          "support": 14,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "NODE_TYPE_CHANGE": {
+          "tp": 8,
+          "fp": 0,
+          "fn": 0,
+          "support": 8,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "RENAME_LANE": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "support": 2,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "DELETE_NODE": {
+          "tp": 6,
+          "fp": 0,
+          "fn": 0,
+          "support": 6,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "FLOW_CONDITION_CHANGE": {
+          "tp": 8,
+          "fp": 0,
+          "fn": 0,
+          "support": 8,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "DATA_CHANGE": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "support": 2,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "MARKER_CHANGE": {
+          "tp": 6,
+          "fp": 0,
+          "fn": 0,
+          "support": 6,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "MOVE_LANE": {
+          "tp": 4,
+          "fp": 0,
+          "fn": 0,
+          "support": 4,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "GATEWAY_TYPE_CHANGE": {
+          "tp": 6,
+          "fp": 0,
+          "fn": 0,
+          "support": 6,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "ALL": {
+          "tp": 118,
+          "fp": 0,
+          "fn": 0,
+          "support": 118,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,300 @@
+{
+  "schema_version": "change-v1",
+  "dataset": "bpmndiff-synthetic-v1",
+  "base_id": "57",
+  "variant": "k2_keep",
+  "k": 2,
+  "id_policy": "keep",
+  "mutations": [
+    {
+      "kind": "insert_node",
+      "node_id": "Mut_Node_2",
+      "name": "Adds verification step 2",
+      "after_node": "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598",
+      "edge_id": "Id_020b66b9-eef9-4687-bffe-51dc41bb63d3"
+    },
+    {
+      "kind": "delete_node",
+      "node_id": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+      "name": "Selects the room category",
+      "reconnect": {
+        "source": "Id_b95890b5-92e4-432a-b709-a96b40733427",
+        "target": "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49"
+      }
+    }
+  ],
+  "operations": [
+    {
+      "schema_version": "change-v1",
+      "change": {
+        "type": "DELETE_NODE",
+        "legacy_type": "DELETE",
+        "category": 1,
+        "category_name": "Steps (tasks and events)",
+        "element": "node",
+        "before": {
+          "id": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+          "name": "Selects the room category",
+          "kind": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "lane": "FO",
+          "pool": "Looking for room data"
+        },
+        "after": null,
+        "detail": "removed task: Selects the room category",
+        "confidence": "high",
+        "needs_review": false,
+        "label": "unmatched"
+      },
+      "evidence": {
+        "alignment": [],
+        "structural_context": [],
+        "observations": [
+          {
+            "source": "operation",
+            "description": "removed task: Selects the room category",
+            "value": {
+              "before": {
+                "id": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+                "name": "Selects the room category",
+                "kind": "task",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "none",
+                "lane": "FO",
+                "pool": "Looking for room data"
+              },
+              "after": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "schema_version": "change-v1",
+      "change": {
+        "type": "INSERT_NODE",
+        "legacy_type": "INSERT",
+        "category": 1,
+        "category_name": "Steps (tasks and events)",
+        "element": "node",
+        "before": null,
+        "after": {
+          "id": "Mut_Node_2",
+          "name": "Adds verification step 2",
+          "kind": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "lane": "System",
+          "pool": "Looking for room data"
+        },
+        "detail": "added task: Adds verification step 2",
+        "confidence": "high",
+        "needs_review": false,
+        "label": "unmatched"
+      },
+      "evidence": {
+        "alignment": [],
+        "structural_context": [],
+        "observations": [
+          {
+            "source": "operation",
+            "description": "added task: Adds verification step 2",
+            "value": {
+              "before": null,
+              "after": {
+                "id": "Mut_Node_2",
+                "name": "Adds verification step 2",
+                "kind": "task",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "none",
+                "lane": "System",
+                "pool": "Looking for room data"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "schema_version": "change-v1",
+      "change": {
+        "type": "DELETE_FLOW",
+        "legacy_type": "DELETE_FLOW",
+        "category": 3,
+        "category_name": "Sequence, flow, and branching",
+        "element": "flow",
+        "before": {
+          "source": "Queries to the Rooms database",
+          "target": "Displays the query results to a table",
+          "source_id": "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49",
+          "target_id": "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598",
+          "condition": "",
+          "is_default": false
+        },
+        "after": null,
+        "detail": "flow removed from \"Queries to the Rooms database\" to \"Displays the query results to a table\" (1x)",
+        "confidence": "high",
+        "needs_review": false,
+        "label": "unmatched"
+      },
+      "evidence": {
+        "alignment": [],
+        "structural_context": [],
+        "observations": [
+          {
+            "source": "operation",
+            "description": "flow removed from \"Queries to the Rooms database\" to \"Displays the query results to a table\" (1x)",
+            "value": {
+              "before": {
+                "source": "Queries to the Rooms database",
+                "target": "Displays the query results to a table",
+                "source_id": "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49",
+                "target_id": "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598",
+                "condition": "",
+                "is_default": false
+              },
+              "after": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "schema_version": "change-v1",
+      "change": {
+        "type": "INSERT_FLOW",
+        "legacy_type": "INSERT_FLOW",
+        "category": 3,
+        "category_name": "Sequence, flow, and branching",
+        "element": "flow",
+        "before": null,
+        "after": {
+          "source": "Adds verification step 2",
+          "target": "Displays the query results to a table",
+          "source_id": "Mut_Node_2",
+          "target_id": "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598",
+          "condition": "",
+          "is_default": false
+        },
+        "detail": "flow added from \"Adds verification step 2\" to \"Displays the query results to a table\" (1x)",
+        "confidence": "high",
+        "needs_review": false,
+        "label": "unmatched"
+      },
+      "evidence": {
+        "alignment": [],
+        "structural_context": [],
+        "observations": [
+          {
+            "source": "operation",
+            "description": "flow added from \"Adds verification step 2\" to \"Displays the query results to a table\" (1x)",
+            "value": {
+              "before": null,
+              "after": {
+                "source": "Adds verification step 2",
+                "target": "Displays the query results to a table",
+                "source_id": "Mut_Node_2",
+                "target_id": "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598",
+                "condition": "",
+                "is_default": false
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "schema_version": "change-v1",
+      "change": {
+        "type": "INSERT_FLOW",
+        "legacy_type": "INSERT_FLOW",
+        "category": 3,
+        "category_name": "Sequence, flow, and branching",
+        "element": "flow",
+        "before": null,
+        "after": {
+          "source": "Displays the Looking for room data form",
+          "target": "Queries to the Rooms database",
+          "source_id": "Id_b95890b5-92e4-432a-b709-a96b40733427",
+          "target_id": "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49",
+          "condition": "",
+          "is_default": false
+        },
+        "detail": "flow added from \"Displays the Looking for room data form\" to \"Queries to the Rooms database\" (1x)",
+        "confidence": "high",
+        "needs_review": false,
+        "label": "unmatched"
+      },
+      "evidence": {
+        "alignment": [],
+        "structural_context": [],
+        "observations": [
+          {
+            "source": "operation",
+            "description": "flow added from \"Displays the Looking for room data form\" to \"Queries to the Rooms database\" (1x)",
+            "value": {
+              "before": null,
+              "after": {
+                "source": "Displays the Looking for room data form",
+                "target": "Queries to the Rooms database",
+                "source_id": "Id_b95890b5-92e4-432a-b709-a96b40733427",
+                "target_id": "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49",
+                "condition": "",
+                "is_default": false
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "schema_version": "change-v1",
+      "change": {
+        "type": "INSERT_FLOW",
+        "legacy_type": "INSERT_FLOW",
+        "category": 3,
+        "category_name": "Sequence, flow, and branching",
+        "element": "flow",
+        "before": null,
+        "after": {
+          "source": "Queries to the Rooms database",
+          "target": "Adds verification step 2",
+          "source_id": "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49",
+          "target_id": "Mut_Node_2",
+          "condition": "",
+          "is_default": false
+        },
+        "detail": "flow added from \"Queries to the Rooms database\" to \"Adds verification step 2\" (1x)",
+        "confidence": "high",
+        "needs_review": false,
+        "label": "unmatched"
+      },
+      "evidence": {
+        "alignment": [],
+        "structural_context": [],
+        "observations": [
+          {
+            "source": "operation",
+            "description": "flow added from \"Queries to the Rooms database\" to \"Adds verification step 2\" (1x)",
+            "value": {
+              "before": null,
+              "after": {
+                "source": "Queries to the Rooms database",
+                "target": "Adds verification step 2",
+                "source_id": "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49",
+                "target_id": "Mut_Node_2",
+                "condition": "",
+                "is_default": false
+              }
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

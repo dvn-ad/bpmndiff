@@ -12,7 +12,7 @@ from bpmndiff.parsers import load_model
 
 class CashierRegressionTests(unittest.TestCase):
     def test_invisible_task_aligns_to_renamed_message_task(self):
-        dataset = Path(__file__).resolve().parents[1] / "dataset"
+        dataset = Path(__file__).resolve().parents[1] / "dataset" / "2"
         reference = load_model(str(dataset / "Cashier 1.bpmn"))
         variant = load_model(str(dataset / "Cashier 2.bpmn"))
 
@@ -80,7 +80,7 @@ class CashierRegressionTests(unittest.TestCase):
         self.assertFalse(any(operation["op"] == "RENAME_NODE" for operation in comparison.operations))
 
     def test_hybrid_matches_lexically_related_task_by_unique_context(self):
-        dataset = Path(__file__).resolve().parents[1] / "dataset"
+        dataset = Path(__file__).resolve().parents[1] / "dataset" / "2"
         reference = load_model(str(dataset / "Cashier 1.bpmn"))
         variant = load_model(str(dataset / "Cashier 3.bpmn"))
 

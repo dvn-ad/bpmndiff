@@ -31,9 +31,10 @@ Memisahkan strategi pencocokan agar dapat diuji secara adil (*ablation study*) s
 ## 3. Synthetic Dataset Generator & Regression Test
 Membangun dataset uji sintetis beserta *ground truth* otomatis serta mengunci kasus uji regresi utama.
 
-- [ ] **Generator 30 Pasangan Mutasi (`k = 1, 2, 4`)**
+- [x] **Generator 30 Pasangan Mutasi (`k = 1, 2, 4`)**
   - Menyuntikkan $k$ mutasi terkontrol ($k=1$ perubahan tunggal, $k=2$ perubahan ganda, $k=4$ perubahan kompleks) ke model referensi sekaligus menghasilkan kunci jawaban dalam format JSON v1.
   - Setiap variasi diuji dalam 2 skenario: **ID dipertahankan** vs **ID diganti total** (mensimulasikan kondisi *re-export* diagram).
+  - Implementasi: `bpmndiff/generator.py`, perintah `bpmndiff generate`; keluaran di `dataset/synthetic/` (30 pasangan + `manifest.json`).
 - [ ] **10 Pasangan *Noise***
   - Pasangan diagram yang secara semantik dan struktural identik, namun diberi gangguan (*noise*) seperti perubahan UUID total, pergeseran koordinat X/Y, atau variasi spasi/kapitalisasi untuk menguji ketahanan terhadap *false positive*.
 - [x] **Regression Test Kasus `Cashier` ("Invisible Task")**
@@ -46,10 +47,12 @@ Melakukan evaluasi ilmiah secara kuantitatif terhadap sistem yang dibangun maupu
 
 - [ ] **Baseline Pembanding (`bpmn-js-differ`)**
   - Menjalankan `bpmn-js-differ` pada 30 pasangan dataset yang sama sebagai tolok ukur (*benchmark*), khususnya pada skenario pergantian ID.
-- [ ] **Evaluation Harness (`results/pilot.csv`)**
+- [x] **Evaluation Harness (`results/pilot.csv`)**
   - Skrip otomatis untuk membandingkan hasil deteksi sistem dan baseline terhadap *ground truth*, lalu menghitung metrik **Precision**, **Recall**, dan **F1-Score** yang dirinci **per jenis perubahan** dan **per mode** (`id`, `name`, `structure`, `hybrid`).
-- [ ] **Analisis Kegagalan (*Error Analysis*)**
+  - Implementasi: `bpmndiff/evaluation.py`, perintah `bpmndiff evaluate`; keluaran `results/pilot.csv` (+ `pilot_pairs.csv`, `pilot_summary.md`, `pilot.json`).
+- [x] **Analisis Kegagalan (*Error Analysis*)**
   - Mengidentifikasi **3 pola kegagalan paling sering** yang terjadi pada sistem, dilengkapi **1 contoh kasus diagram** untuk masing-masing pola kegagalan.
+  - Keluaran: `results/error_analysis.md`.
 
 ---
 

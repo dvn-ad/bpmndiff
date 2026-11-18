@@ -1,0 +1,1213 @@
+{
+  "schema": "bpmndiff-synthetic-v1",
+  "seed": "bpmndiff",
+  "base_dataset": "dataset/BPMN Diagrams Dataset of Functional Requirements/Converted XPDL",
+  "bases": [
+    {
+      "base_id": "56",
+      "source": "dataset/BPMN Diagrams Dataset of Functional Requirements/Converted XPDL/56.bpmn",
+      "reference": "56/reference.bpmn",
+      "reference_model": {
+        "name": "56.bpmn",
+        "nodes": 11,
+        "edges": 11,
+        "lanes": [
+          "FO",
+          "System"
+        ]
+      },
+      "variants": [
+        {
+          "variant": "k1_keep",
+          "k": 1,
+          "id_policy": "keep",
+          "path": "56/k1_keep.bpmn",
+          "ground_truth": "56/k1_keep.groundtruth.json",
+          "mutations": [
+            "rename_node"
+          ],
+          "node_map": {
+            "Id_92cb515c-ae81-4364-a587-772f1bcc50f5": "Id_92cb515c-ae81-4364-a587-772f1bcc50f5",
+            "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7": "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7",
+            "Id_1164e919-3f27-4d09-9a69-2a33a2e98847": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+            "Id_b95890b5-92e4-432a-b709-a96b40733427": "Id_b95890b5-92e4-432a-b709-a96b40733427",
+            "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49": "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49",
+            "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598": "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598",
+            "Id_b210868a-cf5c-4157-b86e-b21d426d3851": "Id_b210868a-cf5c-4157-b86e-b21d426d3851",
+            "Id_ac3f7a9c-28e9-4a90-8928-edfd64206da8": "Id_ac3f7a9c-28e9-4a90-8928-edfd64206da8",
+            "Id_a7308178-06d5-4269-8dc8-3ff4655e05ad": "Id_a7308178-06d5-4269-8dc8-3ff4655e05ad",
+            "Id_ffd9beac-13dd-4c0f-9c58-f3f304cf90f3": "Id_ffd9beac-13dd-4c0f-9c58-f3f304cf90f3",
+            "Id_99e847f2-ec4a-4d8d-b149-59c7295b1b81": "Id_99e847f2-ec4a-4d8d-b149-59c7295b1b81"
+          },
+          "lane_map": {
+            "FO": "FO",
+            "System": "System"
+          },
+          "counts": {
+            "operations": 1,
+            "nodes": 11,
+            "edges": 11
+          }
+        },
+        {
+          "variant": "k1_newids",
+          "k": 1,
+          "id_policy": "newids",
+          "path": "56/k1_newids.bpmn",
+          "ground_truth": "56/k1_newids.groundtruth.json",
+          "mutations": [
+            "rename_node"
+          ],
+          "node_map": {
+            "Id_507bdc996c6f1823": "Id_92cb515c-ae81-4364-a587-772f1bcc50f5",
+            "Id_ef17fcf53e232d50": "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7",
+            "Id_dfdfda4f8a86f04e": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+            "Id_633ab3eb1c4886f1": "Id_b95890b5-92e4-432a-b709-a96b40733427",
+            "Id_5a30e46845d8b622": "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49",
+            "Id_ef126968ce0e051a": "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598",
+            "Id_a7d8bee00e3f9156": "Id_b210868a-cf5c-4157-b86e-b21d426d3851",
+            "Id_0c9f856d59ed0ac0": "Id_ac3f7a9c-28e9-4a90-8928-edfd64206da8",
+            "Id_c70114531740fabf": "Id_a7308178-06d5-4269-8dc8-3ff4655e05ad",
+            "Id_fe625039408823c7": "Id_ffd9beac-13dd-4c0f-9c58-f3f304cf90f3",
+            "Id_dbfa964cfe1058ec": "Id_99e847f2-ec4a-4d8d-b149-59c7295b1b81"
+          },
+          "lane_map": {
+            "FO": "FO",
+            "System": "System"
+          },
+          "counts": {
+            "operations": 1,
+            "nodes": 11,
+            "edges": 11
+          }
+        },
+        {
+          "variant": "k2_keep",
+          "k": 2,
+          "id_policy": "keep",
+          "path": "56/k2_keep.bpmn",
+          "ground_truth": "56/k2_keep.groundtruth.json",
+          "mutations": [
+            "rename_node",
+            "insert_node"
+          ],
+          "node_map": {
+            "Id_92cb515c-ae81-4364-a587-772f1bcc50f5": "Id_92cb515c-ae81-4364-a587-772f1bcc50f5",
+            "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7": "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7",
+            "Id_1164e919-3f27-4d09-9a69-2a33a2e98847": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+            "Id_b95890b5-92e4-432a-b709-a96b40733427": "Id_b95890b5-92e4-432a-b709-a96b40733427",
+            "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49": "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49",
+            "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598": "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598",
+            "Id_b210868a-cf5c-4157-b86e-b21d426d3851": "Id_b210868a-cf5c-4157-b86e-b21d426d3851",
+            "Id_ac3f7a9c-28e9-4a90-8928-edfd64206da8": "Id_ac3f7a9c-28e9-4a90-8928-edfd64206da8",
+            "Id_a7308178-06d5-4269-8dc8-3ff4655e05ad": "Id_a7308178-06d5-4269-8dc8-3ff4655e05ad",
+            "Id_ffd9beac-13dd-4c0f-9c58-f3f304cf90f3": "Id_ffd9beac-13dd-4c0f-9c58-f3f304cf90f3",
+            "Id_99e847f2-ec4a-4d8d-b149-59c7295b1b81": "Id_99e847f2-ec4a-4d8d-b149-59c7295b1b81"
+          },
+          "lane_map": {
+            "FO": "FO",
+            "System": "System"
+          },
+          "counts": {
+            "operations": 5,
+            "nodes": 12,
+            "edges": 12
+          }
+        },
+        {
+          "variant": "k2_newids",
+          "k": 2,
+          "id_policy": "newids",
+          "path": "56/k2_newids.bpmn",
+          "ground_truth": "56/k2_newids.groundtruth.json",
+          "mutations": [
+            "rename_node",
+            "insert_node"
+          ],
+          "node_map": {
+            "Id_658378e46eb4d5bf": "Id_92cb515c-ae81-4364-a587-772f1bcc50f5",
+            "Id_d4cbd4ed14032338": "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7",
+            "Id_ac6ff99f89663519": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+            "Id_1aa4aef0d24870ab": "Id_b95890b5-92e4-432a-b709-a96b40733427",
+            "Id_4fb1f43dd2cc8f43": "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49",
+            "Id_a59e0a66fb31ef33": "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598",
+            "Id_a00e32cc7b03e286": "Id_b210868a-cf5c-4157-b86e-b21d426d3851",
+            "Id_6283d19cabb889d4": "Id_ac3f7a9c-28e9-4a90-8928-edfd64206da8",
+            "Id_50214e7e9c92f052": "Id_a7308178-06d5-4269-8dc8-3ff4655e05ad",
+            "Id_b58de6b740a5c0e6": "Id_ffd9beac-13dd-4c0f-9c58-f3f304cf90f3",
+            "Id_53f2fb15815f277c": "Id_99e847f2-ec4a-4d8d-b149-59c7295b1b81"
+          },
+          "lane_map": {
+            "FO": "FO",
+            "System": "System"
+          },
+          "counts": {
+            "operations": 5,
+            "nodes": 12,
+            "edges": 12
+          }
+        },
+        {
+          "variant": "k4_keep",
+          "k": 4,
+          "id_policy": "keep",
+          "path": "56/k4_keep.bpmn",
+          "ground_truth": "56/k4_keep.groundtruth.json",
+          "mutations": [
+            "rename_node",
+            "insert_node",
+            "node_type_change",
+            "rename_lane"
+          ],
+          "node_map": {
+            "Id_92cb515c-ae81-4364-a587-772f1bcc50f5": "Id_92cb515c-ae81-4364-a587-772f1bcc50f5",
+            "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7": "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7",
+            "Id_1164e919-3f27-4d09-9a69-2a33a2e98847": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+            "Id_b95890b5-92e4-432a-b709-a96b40733427": "Id_b95890b5-92e4-432a-b709-a96b40733427",
+            "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49": "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49",
+            "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598": "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598",
+            "Id_b210868a-cf5c-4157-b86e-b21d426d3851": "Id_b210868a-cf5c-4157-b86e-b21d426d3851",
+            "Id_ac3f7a9c-28e9-4a90-8928-edfd64206da8": "Id_ac3f7a9c-28e9-4a90-8928-edfd64206da8",
+            "Id_a7308178-06d5-4269-8dc8-3ff4655e05ad": "Id_a7308178-06d5-4269-8dc8-3ff4655e05ad",
+            "Id_ffd9beac-13dd-4c0f-9c58-f3f304cf90f3": "Id_ffd9beac-13dd-4c0f-9c58-f3f304cf90f3",
+            "Id_99e847f2-ec4a-4d8d-b149-59c7295b1b81": "Id_99e847f2-ec4a-4d8d-b149-59c7295b1b81"
+          },
+          "lane_map": {
+            "System": "System",
+            "Front Office": "FO"
+          },
+          "counts": {
+            "operations": 7,
+            "nodes": 12,
+            "edges": 12
+          }
+        },
+        {
+          "variant": "k4_newids",
+          "k": 4,
+          "id_policy": "newids",
+          "path": "56/k4_newids.bpmn",
+          "ground_truth": "56/k4_newids.groundtruth.json",
+          "mutations": [
+            "rename_node",
+            "insert_node",
+            "node_type_change",
+            "rename_lane"
+          ],
+          "node_map": {
+            "Id_311df439033d386f": "Id_92cb515c-ae81-4364-a587-772f1bcc50f5",
+            "Id_026ea029628600e6": "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7",
+            "Id_f121ce0b55c910d3": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+            "Id_8dcdf8dcb9b8b089": "Id_b95890b5-92e4-432a-b709-a96b40733427",
+            "Id_cc47c420bcf3b3fd": "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49",
+            "Id_b1e124fd4e53b5a8": "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598",
+            "Id_519b8e1ade948b7d": "Id_b210868a-cf5c-4157-b86e-b21d426d3851",
+            "Id_877c71bcba5a6b09": "Id_ac3f7a9c-28e9-4a90-8928-edfd64206da8",
+            "Id_e6dedc5cb5e89919": "Id_a7308178-06d5-4269-8dc8-3ff4655e05ad",
+            "Id_e93537424b0e138b": "Id_ffd9beac-13dd-4c0f-9c58-f3f304cf90f3",
+            "Id_0d472b45d142f88c": "Id_99e847f2-ec4a-4d8d-b149-59c7295b1b81"
+          },
+          "lane_map": {
+            "System": "System",
+            "Front Office": "FO"
+          },
+          "counts": {
+            "operations": 7,
+            "nodes": 12,
+            "edges": 12
+          }
+        }
+      ]
+    },
+    {
+      "base_id": "57",
+      "source": "dataset/BPMN Diagrams Dataset of Functional Requirements/Converted XPDL/57.bpmn",
+      "reference": "57/reference.bpmn",
+      "reference_model": {
+        "name": "57.bpmn",
+        "nodes": 8,
+        "edges": 7,
+        "lanes": [
+          "FO",
+          "System"
+        ]
+      },
+      "variants": [
+        {
+          "variant": "k1_keep",
+          "k": 1,
+          "id_policy": "keep",
+          "path": "57/k1_keep.bpmn",
+          "ground_truth": "57/k1_keep.groundtruth.json",
+          "mutations": [
+            "insert_node"
+          ],
+          "node_map": {
+            "Id_92cb515c-ae81-4364-a587-772f1bcc50f5": "Id_92cb515c-ae81-4364-a587-772f1bcc50f5",
+            "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7": "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7",
+            "Id_1164e919-3f27-4d09-9a69-2a33a2e98847": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+            "Id_b95890b5-92e4-432a-b709-a96b40733427": "Id_b95890b5-92e4-432a-b709-a96b40733427",
+            "Id_baf5345e-3bb0-4235-bb5f-c58fa8217646": "Id_baf5345e-3bb0-4235-bb5f-c58fa8217646",
+            "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49": "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49",
+            "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598": "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598",
+            "Id_b210868a-cf5c-4157-b86e-b21d426d3851": "Id_b210868a-cf5c-4157-b86e-b21d426d3851"
+          },
+          "lane_map": {
+            "FO": "FO",
+            "System": "System"
+          },
+          "counts": {
+            "operations": 4,
+            "nodes": 9,
+            "edges": 8
+          }
+        },
+        {
+          "variant": "k1_newids",
+          "k": 1,
+          "id_policy": "newids",
+          "path": "57/k1_newids.bpmn",
+          "ground_truth": "57/k1_newids.groundtruth.json",
+          "mutations": [
+            "insert_node"
+          ],
+          "node_map": {
+            "Id_76e93e7d4fa950b3": "Id_92cb515c-ae81-4364-a587-772f1bcc50f5",
+            "Id_4656a875a62911ba": "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7",
+            "Id_0d27be9320ce659c": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+            "Id_2e36c0bc8db72972": "Id_b95890b5-92e4-432a-b709-a96b40733427",
+            "Id_e5c45ceb444433c1": "Id_baf5345e-3bb0-4235-bb5f-c58fa8217646",
+            "Id_9e6364d3f8a087dc": "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49",
+            "Id_93e655c00b6b5032": "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598",
+            "Id_55e561c7a25ffe6c": "Id_b210868a-cf5c-4157-b86e-b21d426d3851"
+          },
+          "lane_map": {
+            "FO": "FO",
+            "System": "System"
+          },
+          "counts": {
+            "operations": 4,
+            "nodes": 9,
+            "edges": 8
+          }
+        },
+        {
+          "variant": "k2_keep",
+          "k": 2,
+          "id_policy": "keep",
+          "path": "57/k2_keep.bpmn",
+          "ground_truth": "57/k2_keep.groundtruth.json",
+          "mutations": [
+            "insert_node",
+            "delete_node"
+          ],
+          "node_map": {
+            "Id_92cb515c-ae81-4364-a587-772f1bcc50f5": "Id_92cb515c-ae81-4364-a587-772f1bcc50f5",
+            "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7": "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7",
+            "Id_b95890b5-92e4-432a-b709-a96b40733427": "Id_b95890b5-92e4-432a-b709-a96b40733427",
+            "Id_baf5345e-3bb0-4235-bb5f-c58fa8217646": "Id_baf5345e-3bb0-4235-bb5f-c58fa8217646",
+            "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49": "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49",
+            "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598": "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598",
+            "Id_b210868a-cf5c-4157-b86e-b21d426d3851": "Id_b210868a-cf5c-4157-b86e-b21d426d3851"
+          },
+          "lane_map": {
+            "FO": "FO",
+            "System": "System"
+          },
+          "counts": {
+            "operations": 6,
+            "nodes": 8,
+            "edges": 7
+          }
+        },
+        {
+          "variant": "k2_newids",
+          "k": 2,
+          "id_policy": "newids",
+          "path": "57/k2_newids.bpmn",
+          "ground_truth": "57/k2_newids.groundtruth.json",
+          "mutations": [
+            "insert_node",
+            "delete_node"
+          ],
+          "node_map": {
+            "Id_5a6bc2f45ffb3751": "Id_92cb515c-ae81-4364-a587-772f1bcc50f5",
+            "Id_a1ebebbd42d7ee8a": "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7",
+            "Id_5503f4d31043d4ef": "Id_b95890b5-92e4-432a-b709-a96b40733427",
+            "Id_8ef4591a1fb17b2b": "Id_baf5345e-3bb0-4235-bb5f-c58fa8217646",
+            "Id_0a8d69d66e836df7": "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49",
+            "Id_eb8d9d46581abf8d": "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598",
+            "Id_87582c283032ed29": "Id_b210868a-cf5c-4157-b86e-b21d426d3851"
+          },
+          "lane_map": {
+            "FO": "FO",
+            "System": "System"
+          },
+          "counts": {
+            "operations": 6,
+            "nodes": 8,
+            "edges": 7
+          }
+        },
+        {
+          "variant": "k4_keep",
+          "k": 4,
+          "id_policy": "keep",
+          "path": "57/k4_keep.bpmn",
+          "ground_truth": "57/k4_keep.groundtruth.json",
+          "mutations": [
+            "insert_node",
+            "delete_node",
+            "flow_condition_change",
+            "data_change"
+          ],
+          "node_map": {
+            "Id_92cb515c-ae81-4364-a587-772f1bcc50f5": "Id_92cb515c-ae81-4364-a587-772f1bcc50f5",
+            "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7": "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7",
+            "Id_b95890b5-92e4-432a-b709-a96b40733427": "Id_b95890b5-92e4-432a-b709-a96b40733427",
+            "Id_baf5345e-3bb0-4235-bb5f-c58fa8217646": "Id_baf5345e-3bb0-4235-bb5f-c58fa8217646",
+            "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49": "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49",
+            "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598": "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598",
+            "Id_b210868a-cf5c-4157-b86e-b21d426d3851": "Id_b210868a-cf5c-4157-b86e-b21d426d3851"
+          },
+          "lane_map": {
+            "FO": "FO",
+            "System": "System"
+          },
+          "counts": {
+            "operations": 8,
+            "nodes": 8,
+            "edges": 7
+          }
+        },
+        {
+          "variant": "k4_newids",
+          "k": 4,
+          "id_policy": "newids",
+          "path": "57/k4_newids.bpmn",
+          "ground_truth": "57/k4_newids.groundtruth.json",
+          "mutations": [
+            "insert_node",
+            "delete_node",
+            "flow_condition_change",
+            "data_change"
+          ],
+          "node_map": {
+            "Id_9faee3ebd630675e": "Id_92cb515c-ae81-4364-a587-772f1bcc50f5",
+            "Id_85024e925eae6afe": "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7",
+            "Id_623aa990ac80758e": "Id_b95890b5-92e4-432a-b709-a96b40733427",
+            "Id_e97a6e3065c72124": "Id_baf5345e-3bb0-4235-bb5f-c58fa8217646",
+            "Id_d5961c1f5718fbde": "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49",
+            "Id_e52e896036b105cf": "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598",
+            "Id_d8800f04a9124134": "Id_b210868a-cf5c-4157-b86e-b21d426d3851"
+          },
+          "lane_map": {
+            "FO": "FO",
+            "System": "System"
+          },
+          "counts": {
+            "operations": 8,
+            "nodes": 8,
+            "edges": 7
+          }
+        }
+      ]
+    },
+    {
+      "base_id": "58",
+      "source": "dataset/BPMN Diagrams Dataset of Functional Requirements/Converted XPDL/58.bpmn",
+      "reference": "58/reference.bpmn",
+      "reference_model": {
+        "name": "58.bpmn",
+        "nodes": 23,
+        "edges": 24,
+        "lanes": [
+          "Cashier",
+          "System"
+        ]
+      },
+      "variants": [
+        {
+          "variant": "k1_keep",
+          "k": 1,
+          "id_policy": "keep",
+          "path": "58/k1_keep.bpmn",
+          "ground_truth": "58/k1_keep.groundtruth.json",
+          "mutations": [
+            "marker_change"
+          ],
+          "node_map": {
+            "Id_92cb515c-ae81-4364-a587-772f1bcc50f5": "Id_92cb515c-ae81-4364-a587-772f1bcc50f5",
+            "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7": "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7",
+            "Id_baf5345e-3bb0-4235-bb5f-c58fa8217646": "Id_baf5345e-3bb0-4235-bb5f-c58fa8217646",
+            "Id_b210868a-cf5c-4157-b86e-b21d426d3851": "Id_b210868a-cf5c-4157-b86e-b21d426d3851",
+            "Id_0a7a1082-affb-4bc8-bfb1-91f073d72dde": "Id_0a7a1082-affb-4bc8-bfb1-91f073d72dde",
+            "Id_e024b86e-10e6-46f3-891a-4cf17601323b": "Id_e024b86e-10e6-46f3-891a-4cf17601323b",
+            "Id_259b95ad-426d-4d16-8f7b-6371212aaf57": "Id_259b95ad-426d-4d16-8f7b-6371212aaf57",
+            "Id_c9ee3cd8-78da-417a-9cf9-0edac7cbbf33": "Id_c9ee3cd8-78da-417a-9cf9-0edac7cbbf33",
+            "Id_6bc7314b-ee04-4f16-af27-1f79dcebf3d1": "Id_6bc7314b-ee04-4f16-af27-1f79dcebf3d1",
+            "Id_2235724b-6ca2-46d2-95a0-ab88837d316f": "Id_2235724b-6ca2-46d2-95a0-ab88837d316f",
+            "Id_05603d03-8106-47d8-a069-8e37915278b5": "Id_05603d03-8106-47d8-a069-8e37915278b5",
+            "Id_467aec19-4802-4dfb-959a-96d262adf979": "Id_467aec19-4802-4dfb-959a-96d262adf979",
+            "Id_883fd3b8-cdea-4fa5-bf5a-c8924b712021": "Id_883fd3b8-cdea-4fa5-bf5a-c8924b712021",
+            "Id_b8597b55-b0fd-4a78-8049-693d8d2203c7": "Id_b8597b55-b0fd-4a78-8049-693d8d2203c7",
+            "Id_eb1c9f06-7a54-4aff-91bb-e0594c6b655a": "Id_eb1c9f06-7a54-4aff-91bb-e0594c6b655a",
+            "Id_65aaccf1-8026-4183-bb2c-7a5746f87b67": "Id_65aaccf1-8026-4183-bb2c-7a5746f87b67",
+            "Id_5a51b47a-2646-4727-bfe8-11cb6cf8135a": "Id_5a51b47a-2646-4727-bfe8-11cb6cf8135a",
+            "Id_9cecd4c0-b94d-457c-99d3-52cc97ee020f": "Id_9cecd4c0-b94d-457c-99d3-52cc97ee020f",
+            "Id_5347b8df-2a52-44ed-9503-4f9b9d6a5243": "Id_5347b8df-2a52-44ed-9503-4f9b9d6a5243",
+            "Id_89298069-ad05-4a3d-983b-b4c085ac8852": "Id_89298069-ad05-4a3d-983b-b4c085ac8852",
+            "Id_e06571e0-a23d-405d-9bde-427856a91d60": "Id_e06571e0-a23d-405d-9bde-427856a91d60",
+            "Id_691d30ec-9bd8-420f-afc5-26b933f76c01": "Id_691d30ec-9bd8-420f-afc5-26b933f76c01",
+            "Id_ee3de915-745e-439b-bb67-c19333dfb907": "Id_ee3de915-745e-439b-bb67-c19333dfb907"
+          },
+          "lane_map": {
+            "Cashier": "Cashier",
+            "System": "System"
+          },
+          "counts": {
+            "operations": 1,
+            "nodes": 23,
+            "edges": 24
+          }
+        },
+        {
+          "variant": "k1_newids",
+          "k": 1,
+          "id_policy": "newids",
+          "path": "58/k1_newids.bpmn",
+          "ground_truth": "58/k1_newids.groundtruth.json",
+          "mutations": [
+            "marker_change"
+          ],
+          "node_map": {
+            "Id_be16c943ae0bdc80": "Id_92cb515c-ae81-4364-a587-772f1bcc50f5",
+            "Id_cd1f39a7c0388c03": "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7",
+            "Id_0cd604aa88b19524": "Id_baf5345e-3bb0-4235-bb5f-c58fa8217646",
+            "Id_415c441010164e60": "Id_b210868a-cf5c-4157-b86e-b21d426d3851",
+            "Id_f7caac4cb382b192": "Id_0a7a1082-affb-4bc8-bfb1-91f073d72dde",
+            "Id_b5f43b9bc936e086": "Id_e024b86e-10e6-46f3-891a-4cf17601323b",
+            "Id_25399bc8c0f2e6ad": "Id_259b95ad-426d-4d16-8f7b-6371212aaf57",
+            "Id_c256d70cb28e56f8": "Id_c9ee3cd8-78da-417a-9cf9-0edac7cbbf33",
+            "Id_af6470215dafc4d0": "Id_6bc7314b-ee04-4f16-af27-1f79dcebf3d1",
+            "Id_317db1aaf1d00865": "Id_2235724b-6ca2-46d2-95a0-ab88837d316f",
+            "Id_d9e3d10dcd9a8c3c": "Id_05603d03-8106-47d8-a069-8e37915278b5",
+            "Id_93aa2ff4e7ad4e02": "Id_467aec19-4802-4dfb-959a-96d262adf979",
+            "Id_d91bb4219c045f15": "Id_883fd3b8-cdea-4fa5-bf5a-c8924b712021",
+            "Id_0c5bd6a3256117b1": "Id_b8597b55-b0fd-4a78-8049-693d8d2203c7",
+            "Id_99a7fdcf88058dd6": "Id_eb1c9f06-7a54-4aff-91bb-e0594c6b655a",
+            "Id_2bbe4c7bd1b50839": "Id_65aaccf1-8026-4183-bb2c-7a5746f87b67",
+            "Id_1aec51804e731c13": "Id_5a51b47a-2646-4727-bfe8-11cb6cf8135a",
+            "Id_425dae2573652381": "Id_9cecd4c0-b94d-457c-99d3-52cc97ee020f",
+            "Id_781440ac41635158": "Id_5347b8df-2a52-44ed-9503-4f9b9d6a5243",
+            "Id_154404f7cb5732d2": "Id_89298069-ad05-4a3d-983b-b4c085ac8852",
+            "Id_3a34f89219607627": "Id_e06571e0-a23d-405d-9bde-427856a91d60",
+            "Id_33ba8f80e1ce8836": "Id_691d30ec-9bd8-420f-afc5-26b933f76c01",
+            "Id_54e49726a260d9b1": "Id_ee3de915-745e-439b-bb67-c19333dfb907"
+          },
+          "lane_map": {
+            "Cashier": "Cashier",
+            "System": "System"
+          },
+          "counts": {
+            "operations": 1,
+            "nodes": 23,
+            "edges": 24
+          }
+        },
+        {
+          "variant": "k2_keep",
+          "k": 2,
+          "id_policy": "keep",
+          "path": "58/k2_keep.bpmn",
+          "ground_truth": "58/k2_keep.groundtruth.json",
+          "mutations": [
+            "marker_change",
+            "move_lane"
+          ],
+          "node_map": {
+            "Id_92cb515c-ae81-4364-a587-772f1bcc50f5": "Id_92cb515c-ae81-4364-a587-772f1bcc50f5",
+            "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7": "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7",
+            "Id_baf5345e-3bb0-4235-bb5f-c58fa8217646": "Id_baf5345e-3bb0-4235-bb5f-c58fa8217646",
+            "Id_b210868a-cf5c-4157-b86e-b21d426d3851": "Id_b210868a-cf5c-4157-b86e-b21d426d3851",
+            "Id_0a7a1082-affb-4bc8-bfb1-91f073d72dde": "Id_0a7a1082-affb-4bc8-bfb1-91f073d72dde",
+            "Id_e024b86e-10e6-46f3-891a-4cf17601323b": "Id_e024b86e-10e6-46f3-891a-4cf17601323b",
+            "Id_259b95ad-426d-4d16-8f7b-6371212aaf57": "Id_259b95ad-426d-4d16-8f7b-6371212aaf57",
+            "Id_c9ee3cd8-78da-417a-9cf9-0edac7cbbf33": "Id_c9ee3cd8-78da-417a-9cf9-0edac7cbbf33",
+            "Id_6bc7314b-ee04-4f16-af27-1f79dcebf3d1": "Id_6bc7314b-ee04-4f16-af27-1f79dcebf3d1",
+            "Id_2235724b-6ca2-46d2-95a0-ab88837d316f": "Id_2235724b-6ca2-46d2-95a0-ab88837d316f",
+            "Id_05603d03-8106-47d8-a069-8e37915278b5": "Id_05603d03-8106-47d8-a069-8e37915278b5",
+            "Id_467aec19-4802-4dfb-959a-96d262adf979": "Id_467aec19-4802-4dfb-959a-96d262adf979",
+            "Id_883fd3b8-cdea-4fa5-bf5a-c8924b712021": "Id_883fd3b8-cdea-4fa5-bf5a-c8924b712021",
+            "Id_b8597b55-b0fd-4a78-8049-693d8d2203c7": "Id_b8597b55-b0fd-4a78-8049-693d8d2203c7",
+            "Id_eb1c9f06-7a54-4aff-91bb-e0594c6b655a": "Id_eb1c9f06-7a54-4aff-91bb-e0594c6b655a",
+            "Id_65aaccf1-8026-4183-bb2c-7a5746f87b67": "Id_65aaccf1-8026-4183-bb2c-7a5746f87b67",
+            "Id_5a51b47a-2646-4727-bfe8-11cb6cf8135a": "Id_5a51b47a-2646-4727-bfe8-11cb6cf8135a",
+            "Id_9cecd4c0-b94d-457c-99d3-52cc97ee020f": "Id_9cecd4c0-b94d-457c-99d3-52cc97ee020f",
+            "Id_5347b8df-2a52-44ed-9503-4f9b9d6a5243": "Id_5347b8df-2a52-44ed-9503-4f9b9d6a5243",
+            "Id_89298069-ad05-4a3d-983b-b4c085ac8852": "Id_89298069-ad05-4a3d-983b-b4c085ac8852",
+            "Id_e06571e0-a23d-405d-9bde-427856a91d60": "Id_e06571e0-a23d-405d-9bde-427856a91d60",
+            "Id_691d30ec-9bd8-420f-afc5-26b933f76c01": "Id_691d30ec-9bd8-420f-afc5-26b933f76c01",
+            "Id_ee3de915-745e-439b-bb67-c19333dfb907": "Id_ee3de915-745e-439b-bb67-c19333dfb907"
+          },
+          "lane_map": {
+            "Cashier": "Cashier",
+            "System": "System"
+          },
+          "counts": {
+            "operations": 2,
+            "nodes": 23,
+            "edges": 24
+          }
+        },
+        {
+          "variant": "k2_newids",
+          "k": 2,
+          "id_policy": "newids",
+          "path": "58/k2_newids.bpmn",
+          "ground_truth": "58/k2_newids.groundtruth.json",
+          "mutations": [
+            "marker_change",
+            "move_lane"
+          ],
+          "node_map": {
+            "Id_cdd5d01cf521f878": "Id_92cb515c-ae81-4364-a587-772f1bcc50f5",
+            "Id_25c1bc5ba928b25c": "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7",
+            "Id_fb7d0a6ed2f26e97": "Id_baf5345e-3bb0-4235-bb5f-c58fa8217646",
+            "Id_b98dae4a57dcc4f7": "Id_b210868a-cf5c-4157-b86e-b21d426d3851",
+            "Id_c6449b0c225c1b7d": "Id_0a7a1082-affb-4bc8-bfb1-91f073d72dde",
+            "Id_f8f0cdf4b6443152": "Id_e024b86e-10e6-46f3-891a-4cf17601323b",
+            "Id_32722691e8732223": "Id_259b95ad-426d-4d16-8f7b-6371212aaf57",
+            "Id_85b2319e42d5eb39": "Id_c9ee3cd8-78da-417a-9cf9-0edac7cbbf33",
+            "Id_6a4144dcfda0563a": "Id_6bc7314b-ee04-4f16-af27-1f79dcebf3d1",
+            "Id_3cbaa7401d9498f3": "Id_2235724b-6ca2-46d2-95a0-ab88837d316f",
+            "Id_112948d53b872024": "Id_05603d03-8106-47d8-a069-8e37915278b5",
+            "Id_97795d4636c23006": "Id_467aec19-4802-4dfb-959a-96d262adf979",
+            "Id_84e36b920175be69": "Id_883fd3b8-cdea-4fa5-bf5a-c8924b712021",
+            "Id_8870a1cf434a2eab": "Id_b8597b55-b0fd-4a78-8049-693d8d2203c7",
+            "Id_d19dbd47262484a5": "Id_eb1c9f06-7a54-4aff-91bb-e0594c6b655a",
+            "Id_20e6f53799cd91a5": "Id_65aaccf1-8026-4183-bb2c-7a5746f87b67",
+            "Id_d11bc30cc5345a0e": "Id_5a51b47a-2646-4727-bfe8-11cb6cf8135a",
+            "Id_44145117b518daa1": "Id_9cecd4c0-b94d-457c-99d3-52cc97ee020f",
+            "Id_db6844bade03a6c7": "Id_5347b8df-2a52-44ed-9503-4f9b9d6a5243",
+            "Id_30889ea855d71ef5": "Id_89298069-ad05-4a3d-983b-b4c085ac8852",
+            "Id_a7746e3450c52d92": "Id_e06571e0-a23d-405d-9bde-427856a91d60",
+            "Id_dbaaba2bce6f60cb": "Id_691d30ec-9bd8-420f-afc5-26b933f76c01",
+            "Id_19bd07c4d9ee0837": "Id_ee3de915-745e-439b-bb67-c19333dfb907"
+          },
+          "lane_map": {
+            "Cashier": "Cashier",
+            "System": "System"
+          },
+          "counts": {
+            "operations": 2,
+            "nodes": 23,
+            "edges": 24
+          }
+        },
+        {
+          "variant": "k4_keep",
+          "k": 4,
+          "id_policy": "keep",
+          "path": "58/k4_keep.bpmn",
+          "ground_truth": "58/k4_keep.groundtruth.json",
+          "mutations": [
+            "marker_change",
+            "move_lane",
+            "rename_node_synonym",
+            "insert_flow"
+          ],
+          "node_map": {
+            "Id_92cb515c-ae81-4364-a587-772f1bcc50f5": "Id_92cb515c-ae81-4364-a587-772f1bcc50f5",
+            "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7": "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7",
+            "Id_baf5345e-3bb0-4235-bb5f-c58fa8217646": "Id_baf5345e-3bb0-4235-bb5f-c58fa8217646",
+            "Id_b210868a-cf5c-4157-b86e-b21d426d3851": "Id_b210868a-cf5c-4157-b86e-b21d426d3851",
+            "Id_0a7a1082-affb-4bc8-bfb1-91f073d72dde": "Id_0a7a1082-affb-4bc8-bfb1-91f073d72dde",
+            "Id_e024b86e-10e6-46f3-891a-4cf17601323b": "Id_e024b86e-10e6-46f3-891a-4cf17601323b",
+            "Id_259b95ad-426d-4d16-8f7b-6371212aaf57": "Id_259b95ad-426d-4d16-8f7b-6371212aaf57",
+            "Id_c9ee3cd8-78da-417a-9cf9-0edac7cbbf33": "Id_c9ee3cd8-78da-417a-9cf9-0edac7cbbf33",
+            "Id_6bc7314b-ee04-4f16-af27-1f79dcebf3d1": "Id_6bc7314b-ee04-4f16-af27-1f79dcebf3d1",
+            "Id_2235724b-6ca2-46d2-95a0-ab88837d316f": "Id_2235724b-6ca2-46d2-95a0-ab88837d316f",
+            "Id_05603d03-8106-47d8-a069-8e37915278b5": "Id_05603d03-8106-47d8-a069-8e37915278b5",
+            "Id_467aec19-4802-4dfb-959a-96d262adf979": "Id_467aec19-4802-4dfb-959a-96d262adf979",
+            "Id_883fd3b8-cdea-4fa5-bf5a-c8924b712021": "Id_883fd3b8-cdea-4fa5-bf5a-c8924b712021",
+            "Id_b8597b55-b0fd-4a78-8049-693d8d2203c7": "Id_b8597b55-b0fd-4a78-8049-693d8d2203c7",
+            "Id_eb1c9f06-7a54-4aff-91bb-e0594c6b655a": "Id_eb1c9f06-7a54-4aff-91bb-e0594c6b655a",
+            "Id_65aaccf1-8026-4183-bb2c-7a5746f87b67": "Id_65aaccf1-8026-4183-bb2c-7a5746f87b67",
+            "Id_5a51b47a-2646-4727-bfe8-11cb6cf8135a": "Id_5a51b47a-2646-4727-bfe8-11cb6cf8135a",
+            "Id_9cecd4c0-b94d-457c-99d3-52cc97ee020f": "Id_9cecd4c0-b94d-457c-99d3-52cc97ee020f",
+            "Id_5347b8df-2a52-44ed-9503-4f9b9d6a5243": "Id_5347b8df-2a52-44ed-9503-4f9b9d6a5243",
+            "Id_89298069-ad05-4a3d-983b-b4c085ac8852": "Id_89298069-ad05-4a3d-983b-b4c085ac8852",
+            "Id_e06571e0-a23d-405d-9bde-427856a91d60": "Id_e06571e0-a23d-405d-9bde-427856a91d60",
+            "Id_691d30ec-9bd8-420f-afc5-26b933f76c01": "Id_691d30ec-9bd8-420f-afc5-26b933f76c01",
+            "Id_ee3de915-745e-439b-bb67-c19333dfb907": "Id_ee3de915-745e-439b-bb67-c19333dfb907"
+          },
+          "lane_map": {
+            "Cashier": "Cashier",
+            "System": "System"
+          },
+          "counts": {
+            "operations": 4,
+            "nodes": 23,
+            "edges": 25
+          }
+        },
+        {
+          "variant": "k4_newids",
+          "k": 4,
+          "id_policy": "newids",
+          "path": "58/k4_newids.bpmn",
+          "ground_truth": "58/k4_newids.groundtruth.json",
+          "mutations": [
+            "marker_change",
+            "move_lane",
+            "rename_node_synonym",
+            "insert_flow"
+          ],
+          "node_map": {
+            "Id_65bf7a4dfd693cbd": "Id_92cb515c-ae81-4364-a587-772f1bcc50f5",
+            "Id_084d9a33c0a74582": "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7",
+            "Id_fc9e431c49594ccc": "Id_baf5345e-3bb0-4235-bb5f-c58fa8217646",
+            "Id_3fc295488902578c": "Id_b210868a-cf5c-4157-b86e-b21d426d3851",
+            "Id_985347ea0348f038": "Id_0a7a1082-affb-4bc8-bfb1-91f073d72dde",
+            "Id_603902f59baf2a45": "Id_e024b86e-10e6-46f3-891a-4cf17601323b",
+            "Id_ac9390599eb35ba0": "Id_259b95ad-426d-4d16-8f7b-6371212aaf57",
+            "Id_85d1831cd84e4df8": "Id_c9ee3cd8-78da-417a-9cf9-0edac7cbbf33",
+            "Id_81309e96dbe07aaf": "Id_6bc7314b-ee04-4f16-af27-1f79dcebf3d1",
+            "Id_042289cc0c5d17a1": "Id_2235724b-6ca2-46d2-95a0-ab88837d316f",
+            "Id_845e96efd3e92a47": "Id_05603d03-8106-47d8-a069-8e37915278b5",
+            "Id_c19208a0ac860fab": "Id_467aec19-4802-4dfb-959a-96d262adf979",
+            "Id_16cd12c43ede0870": "Id_883fd3b8-cdea-4fa5-bf5a-c8924b712021",
+            "Id_adea77c07f8052f3": "Id_b8597b55-b0fd-4a78-8049-693d8d2203c7",
+            "Id_37fe1c85f30d8013": "Id_eb1c9f06-7a54-4aff-91bb-e0594c6b655a",
+            "Id_3d541b84a92a5f5d": "Id_65aaccf1-8026-4183-bb2c-7a5746f87b67",
+            "Id_c0e8c64966a91145": "Id_5a51b47a-2646-4727-bfe8-11cb6cf8135a",
+            "Id_163fa1b92bea30cd": "Id_9cecd4c0-b94d-457c-99d3-52cc97ee020f",
+            "Id_512abc209714bd3f": "Id_5347b8df-2a52-44ed-9503-4f9b9d6a5243",
+            "Id_48bc200691434a30": "Id_89298069-ad05-4a3d-983b-b4c085ac8852",
+            "Id_77fa870c6f5c6d52": "Id_e06571e0-a23d-405d-9bde-427856a91d60",
+            "Id_6240b4974375baf5": "Id_691d30ec-9bd8-420f-afc5-26b933f76c01",
+            "Id_b825d289bb58f042": "Id_ee3de915-745e-439b-bb67-c19333dfb907"
+          },
+          "lane_map": {
+            "Cashier": "Cashier",
+            "System": "System"
+          },
+          "counts": {
+            "operations": 4,
+            "nodes": 23,
+            "edges": 25
+          }
+        }
+      ]
+    },
+    {
+      "base_id": "63",
+      "source": "dataset/BPMN Diagrams Dataset of Functional Requirements/Converted XPDL/63.bpmn",
+      "reference": "63/reference.bpmn",
+      "reference_model": {
+        "name": "63.bpmn",
+        "nodes": 13,
+        "edges": 13,
+        "lanes": [
+          "ED",
+          "System"
+        ]
+      },
+      "variants": [
+        {
+          "variant": "k1_keep",
+          "k": 1,
+          "id_policy": "keep",
+          "path": "63/k1_keep.bpmn",
+          "ground_truth": "63/k1_keep.groundtruth.json",
+          "mutations": [
+            "node_type_change"
+          ],
+          "node_map": {
+            "Id_92cb515c-ae81-4364-a587-772f1bcc50f5": "Id_92cb515c-ae81-4364-a587-772f1bcc50f5",
+            "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7": "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7",
+            "Id_b95890b5-92e4-432a-b709-a96b40733427": "Id_b95890b5-92e4-432a-b709-a96b40733427",
+            "Id_baf5345e-3bb0-4235-bb5f-c58fa8217646": "Id_baf5345e-3bb0-4235-bb5f-c58fa8217646",
+            "Id_b210868a-cf5c-4157-b86e-b21d426d3851": "Id_b210868a-cf5c-4157-b86e-b21d426d3851",
+            "Id_0a7a1082-affb-4bc8-bfb1-91f073d72dde": "Id_0a7a1082-affb-4bc8-bfb1-91f073d72dde",
+            "Id_082521f7-2373-493e-b116-ed46f8443646": "Id_082521f7-2373-493e-b116-ed46f8443646",
+            "Id_d7a120da-02a8-4de0-b984-e63dd5cda792": "Id_d7a120da-02a8-4de0-b984-e63dd5cda792",
+            "Id_e024b86e-10e6-46f3-891a-4cf17601323b": "Id_e024b86e-10e6-46f3-891a-4cf17601323b",
+            "Id_259b95ad-426d-4d16-8f7b-6371212aaf57": "Id_259b95ad-426d-4d16-8f7b-6371212aaf57",
+            "Id_ccb484c1-0a50-4c27-be4e-ac809400520e": "Id_ccb484c1-0a50-4c27-be4e-ac809400520e",
+            "Id_7a3f28d2-8c48-4551-9672-ee6753bda510": "Id_7a3f28d2-8c48-4551-9672-ee6753bda510",
+            "Id_e5fb9f12-f98a-4a68-8087-c5d428355b13": "Id_e5fb9f12-f98a-4a68-8087-c5d428355b13"
+          },
+          "lane_map": {
+            "ED": "ED",
+            "System": "System"
+          },
+          "counts": {
+            "operations": 1,
+            "nodes": 13,
+            "edges": 13
+          }
+        },
+        {
+          "variant": "k1_newids",
+          "k": 1,
+          "id_policy": "newids",
+          "path": "63/k1_newids.bpmn",
+          "ground_truth": "63/k1_newids.groundtruth.json",
+          "mutations": [
+            "node_type_change"
+          ],
+          "node_map": {
+            "Id_6a01453b62f57730": "Id_92cb515c-ae81-4364-a587-772f1bcc50f5",
+            "Id_9cbd5a954030d0d2": "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7",
+            "Id_006c5921f46791c2": "Id_b95890b5-92e4-432a-b709-a96b40733427",
+            "Id_d0d6f0652543a078": "Id_baf5345e-3bb0-4235-bb5f-c58fa8217646",
+            "Id_cba9458c103cd033": "Id_b210868a-cf5c-4157-b86e-b21d426d3851",
+            "Id_90958dce5339e965": "Id_0a7a1082-affb-4bc8-bfb1-91f073d72dde",
+            "Id_f520219d9a445550": "Id_082521f7-2373-493e-b116-ed46f8443646",
+            "Id_9499c27b3df29911": "Id_d7a120da-02a8-4de0-b984-e63dd5cda792",
+            "Id_530c5d8665269d2e": "Id_e024b86e-10e6-46f3-891a-4cf17601323b",
+            "Id_5004b1d890f08318": "Id_259b95ad-426d-4d16-8f7b-6371212aaf57",
+            "Id_a97c56837daeda1a": "Id_ccb484c1-0a50-4c27-be4e-ac809400520e",
+            "Id_c01d720e786ed5a6": "Id_7a3f28d2-8c48-4551-9672-ee6753bda510",
+            "Id_d992cdb322c2df0a": "Id_e5fb9f12-f98a-4a68-8087-c5d428355b13"
+          },
+          "lane_map": {
+            "ED": "ED",
+            "System": "System"
+          },
+          "counts": {
+            "operations": 1,
+            "nodes": 13,
+            "edges": 13
+          }
+        },
+        {
+          "variant": "k2_keep",
+          "k": 2,
+          "id_policy": "keep",
+          "path": "63/k2_keep.bpmn",
+          "ground_truth": "63/k2_keep.groundtruth.json",
+          "mutations": [
+            "node_type_change",
+            "rename_node"
+          ],
+          "node_map": {
+            "Id_92cb515c-ae81-4364-a587-772f1bcc50f5": "Id_92cb515c-ae81-4364-a587-772f1bcc50f5",
+            "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7": "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7",
+            "Id_b95890b5-92e4-432a-b709-a96b40733427": "Id_b95890b5-92e4-432a-b709-a96b40733427",
+            "Id_baf5345e-3bb0-4235-bb5f-c58fa8217646": "Id_baf5345e-3bb0-4235-bb5f-c58fa8217646",
+            "Id_b210868a-cf5c-4157-b86e-b21d426d3851": "Id_b210868a-cf5c-4157-b86e-b21d426d3851",
+            "Id_0a7a1082-affb-4bc8-bfb1-91f073d72dde": "Id_0a7a1082-affb-4bc8-bfb1-91f073d72dde",
+            "Id_082521f7-2373-493e-b116-ed46f8443646": "Id_082521f7-2373-493e-b116-ed46f8443646",
+            "Id_d7a120da-02a8-4de0-b984-e63dd5cda792": "Id_d7a120da-02a8-4de0-b984-e63dd5cda792",
+            "Id_e024b86e-10e6-46f3-891a-4cf17601323b": "Id_e024b86e-10e6-46f3-891a-4cf17601323b",
+            "Id_259b95ad-426d-4d16-8f7b-6371212aaf57": "Id_259b95ad-426d-4d16-8f7b-6371212aaf57",
+            "Id_ccb484c1-0a50-4c27-be4e-ac809400520e": "Id_ccb484c1-0a50-4c27-be4e-ac809400520e",
+            "Id_7a3f28d2-8c48-4551-9672-ee6753bda510": "Id_7a3f28d2-8c48-4551-9672-ee6753bda510",
+            "Id_e5fb9f12-f98a-4a68-8087-c5d428355b13": "Id_e5fb9f12-f98a-4a68-8087-c5d428355b13"
+          },
+          "lane_map": {
+            "ED": "ED",
+            "System": "System"
+          },
+          "counts": {
+            "operations": 2,
+            "nodes": 13,
+            "edges": 13
+          }
+        },
+        {
+          "variant": "k2_newids",
+          "k": 2,
+          "id_policy": "newids",
+          "path": "63/k2_newids.bpmn",
+          "ground_truth": "63/k2_newids.groundtruth.json",
+          "mutations": [
+            "node_type_change",
+            "rename_node"
+          ],
+          "node_map": {
+            "Id_888a5ad24a188407": "Id_92cb515c-ae81-4364-a587-772f1bcc50f5",
+            "Id_1d3d025802ffebeb": "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7",
+            "Id_2acedc5a86b32f98": "Id_b95890b5-92e4-432a-b709-a96b40733427",
+            "Id_4d0fa873dc19cbd5": "Id_baf5345e-3bb0-4235-bb5f-c58fa8217646",
+            "Id_f7ff2ffe0bdf1509": "Id_b210868a-cf5c-4157-b86e-b21d426d3851",
+            "Id_58bbdacc7cf53a09": "Id_0a7a1082-affb-4bc8-bfb1-91f073d72dde",
+            "Id_55b63b4e04d66ea8": "Id_082521f7-2373-493e-b116-ed46f8443646",
+            "Id_15a67733757b9745": "Id_d7a120da-02a8-4de0-b984-e63dd5cda792",
+            "Id_fe2d6a68536ba4d4": "Id_e024b86e-10e6-46f3-891a-4cf17601323b",
+            "Id_3b280a0a3030a0e6": "Id_259b95ad-426d-4d16-8f7b-6371212aaf57",
+            "Id_f38f746bdd575100": "Id_ccb484c1-0a50-4c27-be4e-ac809400520e",
+            "Id_1de8274d1a511f30": "Id_7a3f28d2-8c48-4551-9672-ee6753bda510",
+            "Id_9c85a61191e8eb05": "Id_e5fb9f12-f98a-4a68-8087-c5d428355b13"
+          },
+          "lane_map": {
+            "ED": "ED",
+            "System": "System"
+          },
+          "counts": {
+            "operations": 2,
+            "nodes": 13,
+            "edges": 13
+          }
+        },
+        {
+          "variant": "k4_keep",
+          "k": 4,
+          "id_policy": "keep",
+          "path": "63/k4_keep.bpmn",
+          "ground_truth": "63/k4_keep.groundtruth.json",
+          "mutations": [
+            "node_type_change",
+            "rename_node",
+            "gateway_type_change",
+            "insert_node"
+          ],
+          "node_map": {
+            "Id_92cb515c-ae81-4364-a587-772f1bcc50f5": "Id_92cb515c-ae81-4364-a587-772f1bcc50f5",
+            "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7": "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7",
+            "Id_b95890b5-92e4-432a-b709-a96b40733427": "Id_b95890b5-92e4-432a-b709-a96b40733427",
+            "Id_baf5345e-3bb0-4235-bb5f-c58fa8217646": "Id_baf5345e-3bb0-4235-bb5f-c58fa8217646",
+            "Id_b210868a-cf5c-4157-b86e-b21d426d3851": "Id_b210868a-cf5c-4157-b86e-b21d426d3851",
+            "Id_0a7a1082-affb-4bc8-bfb1-91f073d72dde": "Id_0a7a1082-affb-4bc8-bfb1-91f073d72dde",
+            "Id_082521f7-2373-493e-b116-ed46f8443646": "Id_082521f7-2373-493e-b116-ed46f8443646",
+            "Id_d7a120da-02a8-4de0-b984-e63dd5cda792": "Id_d7a120da-02a8-4de0-b984-e63dd5cda792",
+            "Id_e024b86e-10e6-46f3-891a-4cf17601323b": "Id_e024b86e-10e6-46f3-891a-4cf17601323b",
+            "Id_259b95ad-426d-4d16-8f7b-6371212aaf57": "Id_259b95ad-426d-4d16-8f7b-6371212aaf57",
+            "Id_ccb484c1-0a50-4c27-be4e-ac809400520e": "Id_ccb484c1-0a50-4c27-be4e-ac809400520e",
+            "Id_7a3f28d2-8c48-4551-9672-ee6753bda510": "Id_7a3f28d2-8c48-4551-9672-ee6753bda510",
+            "Id_e5fb9f12-f98a-4a68-8087-c5d428355b13": "Id_e5fb9f12-f98a-4a68-8087-c5d428355b13"
+          },
+          "lane_map": {
+            "ED": "ED",
+            "System": "System"
+          },
+          "counts": {
+            "operations": 7,
+            "nodes": 14,
+            "edges": 14
+          }
+        },
+        {
+          "variant": "k4_newids",
+          "k": 4,
+          "id_policy": "newids",
+          "path": "63/k4_newids.bpmn",
+          "ground_truth": "63/k4_newids.groundtruth.json",
+          "mutations": [
+            "node_type_change",
+            "rename_node",
+            "gateway_type_change",
+            "insert_node"
+          ],
+          "node_map": {
+            "Id_ad2f687dc44b9541": "Id_92cb515c-ae81-4364-a587-772f1bcc50f5",
+            "Id_5a9b003a2a56d738": "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7",
+            "Id_742ae18dab9f7ea9": "Id_b95890b5-92e4-432a-b709-a96b40733427",
+            "Id_202c1011c1f22063": "Id_baf5345e-3bb0-4235-bb5f-c58fa8217646",
+            "Id_1e89f0e9cc52f369": "Id_b210868a-cf5c-4157-b86e-b21d426d3851",
+            "Id_9841288b05e182c2": "Id_0a7a1082-affb-4bc8-bfb1-91f073d72dde",
+            "Id_6ea247b846cf1b9c": "Id_082521f7-2373-493e-b116-ed46f8443646",
+            "Id_d93143bc59ade843": "Id_d7a120da-02a8-4de0-b984-e63dd5cda792",
+            "Id_3221886779eb4968": "Id_e024b86e-10e6-46f3-891a-4cf17601323b",
+            "Id_0ac9b7d09f990d4f": "Id_259b95ad-426d-4d16-8f7b-6371212aaf57",
+            "Id_d4e04ca5f746b3f3": "Id_ccb484c1-0a50-4c27-be4e-ac809400520e",
+            "Id_ccdcd1a89b7388fd": "Id_7a3f28d2-8c48-4551-9672-ee6753bda510",
+            "Id_52ff187d15989d62": "Id_e5fb9f12-f98a-4a68-8087-c5d428355b13"
+          },
+          "lane_map": {
+            "ED": "ED",
+            "System": "System"
+          },
+          "counts": {
+            "operations": 7,
+            "nodes": 14,
+            "edges": 14
+          }
+        }
+      ]
+    },
+    {
+      "base_id": "65",
+      "source": "dataset/BPMN Diagrams Dataset of Functional Requirements/Converted XPDL/65.bpmn",
+      "reference": "65/reference.bpmn",
+      "reference_model": {
+        "name": "65.bpmn",
+        "nodes": 22,
+        "edges": 26,
+        "lanes": [
+          "ED",
+          "System"
+        ]
+      },
+      "variants": [
+        {
+          "variant": "k1_keep",
+          "k": 1,
+          "id_policy": "keep",
+          "path": "65/k1_keep.bpmn",
+          "ground_truth": "65/k1_keep.groundtruth.json",
+          "mutations": [
+            "flow_condition_change"
+          ],
+          "node_map": {
+            "Id_92cb515c-ae81-4364-a587-772f1bcc50f5": "Id_92cb515c-ae81-4364-a587-772f1bcc50f5",
+            "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7": "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7",
+            "Id_b95890b5-92e4-432a-b709-a96b40733427": "Id_b95890b5-92e4-432a-b709-a96b40733427",
+            "Id_baf5345e-3bb0-4235-bb5f-c58fa8217646": "Id_baf5345e-3bb0-4235-bb5f-c58fa8217646",
+            "Id_b210868a-cf5c-4157-b86e-b21d426d3851": "Id_b210868a-cf5c-4157-b86e-b21d426d3851",
+            "Id_0a7a1082-affb-4bc8-bfb1-91f073d72dde": "Id_0a7a1082-affb-4bc8-bfb1-91f073d72dde",
+            "Id_082521f7-2373-493e-b116-ed46f8443646": "Id_082521f7-2373-493e-b116-ed46f8443646",
+            "Id_8a71f31d-70b3-48c5-bc2c-eea96af4d56f": "Id_8a71f31d-70b3-48c5-bc2c-eea96af4d56f",
+            "Id_7bcfb632-b79c-4c0f-b3d7-4da10fd0b486": "Id_7bcfb632-b79c-4c0f-b3d7-4da10fd0b486",
+            "Id_778fd50a-2f20-4db3-9a8b-ea705dc632c1": "Id_778fd50a-2f20-4db3-9a8b-ea705dc632c1",
+            "Id_c4d65e81-c03c-4448-b16e-30e66f1889ea": "Id_c4d65e81-c03c-4448-b16e-30e66f1889ea",
+            "Id_6fe753e9-ea2f-4694-a19f-d7585b540d01": "Id_6fe753e9-ea2f-4694-a19f-d7585b540d01",
+            "Id_d877f453-58b4-46a1-aa8c-b53c44b2a526": "Id_d877f453-58b4-46a1-aa8c-b53c44b2a526",
+            "Id_b2834f10-e7c5-4c97-92b1-ed0e4758ef8a": "Id_b2834f10-e7c5-4c97-92b1-ed0e4758ef8a",
+            "Id_0b5b77be-75b0-45a9-bd17-b1997420ce28": "Id_0b5b77be-75b0-45a9-bd17-b1997420ce28",
+            "Id_30480a4a-9208-4c99-a015-5b6c33e47dfd": "Id_30480a4a-9208-4c99-a015-5b6c33e47dfd",
+            "Id_be8fff2e-b098-45e2-b716-8f162b0c4ced": "Id_be8fff2e-b098-45e2-b716-8f162b0c4ced",
+            "Id_69abd614-343f-4d22-a7e2-5d546051dc02": "Id_69abd614-343f-4d22-a7e2-5d546051dc02",
+            "Id_39e26069-902c-4ec6-84c8-f2431c97c4d8": "Id_39e26069-902c-4ec6-84c8-f2431c97c4d8",
+            "Id_febfcfab-7199-445f-ac65-16405d5968d7": "Id_febfcfab-7199-445f-ac65-16405d5968d7",
+            "Id_00c1c0de-a945-4c67-8347-f9569d10f77f": "Id_00c1c0de-a945-4c67-8347-f9569d10f77f",
+            "Id_a61c944a-4e06-416c-8054-72710c5547db": "Id_a61c944a-4e06-416c-8054-72710c5547db"
+          },
+          "lane_map": {
+            "ED": "ED",
+            "System": "System"
+          },
+          "counts": {
+            "operations": 1,
+            "nodes": 22,
+            "edges": 26
+          }
+        },
+        {
+          "variant": "k1_newids",
+          "k": 1,
+          "id_policy": "newids",
+          "path": "65/k1_newids.bpmn",
+          "ground_truth": "65/k1_newids.groundtruth.json",
+          "mutations": [
+            "flow_condition_change"
+          ],
+          "node_map": {
+            "Id_eb2edd396e5e12c0": "Id_92cb515c-ae81-4364-a587-772f1bcc50f5",
+            "Id_670b22b6d3fb6dbe": "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7",
+            "Id_907e5767a51e825e": "Id_b95890b5-92e4-432a-b709-a96b40733427",
+            "Id_b837fc1eca40ee87": "Id_baf5345e-3bb0-4235-bb5f-c58fa8217646",
+            "Id_011332a5cfbb792b": "Id_b210868a-cf5c-4157-b86e-b21d426d3851",
+            "Id_973b2e853ba1640a": "Id_0a7a1082-affb-4bc8-bfb1-91f073d72dde",
+            "Id_1fc2b6d8732364e7": "Id_082521f7-2373-493e-b116-ed46f8443646",
+            "Id_2715361780b1be7b": "Id_8a71f31d-70b3-48c5-bc2c-eea96af4d56f",
+            "Id_90d50530471cf70e": "Id_7bcfb632-b79c-4c0f-b3d7-4da10fd0b486",
+            "Id_1b9ca90d54d3bb0e": "Id_778fd50a-2f20-4db3-9a8b-ea705dc632c1",
+            "Id_49e83bb0b59a0367": "Id_c4d65e81-c03c-4448-b16e-30e66f1889ea",
+            "Id_238622999100924a": "Id_6fe753e9-ea2f-4694-a19f-d7585b540d01",
+            "Id_633835075ef79af3": "Id_d877f453-58b4-46a1-aa8c-b53c44b2a526",
+            "Id_d7b620f704a94200": "Id_b2834f10-e7c5-4c97-92b1-ed0e4758ef8a",
+            "Id_51fa5679dca6f4f9": "Id_0b5b77be-75b0-45a9-bd17-b1997420ce28",
+            "Id_08094f80ffe86da2": "Id_30480a4a-9208-4c99-a015-5b6c33e47dfd",
+            "Id_ef393030f2b50ed8": "Id_be8fff2e-b098-45e2-b716-8f162b0c4ced",
+            "Id_86825bbd12506da9": "Id_69abd614-343f-4d22-a7e2-5d546051dc02",
+            "Id_ab1eda6921a39e37": "Id_39e26069-902c-4ec6-84c8-f2431c97c4d8",
+            "Id_cf5d49e0cc034142": "Id_febfcfab-7199-445f-ac65-16405d5968d7",
+            "Id_c00404c9e3d98e93": "Id_00c1c0de-a945-4c67-8347-f9569d10f77f",
+            "Id_57fd8fc3df4e1b49": "Id_a61c944a-4e06-416c-8054-72710c5547db"
+          },
+          "lane_map": {
+            "ED": "ED",
+            "System": "System"
+          },
+          "counts": {
+            "operations": 1,
+            "nodes": 22,
+            "edges": 26
+          }
+        },
+        {
+          "variant": "k2_keep",
+          "k": 2,
+          "id_policy": "keep",
+          "path": "65/k2_keep.bpmn",
+          "ground_truth": "65/k2_keep.groundtruth.json",
+          "mutations": [
+            "flow_condition_change",
+            "gateway_type_change"
+          ],
+          "node_map": {
+            "Id_92cb515c-ae81-4364-a587-772f1bcc50f5": "Id_92cb515c-ae81-4364-a587-772f1bcc50f5",
+            "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7": "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7",
+            "Id_b95890b5-92e4-432a-b709-a96b40733427": "Id_b95890b5-92e4-432a-b709-a96b40733427",
+            "Id_baf5345e-3bb0-4235-bb5f-c58fa8217646": "Id_baf5345e-3bb0-4235-bb5f-c58fa8217646",
+            "Id_b210868a-cf5c-4157-b86e-b21d426d3851": "Id_b210868a-cf5c-4157-b86e-b21d426d3851",
+            "Id_0a7a1082-affb-4bc8-bfb1-91f073d72dde": "Id_0a7a1082-affb-4bc8-bfb1-91f073d72dde",
+            "Id_082521f7-2373-493e-b116-ed46f8443646": "Id_082521f7-2373-493e-b116-ed46f8443646",
+            "Id_8a71f31d-70b3-48c5-bc2c-eea96af4d56f": "Id_8a71f31d-70b3-48c5-bc2c-eea96af4d56f",
+            "Id_7bcfb632-b79c-4c0f-b3d7-4da10fd0b486": "Id_7bcfb632-b79c-4c0f-b3d7-4da10fd0b486",
+            "Id_778fd50a-2f20-4db3-9a8b-ea705dc632c1": "Id_778fd50a-2f20-4db3-9a8b-ea705dc632c1",
+            "Id_c4d65e81-c03c-4448-b16e-30e66f1889ea": "Id_c4d65e81-c03c-4448-b16e-30e66f1889ea",
+            "Id_6fe753e9-ea2f-4694-a19f-d7585b540d01": "Id_6fe753e9-ea2f-4694-a19f-d7585b540d01",
+            "Id_d877f453-58b4-46a1-aa8c-b53c44b2a526": "Id_d877f453-58b4-46a1-aa8c-b53c44b2a526",
+            "Id_b2834f10-e7c5-4c97-92b1-ed0e4758ef8a": "Id_b2834f10-e7c5-4c97-92b1-ed0e4758ef8a",
+            "Id_0b5b77be-75b0-45a9-bd17-b1997420ce28": "Id_0b5b77be-75b0-45a9-bd17-b1997420ce28",
+            "Id_30480a4a-9208-4c99-a015-5b6c33e47dfd": "Id_30480a4a-9208-4c99-a015-5b6c33e47dfd",
+            "Id_be8fff2e-b098-45e2-b716-8f162b0c4ced": "Id_be8fff2e-b098-45e2-b716-8f162b0c4ced",
+            "Id_69abd614-343f-4d22-a7e2-5d546051dc02": "Id_69abd614-343f-4d22-a7e2-5d546051dc02",
+            "Id_39e26069-902c-4ec6-84c8-f2431c97c4d8": "Id_39e26069-902c-4ec6-84c8-f2431c97c4d8",
+            "Id_febfcfab-7199-445f-ac65-16405d5968d7": "Id_febfcfab-7199-445f-ac65-16405d5968d7",
+            "Id_00c1c0de-a945-4c67-8347-f9569d10f77f": "Id_00c1c0de-a945-4c67-8347-f9569d10f77f",
+            "Id_a61c944a-4e06-416c-8054-72710c5547db": "Id_a61c944a-4e06-416c-8054-72710c5547db"
+          },
+          "lane_map": {
+            "ED": "ED",
+            "System": "System"
+          },
+          "counts": {
+            "operations": 2,
+            "nodes": 22,
+            "edges": 26
+          }
+        },
+        {
+          "variant": "k2_newids",
+          "k": 2,
+          "id_policy": "newids",
+          "path": "65/k2_newids.bpmn",
+          "ground_truth": "65/k2_newids.groundtruth.json",
+          "mutations": [
+            "flow_condition_change",
+            "gateway_type_change"
+          ],
+          "node_map": {
+            "Id_5ebe36701020acba": "Id_92cb515c-ae81-4364-a587-772f1bcc50f5",
+            "Id_ae1b40cd82ff5051": "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7",
+            "Id_87d853f0452df8a3": "Id_b95890b5-92e4-432a-b709-a96b40733427",
+            "Id_3a548735906e4109": "Id_baf5345e-3bb0-4235-bb5f-c58fa8217646",
+            "Id_1038306235350c41": "Id_b210868a-cf5c-4157-b86e-b21d426d3851",
+            "Id_07109382e120ec3e": "Id_0a7a1082-affb-4bc8-bfb1-91f073d72dde",
+            "Id_211394cf5b7047e0": "Id_082521f7-2373-493e-b116-ed46f8443646",
+            "Id_1e2298f57ef0c5cd": "Id_8a71f31d-70b3-48c5-bc2c-eea96af4d56f",
+            "Id_51aac81a1abbb4c5": "Id_7bcfb632-b79c-4c0f-b3d7-4da10fd0b486",
+            "Id_0983dc426eeaa1b7": "Id_778fd50a-2f20-4db3-9a8b-ea705dc632c1",
+            "Id_0445ed0e6b63161a": "Id_c4d65e81-c03c-4448-b16e-30e66f1889ea",
+            "Id_5a84a2304e9ccedb": "Id_6fe753e9-ea2f-4694-a19f-d7585b540d01",
+            "Id_156708affa786256": "Id_d877f453-58b4-46a1-aa8c-b53c44b2a526",
+            "Id_a23e2024d34ad2bc": "Id_b2834f10-e7c5-4c97-92b1-ed0e4758ef8a",
+            "Id_9d9d2bbcd47f3247": "Id_0b5b77be-75b0-45a9-bd17-b1997420ce28",
+            "Id_b4a7758421209796": "Id_30480a4a-9208-4c99-a015-5b6c33e47dfd",
+            "Id_cf214b717b116806": "Id_be8fff2e-b098-45e2-b716-8f162b0c4ced",
+            "Id_f7757222088d581c": "Id_69abd614-343f-4d22-a7e2-5d546051dc02",
+            "Id_5a207e93d1c34e8f": "Id_39e26069-902c-4ec6-84c8-f2431c97c4d8",
+            "Id_58114c4b1f10709a": "Id_febfcfab-7199-445f-ac65-16405d5968d7",
+            "Id_5c84181a7fe00f9b": "Id_00c1c0de-a945-4c67-8347-f9569d10f77f",
+            "Id_121ea6d68b09f0fe": "Id_a61c944a-4e06-416c-8054-72710c5547db"
+          },
+          "lane_map": {
+            "ED": "ED",
+            "System": "System"
+          },
+          "counts": {
+            "operations": 2,
+            "nodes": 22,
+            "edges": 26
+          }
+        },
+        {
+          "variant": "k4_keep",
+          "k": 4,
+          "id_policy": "keep",
+          "path": "65/k4_keep.bpmn",
+          "ground_truth": "65/k4_keep.groundtruth.json",
+          "mutations": [
+            "flow_condition_change",
+            "gateway_type_change",
+            "insert_node",
+            "delete_node"
+          ],
+          "node_map": {
+            "Id_92cb515c-ae81-4364-a587-772f1bcc50f5": "Id_92cb515c-ae81-4364-a587-772f1bcc50f5",
+            "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7": "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7",
+            "Id_b95890b5-92e4-432a-b709-a96b40733427": "Id_b95890b5-92e4-432a-b709-a96b40733427",
+            "Id_baf5345e-3bb0-4235-bb5f-c58fa8217646": "Id_baf5345e-3bb0-4235-bb5f-c58fa8217646",
+            "Id_b210868a-cf5c-4157-b86e-b21d426d3851": "Id_b210868a-cf5c-4157-b86e-b21d426d3851",
+            "Id_0a7a1082-affb-4bc8-bfb1-91f073d72dde": "Id_0a7a1082-affb-4bc8-bfb1-91f073d72dde",
+            "Id_8a71f31d-70b3-48c5-bc2c-eea96af4d56f": "Id_8a71f31d-70b3-48c5-bc2c-eea96af4d56f",
+            "Id_7bcfb632-b79c-4c0f-b3d7-4da10fd0b486": "Id_7bcfb632-b79c-4c0f-b3d7-4da10fd0b486",
+            "Id_778fd50a-2f20-4db3-9a8b-ea705dc632c1": "Id_778fd50a-2f20-4db3-9a8b-ea705dc632c1",
+            "Id_c4d65e81-c03c-4448-b16e-30e66f1889ea": "Id_c4d65e81-c03c-4448-b16e-30e66f1889ea",
+            "Id_6fe753e9-ea2f-4694-a19f-d7585b540d01": "Id_6fe753e9-ea2f-4694-a19f-d7585b540d01",
+            "Id_d877f453-58b4-46a1-aa8c-b53c44b2a526": "Id_d877f453-58b4-46a1-aa8c-b53c44b2a526",
+            "Id_b2834f10-e7c5-4c97-92b1-ed0e4758ef8a": "Id_b2834f10-e7c5-4c97-92b1-ed0e4758ef8a",
+            "Id_0b5b77be-75b0-45a9-bd17-b1997420ce28": "Id_0b5b77be-75b0-45a9-bd17-b1997420ce28",
+            "Id_30480a4a-9208-4c99-a015-5b6c33e47dfd": "Id_30480a4a-9208-4c99-a015-5b6c33e47dfd",
+            "Id_be8fff2e-b098-45e2-b716-8f162b0c4ced": "Id_be8fff2e-b098-45e2-b716-8f162b0c4ced",
+            "Id_69abd614-343f-4d22-a7e2-5d546051dc02": "Id_69abd614-343f-4d22-a7e2-5d546051dc02",
+            "Id_39e26069-902c-4ec6-84c8-f2431c97c4d8": "Id_39e26069-902c-4ec6-84c8-f2431c97c4d8",
+            "Id_febfcfab-7199-445f-ac65-16405d5968d7": "Id_febfcfab-7199-445f-ac65-16405d5968d7",
+            "Id_00c1c0de-a945-4c67-8347-f9569d10f77f": "Id_00c1c0de-a945-4c67-8347-f9569d10f77f",
+            "Id_a61c944a-4e06-416c-8054-72710c5547db": "Id_a61c944a-4e06-416c-8054-72710c5547db"
+          },
+          "lane_map": {
+            "ED": "ED",
+            "System": "System"
+          },
+          "counts": {
+            "operations": 8,
+            "nodes": 22,
+            "edges": 26
+          }
+        },
+        {
+          "variant": "k4_newids",
+          "k": 4,
+          "id_policy": "newids",
+          "path": "65/k4_newids.bpmn",
+          "ground_truth": "65/k4_newids.groundtruth.json",
+          "mutations": [
+            "flow_condition_change",
+            "gateway_type_change",
+            "insert_node",
+            "delete_node"
+          ],
+          "node_map": {
+            "Id_726a8beb5d452eaa": "Id_92cb515c-ae81-4364-a587-772f1bcc50f5",
+            "Id_88cae5218703db41": "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7",
+            "Id_ded976831645049d": "Id_b95890b5-92e4-432a-b709-a96b40733427",
+            "Id_f7023bc6af18746c": "Id_baf5345e-3bb0-4235-bb5f-c58fa8217646",
+            "Id_5add6f9f2dd5cf47": "Id_b210868a-cf5c-4157-b86e-b21d426d3851",
+            "Id_cd81a070f44f0b26": "Id_0a7a1082-affb-4bc8-bfb1-91f073d72dde",
+            "Id_f727d66ef1ba544c": "Id_8a71f31d-70b3-48c5-bc2c-eea96af4d56f",
+            "Id_bdac94db623aea70": "Id_7bcfb632-b79c-4c0f-b3d7-4da10fd0b486",
+            "Id_5b17a3666ec94196": "Id_778fd50a-2f20-4db3-9a8b-ea705dc632c1",
+            "Id_fdece2f4e5830790": "Id_c4d65e81-c03c-4448-b16e-30e66f1889ea",
+            "Id_a69b271458ccf53c": "Id_6fe753e9-ea2f-4694-a19f-d7585b540d01",
+            "Id_a0e8a735e7927be1": "Id_d877f453-58b4-46a1-aa8c-b53c44b2a526",
+            "Id_c548e31f531d1ba8": "Id_b2834f10-e7c5-4c97-92b1-ed0e4758ef8a",
+            "Id_a39eb6a495ebc01c": "Id_0b5b77be-75b0-45a9-bd17-b1997420ce28",
+            "Id_a1bd17ef8b81c7e4": "Id_30480a4a-9208-4c99-a015-5b6c33e47dfd",
+            "Id_e3e56eb6afd46b83": "Id_be8fff2e-b098-45e2-b716-8f162b0c4ced",
+            "Id_6310d953ed880aca": "Id_69abd614-343f-4d22-a7e2-5d546051dc02",
+            "Id_3aa99ed204dfa4e3": "Id_39e26069-902c-4ec6-84c8-f2431c97c4d8",
+            "Id_5df7510555f64212": "Id_febfcfab-7199-445f-ac65-16405d5968d7",
+            "Id_f4c702cbc9e4dfae": "Id_00c1c0de-a945-4c67-8347-f9569d10f77f",
+            "Id_ca758a5ecc38b0bd": "Id_a61c944a-4e06-416c-8054-72710c5547db"
+          },
+          "lane_map": {
+            "ED": "ED",
+            "System": "System"
+          },
+          "counts": {
+            "operations": 8,
+            "nodes": 22,
+            "edges": 26
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,433 @@
+{
+  "schema_version": "change-v1",
+  "dataset": "bpmndiff-synthetic-v1",
+  "base_id": "65",
+  "variant": "k4_newids",
+  "k": 4,
+  "id_policy": "newids",
+  "mutations": [
+    {
+      "kind": "flow_condition_change",
+      "flow_id": "Id_08bfb140-c392-4734-b2eb-3f9c113bdead",
+      "condition": "amount > 5"
+    },
+    {
+      "kind": "gateway_type_change",
+      "node_id": "Id_6fe753e9-ea2f-4694-a19f-d7585b540d01",
+      "before": "exclusiveGateway",
+      "after": "parallelGateway"
+    },
+    {
+      "kind": "insert_node",
+      "node_id": "Mut_Node_5",
+      "name": "Adds verification step 5",
+      "after_node": "Id_c4d65e81-c03c-4448-b16e-30e66f1889ea",
+      "edge_id": "Id_04bbe4a6-8b45-4d68-bb43-151921402ec4"
+    },
+    {
+      "kind": "delete_node",
+      "node_id": "Id_082521f7-2373-493e-b116-ed46f8443646",
+      "name": "Sreads the Registration database",
+      "reconnect": {
+        "source": "Id_0a7a1082-affb-4bc8-bfb1-91f073d72dde",
+        "target": "Id_8a71f31d-70b3-48c5-bc2c-eea96af4d56f"
+      }
+    }
+  ],
+  "operations": [
+    {
+      "schema_version": "change-v1",
+      "change": {
+        "type": "DELETE_NODE",
+        "legacy_type": "DELETE",
+        "category": 1,
+        "category_name": "Steps (tasks and events)",
+        "element": "node",
+        "before": {
+          "id": "Id_082521f7-2373-493e-b116-ed46f8443646",
+          "name": "Sreads the Registration database",
+          "kind": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "lane": "System",
+          "pool": "Emergency room Triage"
+        },
+        "after": null,
+        "detail": "removed task: Sreads the Registration database",
+        "confidence": "high",
+        "needs_review": false,
+        "label": "unmatched"
+      },
+      "evidence": {
+        "alignment": [],
+        "structural_context": [],
+        "observations": [
+          {
+            "source": "operation",
+            "description": "removed task: Sreads the Registration database",
+            "value": {
+              "before": {
+                "id": "Id_082521f7-2373-493e-b116-ed46f8443646",
+                "name": "Sreads the Registration database",
+                "kind": "task",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "none",
+                "lane": "System",
+                "pool": "Emergency room Triage"
+              },
+              "after": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "schema_version": "change-v1",
+      "change": {
+        "type": "INSERT_NODE",
+        "legacy_type": "INSERT",
+        "category": 1,
+        "category_name": "Steps (tasks and events)",
+        "element": "node",
+        "before": null,
+        "after": {
+          "id": "Id_5eefea4fa0470606",
+          "name": "Adds verification step 5",
+          "kind": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "lane": "ED",
+          "pool": "Emergency room Triage"
+        },
+        "detail": "added task: Adds verification step 5",
+        "confidence": "high",
+        "needs_review": false,
+        "label": "unmatched"
+      },
+      "evidence": {
+        "alignment": [],
+        "structural_context": [],
+        "observations": [
+          {
+            "source": "operation",
+            "description": "added task: Adds verification step 5",
+            "value": {
+              "before": null,
+              "after": {
+                "id": "Id_5eefea4fa0470606",
+                "name": "Adds verification step 5",
+                "kind": "task",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "none",
+                "lane": "ED",
+                "pool": "Emergency room Triage"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "schema_version": "change-v1",
+      "change": {
+        "type": "DELETE_FLOW",
+        "legacy_type": "DELETE_FLOW",
+        "category": 3,
+        "category_name": "Sequence, flow, and branching",
+        "element": "flow",
+        "before": {
+          "source": "Selects the condition button",
+          "target": "<exclusive gateway (XOR)>",
+          "source_id": "Id_778fd50a-2f20-4db3-9a8b-ea705dc632c1",
+          "target_id": "Id_c4d65e81-c03c-4448-b16e-30e66f1889ea",
+          "condition": "",
+          "is_default": false
+        },
+        "after": null,
+        "detail": "flow removed from \"Selects the condition button\" to \"<exclusive gateway (XOR)>\" (1x)",
+        "confidence": "high",
+        "needs_review": false,
+        "label": "unmatched"
+      },
+      "evidence": {
+        "alignment": [],
+        "structural_context": [],
+        "observations": [
+          {
+            "source": "operation",
+            "description": "flow removed from \"Selects the condition button\" to \"<exclusive gateway (XOR)>\" (1x)",
+            "value": {
+              "before": {
+                "source": "Selects the condition button",
+                "target": "<exclusive gateway (XOR)>",
+                "source_id": "Id_778fd50a-2f20-4db3-9a8b-ea705dc632c1",
+                "target_id": "Id_c4d65e81-c03c-4448-b16e-30e66f1889ea",
+                "condition": "",
+                "is_default": false
+              },
+              "after": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "schema_version": "change-v1",
+      "change": {
+        "type": "FLOW_CONDITION_CHANGE",
+        "legacy_type": "FLOW_CONDITION_CHANGE",
+        "category": 3,
+        "category_name": "Sequence, flow, and branching",
+        "element": "flow",
+        "before": {
+          "source": "<exclusive gateway (XOR)>",
+          "target": "Displays the message \"data not found\".",
+          "source_id": "Id_8a71f31d-70b3-48c5-bc2c-eea96af4d56f",
+          "target_id": "Id_d877f453-58b4-46a1-aa8c-b53c44b2a526",
+          "condition": "",
+          "is_default": false
+        },
+        "after": {
+          "source": "<exclusive gateway (XOR)>",
+          "target": "Displays the message \"data not found\".",
+          "source_id": "Id_f727d66ef1ba544c",
+          "target_id": "Id_a0e8a735e7927be1",
+          "condition": "amount > 5",
+          "is_default": false
+        },
+        "detail": "condition: \"\" -> \"amount > 5\"",
+        "confidence": "high",
+        "needs_review": false
+      },
+      "evidence": {
+        "alignment": [],
+        "structural_context": [],
+        "observations": [
+          {
+            "source": "operation",
+            "description": "condition: \"\" -> \"amount > 5\"",
+            "value": {
+              "before": {
+                "source": "<exclusive gateway (XOR)>",
+                "target": "Displays the message \"data not found\".",
+                "source_id": "Id_8a71f31d-70b3-48c5-bc2c-eea96af4d56f",
+                "target_id": "Id_d877f453-58b4-46a1-aa8c-b53c44b2a526",
+                "condition": "",
+                "is_default": false
+              },
+              "after": {
+                "source": "<exclusive gateway (XOR)>",
+                "target": "Displays the message \"data not found\".",
+                "source_id": "Id_f727d66ef1ba544c",
+                "target_id": "Id_a0e8a735e7927be1",
+                "condition": "amount > 5",
+                "is_default": false
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "schema_version": "change-v1",
+      "change": {
+        "type": "GATEWAY_TYPE_CHANGE",
+        "legacy_type": "CHANGE_GATEWAY_TYPE",
+        "category": 3,
+        "category_name": "Sequence, flow, and branching",
+        "element": "gateway",
+        "before": {
+          "id": "Id_6fe753e9-ea2f-4694-a19f-d7585b540d01",
+          "name": "<exclusive gateway (XOR)>",
+          "kind": "xor",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "lane": "System",
+          "pool": "Emergency room Triage"
+        },
+        "after": {
+          "id": "Id_a69b271458ccf53c",
+          "name": "<parallel gateway (AND)>",
+          "kind": "and",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "lane": "System",
+          "pool": "Emergency room Triage"
+        },
+        "detail": "XOR -> AND",
+        "confidence": "high",
+        "needs_review": false
+      },
+      "evidence": {
+        "alignment": [],
+        "structural_context": [],
+        "observations": [
+          {
+            "source": "operation",
+            "description": "XOR -> AND",
+            "value": {
+              "before": {
+                "id": "Id_6fe753e9-ea2f-4694-a19f-d7585b540d01",
+                "name": "<exclusive gateway (XOR)>",
+                "kind": "xor",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "none",
+                "lane": "System",
+                "pool": "Emergency room Triage"
+              },
+              "after": {
+                "id": "Id_a69b271458ccf53c",
+                "name": "<parallel gateway (AND)>",
+                "kind": "and",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "none",
+                "lane": "System",
+                "pool": "Emergency room Triage"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "schema_version": "change-v1",
+      "change": {
+        "type": "INSERT_FLOW",
+        "legacy_type": "INSERT_FLOW",
+        "category": 3,
+        "category_name": "Sequence, flow, and branching",
+        "element": "flow",
+        "before": null,
+        "after": {
+          "source": "Adds verification step 5",
+          "target": "<exclusive gateway (XOR)>",
+          "source_id": "Id_5eefea4fa0470606",
+          "target_id": "Id_fdece2f4e5830790",
+          "condition": "",
+          "is_default": false
+        },
+        "detail": "flow added from \"Adds verification step 5\" to \"<exclusive gateway (XOR)>\" (1x)",
+        "confidence": "high",
+        "needs_review": false,
+        "label": "unmatched"
+      },
+      "evidence": {
+        "alignment": [],
+        "structural_context": [],
+        "observations": [
+          {
+            "source": "operation",
+            "description": "flow added from \"Adds verification step 5\" to \"<exclusive gateway (XOR)>\" (1x)",
+            "value": {
+              "before": null,
+              "after": {
+                "source": "Adds verification step 5",
+                "target": "<exclusive gateway (XOR)>",
+                "source_id": "Id_5eefea4fa0470606",
+                "target_id": "Id_fdece2f4e5830790",
+                "condition": "",
+                "is_default": false
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "schema_version": "change-v1",
+      "change": {
+        "type": "INSERT_FLOW",
+        "legacy_type": "INSERT_FLOW",
+        "category": 3,
+        "category_name": "Sequence, flow, and branching",
+        "element": "flow",
+        "before": null,
+        "after": {
+          "source": "Enters register number of a patient",
+          "target": "<exclusive gateway (XOR)>",
+          "source_id": "Id_cd81a070f44f0b26",
+          "target_id": "Id_f727d66ef1ba544c",
+          "condition": "",
+          "is_default": false
+        },
+        "detail": "flow added from \"Enters register number of a patient\" to \"<exclusive gateway (XOR)>\" (1x)",
+        "confidence": "high",
+        "needs_review": false,
+        "label": "unmatched"
+      },
+      "evidence": {
+        "alignment": [],
+        "structural_context": [],
+        "observations": [
+          {
+            "source": "operation",
+            "description": "flow added from \"Enters register number of a patient\" to \"<exclusive gateway (XOR)>\" (1x)",
+            "value": {
+              "before": null,
+              "after": {
+                "source": "Enters register number of a patient",
+                "target": "<exclusive gateway (XOR)>",
+                "source_id": "Id_cd81a070f44f0b26",
+                "target_id": "Id_f727d66ef1ba544c",
+                "condition": "",
+                "is_default": false
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "schema_version": "change-v1",
+      "change": {
+        "type": "INSERT_FLOW",
+        "legacy_type": "INSERT_FLOW",
+        "category": 3,
+        "category_name": "Sequence, flow, and branching",
+        "element": "flow",
+        "before": null,
+        "after": {
+          "source": "Selects the condition button",
+          "target": "Adds verification step 5",
+          "source_id": "Id_5b17a3666ec94196",
+          "target_id": "Id_5eefea4fa0470606",
+          "condition": "",
+          "is_default": false
+        },
+        "detail": "flow added from \"Selects the condition button\" to \"Adds verification step 5\" (1x)",
+        "confidence": "high",
+        "needs_review": false,
+        "label": "unmatched"
+      },
+      "evidence": {
+        "alignment": [],
+        "structural_context": [],
+        "observations": [
+          {
+            "source": "operation",
+            "description": "flow added from \"Selects the condition button\" to \"Adds verification step 5\" (1x)",
+            "value": {
+              "before": null,
+              "after": {
+                "source": "Selects the condition button",
+                "target": "Adds verification step 5",
+                "source_id": "Id_5b17a3666ec94196",
+                "target_id": "Id_5eefea4fa0470606",
+                "condition": "",
+                "is_default": false
+              }
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

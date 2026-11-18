@@ -1,0 +1,416 @@
+{
+  "schema_version": "change-v1",
+  "dataset": "bpmndiff-synthetic-v1",
+  "base_id": "63",
+  "variant": "k4_newids",
+  "k": 4,
+  "id_policy": "newids",
+  "mutations": [
+    {
+      "kind": "node_type_change",
+      "node_id": "Id_082521f7-2373-493e-b116-ed46f8443646",
+      "before": "task",
+      "after": "userTask"
+    },
+    {
+      "kind": "rename_node",
+      "node_id": "Id_0a7a1082-affb-4bc8-bfb1-91f073d72dde",
+      "before": "Enters the medical record ID number",
+      "after": "Enters the financial record ID number"
+    },
+    {
+      "kind": "gateway_type_change",
+      "node_id": "Id_7a3f28d2-8c48-4551-9672-ee6753bda510",
+      "before": "exclusiveGateway",
+      "after": "parallelGateway"
+    },
+    {
+      "kind": "insert_node",
+      "node_id": "Mut_Node_4",
+      "name": "Adds verification step 4",
+      "after_node": "Id_b95890b5-92e4-432a-b709-a96b40733427",
+      "edge_id": "Id_14e6c8c4-2f0b-4f12-9e4b-62e572470b82"
+    }
+  ],
+  "operations": [
+    {
+      "schema_version": "change-v1",
+      "change": {
+        "type": "INSERT_NODE",
+        "legacy_type": "INSERT",
+        "category": 1,
+        "category_name": "Steps (tasks and events)",
+        "element": "node",
+        "before": null,
+        "after": {
+          "id": "Id_7dce96339c8078b2",
+          "name": "Adds verification step 4",
+          "kind": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "lane": "System",
+          "pool": "Updates Patient Information"
+        },
+        "detail": "added task: Adds verification step 4",
+        "confidence": "high",
+        "needs_review": false,
+        "label": "unmatched"
+      },
+      "evidence": {
+        "alignment": [],
+        "structural_context": [],
+        "observations": [
+          {
+            "source": "operation",
+            "description": "added task: Adds verification step 4",
+            "value": {
+              "before": null,
+              "after": {
+                "id": "Id_7dce96339c8078b2",
+                "name": "Adds verification step 4",
+                "kind": "task",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "none",
+                "lane": "System",
+                "pool": "Updates Patient Information"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "schema_version": "change-v1",
+      "change": {
+        "type": "NODE_TYPE_CHANGE",
+        "legacy_type": "CHANGE_TYPE",
+        "category": 1,
+        "category_name": "Steps (tasks and events)",
+        "element": "node",
+        "before": {
+          "id": "Id_082521f7-2373-493e-b116-ed46f8443646",
+          "name": "Queries database",
+          "kind": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "lane": "System",
+          "pool": "Updates Patient Information"
+        },
+        "after": {
+          "id": "Id_6ea247b846cf1b9c",
+          "name": "Queries database",
+          "kind": "task",
+          "task_type": "user",
+          "event_definition": "none",
+          "marker": "none",
+          "lane": "System",
+          "pool": "Updates Patient Information"
+        },
+        "detail": "abstract task -> user task",
+        "confidence": "high",
+        "needs_review": false
+      },
+      "evidence": {
+        "alignment": [],
+        "structural_context": [],
+        "observations": [
+          {
+            "source": "operation",
+            "description": "abstract task -> user task",
+            "value": {
+              "before": {
+                "id": "Id_082521f7-2373-493e-b116-ed46f8443646",
+                "name": "Queries database",
+                "kind": "task",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "none",
+                "lane": "System",
+                "pool": "Updates Patient Information"
+              },
+              "after": {
+                "id": "Id_6ea247b846cf1b9c",
+                "name": "Queries database",
+                "kind": "task",
+                "task_type": "user",
+                "event_definition": "none",
+                "marker": "none",
+                "lane": "System",
+                "pool": "Updates Patient Information"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "schema_version": "change-v1",
+      "change": {
+        "type": "RENAME_NODE",
+        "legacy_type": "RENAME",
+        "category": 1,
+        "category_name": "Steps (tasks and events)",
+        "element": "node",
+        "before": {
+          "id": "Id_0a7a1082-affb-4bc8-bfb1-91f073d72dde",
+          "name": "Enters the medical record ID number",
+          "kind": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "lane": "ED",
+          "pool": "Updates Patient Information"
+        },
+        "after": {
+          "id": "Id_9841288b05e182c2",
+          "name": "Enters the financial record ID number",
+          "kind": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "lane": "ED",
+          "pool": "Updates Patient Information"
+        },
+        "detail": "\"Enters the medical record ID number\" -> \"Enters the financial record ID number\" (synonym)",
+        "confidence": "high",
+        "needs_review": false,
+        "label": "synonym",
+        "subtype": "synonym",
+        "is_synonym": true,
+        "score": 0.88
+      },
+      "evidence": {
+        "alignment": [],
+        "structural_context": [],
+        "observations": [
+          {
+            "source": "operation",
+            "description": "\"Enters the medical record ID number\" -> \"Enters the financial record ID number\" (synonym)",
+            "value": {
+              "before": {
+                "id": "Id_0a7a1082-affb-4bc8-bfb1-91f073d72dde",
+                "name": "Enters the medical record ID number",
+                "kind": "task",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "none",
+                "lane": "ED",
+                "pool": "Updates Patient Information"
+              },
+              "after": {
+                "id": "Id_9841288b05e182c2",
+                "name": "Enters the financial record ID number",
+                "kind": "task",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "none",
+                "lane": "ED",
+                "pool": "Updates Patient Information"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "schema_version": "change-v1",
+      "change": {
+        "type": "DELETE_FLOW",
+        "legacy_type": "DELETE_FLOW",
+        "category": 3,
+        "category_name": "Sequence, flow, and branching",
+        "element": "flow",
+        "before": {
+          "source": "Queries database",
+          "target": "Displays the query result",
+          "source_id": "Id_082521f7-2373-493e-b116-ed46f8443646",
+          "target_id": "Id_b95890b5-92e4-432a-b709-a96b40733427",
+          "condition": "",
+          "is_default": false
+        },
+        "after": null,
+        "detail": "flow removed from \"Queries database\" to \"Displays the query result\" (1x)",
+        "confidence": "high",
+        "needs_review": false,
+        "label": "unmatched"
+      },
+      "evidence": {
+        "alignment": [],
+        "structural_context": [],
+        "observations": [
+          {
+            "source": "operation",
+            "description": "flow removed from \"Queries database\" to \"Displays the query result\" (1x)",
+            "value": {
+              "before": {
+                "source": "Queries database",
+                "target": "Displays the query result",
+                "source_id": "Id_082521f7-2373-493e-b116-ed46f8443646",
+                "target_id": "Id_b95890b5-92e4-432a-b709-a96b40733427",
+                "condition": "",
+                "is_default": false
+              },
+              "after": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "schema_version": "change-v1",
+      "change": {
+        "type": "GATEWAY_TYPE_CHANGE",
+        "legacy_type": "CHANGE_GATEWAY_TYPE",
+        "category": 3,
+        "category_name": "Sequence, flow, and branching",
+        "element": "gateway",
+        "before": {
+          "id": "Id_7a3f28d2-8c48-4551-9672-ee6753bda510",
+          "name": "<exclusive gateway (XOR)>",
+          "kind": "xor",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "lane": "System",
+          "pool": "Updates Patient Information"
+        },
+        "after": {
+          "id": "Id_ccdcd1a89b7388fd",
+          "name": "<parallel gateway (AND)>",
+          "kind": "and",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "lane": "System",
+          "pool": "Updates Patient Information"
+        },
+        "detail": "XOR -> AND",
+        "confidence": "high",
+        "needs_review": false
+      },
+      "evidence": {
+        "alignment": [],
+        "structural_context": [],
+        "observations": [
+          {
+            "source": "operation",
+            "description": "XOR -> AND",
+            "value": {
+              "before": {
+                "id": "Id_7a3f28d2-8c48-4551-9672-ee6753bda510",
+                "name": "<exclusive gateway (XOR)>",
+                "kind": "xor",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "none",
+                "lane": "System",
+                "pool": "Updates Patient Information"
+              },
+              "after": {
+                "id": "Id_ccdcd1a89b7388fd",
+                "name": "<parallel gateway (AND)>",
+                "kind": "and",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "none",
+                "lane": "System",
+                "pool": "Updates Patient Information"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "schema_version": "change-v1",
+      "change": {
+        "type": "INSERT_FLOW",
+        "legacy_type": "INSERT_FLOW",
+        "category": 3,
+        "category_name": "Sequence, flow, and branching",
+        "element": "flow",
+        "before": null,
+        "after": {
+          "source": "Adds verification step 4",
+          "target": "Displays the query result",
+          "source_id": "Id_7dce96339c8078b2",
+          "target_id": "Id_742ae18dab9f7ea9",
+          "condition": "",
+          "is_default": false
+        },
+        "detail": "flow added from \"Adds verification step 4\" to \"Displays the query result\" (1x)",
+        "confidence": "high",
+        "needs_review": false,
+        "label": "unmatched"
+      },
+      "evidence": {
+        "alignment": [],
+        "structural_context": [],
+        "observations": [
+          {
+            "source": "operation",
+            "description": "flow added from \"Adds verification step 4\" to \"Displays the query result\" (1x)",
+            "value": {
+              "before": null,
+              "after": {
+                "source": "Adds verification step 4",
+                "target": "Displays the query result",
+                "source_id": "Id_7dce96339c8078b2",
+                "target_id": "Id_742ae18dab9f7ea9",
+                "condition": "",
+                "is_default": false
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "schema_version": "change-v1",
+      "change": {
+        "type": "INSERT_FLOW",
+        "legacy_type": "INSERT_FLOW",
+        "category": 3,
+        "category_name": "Sequence, flow, and branching",
+        "element": "flow",
+        "before": null,
+        "after": {
+          "source": "Queries database",
+          "target": "Adds verification step 4",
+          "source_id": "Id_6ea247b846cf1b9c",
+          "target_id": "Id_7dce96339c8078b2",
+          "condition": "",
+          "is_default": false
+        },
+        "detail": "flow added from \"Queries database\" to \"Adds verification step 4\" (1x)",
+        "confidence": "high",
+        "needs_review": false,
+        "label": "unmatched"
+      },
+      "evidence": {
+        "alignment": [],
+        "structural_context": [],
+        "observations": [
+          {
+            "source": "operation",
+            "description": "flow added from \"Queries database\" to \"Adds verification step 4\" (1x)",
+            "value": {
+              "before": null,
+              "after": {
+                "source": "Queries database",
+                "target": "Adds verification step 4",
+                "source_id": "Id_6ea247b846cf1b9c",
+                "target_id": "Id_7dce96339c8078b2",
+                "condition": "",
+                "is_default": false
+              }
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

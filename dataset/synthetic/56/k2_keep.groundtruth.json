@@ -1,0 +1,274 @@
+{
+  "schema_version": "change-v1",
+  "dataset": "bpmndiff-synthetic-v1",
+  "base_id": "56",
+  "variant": "k2_keep",
+  "k": 2,
+  "id_policy": "keep",
+  "mutations": [
+    {
+      "kind": "rename_node",
+      "node_id": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+      "before": "Enters the patient's name",
+      "after": "Enters the supplier's name"
+    },
+    {
+      "kind": "insert_node",
+      "node_id": "Mut_Node_1",
+      "name": "Adds verification step 1",
+      "after_node": "Id_ffd9beac-13dd-4c0f-9c58-f3f304cf90f3",
+      "edge_id": "Id_14c3b15b-e9f9-4d54-bfe1-2d60a5969384"
+    }
+  ],
+  "operations": [
+    {
+      "schema_version": "change-v1",
+      "change": {
+        "type": "INSERT_NODE",
+        "legacy_type": "INSERT",
+        "category": 1,
+        "category_name": "Steps (tasks and events)",
+        "element": "node",
+        "before": null,
+        "after": {
+          "id": "Mut_Node_1",
+          "name": "Adds verification step 1",
+          "kind": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "lane": "System",
+          "pool": "Search for patient data information"
+        },
+        "detail": "added task: Adds verification step 1",
+        "confidence": "high",
+        "needs_review": false,
+        "label": "unmatched"
+      },
+      "evidence": {
+        "alignment": [],
+        "structural_context": [],
+        "observations": [
+          {
+            "source": "operation",
+            "description": "added task: Adds verification step 1",
+            "value": {
+              "before": null,
+              "after": {
+                "id": "Mut_Node_1",
+                "name": "Adds verification step 1",
+                "kind": "task",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "none",
+                "lane": "System",
+                "pool": "Search for patient data information"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "schema_version": "change-v1",
+      "change": {
+        "type": "RENAME_NODE",
+        "legacy_type": "RENAME",
+        "category": 1,
+        "category_name": "Steps (tasks and events)",
+        "element": "node",
+        "before": {
+          "id": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+          "name": "Enters the patient's name",
+          "kind": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "lane": "FO",
+          "pool": "Search for patient data information"
+        },
+        "after": {
+          "id": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+          "name": "Enters the supplier's name",
+          "kind": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "lane": "FO",
+          "pool": "Search for patient data information"
+        },
+        "detail": "\"Enters the patient's name\" -> \"Enters the supplier's name\" (synonym)",
+        "confidence": "high",
+        "needs_review": false,
+        "label": "synonym",
+        "subtype": "synonym",
+        "is_synonym": true,
+        "score": 0.88
+      },
+      "evidence": {
+        "alignment": [],
+        "structural_context": [],
+        "observations": [
+          {
+            "source": "operation",
+            "description": "\"Enters the patient's name\" -> \"Enters the supplier's name\" (synonym)",
+            "value": {
+              "before": {
+                "id": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+                "name": "Enters the patient's name",
+                "kind": "task",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "none",
+                "lane": "FO",
+                "pool": "Search for patient data information"
+              },
+              "after": {
+                "id": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+                "name": "Enters the supplier's name",
+                "kind": "task",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "none",
+                "lane": "FO",
+                "pool": "Search for patient data information"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "schema_version": "change-v1",
+      "change": {
+        "type": "DELETE_FLOW",
+        "legacy_type": "DELETE_FLOW",
+        "category": 3,
+        "category_name": "Sequence, flow, and branching",
+        "element": "flow",
+        "before": {
+          "source": "Displays the query results to a table",
+          "target": "<exclusive gateway (XOR)>",
+          "source_id": "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598",
+          "target_id": "Id_ffd9beac-13dd-4c0f-9c58-f3f304cf90f3",
+          "condition": "",
+          "is_default": false
+        },
+        "after": null,
+        "detail": "flow removed from \"Displays the query results to a table\" to \"<exclusive gateway (XOR)>\" (1x)",
+        "confidence": "high",
+        "needs_review": false,
+        "label": "unmatched"
+      },
+      "evidence": {
+        "alignment": [],
+        "structural_context": [],
+        "observations": [
+          {
+            "source": "operation",
+            "description": "flow removed from \"Displays the query results to a table\" to \"<exclusive gateway (XOR)>\" (1x)",
+            "value": {
+              "before": {
+                "source": "Displays the query results to a table",
+                "target": "<exclusive gateway (XOR)>",
+                "source_id": "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598",
+                "target_id": "Id_ffd9beac-13dd-4c0f-9c58-f3f304cf90f3",
+                "condition": "",
+                "is_default": false
+              },
+              "after": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "schema_version": "change-v1",
+      "change": {
+        "type": "INSERT_FLOW",
+        "legacy_type": "INSERT_FLOW",
+        "category": 3,
+        "category_name": "Sequence, flow, and branching",
+        "element": "flow",
+        "before": null,
+        "after": {
+          "source": "Adds verification step 1",
+          "target": "<exclusive gateway (XOR)>",
+          "source_id": "Mut_Node_1",
+          "target_id": "Id_ffd9beac-13dd-4c0f-9c58-f3f304cf90f3",
+          "condition": "",
+          "is_default": false
+        },
+        "detail": "flow added from \"Adds verification step 1\" to \"<exclusive gateway (XOR)>\" (1x)",
+        "confidence": "high",
+        "needs_review": false,
+        "label": "unmatched"
+      },
+      "evidence": {
+        "alignment": [],
+        "structural_context": [],
+        "observations": [
+          {
+            "source": "operation",
+            "description": "flow added from \"Adds verification step 1\" to \"<exclusive gateway (XOR)>\" (1x)",
+            "value": {
+              "before": null,
+              "after": {
+                "source": "Adds verification step 1",
+                "target": "<exclusive gateway (XOR)>",
+                "source_id": "Mut_Node_1",
+                "target_id": "Id_ffd9beac-13dd-4c0f-9c58-f3f304cf90f3",
+                "condition": "",
+                "is_default": false
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "schema_version": "change-v1",
+      "change": {
+        "type": "INSERT_FLOW",
+        "legacy_type": "INSERT_FLOW",
+        "category": 3,
+        "category_name": "Sequence, flow, and branching",
+        "element": "flow",
+        "before": null,
+        "after": {
+          "source": "Displays the query results to a table",
+          "target": "Adds verification step 1",
+          "source_id": "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598",
+          "target_id": "Mut_Node_1",
+          "condition": "",
+          "is_default": false
+        },
+        "detail": "flow added from \"Displays the query results to a table\" to \"Adds verification step 1\" (1x)",
+        "confidence": "high",
+        "needs_review": false,
+        "label": "unmatched"
+      },
+      "evidence": {
+        "alignment": [],
+        "structural_context": [],
+        "observations": [
+          {
+            "source": "operation",
+            "description": "flow added from \"Displays the query results to a table\" to \"Adds verification step 1\" (1x)",
+            "value": {
+              "before": null,
+              "after": {
+                "source": "Displays the query results to a table",
+                "target": "Adds verification step 1",
+                "source_id": "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598",
+                "target_id": "Mut_Node_1",
+                "condition": "",
+                "is_default": false
+              }
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

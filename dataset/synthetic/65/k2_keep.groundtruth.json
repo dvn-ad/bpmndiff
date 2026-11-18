@@ -1,0 +1,145 @@
+{
+  "schema_version": "change-v1",
+  "dataset": "bpmndiff-synthetic-v1",
+  "base_id": "65",
+  "variant": "k2_keep",
+  "k": 2,
+  "id_policy": "keep",
+  "mutations": [
+    {
+      "kind": "flow_condition_change",
+      "flow_id": "Id_08bfb140-c392-4734-b2eb-3f9c113bdead",
+      "condition": "amount > 5"
+    },
+    {
+      "kind": "gateway_type_change",
+      "node_id": "Id_6fe753e9-ea2f-4694-a19f-d7585b540d01",
+      "before": "exclusiveGateway",
+      "after": "parallelGateway"
+    }
+  ],
+  "operations": [
+    {
+      "schema_version": "change-v1",
+      "change": {
+        "type": "FLOW_CONDITION_CHANGE",
+        "legacy_type": "FLOW_CONDITION_CHANGE",
+        "category": 3,
+        "category_name": "Sequence, flow, and branching",
+        "element": "flow",
+        "before": {
+          "source": "<exclusive gateway (XOR)>",
+          "target": "Displays the message \"data not found\".",
+          "source_id": "Id_8a71f31d-70b3-48c5-bc2c-eea96af4d56f",
+          "target_id": "Id_d877f453-58b4-46a1-aa8c-b53c44b2a526",
+          "condition": "",
+          "is_default": false
+        },
+        "after": {
+          "source": "<exclusive gateway (XOR)>",
+          "target": "Displays the message \"data not found\".",
+          "source_id": "Id_8a71f31d-70b3-48c5-bc2c-eea96af4d56f",
+          "target_id": "Id_d877f453-58b4-46a1-aa8c-b53c44b2a526",
+          "condition": "amount > 5",
+          "is_default": false
+        },
+        "detail": "condition: \"\" -> \"amount > 5\"",
+        "confidence": "high",
+        "needs_review": false
+      },
+      "evidence": {
+        "alignment": [],
+        "structural_context": [],
+        "observations": [
+          {
+            "source": "operation",
+            "description": "condition: \"\" -> \"amount > 5\"",
+            "value": {
+              "before": {
+                "source": "<exclusive gateway (XOR)>",
+                "target": "Displays the message \"data not found\".",
+                "source_id": "Id_8a71f31d-70b3-48c5-bc2c-eea96af4d56f",
+                "target_id": "Id_d877f453-58b4-46a1-aa8c-b53c44b2a526",
+                "condition": "",
+                "is_default": false
+              },
+              "after": {
+                "source": "<exclusive gateway (XOR)>",
+                "target": "Displays the message \"data not found\".",
+                "source_id": "Id_8a71f31d-70b3-48c5-bc2c-eea96af4d56f",
+                "target_id": "Id_d877f453-58b4-46a1-aa8c-b53c44b2a526",
+                "condition": "amount > 5",
+                "is_default": false
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "schema_version": "change-v1",
+      "change": {
+        "type": "GATEWAY_TYPE_CHANGE",
+        "legacy_type": "CHANGE_GATEWAY_TYPE",
+        "category": 3,
+        "category_name": "Sequence, flow, and branching",
+        "element": "gateway",
+        "before": {
+          "id": "Id_6fe753e9-ea2f-4694-a19f-d7585b540d01",
+          "name": "<exclusive gateway (XOR)>",
+          "kind": "xor",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "lane": "System",
+          "pool": "Emergency room Triage"
+        },
+        "after": {
+          "id": "Id_6fe753e9-ea2f-4694-a19f-d7585b540d01",
+          "name": "<parallel gateway (AND)>",
+          "kind": "and",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "lane": "System",
+          "pool": "Emergency room Triage"
+        },
+        "detail": "XOR -> AND",
+        "confidence": "high",
+        "needs_review": false
+      },
+      "evidence": {
+        "alignment": [],
+        "structural_context": [],
+        "observations": [
+          {
+            "source": "operation",
+            "description": "XOR -> AND",
+            "value": {
+              "before": {
+                "id": "Id_6fe753e9-ea2f-4694-a19f-d7585b540d01",
+                "name": "<exclusive gateway (XOR)>",
+                "kind": "xor",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "none",
+                "lane": "System",
+                "pool": "Emergency room Triage"
+              },
+              "after": {
+                "id": "Id_6fe753e9-ea2f-4694-a19f-d7585b540d01",
+                "name": "<parallel gateway (AND)>",
+                "kind": "and",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "none",
+                "lane": "System",
+                "pool": "Emergency room Triage"
+              }
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

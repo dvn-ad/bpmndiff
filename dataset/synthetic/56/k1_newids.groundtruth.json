@@ -1,0 +1,87 @@
+{
+  "schema_version": "change-v1",
+  "dataset": "bpmndiff-synthetic-v1",
+  "base_id": "56",
+  "variant": "k1_newids",
+  "k": 1,
+  "id_policy": "newids",
+  "mutations": [
+    {
+      "kind": "rename_node",
+      "node_id": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+      "before": "Enters the patient's name",
+      "after": "Enters the supplier's name"
+    }
+  ],
+  "operations": [
+    {
+      "schema_version": "change-v1",
+      "change": {
+        "type": "RENAME_NODE",
+        "legacy_type": "RENAME",
+        "category": 1,
+        "category_name": "Steps (tasks and events)",
+        "element": "node",
+        "before": {
+          "id": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+          "name": "Enters the patient's name",
+          "kind": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "lane": "FO",
+          "pool": "Search for patient data information"
+        },
+        "after": {
+          "id": "Id_dfdfda4f8a86f04e",
+          "name": "Enters the supplier's name",
+          "kind": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "lane": "FO",
+          "pool": "Search for patient data information"
+        },
+        "detail": "\"Enters the patient's name\" -> \"Enters the supplier's name\" (synonym)",
+        "confidence": "high",
+        "needs_review": false,
+        "label": "synonym",
+        "subtype": "synonym",
+        "is_synonym": true,
+        "score": 0.88
+      },
+      "evidence": {
+        "alignment": [],
+        "structural_context": [],
+        "observations": [
+          {
+            "source": "operation",
+            "description": "\"Enters the patient's name\" -> \"Enters the supplier's name\" (synonym)",
+            "value": {
+              "before": {
+                "id": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+                "name": "Enters the patient's name",
+                "kind": "task",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "none",
+                "lane": "FO",
+                "pool": "Search for patient data information"
+              },
+              "after": {
+                "id": "Id_dfdfda4f8a86f04e",
+                "name": "Enters the supplier's name",
+                "kind": "task",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "none",
+                "lane": "FO",
+                "pool": "Search for patient data information"
+              }
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

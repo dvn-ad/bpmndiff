@@ -1,0 +1,278 @@
+{
+  "schema_version": "change-v1",
+  "dataset": "bpmndiff-synthetic-v1",
+  "base_id": "58",
+  "variant": "k4_newids",
+  "k": 4,
+  "id_policy": "newids",
+  "mutations": [
+    {
+      "kind": "marker_change",
+      "node_id": "Id_0a7a1082-affb-4bc8-bfb1-91f073d72dde",
+      "marker": "loop"
+    },
+    {
+      "kind": "move_lane",
+      "node_id": "Id_2235724b-6ca2-46d2-95a0-ab88837d316f",
+      "before": "System",
+      "after": "Cashier"
+    },
+    {
+      "kind": "rename_node_synonym",
+      "node_id": "Id_259b95ad-426d-4d16-8f7b-6371212aaf57",
+      "before": "Displays the query results ",
+      "after": "Shows the query results "
+    },
+    {
+      "kind": "insert_flow",
+      "flow_id": "Mut_Flow_Duplicate_3",
+      "source": "Id_ee3de915-745e-439b-bb67-c19333dfb907",
+      "target": "Id_6bc7314b-ee04-4f16-af27-1f79dcebf3d1"
+    }
+  ],
+  "operations": [
+    {
+      "schema_version": "change-v1",
+      "change": {
+        "type": "MARKER_CHANGE",
+        "legacy_type": "MARKER_CHANGE",
+        "category": 1,
+        "category_name": "Steps (tasks and events)",
+        "element": "node",
+        "before": {
+          "id": "Id_0a7a1082-affb-4bc8-bfb1-91f073d72dde",
+          "name": "Enter the medical record ID",
+          "kind": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "lane": "Cashier",
+          "pool": "General patient cashier"
+        },
+        "after": {
+          "id": "Id_985347ea0348f038",
+          "name": "Enter the medical record ID",
+          "kind": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "loop",
+          "lane": "Cashier",
+          "pool": "General patient cashier"
+        },
+        "detail": "marker: \"none\" -> \"loop\"",
+        "confidence": "high",
+        "needs_review": false
+      },
+      "evidence": {
+        "alignment": [],
+        "structural_context": [],
+        "observations": [
+          {
+            "source": "operation",
+            "description": "marker: \"none\" -> \"loop\"",
+            "value": {
+              "before": {
+                "id": "Id_0a7a1082-affb-4bc8-bfb1-91f073d72dde",
+                "name": "Enter the medical record ID",
+                "kind": "task",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "none",
+                "lane": "Cashier",
+                "pool": "General patient cashier"
+              },
+              "after": {
+                "id": "Id_985347ea0348f038",
+                "name": "Enter the medical record ID",
+                "kind": "task",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "loop",
+                "lane": "Cashier",
+                "pool": "General patient cashier"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "schema_version": "change-v1",
+      "change": {
+        "type": "RENAME_NODE",
+        "legacy_type": "RENAME",
+        "category": 1,
+        "category_name": "Steps (tasks and events)",
+        "element": "node",
+        "before": {
+          "id": "Id_259b95ad-426d-4d16-8f7b-6371212aaf57",
+          "name": "Displays the query results",
+          "kind": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "lane": "System",
+          "pool": "General patient cashier"
+        },
+        "after": {
+          "id": "Id_ac9390599eb35ba0",
+          "name": "Shows the query results",
+          "kind": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "lane": "System",
+          "pool": "General patient cashier"
+        },
+        "detail": "\"Displays the query results\" -> \"Shows the query results\" (synonym)",
+        "confidence": "high",
+        "needs_review": false,
+        "label": "synonym",
+        "subtype": "synonym",
+        "is_synonym": true,
+        "score": 0.94
+      },
+      "evidence": {
+        "alignment": [],
+        "structural_context": [],
+        "observations": [
+          {
+            "source": "operation",
+            "description": "\"Displays the query results\" -> \"Shows the query results\" (synonym)",
+            "value": {
+              "before": {
+                "id": "Id_259b95ad-426d-4d16-8f7b-6371212aaf57",
+                "name": "Displays the query results",
+                "kind": "task",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "none",
+                "lane": "System",
+                "pool": "General patient cashier"
+              },
+              "after": {
+                "id": "Id_ac9390599eb35ba0",
+                "name": "Shows the query results",
+                "kind": "task",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "none",
+                "lane": "System",
+                "pool": "General patient cashier"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "schema_version": "change-v1",
+      "change": {
+        "type": "MOVE_LANE",
+        "legacy_type": "CHANGE_SWIMLANE",
+        "category": 2,
+        "category_name": "Actors (lanes and pools)",
+        "element": "swimlane",
+        "before": {
+          "id": "Id_2235724b-6ca2-46d2-95a0-ab88837d316f",
+          "name": "Displays it to the table",
+          "kind": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "lane": "System",
+          "pool": "General patient cashier"
+        },
+        "after": {
+          "id": "Id_042289cc0c5d17a1",
+          "name": "Displays it to the table",
+          "kind": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "lane": "Cashier",
+          "pool": "General patient cashier"
+        },
+        "detail": "Displays it to the table: \"System\" -> \"Cashier\"",
+        "confidence": "high",
+        "needs_review": false
+      },
+      "evidence": {
+        "alignment": [],
+        "structural_context": [],
+        "observations": [
+          {
+            "source": "operation",
+            "description": "Displays it to the table: \"System\" -> \"Cashier\"",
+            "value": {
+              "before": {
+                "id": "Id_2235724b-6ca2-46d2-95a0-ab88837d316f",
+                "name": "Displays it to the table",
+                "kind": "task",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "none",
+                "lane": "System",
+                "pool": "General patient cashier"
+              },
+              "after": {
+                "id": "Id_042289cc0c5d17a1",
+                "name": "Displays it to the table",
+                "kind": "task",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "none",
+                "lane": "Cashier",
+                "pool": "General patient cashier"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "schema_version": "change-v1",
+      "change": {
+        "type": "INSERT_FLOW",
+        "legacy_type": "INSERT_FLOW",
+        "category": 3,
+        "category_name": "Sequence, flow, and branching",
+        "element": "flow",
+        "before": null,
+        "after": {
+          "source": "Invisible Task",
+          "target": "<exclusive gateway (XOR)>",
+          "source_id": "Id_b825d289bb58f042",
+          "target_id": "Id_81309e96dbe07aaf",
+          "condition": "",
+          "is_default": false
+        },
+        "detail": "flow added from \"Invisible Task\" to \"<exclusive gateway (XOR)>\" (1x)",
+        "confidence": "high",
+        "needs_review": false,
+        "label": "unmatched"
+      },
+      "evidence": {
+        "alignment": [],
+        "structural_context": [],
+        "observations": [
+          {
+            "source": "operation",
+            "description": "flow added from \"Invisible Task\" to \"<exclusive gateway (XOR)>\" (1x)",
+            "value": {
+              "before": null,
+              "after": {
+                "source": "Invisible Task",
+                "target": "<exclusive gateway (XOR)>",
+                "source_id": "Id_b825d289bb58f042",
+                "target_id": "Id_81309e96dbe07aaf",
+                "condition": "",
+                "is_default": false
+              }
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

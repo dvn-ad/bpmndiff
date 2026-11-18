@@ -1,0 +1,153 @@
+{
+  "schema_version": "change-v1",
+  "dataset": "bpmndiff-synthetic-v1",
+  "base_id": "58",
+  "variant": "k2_newids",
+  "k": 2,
+  "id_policy": "newids",
+  "mutations": [
+    {
+      "kind": "marker_change",
+      "node_id": "Id_0a7a1082-affb-4bc8-bfb1-91f073d72dde",
+      "marker": "loop"
+    },
+    {
+      "kind": "move_lane",
+      "node_id": "Id_2235724b-6ca2-46d2-95a0-ab88837d316f",
+      "before": "System",
+      "after": "Cashier"
+    }
+  ],
+  "operations": [
+    {
+      "schema_version": "change-v1",
+      "change": {
+        "type": "MARKER_CHANGE",
+        "legacy_type": "MARKER_CHANGE",
+        "category": 1,
+        "category_name": "Steps (tasks and events)",
+        "element": "node",
+        "before": {
+          "id": "Id_0a7a1082-affb-4bc8-bfb1-91f073d72dde",
+          "name": "Enter the medical record ID",
+          "kind": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "lane": "Cashier",
+          "pool": "General patient cashier"
+        },
+        "after": {
+          "id": "Id_c6449b0c225c1b7d",
+          "name": "Enter the medical record ID",
+          "kind": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "loop",
+          "lane": "Cashier",
+          "pool": "General patient cashier"
+        },
+        "detail": "marker: \"none\" -> \"loop\"",
+        "confidence": "high",
+        "needs_review": false
+      },
+      "evidence": {
+        "alignment": [],
+        "structural_context": [],
+        "observations": [
+          {
+            "source": "operation",
+            "description": "marker: \"none\" -> \"loop\"",
+            "value": {
+              "before": {
+                "id": "Id_0a7a1082-affb-4bc8-bfb1-91f073d72dde",
+                "name": "Enter the medical record ID",
+                "kind": "task",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "none",
+                "lane": "Cashier",
+                "pool": "General patient cashier"
+              },
+              "after": {
+                "id": "Id_c6449b0c225c1b7d",
+                "name": "Enter the medical record ID",
+                "kind": "task",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "loop",
+                "lane": "Cashier",
+                "pool": "General patient cashier"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "schema_version": "change-v1",
+      "change": {
+        "type": "MOVE_LANE",
+        "legacy_type": "CHANGE_SWIMLANE",
+        "category": 2,
+        "category_name": "Actors (lanes and pools)",
+        "element": "swimlane",
+        "before": {
+          "id": "Id_2235724b-6ca2-46d2-95a0-ab88837d316f",
+          "name": "Displays it to the table",
+          "kind": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "lane": "System",
+          "pool": "General patient cashier"
+        },
+        "after": {
+          "id": "Id_3cbaa7401d9498f3",
+          "name": "Displays it to the table",
+          "kind": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "lane": "Cashier",
+          "pool": "General patient cashier"
+        },
+        "detail": "Displays it to the table: \"System\" -> \"Cashier\"",
+        "confidence": "high",
+        "needs_review": false
+      },
+      "evidence": {
+        "alignment": [],
+        "structural_context": [],
+        "observations": [
+          {
+            "source": "operation",
+            "description": "Displays it to the table: \"System\" -> \"Cashier\"",
+            "value": {
+              "before": {
+                "id": "Id_2235724b-6ca2-46d2-95a0-ab88837d316f",
+                "name": "Displays it to the table",
+                "kind": "task",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "none",
+                "lane": "System",
+                "pool": "General patient cashier"
+              },
+              "after": {
+                "id": "Id_3cbaa7401d9498f3",
+                "name": "Displays it to the table",
+                "kind": "task",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "none",
+                "lane": "Cashier",
+                "pool": "General patient cashier"
+              }
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

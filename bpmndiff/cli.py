@@ -11,6 +11,8 @@ from pathlib import Path
 from . import __version__
 from .alignment import ALIGNMENT_STRATEGIES, AlignmentConfig
 from .diff import DiffOptions, diff_models
+from .evaluation import evaluate_dataset, write_reports
+from .generator import DEFAULT_BASES, generate_dataset
 from .llm import get_adjudicator
 from .parsers import ParseError, load_model
 from .report import render_json, render_markdown, render_text
@@ -287,11 +289,120 @@ def _build_demo_parser() -> argparse.ArgumentParser:
     return parser
 
 
+# ---------------------------------------------------------------------------
+# Synthetic dataset generation and evaluation
+# ---------------------------------------------------------------------------
+def _repo_root() -> Path:
+    return Path(__file__).resolve().parent.parent
+
+
+def _default_converted_dataset() -> Path:
+    return (
+        _repo_root()
+        / "dataset"
+        / "BPMN Diagrams Dataset of Functional Requirements"
+        / "Converted XPDL"
+    )
+
+
+def _build_generate_parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(
+        prog="bpmndiff generate",
+        description="Generate the synthetic k=1/2/4 mutation dataset with ground truth.",
+    )
+    parser.add_argument(
+        "--dataset",
+        default=str(_default_converted_dataset()),
+        help="folder with the base .bpmn diagrams (default: Converted XPDL)",
+    )
+    parser.add_argument(
+        "--out",
+        default=str(_repo_root() / "dataset" / "synthetic"),
+        help="output dataset folder (default: dataset/synthetic)",
+    )
+    parser.add_argument(
+        "--bases",
+        default=",".join(DEFAULT_BASES),
+        help="comma-separated base diagram IDs (default: 56,57,58,63,65)",
+    )
+    parser.add_argument("--seed", default="bpmndiff", help="deterministic ID-rewrite salt")
+    return parser
+
+
+def run_generate(args: argparse.Namespace) -> int:
+    bases = [base.strip() for base in args.bases.split(",") if base.strip()]
+    manifest = generate_dataset(
+        Path(args.dataset),
+        Path(args.out),
+        bases=bases,
+        seed=args.seed,
+    )
+    pairs = sum(len(base["variants"]) for base in manifest["bases"])
+    print(
+        f"generated {pairs} pairs from {len(manifest['bases'])} bases "
+        f"in {args.out}"
+    )
+    print(f"manifest: {Path(args.out) / 'manifest.json'}")
+    return 0
+
+
+def _build_evaluate_parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(
+        prog="bpmndiff evaluate",
+        description="Evaluate detected changes against synthetic ground truth.",
+    )
+    parser.add_argument(
+        "--manifest",
+        default=str(_repo_root() / "dataset" / "synthetic" / "manifest.json"),
+        help="synthetic dataset manifest (default: dataset/synthetic/manifest.json)",
+    )
+    parser.add_argument(
+        "--out",
+        default=str(_repo_root() / "results"),
+        help="results folder (default: results)",
+    )
+    parser.add_argument(
+        "--modes",
+        default="id,name,structure,hybrid",
+        help="comma-separated alignment modes (default: id,name,structure,hybrid)",
+    )
+    parser.add_argument(
+        "--bisimulation",
+        action="store_true",
+        help="also run the partition-refinement check (slower)",
+    )
+    return parser
+
+
+def run_evaluate(args: argparse.Namespace) -> int:
+    modes = [mode.strip() for mode in args.modes.split(",") if mode.strip()]
+    result = evaluate_dataset(
+        args.manifest,
+        modes=modes,
+        bisimulation=args.bisimulation,
+    )
+    paths = write_reports(result, args.out, modes=modes)
+    for mode in modes:
+        counts = result.row(mode, "all", "ALL")
+        print(
+            f"{mode:>9}: P={counts.precision:.3f} R={counts.recall:.3f} "
+            f"F1={counts.f1:.3f} (TP={counts.tp}, FP={counts.fp}, FN={counts.fn})"
+        )
+    print(f"pilot written to {paths['pilot']}")
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
     argv = list(sys.argv[1:] if argv is None else argv)
     if argv and argv[0] == "demo":
         args = _build_demo_parser().parse_args(argv[1:])
         return run_demo(Path(args.dataset) if args.dataset else None, Path(args.out))
+    if argv and argv[0] == "generate":
+        args = _build_generate_parser().parse_args(argv[1:])
+        return run_generate(args)
+    if argv and argv[0] == "evaluate":
+        args = _build_evaluate_parser().parse_args(argv[1:])
+        return run_evaluate(args)
 
     parser = _build_parser()
     args = parser.parse_args(argv)
