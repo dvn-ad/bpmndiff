@@ -18,5 +18,8 @@ bpmndiff = "bpmndiff.cli:main"
 [tool.setuptools.packages.find]
 include = ["bpmndiff*"]
 
+[tool.setuptools.data-files]
+"share/bpmndiff/schema" = ["schema/change-v1.json"]
+
 [tool.pytest.ini_options]
 testpaths = ["tests"]

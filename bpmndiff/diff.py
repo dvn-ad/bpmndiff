@@ -7,6 +7,7 @@ from dataclasses import dataclass, field
 
 from .alignment import Alignment, AlignmentConfig, align, normalize_label, relabel_map
 from .bisimulation import weak_bisimilar
+from .contract import assert_diff_invariants, standardize_operations
 from .decomposition import Decomposition, Region, decompose
 from .lts import build_lts, compare_trace_equivalence, enumerate_traces
 from .model import KIND_LABELS, ProcessModel
@@ -45,6 +46,7 @@ class Comparison:
                 item["b"] = self.variant.nodes[pair.b].display_name
         return {
             "mode": "A",
+            "alignment_strategy": self.options.alignment_config.strategy,
             "reference": {
                 "id": self.reference.id,
                 "name": self.reference.name,
@@ -62,6 +64,7 @@ class Comparison:
                 "stats": self.variant.stats(),
             },
             "alignment": alignment,
+            "change_schema_version": "change-v1",
             "operations": self.operations,
             "behavior": self.behavior,
             "fragments": {
@@ -516,12 +519,16 @@ def _build_operations(
                             "is_default": ref_e.is_default,
                             "source": reference.nodes[ref_e.source].display_name,
                             "target": reference.nodes[ref_e.target].display_name,
+                            "source_id": ref_e.source,
+                            "target_id": ref_e.target,
                         },
                         "after": {
                             "condition": var_e.condition,
                             "is_default": var_e.is_default,
                             "source": variant.nodes[var_e.source].display_name,
                             "target": variant.nodes[var_e.target].display_name,
+                            "source_id": var_e.source,
+                            "target_id": var_e.target,
                         },
                         "detail": (
                             f'condition: "{ref_e.condition}" -> "{var_e.condition}"'
@@ -570,10 +577,14 @@ def _build_operations(
                             "before": {
                                 "first": reference.nodes[first_ref].display_name,
                                 "second": reference.nodes[sec_ref].display_name,
+                                "first_id": first_ref,
+                                "second_id": sec_ref,
                             },
                             "after": {
                                 "first": variant.nodes[first_var].display_name,
                                 "second": variant.nodes[sec_var].display_name,
+                                "first_id": first_var,
+                                "second_id": sec_var,
                             },
                             "detail": (
                                 f'execution order swapped between '
@@ -606,13 +617,15 @@ def _build_operations(
                                 "nodes": [
                                     reference.nodes[a1].display_name,
                                     reference.nodes[a2].display_name,
-                                ]
+                                ],
+                                "node_ids": [a1, a2],
                             },
                             "after": {
                                 "nodes": [
                                     variant.nodes[b1].display_name,
                                     variant.nodes[b2].display_name,
-                                ]
+                                ],
+                                "node_ids": [b1, b2],
                             },
                             "detail": (
                                 f'"{reference.nodes[a1].display_name}" and '
@@ -640,13 +653,15 @@ def _build_operations(
                                 "nodes": [
                                     reference.nodes[a1].display_name,
                                     reference.nodes[a2].display_name,
-                                ]
+                                ],
+                                "node_ids": [a1, a2],
                             },
                             "after": {
                                 "nodes": [
                                     variant.nodes[b1].display_name,
                                     variant.nodes[b2].display_name,
-                                ]
+                                ],
+                                "node_ids": [b1, b2],
                             },
                             "detail": (
                                 f'"{reference.nodes[a1].display_name}" and '
@@ -685,8 +700,15 @@ def _build_operations(
                 "category": 4,
                 "category_name": "Sub-process structure",
                 "element": "subprocess",
-                "before": {"tasks": task_names},
-                "after": {"subprocess": sub_name},
+                "before": {
+                    "tasks": task_names,
+                    "task_ids": [
+                        pair.a
+                        for pair in alignment.matched_pairs
+                        if pair.b in variant.nodes[sub_id].submodel_node_ids
+                    ],
+                },
+                "after": {"subprocess": sub_name, "subprocess_id": sub_id},
                 "detail": f'elements {task_names} extracted into sub-process "{sub_name}"',
                 "confidence": "high",
                 "needs_review": False,
@@ -710,8 +732,15 @@ def _build_operations(
                 "category": 4,
                 "category_name": "Sub-process structure",
                 "element": "subprocess",
-                "before": {"subprocess": sub_name},
-                "after": {"tasks": task_names},
+                "before": {"subprocess": sub_name, "subprocess_id": sub_id},
+                "after": {
+                    "tasks": task_names,
+                    "task_ids": [
+                        pair.b
+                        for pair in alignment.matched_pairs
+                        if pair.a in reference.nodes[sub_id].submodel_node_ids
+                    ],
+                },
                 "detail": f'sub-process "{sub_name}" inlined into root tasks {task_names}',
                 "confidence": "high",
                 "needs_review": False,
@@ -954,7 +983,9 @@ def diff_models(
     config.use_llm = options.use_llm
     alignment = align(reference, variant, config, llm=options.llm)
 
-    operations = _build_operations(reference, variant, alignment)
+    operations = standardize_operations(
+        reference, variant, alignment, _build_operations(reference, variant, alignment)
+    )
     label_override = relabel_map(reference, variant, alignment)
 
     if operations:
@@ -1093,7 +1124,7 @@ def diff_models(
         "legacy_operation_counts": dict(legacy_counts),
     }
 
-    return Comparison(
+    comparison = Comparison(
         reference=reference,
         variant=variant,
         alignment=alignment,
@@ -1104,3 +1135,5 @@ def diff_models(
         fusion=fusion,
         options=options,
     )
+    assert_diff_invariants(reference, variant, alignment, operations)
+    return comparison

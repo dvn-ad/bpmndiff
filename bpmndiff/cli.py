@@ -9,10 +9,9 @@ import sys
 from pathlib import Path
 
 from . import __version__
-from .alignment import AlignmentConfig
+from .alignment import ALIGNMENT_STRATEGIES, AlignmentConfig
 from .diff import DiffOptions, diff_models
 from .llm import get_adjudicator
-from .modes import run_mode_b, run_mode_c
 from .parsers import ParseError, load_model
 from .report import render_json, render_markdown, render_text
 
@@ -35,23 +34,28 @@ def _build_parser() -> argparse.ArgumentParser:
         prog="bpmndiff",
         description="Compare BPMN/XPDL process models: alignment, edit script and behavioural checks.",
     )
-    parser.add_argument("files", nargs="+", help="two or more .bpmn/.xpdl/.xml files")
-    parser.add_argument("--mode", choices=["A", "B", "C"], default="A", help="A pairwise, B reference-vs-variants, C version chain")
+    parser.add_argument("files", nargs=2, help="two .bpmn/.xpdl/.xml files")
+    parser.add_argument(
+        "--alignment-mode",
+        "--strategy",
+        choices=sorted(ALIGNMENT_STRATEGIES),
+        default=None,
+        help="node matching strategy for pairwise comparison (default: hybrid)",
+    )
     parser.add_argument("--format", choices=["text", "json", "markdown"], default="text", help="report format (default: text)")
     parser.add_argument("--out", metavar="PATH", help="write the report to a file instead of stdout")
     parser.add_argument("--fail-on-change", action="store_true", help="exit with status 1 when models differ behaviourally")
-    parser.add_argument(
-        "--track-reverts",
-        action="store_true",
-        help="Mode C: enable lineage revert detection (enabled by default; kept for CLI compatibility)",
-    )
     _add_common_options(parser)
     parser.add_argument("--version", action="version", version=f"bpmndiff {__version__}")
     return parser
 
 
 def _options(args: argparse.Namespace) -> DiffOptions:
-    config = AlignmentConfig(match_threshold=args.threshold)
+    strategy = args.alignment_mode
+    config = AlignmentConfig(
+        match_threshold=args.threshold,
+        strategy=strategy or "hybrid",
+    )
     adjudicator = get_adjudicator(args.llm)
     return DiffOptions(
         max_states=args.max_states,
@@ -63,26 +67,15 @@ def _options(args: argparse.Namespace) -> DiffOptions:
 
 
 def _run(args: argparse.Namespace) -> tuple[dict, bool]:
-    mode = args.mode
-    if mode == "A" and len(args.files) != 2:
-        raise SystemExit("mode A requires exactly two files")
-    if mode in {"B", "C"} and len(args.files) < 2:
-        raise SystemExit(f"mode {mode} requires at least two files")
+    if len(args.files) != 2:
+        raise SystemExit("pairwise comparison requires exactly two files")
 
     models = [load_model(path, args.process) for path in args.files]
     options = _options(args)
-
-    if mode == "A":
-        comparison = diff_models(models[0], models[1], options)
-        result = comparison.to_dict()
-        result["mode"] = "A"
-        behavior_changed = comparison.behavior.get("equivalent") is False
-    elif mode == "B":
-        result = run_mode_b(models[0], models[1:], options)
-        behavior_changed = any(item["behavior"]["equivalent"] is False for item in result["per_variant"])
-    else:
-        result = run_mode_c(models, options)
-        behavior_changed = any(step["behavior_equivalent"] is False for step in result["steps"])
+    comparison = diff_models(models[0], models[1], options)
+    result = comparison.to_dict()
+    result["mode"] = "A"
+    behavior_changed = comparison.behavior.get("equivalent") is False
     return result, behavior_changed
 
 
@@ -164,31 +157,26 @@ def run_demo(dataset: Path | None = None, out_dir: Path | None = None) -> int:
     if tax_dir.is_dir():
         taxonomy_scenarios = [
             (
-                "A",
                 "Taxonomy 1: Steps (Tasks and Events)",
                 [tax_dir / "scenario1_steps_v1.bpmn", tax_dir / "scenario1_steps_v2.bpmn"],
                 "Covers INSERT_NODE, DELETE_NODE, RENAME_NODE, NODE_TYPE_CHANGE, MARKER_CHANGE, BOUNDARY_CHANGE",
             ),
             (
-                "A",
                 "Taxonomy 2: Actors (Lanes and Pools)",
                 [tax_dir / "scenario2_actors_v1.bpmn", tax_dir / "scenario2_actors_v2.bpmn"],
                 "Covers MOVE_LANE, RENAME_LANE, INSERT_LANE, DELETE_LANE",
             ),
             (
-                "A",
                 "Taxonomy 3: Sequence, Flow, and Branching",
                 [tax_dir / "scenario3_flows_v1.bpmn", tax_dir / "scenario3_flows_v2.bpmn"],
                 "Covers REORDER, GATEWAY_TYPE_CHANGE, INSERT_FLOW, DELETE_FLOW, FLOW_CONDITION_CHANGE, PARALLELIZE",
             ),
             (
-                "A",
                 "Taxonomy 4: Sub-process Structure",
                 [tax_dir / "scenario4_subprocesses_v1.bpmn", tax_dir / "scenario4_subprocesses_v2.bpmn"],
                 "Covers EXTRACT_SUBPROCESS, INLINE_SUBPROCESS",
             ),
             (
-                "A",
                 "Taxonomy 5: Data and Cross-Pool Communication",
                 [tax_dir / "scenario5_data_and_messages_v1.bpmn", tax_dir / "scenario5_data_and_messages_v2.bpmn"],
                 "Covers MESSAGE_FLOW_CHANGE, DATA_CHANGE",
@@ -197,40 +185,24 @@ def run_demo(dataset: Path | None = None, out_dir: Path | None = None) -> int:
 
     scenarios = taxonomy_scenarios + [
         (
-            "A",
             "Old vs. new patient registration",
             ["51", "52"],
             "51 vs 52 · old patient vs general new patient registration",
         ),
         (
-            "A",
             "General vs. corporate new patient registration",
             ["52", "53"],
             "52 vs 53 · general vs corporate new patient registration",
         ),
         (
-            "A",
             "General vs. corporate inpatient registration",
             ["54", "55"],
             "54 vs 55 · general vs corporate inpatient registration",
         ),
         (
-            "A",
             "General patient cashier vs. down payment",
             ["58", "59"],
             "58 vs 59 · general patient cashier vs down payment",
-        ),
-        (
-            "B",
-            "Patient registration family",
-            ["52", "53", "54", "55"],
-            "reference 52 vs variants 53, 54, 55",
-        ),
-        (
-            "C",
-            "Patient registration evolution chain",
-            ["51", "52", "53"],
-            "51 -> 52 -> 53",
         ),
     ]
 
@@ -245,38 +217,27 @@ def run_demo(dataset: Path | None = None, out_dir: Path | None = None) -> int:
         "|---|---|---|---|---|",
     ]
 
-    for index, (mode, title, prefixes, description) in enumerate(scenarios, start=1):
+    for index, (title, prefixes, description) in enumerate(scenarios, start=1):
         try:
             if prefixes and isinstance(prefixes[0], Path):
                 paths = prefixes
             else:
                 paths = [_find_model(root, prefix) for prefix in prefixes]
             models = [load_model(str(path)) for path in paths]
-            if mode == "A":
-                result = diff_models(models[0], models[1], options).to_dict()
-                result["mode"] = "A"
-                verdict = result["fusion"]["overall"]
-                equiv = result["behavior"]["equivalent"]
-                details = f"{len(result['operations'])} operations"
-            elif mode == "B":
-                result = run_mode_b(models[0], models[1:], options)
-                verdict = ", ".join(item["summary"] for item in result["per_variant"])
-                equiv = all(item["behavior"]["equivalent"] for item in result["per_variant"])
-                details = f"{len(result['core_elements'])} core elements"
-            else:
-                result = run_mode_c(models, options)
-                verdict = " -> ".join(step["summary"] for step in result["steps"])
-                equiv = all(step["behavior_equivalent"] for step in result["steps"])
-                details = f"{len(result['reverts'])} reverts, oracle consistent={result['oracle']['consistent']}"
+            result = diff_models(models[0], models[1], options).to_dict()
+            result["mode"] = "A"
+            verdict = result["fusion"]["overall"]
+            equiv = result["behavior"]["equivalent"]
+            details = f"{len(result['operations'])} operations"
 
-            slug = f"{index:02d}_{mode}_{_slug(title)}"
+            slug = f"{index:02d}_A_{_slug(title)}"
             _write(str(output / f"{slug}.json"), render_json(result))
             _write(str(output / f"{slug}.md"), render_markdown(result))
 
             summary.append(
                 {
                     "scenario": title,
-                    "mode": mode,
+                    "mode": "A",
                     "description": description,
                     "models": [model.name for model in models],
                     "verdict": verdict,
@@ -286,7 +247,7 @@ def run_demo(dataset: Path | None = None, out_dir: Path | None = None) -> int:
                 }
             )
             markdown_parts.append(
-                f"| {title} | {mode} | {verdict} | {'yes' if equiv else 'no'} | {details} |"
+                f"| {title} | A | {verdict} | {'yes' if equiv else 'no'} | {details} |"
             )
             print(
                 f"[{index}/{len(scenarios)}] {title}: {verdict} "
@@ -294,8 +255,8 @@ def run_demo(dataset: Path | None = None, out_dir: Path | None = None) -> int:
             )
         except (ParseError, FileNotFoundError, KeyError, ValueError) as exc:
             print(f"[{index}/{len(scenarios)}] {title}: FAILED - {exc}", file=sys.stderr)
-            summary.append({"scenario": title, "mode": mode, "error": str(exc)})
-            markdown_parts.append(f"| {title} | {mode} | error | - | {exc} |")
+            summary.append({"scenario": title, "mode": "A", "error": str(exc)})
+            markdown_parts.append(f"| {title} | A | error | - | {exc} |")
 
     markdown_parts += [
         "",

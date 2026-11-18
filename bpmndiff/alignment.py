@@ -1,4 +1,4 @@
-"""Tiered element alignment: exact -> lexical -> semantic -> LLM fallback.
+"""Selectable element alignment strategies with hybrid ID/name/structure tiers.
 
 Every node of both models ends up in exactly one :class:`Pair`.  A pair is
 labelled ``identical``, ``synonym``, ``meaning_changed`` or ``unmatched`` and
@@ -11,8 +11,9 @@ from __future__ import annotations
 import re
 from dataclasses import dataclass, field
 from difflib import SequenceMatcher
+from typing import Literal
 
-from .model import Node, ProcessModel, kind_family
+from .model import Node, ProcessModel
 
 
 # ---------------------------------------------------------------------------
@@ -228,6 +229,10 @@ def label_similarity(a: str, b: str) -> tuple[float, str]:
 # ---------------------------------------------------------------------------
 # Alignment data structures
 # ---------------------------------------------------------------------------
+ALIGNMENT_STRATEGIES = frozenset({"id", "name", "structure", "hybrid"})
+AlignmentStrategy = Literal["id", "name", "structure", "hybrid"]
+
+
 @dataclass
 class AlignmentConfig:
     synonym_threshold: float = 0.72
@@ -236,6 +241,12 @@ class AlignmentConfig:
     review_high: float = 0.62
     structural_threshold: float = 0.34
     use_llm: bool = False
+    strategy: AlignmentStrategy = "hybrid"
+
+    def __post_init__(self) -> None:
+        if self.strategy not in ALIGNMENT_STRATEGIES:
+            choices = ", ".join(sorted(ALIGNMENT_STRATEGIES))
+            raise ValueError(f"unknown alignment strategy {self.strategy!r}; expected one of {choices}")
 
 
 @dataclass
@@ -379,13 +390,20 @@ def _structural_similarity(
     return score, f"structural context {context:.2f}, degree {degree:.2f}"
 
 
-def _initial_pairs(a: ProcessModel, b: ProcessModel, config: AlignmentConfig) -> list[Pair]:
+def _initial_pairs(
+    a: ProcessModel,
+    b: ProcessModel,
+    config: AlignmentConfig,
+    alignment: Alignment | None = None,
+) -> list[Pair]:
+    used_a = set(alignment.pair_of_a) if alignment is not None else set()
+    used_b = set(alignment.pair_of_b) if alignment is not None else set()
     candidates: list[tuple[float, str, str, str]] = []
     for na in a.nodes.values():
-        if na.is_gateway or not na.name.strip() or _is_invisible(na):
+        if na.id in used_a or na.is_gateway or not na.name.strip() or _is_invisible(na):
             continue
         for nb in b.nodes.values():
-            if nb.is_gateway or not nb.name.strip() or _is_invisible(nb):
+            if nb.id in used_b or nb.is_gateway or not nb.name.strip() or _is_invisible(nb):
                 continue
             if na.family != nb.family:
                 continue
@@ -421,6 +439,186 @@ def _initial_pairs(a: ProcessModel, b: ProcessModel, config: AlignmentConfig) ->
                 reason,
                 confidence=confidence,
                 needs_review=needs_review,
+            )
+        )
+    return pairs
+
+
+def _label_for_pair(
+    a: Node, b: Node, lexical_score: float, config: AlignmentConfig
+) -> str:
+    if normalize_label(a.name) == normalize_label(b.name):
+        return "identical"
+    if lexical_score >= config.synonym_threshold:
+        return "synonym"
+    return "meaning_changed"
+
+
+def _pair_for_match(
+    a: Node,
+    b: Node,
+    score: float,
+    reason: str,
+    config: AlignmentConfig,
+    *,
+    lexical_score: float,
+    confidence: str | None = None,
+) -> Pair:
+    needs_review = config.review_low <= lexical_score < config.review_high
+    if confidence is None:
+        confidence = "high" if score >= config.review_high else (
+            "low" if needs_review else "medium"
+        )
+    return Pair(
+        a.id,
+        b.id,
+        _label_for_pair(a, b, lexical_score, config),
+        score,
+        reason,
+        confidence=confidence,
+        needs_review=needs_review,
+    )
+
+
+def _id_pairs(a: ProcessModel, b: ProcessModel, config: AlignmentConfig) -> list[Pair]:
+    pairs: list[Pair] = []
+    for node_id in sorted(a.nodes.keys() & b.nodes.keys()):
+        na, nb = a.nodes[node_id], b.nodes[node_id]
+        lexical_score, lexical_reason = label_similarity(na.name, nb.name)
+        pairs.append(
+            _pair_for_match(
+                na,
+                nb,
+                1.0,
+                f"same element ID; {lexical_reason}",
+                config,
+                lexical_score=lexical_score,
+                confidence="high",
+            )
+        )
+    return pairs
+
+
+def _name_pairs(a: ProcessModel, b: ProcessModel, config: AlignmentConfig) -> list[Pair]:
+    candidates: list[tuple[float, str, str, str]] = []
+    for na in a.nodes.values():
+        if not na.name.strip():
+            continue
+        for nb in b.nodes.values():
+            if not nb.name.strip():
+                continue
+            score, reason = label_similarity(na.name, nb.name)
+            if score >= config.match_threshold:
+                candidates.append((score, na.id, nb.id, reason))
+    candidates.sort(key=lambda item: (-item[0], item[1], item[2]))
+
+    used_a: set[str] = set()
+    used_b: set[str] = set()
+    pairs: list[Pair] = []
+    for score, a_id, b_id, reason in candidates:
+        if a_id in used_a or b_id in used_b:
+            continue
+        used_a.add(a_id)
+        used_b.add(b_id)
+        pairs.append(
+            _pair_for_match(
+                a.nodes[a_id],
+                b.nodes[b_id],
+                score,
+                reason,
+                config,
+                lexical_score=score,
+            )
+        )
+    return pairs
+
+
+def _structural_colors(
+    a: ProcessModel, b: ProcessModel
+) -> tuple[dict[str, int], dict[str, int], int]:
+    """Refine shared directed-neighborhood colors without IDs or labels."""
+    signatures_a = {
+        node_id: (a.in_degree(node_id), a.out_degree(node_id))
+        for node_id in a.nodes
+    }
+    signatures_b = {
+        node_id: (b.in_degree(node_id), b.out_degree(node_id))
+        for node_id in b.nodes
+    }
+
+    def compress(
+        left: dict[str, tuple], right: dict[str, tuple]
+    ) -> tuple[dict[str, int], dict[str, int]]:
+        unique = sorted(set(left.values()) | set(right.values()), key=repr)
+        indexes = {signature: index for index, signature in enumerate(unique)}
+        return (
+            {node_id: indexes[signature] for node_id, signature in left.items()},
+            {node_id: indexes[signature] for node_id, signature in right.items()},
+        )
+
+    colors_a, colors_b = compress(signatures_a, signatures_b)
+    rounds = 0
+    node_count = len(a.nodes) + len(b.nodes)
+    for _ in range(node_count):
+        refined_a = {
+            node_id: (
+                colors_a[node_id],
+                tuple(sorted(colors_a[pred] for pred in a.predecessors(node_id))),
+                tuple(sorted(colors_a[succ] for succ in a.successors(node_id))),
+            )
+            for node_id in a.nodes
+        }
+        refined_b = {
+            node_id: (
+                colors_b[node_id],
+                tuple(sorted(colors_b[pred] for pred in b.predecessors(node_id))),
+                tuple(sorted(colors_b[succ] for succ in b.successors(node_id))),
+            )
+            for node_id in b.nodes
+        }
+        next_a, next_b = compress(refined_a, refined_b)
+        rounds += 1
+        previous_color_count = len(set(colors_a.values()) | set(colors_b.values()))
+        next_color_count = len(set(next_a.values()) | set(next_b.values()))
+        colors_a, colors_b = next_a, next_b
+        if next_color_count == previous_color_count:
+            break
+    return colors_a, colors_b, rounds
+
+
+def _structure_pairs(a: ProcessModel, b: ProcessModel, config: AlignmentConfig) -> list[Pair]:
+    colors_a, colors_b, rounds = _structural_colors(a, b)
+    groups_a: dict[int, list[str]] = {}
+    groups_b: dict[int, list[str]] = {}
+    for node_id, color in colors_a.items():
+        groups_a.setdefault(color, []).append(node_id)
+    for node_id, color in colors_b.items():
+        groups_b.setdefault(color, []).append(node_id)
+
+    pairs: list[Pair] = []
+    for color in sorted(groups_a.keys() & groups_b.keys()):
+        nodes_a, nodes_b = groups_a[color], groups_b[color]
+        if len(nodes_a) != 1 or len(nodes_b) != 1:
+            continue
+        a_id, b_id = nodes_a[0], nodes_b[0]
+        if not (
+            a.in_degree(a_id)
+            or a.out_degree(a_id)
+            or b.in_degree(b_id)
+            or b.out_degree(b_id)
+        ):
+            continue
+        na, nb = a.nodes[a_id], b.nodes[b_id]
+        lexical_score, _ = label_similarity(na.name, nb.name)
+        pairs.append(
+            _pair_for_match(
+                na,
+                nb,
+                1.0,
+                f"unique directed structural context after {rounds} refinement rounds",
+                config,
+                lexical_score=lexical_score,
+                confidence="high",
             )
         )
     return pairs
@@ -505,6 +703,80 @@ def _structural_pairs(
     return pairs
 
 
+def _same_aligned_context(
+    a: ProcessModel, a_id: str, b: ProcessModel, b_id: str, alignment: Alignment
+) -> bool:
+    preds_a, succs_a = set(a.predecessors(a_id)), set(a.successors(a_id))
+    preds_b, succs_b = set(b.predecessors(b_id)), set(b.successors(b_id))
+    if not (preds_a or succs_a):
+        return False
+    if (
+        a.in_degree(a_id) != b.in_degree(b_id)
+        or a.out_degree(a_id) != b.out_degree(b_id)
+        or len(preds_a) != len(preds_b)
+        or len(succs_a) != len(succs_b)
+    ):
+        return False
+
+    mapped_preds = {alignment.a_to_b.get(node_id) for node_id in preds_a}
+    mapped_succs = {alignment.a_to_b.get(node_id) for node_id in succs_a}
+    return (
+        None not in mapped_preds
+        and None not in mapped_succs
+        and mapped_preds == preds_b
+        and mapped_succs == succs_b
+    )
+
+
+def _aligned_context_pairs(
+    a: ProcessModel, b: ProcessModel, alignment: Alignment, config: AlignmentConfig
+) -> list[Pair]:
+    """Align placeholder or lexically related tasks in a unique matched context."""
+    used_a = set(alignment.pair_of_a)
+    used_b = set(alignment.pair_of_b)
+    candidates: list[tuple[float, str, str, str]] = []
+    for na in a.nodes.values():
+        if na.id in used_a or na.family != "task" or not na.name.strip():
+            continue
+        for nb in b.nodes.values():
+            if nb.id in used_b or nb.family != "task" or not nb.name.strip():
+                continue
+            if not (
+                _is_invisible(na)
+                or _is_invisible(nb)
+                or canonical_tokens(na.name) & canonical_tokens(nb.name)
+            ):
+                continue
+            if not _same_aligned_context(a, na.id, b, nb.id, alignment):
+                continue
+            score, reason = _structural_similarity(a, na.id, b, nb.id, alignment)
+            if score >= config.structural_threshold:
+                candidates.append((score, na.id, nb.id, reason))
+
+    counts_a: dict[str, int] = {}
+    counts_b: dict[str, int] = {}
+    for _, a_id, b_id, _ in candidates:
+        counts_a[a_id] = counts_a.get(a_id, 0) + 1
+        counts_b[b_id] = counts_b.get(b_id, 0) + 1
+
+    pairs: list[Pair] = []
+    for score, a_id, b_id, reason in candidates:
+        if counts_a[a_id] != 1 or counts_b[b_id] != 1:
+            continue
+        lexical_score, _ = label_similarity(a.nodes[a_id].name, b.nodes[b_id].name)
+        pair = _pair_for_match(
+            a.nodes[a_id],
+            b.nodes[b_id],
+            score,
+            reason,
+            config,
+            lexical_score=lexical_score,
+        )
+        pairs.append(pair)
+        alignment.add(pair)
+    return pairs
+
+
 def _cross_family_pairs(a: ProcessModel, b: ProcessModel, alignment: Alignment) -> list[Pair]:
     """Detect same-label nodes whose type changed (e.g. task -> gateway)."""
     used_a = set(alignment.pair_of_a)
@@ -538,13 +810,26 @@ def align(
     config = config or AlignmentConfig()
     result = Alignment()
 
-    for pair in _initial_pairs(a, b, config):
-        result.add(pair)
+    if config.strategy == "id":
+        strategy_pairs = _id_pairs(a, b, config)
+    elif config.strategy == "name":
+        strategy_pairs = _name_pairs(a, b, config)
+    elif config.strategy == "structure":
+        strategy_pairs = _structure_pairs(a, b, config)
+    else:
+        strategy_pairs = []
+        for pair in _id_pairs(a, b, config):
+            result.add(pair)
+        for pair in _initial_pairs(a, b, config, result):
+            result.add(pair)
+        for pair in _structural_pairs(a, b, result, config):
+            result.add(pair)
+        for pair in _aligned_context_pairs(a, b, result, config):
+            result.add(pair)
+        for pair in _cross_family_pairs(a, b, result):
+            result.add(pair)
 
-    for pair in _structural_pairs(a, b, result, config):
-        result.add(pair)
-
-    for pair in _cross_family_pairs(a, b, result):
+    for pair in strategy_pairs:
         result.add(pair)
 
     # Optional LLM adjudication for ambiguous label pairs.

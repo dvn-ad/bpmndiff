@@ -1,0 +1,2586 @@
+{
+  "mode": "A",
+  "alignment_strategy": "hybrid",
+  "reference": {
+    "id": "Id_866a396b-053c-4046-8684-35bd79513cfb",
+    "name": "Down payment",
+    "source": "dataset\\Cashier 1.bpmn",
+    "format": "bpmn",
+    "pool": "Down payment",
+    "stats": {
+      "nodes": 19,
+      "edges": 21,
+      "tasks": 11,
+      "gateways": 6,
+      "events": 2,
+      "lanes": 2,
+      "message_flows": 0,
+      "data_elements": 3
+    }
+  },
+  "variant": {
+    "id": "Id_a129e79e-47ed-4d13-bd32-698f300c462d",
+    "name": "Print receipt",
+    "source": "dataset\\Cashier 3.bpmn",
+    "format": "bpmn",
+    "pool": "Print receipt",
+    "stats": {
+      "nodes": 19,
+      "edges": 21,
+      "tasks": 11,
+      "gateways": 6,
+      "events": 2,
+      "lanes": 2,
+      "message_flows": 0,
+      "data_elements": 3
+    }
+  },
+  "alignment": {
+    "counts": {
+      "identical": 11,
+      "synonym": 2,
+      "meaning_changed": 5,
+      "unmatched": 2,
+      "matched": 18,
+      "needs_review": 2
+    },
+    "pairs": [
+      {
+        "a": "Displays patient information",
+        "b": "Displays payment information",
+        "label": "synonym",
+        "score": 0.88,
+        "reason": "token overlap 0.67, string 0.93, sequence 0.93",
+        "confidence": "high",
+        "needs_review": false,
+        "llm_reason": "",
+        "a_id": "Id_259b95ad-426d-4d16-8f7b-6371212aaf57",
+        "b_id": "Id_7197dcae-c5e1-466c-a19b-99b95d0197db"
+      },
+      {
+        "a": "Selects a save button",
+        "b": "Selects a print button",
+        "label": "synonym",
+        "score": 0.722,
+        "reason": "token overlap 0.67, string 0.88, sequence 0.79",
+        "confidence": "high",
+        "needs_review": false,
+        "llm_reason": "",
+        "a_id": "Id_e024b86e-10e6-46f3-891a-4cf17601323b",
+        "b_id": "Id_d2ee4444-d910-4f60-ba15-29cadf24766a"
+      },
+      {
+        "a": "Searches for patients by register number",
+        "b": "Searches for the receipt number",
+        "label": "meaning_changed",
+        "score": 0.657,
+        "reason": "token overlap 0.57, string 0.88, sequence 0.76",
+        "confidence": "high",
+        "needs_review": false,
+        "llm_reason": "",
+        "a_id": "Id_c9ee3cd8-78da-417a-9cf9-0edac7cbbf33",
+        "b_id": "Id_9b42aeaf-e4f0-4064-b636-3147e03499c8"
+      },
+      {
+        "a": "Displays Down Payment transaction form",
+        "b": "Displays the Reprint hospitalization receipts form",
+        "label": "meaning_changed",
+        "score": 0.51,
+        "reason": "token overlap 0.44, string 0.83, sequence 0.59",
+        "confidence": "low",
+        "needs_review": true,
+        "llm_reason": "",
+        "a_id": "Id_baf5345e-3bb0-4235-bb5f-c58fa8217646",
+        "b_id": "Id_85e24b6b-39de-4aff-91e9-2f76a7dbc1bf"
+      },
+      {
+        "a": "Wants to make a Down Payment transaction",
+        "b": "Wants to make Reprint hospitalization receipts",
+        "label": "meaning_changed",
+        "score": 0.506,
+        "reason": "token overlap 0.44, string 0.84, sequence 0.58",
+        "confidence": "low",
+        "needs_review": true,
+        "llm_reason": "",
+        "a_id": "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7",
+        "b_id": "Id_50e4f89c-3584-4c54-86c1-932c80685b34"
+      },
+      {
+        "a": "<start event>",
+        "b": "<start event>",
+        "label": "identical",
+        "score": 1.0,
+        "reason": "structural context 1.00, degree 1.00",
+        "confidence": "high",
+        "needs_review": false,
+        "llm_reason": "",
+        "a_id": "Id_92cb515c-ae81-4364-a587-772f1bcc50f5",
+        "b_id": "Id_1a9fc751-0d4f-4b51-89f2-2a540fc1e817"
+      },
+      {
+        "a": "<exclusive gateway (XOR)>",
+        "b": "<exclusive gateway (XOR)>",
+        "label": "identical",
+        "score": 0.813,
+        "reason": "structural context 0.67, degree 1.00",
+        "confidence": "high",
+        "needs_review": false,
+        "llm_reason": "",
+        "a_id": "Id_7a3f28d2-8c48-4551-9672-ee6753bda510",
+        "b_id": "Id_94a17517-4e55-4c3e-b7b6-3639c43c677a"
+      },
+      {
+        "a": "<exclusive gateway (XOR)>",
+        "b": "<exclusive gateway (XOR)>",
+        "label": "identical",
+        "score": 0.597,
+        "reason": "structural context 0.33, degree 1.00",
+        "confidence": "medium",
+        "needs_review": false,
+        "llm_reason": "",
+        "a_id": "Id_05603d03-8106-47d8-a069-8e37915278b5",
+        "b_id": "Id_85d50f7c-da5b-418e-aa1e-4cf2e016e94b"
+      },
+      {
+        "a": "<exclusive gateway (XOR)>",
+        "b": "<exclusive gateway (XOR)>",
+        "label": "identical",
+        "score": 0.597,
+        "reason": "structural context 0.33, degree 1.00",
+        "confidence": "medium",
+        "needs_review": false,
+        "llm_reason": "",
+        "a_id": "Id_5d54bd1c-b17e-4a4d-8364-237334e4b181",
+        "b_id": "Id_972c51c5-19da-42e1-a3e8-c89980a66f20"
+      },
+      {
+        "a": "<exclusive gateway (XOR)>",
+        "b": "<exclusive gateway (XOR)>",
+        "label": "identical",
+        "score": 0.597,
+        "reason": "structural context 0.33, degree 1.00",
+        "confidence": "medium",
+        "needs_review": false,
+        "llm_reason": "",
+        "a_id": "Id_6bc7314b-ee04-4f16-af27-1f79dcebf3d1",
+        "b_id": "Id_9722703c-6ec1-4d8a-949e-bc677a61f492"
+      },
+      {
+        "a": "<exclusive gateway (XOR)>",
+        "b": "<exclusive gateway (XOR)>",
+        "label": "identical",
+        "score": 0.597,
+        "reason": "structural context 0.33, degree 1.00",
+        "confidence": "medium",
+        "needs_review": false,
+        "llm_reason": "",
+        "a_id": "Id_bbcb1d0b-dfd5-4096-9ba9-da46d77fd192",
+        "b_id": "Id_840c6a1c-09cc-4cae-ae5b-423612581a92"
+      },
+      {
+        "a": "<exclusive gateway (XOR)>",
+        "b": "<exclusive gateway (XOR)>",
+        "label": "identical",
+        "score": 0.597,
+        "reason": "structural context 0.33, degree 1.00",
+        "confidence": "medium",
+        "needs_review": false,
+        "llm_reason": "",
+        "a_id": "Id_d92e9b2e-6bb6-4a70-b633-1a4bc7e585f5",
+        "b_id": "Id_976d8015-96b1-4131-955d-b0457be7b28c"
+      },
+      {
+        "a": "<end event>",
+        "b": "<end event>",
+        "label": "identical",
+        "score": 0.38,
+        "reason": "structural context 0.00, degree 1.00",
+        "confidence": "medium",
+        "needs_review": false,
+        "llm_reason": "",
+        "a_id": "Id_b210868a-cf5c-4157-b86e-b21d426d3851",
+        "b_id": "Id_138a773f-edbe-4a8d-b713-51da30e09d77"
+      },
+      {
+        "a": "Invisible Task",
+        "b": "Invisible Task",
+        "label": "identical",
+        "score": 1.0,
+        "reason": "structural context 1.00, degree 1.00",
+        "confidence": "high",
+        "needs_review": false,
+        "llm_reason": "",
+        "a_id": "FlowElement1",
+        "b_id": "Id_58abbc08-5471-4ca8-bccd-4ed7fb5277c5"
+      },
+      {
+        "a": "Invisible Task",
+        "b": "Invisible Task",
+        "label": "identical",
+        "score": 1.0,
+        "reason": "structural context 1.00, degree 1.00",
+        "confidence": "high",
+        "needs_review": false,
+        "llm_reason": "",
+        "a_id": "Id_31a3c2fe-2934-4abc-ace3-84e3dad34f83",
+        "b_id": "Id_c9c1d94e-5b31-4350-9dde-088d2b5f02ee"
+      },
+      {
+        "a": "Invisible Task",
+        "b": "Invisible Task",
+        "label": "identical",
+        "score": 1.0,
+        "reason": "structural context 1.00, degree 1.00",
+        "confidence": "high",
+        "needs_review": false,
+        "llm_reason": "",
+        "a_id": "Id_cb909efa-4ad8-4c42-8ef5-e9def58f94a9",
+        "b_id": "Id_5cae2a6c-f8e5-42ba-93e3-3aa082b3416f"
+      },
+      {
+        "a": "Enters Down Payment information",
+        "b": "Enters the receipt number",
+        "label": "meaning_changed",
+        "score": 1.0,
+        "reason": "structural context 1.00, degree 1.00",
+        "confidence": "high",
+        "needs_review": false,
+        "llm_reason": "",
+        "a_id": "Id_0a7a1082-affb-4bc8-bfb1-91f073d72dde",
+        "b_id": "Id_e71f0b32-0bbd-4144-8f4d-1daf0c752097"
+      },
+      {
+        "a": "Invisible Task",
+        "b": "Displays the message data not found",
+        "label": "meaning_changed",
+        "score": 1.0,
+        "reason": "structural context 1.00, degree 1.00",
+        "confidence": "high",
+        "needs_review": false,
+        "llm_reason": "",
+        "a_id": "Id_6bf5bd8c-b245-49c0-8f0e-4cc2b7961768",
+        "b_id": "Id_1433cca0-189b-444b-8167-19e9ff5f0bbe"
+      },
+      {
+        "a": "Saves the Down Payment information",
+        "b": null,
+        "label": "unmatched",
+        "score": 0.0,
+        "reason": "",
+        "confidence": "high",
+        "needs_review": false,
+        "llm_reason": "",
+        "a_id": "Id_2235724b-6ca2-46d2-95a0-ab88837d316f"
+      },
+      {
+        "a": null,
+        "b": "Prints the receipt",
+        "label": "unmatched",
+        "score": 0.0,
+        "reason": "",
+        "confidence": "high",
+        "needs_review": false,
+        "llm_reason": "",
+        "b_id": "Id_72735b08-632e-40a4-ab2b-5315008b5107"
+      }
+    ]
+  },
+  "change_schema_version": "change-v1",
+  "operations": [
+    {
+      "op": "DELETE_NODE",
+      "legacy_op": "DELETE",
+      "category": 1,
+      "category_name": "Steps (tasks and events)",
+      "element": "node",
+      "before": {
+        "id": "Id_2235724b-6ca2-46d2-95a0-ab88837d316f",
+        "name": "Saves the Down Payment information",
+        "kind": "task",
+        "kind_label": "task",
+        "task_type": "abstract",
+        "event_definition": "none",
+        "marker": "none",
+        "attached_to": null,
+        "cancel_activity": true,
+        "lane": "System",
+        "pool": "Down payment"
+      },
+      "after": null,
+      "detail": "removed task",
+      "label": "unmatched",
+      "confidence": "high",
+      "needs_review": false,
+      "schema_version": "change-v1",
+      "change": {
+        "type": "DELETE_NODE",
+        "legacy_type": "DELETE",
+        "category": 1,
+        "category_name": "Steps (tasks and events)",
+        "element": "node",
+        "before": {
+          "id": "Id_2235724b-6ca2-46d2-95a0-ab88837d316f",
+          "name": "Saves the Down Payment information",
+          "kind": "task",
+          "kind_label": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "attached_to": null,
+          "cancel_activity": true,
+          "lane": "System",
+          "pool": "Down payment"
+        },
+        "after": null,
+        "detail": "removed task",
+        "label": "unmatched",
+        "confidence": "high",
+        "needs_review": false
+      },
+      "evidence": {
+        "alignment": [
+          {
+            "reference_node_id": "Id_2235724b-6ca2-46d2-95a0-ab88837d316f",
+            "variant_node_id": null,
+            "label": "unmatched",
+            "score": 0.0,
+            "reason": "",
+            "confidence": "high",
+            "needs_review": false
+          }
+        ],
+        "structural_context": [
+          {
+            "reference": {
+              "node_id": "Id_2235724b-6ca2-46d2-95a0-ab88837d316f",
+              "predecessor_ids": [
+                "Id_d92e9b2e-6bb6-4a70-b633-1a4bc7e585f5"
+              ],
+              "successor_ids": [
+                "Id_05603d03-8106-47d8-a069-8e37915278b5"
+              ],
+              "in_degree": 1,
+              "out_degree": 1
+            },
+            "variant": null,
+            "matched_neighbors": []
+          }
+        ],
+        "observations": [
+          {
+            "source": "alignment",
+            "description": "Alignment label: unmatched."
+          },
+          {
+            "source": "graph",
+            "description": "Direct predecessor and successor context for aligned nodes."
+          },
+          {
+            "source": "operation",
+            "description": "removed task",
+            "value": {
+              "before": {
+                "id": "Id_2235724b-6ca2-46d2-95a0-ab88837d316f",
+                "name": "Saves the Down Payment information",
+                "kind": "task",
+                "kind_label": "task",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "none",
+                "attached_to": null,
+                "cancel_activity": true,
+                "lane": "System",
+                "pool": "Down payment"
+              },
+              "after": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "op": "INSERT_NODE",
+      "legacy_op": "INSERT",
+      "category": 1,
+      "category_name": "Steps (tasks and events)",
+      "element": "node",
+      "before": null,
+      "after": {
+        "id": "Id_72735b08-632e-40a4-ab2b-5315008b5107",
+        "name": "Prints the receipt",
+        "kind": "task",
+        "kind_label": "task",
+        "task_type": "abstract",
+        "event_definition": "none",
+        "marker": "none",
+        "attached_to": null,
+        "cancel_activity": true,
+        "lane": "System",
+        "pool": "Print receipt"
+      },
+      "detail": "added task",
+      "label": "unmatched",
+      "confidence": "high",
+      "needs_review": false,
+      "schema_version": "change-v1",
+      "change": {
+        "type": "INSERT_NODE",
+        "legacy_type": "INSERT",
+        "category": 1,
+        "category_name": "Steps (tasks and events)",
+        "element": "node",
+        "before": null,
+        "after": {
+          "id": "Id_72735b08-632e-40a4-ab2b-5315008b5107",
+          "name": "Prints the receipt",
+          "kind": "task",
+          "kind_label": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "attached_to": null,
+          "cancel_activity": true,
+          "lane": "System",
+          "pool": "Print receipt"
+        },
+        "detail": "added task",
+        "label": "unmatched",
+        "confidence": "high",
+        "needs_review": false
+      },
+      "evidence": {
+        "alignment": [
+          {
+            "reference_node_id": null,
+            "variant_node_id": "Id_72735b08-632e-40a4-ab2b-5315008b5107",
+            "label": "unmatched",
+            "score": 0.0,
+            "reason": "",
+            "confidence": "high",
+            "needs_review": false
+          }
+        ],
+        "structural_context": [
+          {
+            "reference": null,
+            "variant": {
+              "node_id": "Id_72735b08-632e-40a4-ab2b-5315008b5107",
+              "predecessor_ids": [
+                "Id_976d8015-96b1-4131-955d-b0457be7b28c"
+              ],
+              "successor_ids": [
+                "Id_85d50f7c-da5b-418e-aa1e-4cf2e016e94b"
+              ],
+              "in_degree": 1,
+              "out_degree": 1
+            },
+            "matched_neighbors": []
+          }
+        ],
+        "observations": [
+          {
+            "source": "alignment",
+            "description": "Alignment label: unmatched."
+          },
+          {
+            "source": "graph",
+            "description": "Direct predecessor and successor context for aligned nodes."
+          },
+          {
+            "source": "operation",
+            "description": "added task",
+            "value": {
+              "before": null,
+              "after": {
+                "id": "Id_72735b08-632e-40a4-ab2b-5315008b5107",
+                "name": "Prints the receipt",
+                "kind": "task",
+                "kind_label": "task",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "none",
+                "attached_to": null,
+                "cancel_activity": true,
+                "lane": "System",
+                "pool": "Print receipt"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "op": "RENAME_NODE",
+      "legacy_op": "RENAME",
+      "category": 1,
+      "category_name": "Steps (tasks and events)",
+      "element": "node",
+      "before": {
+        "id": "Id_0a7a1082-affb-4bc8-bfb1-91f073d72dde",
+        "name": "Enters Down Payment information",
+        "kind": "task",
+        "kind_label": "task",
+        "task_type": "abstract",
+        "event_definition": "none",
+        "marker": "none",
+        "attached_to": null,
+        "cancel_activity": true,
+        "lane": "Cashier",
+        "pool": "Down payment"
+      },
+      "after": {
+        "id": "Id_e71f0b32-0bbd-4144-8f4d-1daf0c752097",
+        "name": "Enters the receipt number",
+        "kind": "task",
+        "kind_label": "task",
+        "task_type": "abstract",
+        "event_definition": "none",
+        "marker": "none",
+        "attached_to": null,
+        "cancel_activity": true,
+        "lane": "Cashier",
+        "pool": "Print receipt"
+      },
+      "detail": "\"Enters Down Payment information\" -> \"Enters the receipt number\" (meaning_changed)",
+      "label": "meaning_changed",
+      "is_synonym": false,
+      "subtype": "meaning_changed",
+      "score": 1.0,
+      "confidence": "high",
+      "needs_review": false,
+      "schema_version": "change-v1",
+      "change": {
+        "type": "RENAME_NODE",
+        "legacy_type": "RENAME",
+        "category": 1,
+        "category_name": "Steps (tasks and events)",
+        "element": "node",
+        "before": {
+          "id": "Id_0a7a1082-affb-4bc8-bfb1-91f073d72dde",
+          "name": "Enters Down Payment information",
+          "kind": "task",
+          "kind_label": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "attached_to": null,
+          "cancel_activity": true,
+          "lane": "Cashier",
+          "pool": "Down payment"
+        },
+        "after": {
+          "id": "Id_e71f0b32-0bbd-4144-8f4d-1daf0c752097",
+          "name": "Enters the receipt number",
+          "kind": "task",
+          "kind_label": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "attached_to": null,
+          "cancel_activity": true,
+          "lane": "Cashier",
+          "pool": "Print receipt"
+        },
+        "detail": "\"Enters Down Payment information\" -> \"Enters the receipt number\" (meaning_changed)",
+        "label": "meaning_changed",
+        "subtype": "meaning_changed",
+        "is_synonym": false,
+        "score": 1.0,
+        "confidence": "high",
+        "needs_review": false
+      },
+      "evidence": {
+        "alignment": [
+          {
+            "reference_node_id": "Id_0a7a1082-affb-4bc8-bfb1-91f073d72dde",
+            "variant_node_id": "Id_e71f0b32-0bbd-4144-8f4d-1daf0c752097",
+            "label": "meaning_changed",
+            "score": 1.0,
+            "reason": "structural context 1.00, degree 1.00",
+            "confidence": "high",
+            "needs_review": false
+          }
+        ],
+        "structural_context": [
+          {
+            "reference": {
+              "node_id": "Id_0a7a1082-affb-4bc8-bfb1-91f073d72dde",
+              "predecessor_ids": [
+                "Id_bbcb1d0b-dfd5-4096-9ba9-da46d77fd192"
+              ],
+              "successor_ids": [
+                "Id_c9ee3cd8-78da-417a-9cf9-0edac7cbbf33"
+              ],
+              "in_degree": 1,
+              "out_degree": 1
+            },
+            "variant": {
+              "node_id": "Id_e71f0b32-0bbd-4144-8f4d-1daf0c752097",
+              "predecessor_ids": [
+                "Id_840c6a1c-09cc-4cae-ae5b-423612581a92"
+              ],
+              "successor_ids": [
+                "Id_9b42aeaf-e4f0-4064-b636-3147e03499c8"
+              ],
+              "in_degree": 1,
+              "out_degree": 1
+            },
+            "matched_neighbors": [
+              {
+                "direction": "predecessor",
+                "reference_node_id": "Id_bbcb1d0b-dfd5-4096-9ba9-da46d77fd192",
+                "variant_node_id": "Id_840c6a1c-09cc-4cae-ae5b-423612581a92"
+              },
+              {
+                "direction": "successor",
+                "reference_node_id": "Id_c9ee3cd8-78da-417a-9cf9-0edac7cbbf33",
+                "variant_node_id": "Id_9b42aeaf-e4f0-4064-b636-3147e03499c8"
+              }
+            ]
+          }
+        ],
+        "observations": [
+          {
+            "source": "alignment",
+            "description": "structural context 1.00, degree 1.00"
+          },
+          {
+            "source": "graph",
+            "description": "Direct predecessor and successor context for aligned nodes."
+          },
+          {
+            "source": "attribute",
+            "description": "\"Enters Down Payment information\" -> \"Enters the receipt number\" (meaning_changed)",
+            "value": {
+              "before": {
+                "id": "Id_0a7a1082-affb-4bc8-bfb1-91f073d72dde",
+                "name": "Enters Down Payment information",
+                "kind": "task",
+                "kind_label": "task",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "none",
+                "attached_to": null,
+                "cancel_activity": true,
+                "lane": "Cashier",
+                "pool": "Down payment"
+              },
+              "after": {
+                "id": "Id_e71f0b32-0bbd-4144-8f4d-1daf0c752097",
+                "name": "Enters the receipt number",
+                "kind": "task",
+                "kind_label": "task",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "none",
+                "attached_to": null,
+                "cancel_activity": true,
+                "lane": "Cashier",
+                "pool": "Print receipt"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "op": "RENAME_NODE",
+      "legacy_op": "RENAME",
+      "category": 1,
+      "category_name": "Steps (tasks and events)",
+      "element": "node",
+      "before": {
+        "id": "Id_259b95ad-426d-4d16-8f7b-6371212aaf57",
+        "name": "Displays patient information",
+        "kind": "task",
+        "kind_label": "task",
+        "task_type": "abstract",
+        "event_definition": "none",
+        "marker": "none",
+        "attached_to": null,
+        "cancel_activity": true,
+        "lane": "System",
+        "pool": "Down payment"
+      },
+      "after": {
+        "id": "Id_7197dcae-c5e1-466c-a19b-99b95d0197db",
+        "name": "Displays payment information",
+        "kind": "task",
+        "kind_label": "task",
+        "task_type": "abstract",
+        "event_definition": "none",
+        "marker": "none",
+        "attached_to": null,
+        "cancel_activity": true,
+        "lane": "System",
+        "pool": "Print receipt"
+      },
+      "detail": "\"Displays patient information\" -> \"Displays payment information\" (synonym)",
+      "label": "synonym",
+      "is_synonym": true,
+      "subtype": "synonym",
+      "score": 0.88,
+      "confidence": "high",
+      "needs_review": false,
+      "schema_version": "change-v1",
+      "change": {
+        "type": "RENAME_NODE",
+        "legacy_type": "RENAME",
+        "category": 1,
+        "category_name": "Steps (tasks and events)",
+        "element": "node",
+        "before": {
+          "id": "Id_259b95ad-426d-4d16-8f7b-6371212aaf57",
+          "name": "Displays patient information",
+          "kind": "task",
+          "kind_label": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "attached_to": null,
+          "cancel_activity": true,
+          "lane": "System",
+          "pool": "Down payment"
+        },
+        "after": {
+          "id": "Id_7197dcae-c5e1-466c-a19b-99b95d0197db",
+          "name": "Displays payment information",
+          "kind": "task",
+          "kind_label": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "attached_to": null,
+          "cancel_activity": true,
+          "lane": "System",
+          "pool": "Print receipt"
+        },
+        "detail": "\"Displays patient information\" -> \"Displays payment information\" (synonym)",
+        "label": "synonym",
+        "subtype": "synonym",
+        "is_synonym": true,
+        "score": 0.88,
+        "confidence": "high",
+        "needs_review": false
+      },
+      "evidence": {
+        "alignment": [
+          {
+            "reference_node_id": "Id_259b95ad-426d-4d16-8f7b-6371212aaf57",
+            "variant_node_id": "Id_7197dcae-c5e1-466c-a19b-99b95d0197db",
+            "label": "synonym",
+            "score": 0.88,
+            "reason": "token overlap 0.67, string 0.93, sequence 0.93",
+            "confidence": "high",
+            "needs_review": false
+          }
+        ],
+        "structural_context": [
+          {
+            "reference": {
+              "node_id": "Id_259b95ad-426d-4d16-8f7b-6371212aaf57",
+              "predecessor_ids": [
+                "Id_7a3f28d2-8c48-4551-9672-ee6753bda510"
+              ],
+              "successor_ids": [
+                "Id_5d54bd1c-b17e-4a4d-8364-237334e4b181"
+              ],
+              "in_degree": 1,
+              "out_degree": 1
+            },
+            "variant": {
+              "node_id": "Id_7197dcae-c5e1-466c-a19b-99b95d0197db",
+              "predecessor_ids": [
+                "Id_94a17517-4e55-4c3e-b7b6-3639c43c677a"
+              ],
+              "successor_ids": [
+                "Id_972c51c5-19da-42e1-a3e8-c89980a66f20"
+              ],
+              "in_degree": 1,
+              "out_degree": 1
+            },
+            "matched_neighbors": [
+              {
+                "direction": "predecessor",
+                "reference_node_id": "Id_7a3f28d2-8c48-4551-9672-ee6753bda510",
+                "variant_node_id": "Id_94a17517-4e55-4c3e-b7b6-3639c43c677a"
+              },
+              {
+                "direction": "successor",
+                "reference_node_id": "Id_5d54bd1c-b17e-4a4d-8364-237334e4b181",
+                "variant_node_id": "Id_972c51c5-19da-42e1-a3e8-c89980a66f20"
+              }
+            ]
+          }
+        ],
+        "observations": [
+          {
+            "source": "alignment",
+            "description": "token overlap 0.67, string 0.93, sequence 0.93"
+          },
+          {
+            "source": "graph",
+            "description": "Direct predecessor and successor context for aligned nodes."
+          },
+          {
+            "source": "attribute",
+            "description": "\"Displays patient information\" -> \"Displays payment information\" (synonym)",
+            "value": {
+              "before": {
+                "id": "Id_259b95ad-426d-4d16-8f7b-6371212aaf57",
+                "name": "Displays patient information",
+                "kind": "task",
+                "kind_label": "task",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "none",
+                "attached_to": null,
+                "cancel_activity": true,
+                "lane": "System",
+                "pool": "Down payment"
+              },
+              "after": {
+                "id": "Id_7197dcae-c5e1-466c-a19b-99b95d0197db",
+                "name": "Displays payment information",
+                "kind": "task",
+                "kind_label": "task",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "none",
+                "attached_to": null,
+                "cancel_activity": true,
+                "lane": "System",
+                "pool": "Print receipt"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "op": "RENAME_NODE",
+      "legacy_op": "RENAME",
+      "category": 1,
+      "category_name": "Steps (tasks and events)",
+      "element": "node",
+      "before": {
+        "id": "Id_6bf5bd8c-b245-49c0-8f0e-4cc2b7961768",
+        "name": "Invisible Task",
+        "kind": "task",
+        "kind_label": "task",
+        "task_type": "abstract",
+        "event_definition": "none",
+        "marker": "none",
+        "attached_to": null,
+        "cancel_activity": true,
+        "lane": "System",
+        "pool": "Down payment"
+      },
+      "after": {
+        "id": "Id_1433cca0-189b-444b-8167-19e9ff5f0bbe",
+        "name": "Displays the message data not found",
+        "kind": "task",
+        "kind_label": "task",
+        "task_type": "abstract",
+        "event_definition": "none",
+        "marker": "none",
+        "attached_to": null,
+        "cancel_activity": true,
+        "lane": "System",
+        "pool": "Print receipt"
+      },
+      "detail": "\"Invisible Task\" -> \"Displays the message data not found\" (meaning_changed)",
+      "label": "meaning_changed",
+      "is_synonym": false,
+      "subtype": "meaning_changed",
+      "score": 1.0,
+      "confidence": "high",
+      "needs_review": false,
+      "schema_version": "change-v1",
+      "change": {
+        "type": "RENAME_NODE",
+        "legacy_type": "RENAME",
+        "category": 1,
+        "category_name": "Steps (tasks and events)",
+        "element": "node",
+        "before": {
+          "id": "Id_6bf5bd8c-b245-49c0-8f0e-4cc2b7961768",
+          "name": "Invisible Task",
+          "kind": "task",
+          "kind_label": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "attached_to": null,
+          "cancel_activity": true,
+          "lane": "System",
+          "pool": "Down payment"
+        },
+        "after": {
+          "id": "Id_1433cca0-189b-444b-8167-19e9ff5f0bbe",
+          "name": "Displays the message data not found",
+          "kind": "task",
+          "kind_label": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "attached_to": null,
+          "cancel_activity": true,
+          "lane": "System",
+          "pool": "Print receipt"
+        },
+        "detail": "\"Invisible Task\" -> \"Displays the message data not found\" (meaning_changed)",
+        "label": "meaning_changed",
+        "subtype": "meaning_changed",
+        "is_synonym": false,
+        "score": 1.0,
+        "confidence": "high",
+        "needs_review": false
+      },
+      "evidence": {
+        "alignment": [
+          {
+            "reference_node_id": "Id_6bf5bd8c-b245-49c0-8f0e-4cc2b7961768",
+            "variant_node_id": "Id_1433cca0-189b-444b-8167-19e9ff5f0bbe",
+            "label": "meaning_changed",
+            "score": 1.0,
+            "reason": "structural context 1.00, degree 1.00",
+            "confidence": "high",
+            "needs_review": false
+          }
+        ],
+        "structural_context": [
+          {
+            "reference": {
+              "node_id": "Id_6bf5bd8c-b245-49c0-8f0e-4cc2b7961768",
+              "predecessor_ids": [
+                "Id_7a3f28d2-8c48-4551-9672-ee6753bda510"
+              ],
+              "successor_ids": [
+                "Id_5d54bd1c-b17e-4a4d-8364-237334e4b181"
+              ],
+              "in_degree": 1,
+              "out_degree": 1
+            },
+            "variant": {
+              "node_id": "Id_1433cca0-189b-444b-8167-19e9ff5f0bbe",
+              "predecessor_ids": [
+                "Id_94a17517-4e55-4c3e-b7b6-3639c43c677a"
+              ],
+              "successor_ids": [
+                "Id_972c51c5-19da-42e1-a3e8-c89980a66f20"
+              ],
+              "in_degree": 1,
+              "out_degree": 1
+            },
+            "matched_neighbors": [
+              {
+                "direction": "predecessor",
+                "reference_node_id": "Id_7a3f28d2-8c48-4551-9672-ee6753bda510",
+                "variant_node_id": "Id_94a17517-4e55-4c3e-b7b6-3639c43c677a"
+              },
+              {
+                "direction": "successor",
+                "reference_node_id": "Id_5d54bd1c-b17e-4a4d-8364-237334e4b181",
+                "variant_node_id": "Id_972c51c5-19da-42e1-a3e8-c89980a66f20"
+              }
+            ]
+          }
+        ],
+        "observations": [
+          {
+            "source": "alignment",
+            "description": "structural context 1.00, degree 1.00"
+          },
+          {
+            "source": "graph",
+            "description": "Direct predecessor and successor context for aligned nodes."
+          },
+          {
+            "source": "attribute",
+            "description": "\"Invisible Task\" -> \"Displays the message data not found\" (meaning_changed)",
+            "value": {
+              "before": {
+                "id": "Id_6bf5bd8c-b245-49c0-8f0e-4cc2b7961768",
+                "name": "Invisible Task",
+                "kind": "task",
+                "kind_label": "task",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "none",
+                "attached_to": null,
+                "cancel_activity": true,
+                "lane": "System",
+                "pool": "Down payment"
+              },
+              "after": {
+                "id": "Id_1433cca0-189b-444b-8167-19e9ff5f0bbe",
+                "name": "Displays the message data not found",
+                "kind": "task",
+                "kind_label": "task",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "none",
+                "attached_to": null,
+                "cancel_activity": true,
+                "lane": "System",
+                "pool": "Print receipt"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "op": "RENAME_NODE",
+      "legacy_op": "RENAME",
+      "category": 1,
+      "category_name": "Steps (tasks and events)",
+      "element": "node",
+      "before": {
+        "id": "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7",
+        "name": "Wants to make a Down Payment transaction",
+        "kind": "task",
+        "kind_label": "task",
+        "task_type": "abstract",
+        "event_definition": "none",
+        "marker": "none",
+        "attached_to": null,
+        "cancel_activity": true,
+        "lane": "Cashier",
+        "pool": "Down payment"
+      },
+      "after": {
+        "id": "Id_50e4f89c-3584-4c54-86c1-932c80685b34",
+        "name": "Wants to make Reprint hospitalization receipts",
+        "kind": "task",
+        "kind_label": "task",
+        "task_type": "abstract",
+        "event_definition": "none",
+        "marker": "none",
+        "attached_to": null,
+        "cancel_activity": true,
+        "lane": "Cashier",
+        "pool": "Print receipt"
+      },
+      "detail": "\"Wants to make a Down Payment transaction\" -> \"Wants to make Reprint hospitalization receipts\" (meaning_changed)",
+      "label": "meaning_changed",
+      "is_synonym": false,
+      "subtype": "meaning_changed",
+      "score": 0.506,
+      "confidence": "low",
+      "needs_review": true,
+      "schema_version": "change-v1",
+      "change": {
+        "type": "RENAME_NODE",
+        "legacy_type": "RENAME",
+        "category": 1,
+        "category_name": "Steps (tasks and events)",
+        "element": "node",
+        "before": {
+          "id": "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7",
+          "name": "Wants to make a Down Payment transaction",
+          "kind": "task",
+          "kind_label": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "attached_to": null,
+          "cancel_activity": true,
+          "lane": "Cashier",
+          "pool": "Down payment"
+        },
+        "after": {
+          "id": "Id_50e4f89c-3584-4c54-86c1-932c80685b34",
+          "name": "Wants to make Reprint hospitalization receipts",
+          "kind": "task",
+          "kind_label": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "attached_to": null,
+          "cancel_activity": true,
+          "lane": "Cashier",
+          "pool": "Print receipt"
+        },
+        "detail": "\"Wants to make a Down Payment transaction\" -> \"Wants to make Reprint hospitalization receipts\" (meaning_changed)",
+        "label": "meaning_changed",
+        "subtype": "meaning_changed",
+        "is_synonym": false,
+        "score": 0.506,
+        "confidence": "low",
+        "needs_review": true
+      },
+      "evidence": {
+        "alignment": [
+          {
+            "reference_node_id": "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7",
+            "variant_node_id": "Id_50e4f89c-3584-4c54-86c1-932c80685b34",
+            "label": "meaning_changed",
+            "score": 0.506,
+            "reason": "token overlap 0.44, string 0.84, sequence 0.58",
+            "confidence": "low",
+            "needs_review": true
+          }
+        ],
+        "structural_context": [
+          {
+            "reference": {
+              "node_id": "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7",
+              "predecessor_ids": [
+                "Id_92cb515c-ae81-4364-a587-772f1bcc50f5"
+              ],
+              "successor_ids": [
+                "Id_baf5345e-3bb0-4235-bb5f-c58fa8217646"
+              ],
+              "in_degree": 1,
+              "out_degree": 1
+            },
+            "variant": {
+              "node_id": "Id_50e4f89c-3584-4c54-86c1-932c80685b34",
+              "predecessor_ids": [
+                "Id_1a9fc751-0d4f-4b51-89f2-2a540fc1e817"
+              ],
+              "successor_ids": [
+                "Id_85e24b6b-39de-4aff-91e9-2f76a7dbc1bf"
+              ],
+              "in_degree": 1,
+              "out_degree": 1
+            },
+            "matched_neighbors": [
+              {
+                "direction": "predecessor",
+                "reference_node_id": "Id_92cb515c-ae81-4364-a587-772f1bcc50f5",
+                "variant_node_id": "Id_1a9fc751-0d4f-4b51-89f2-2a540fc1e817"
+              },
+              {
+                "direction": "successor",
+                "reference_node_id": "Id_baf5345e-3bb0-4235-bb5f-c58fa8217646",
+                "variant_node_id": "Id_85e24b6b-39de-4aff-91e9-2f76a7dbc1bf"
+              }
+            ]
+          }
+        ],
+        "observations": [
+          {
+            "source": "alignment",
+            "description": "token overlap 0.44, string 0.84, sequence 0.58"
+          },
+          {
+            "source": "graph",
+            "description": "Direct predecessor and successor context for aligned nodes."
+          },
+          {
+            "source": "attribute",
+            "description": "\"Wants to make a Down Payment transaction\" -> \"Wants to make Reprint hospitalization receipts\" (meaning_changed)",
+            "value": {
+              "before": {
+                "id": "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7",
+                "name": "Wants to make a Down Payment transaction",
+                "kind": "task",
+                "kind_label": "task",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "none",
+                "attached_to": null,
+                "cancel_activity": true,
+                "lane": "Cashier",
+                "pool": "Down payment"
+              },
+              "after": {
+                "id": "Id_50e4f89c-3584-4c54-86c1-932c80685b34",
+                "name": "Wants to make Reprint hospitalization receipts",
+                "kind": "task",
+                "kind_label": "task",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "none",
+                "attached_to": null,
+                "cancel_activity": true,
+                "lane": "Cashier",
+                "pool": "Print receipt"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "op": "RENAME_NODE",
+      "legacy_op": "RENAME",
+      "category": 1,
+      "category_name": "Steps (tasks and events)",
+      "element": "node",
+      "before": {
+        "id": "Id_baf5345e-3bb0-4235-bb5f-c58fa8217646",
+        "name": "Displays Down Payment transaction form",
+        "kind": "task",
+        "kind_label": "task",
+        "task_type": "abstract",
+        "event_definition": "none",
+        "marker": "none",
+        "attached_to": null,
+        "cancel_activity": true,
+        "lane": "System",
+        "pool": "Down payment"
+      },
+      "after": {
+        "id": "Id_85e24b6b-39de-4aff-91e9-2f76a7dbc1bf",
+        "name": "Displays the Reprint hospitalization receipts form",
+        "kind": "task",
+        "kind_label": "task",
+        "task_type": "abstract",
+        "event_definition": "none",
+        "marker": "none",
+        "attached_to": null,
+        "cancel_activity": true,
+        "lane": "System",
+        "pool": "Print receipt"
+      },
+      "detail": "\"Displays Down Payment transaction form\" -> \"Displays the Reprint hospitalization receipts form\" (meaning_changed)",
+      "label": "meaning_changed",
+      "is_synonym": false,
+      "subtype": "meaning_changed",
+      "score": 0.51,
+      "confidence": "low",
+      "needs_review": true,
+      "schema_version": "change-v1",
+      "change": {
+        "type": "RENAME_NODE",
+        "legacy_type": "RENAME",
+        "category": 1,
+        "category_name": "Steps (tasks and events)",
+        "element": "node",
+        "before": {
+          "id": "Id_baf5345e-3bb0-4235-bb5f-c58fa8217646",
+          "name": "Displays Down Payment transaction form",
+          "kind": "task",
+          "kind_label": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "attached_to": null,
+          "cancel_activity": true,
+          "lane": "System",
+          "pool": "Down payment"
+        },
+        "after": {
+          "id": "Id_85e24b6b-39de-4aff-91e9-2f76a7dbc1bf",
+          "name": "Displays the Reprint hospitalization receipts form",
+          "kind": "task",
+          "kind_label": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "attached_to": null,
+          "cancel_activity": true,
+          "lane": "System",
+          "pool": "Print receipt"
+        },
+        "detail": "\"Displays Down Payment transaction form\" -> \"Displays the Reprint hospitalization receipts form\" (meaning_changed)",
+        "label": "meaning_changed",
+        "subtype": "meaning_changed",
+        "is_synonym": false,
+        "score": 0.51,
+        "confidence": "low",
+        "needs_review": true
+      },
+      "evidence": {
+        "alignment": [
+          {
+            "reference_node_id": "Id_baf5345e-3bb0-4235-bb5f-c58fa8217646",
+            "variant_node_id": "Id_85e24b6b-39de-4aff-91e9-2f76a7dbc1bf",
+            "label": "meaning_changed",
+            "score": 0.51,
+            "reason": "token overlap 0.44, string 0.83, sequence 0.59",
+            "confidence": "low",
+            "needs_review": true
+          }
+        ],
+        "structural_context": [
+          {
+            "reference": {
+              "node_id": "Id_baf5345e-3bb0-4235-bb5f-c58fa8217646",
+              "predecessor_ids": [
+                "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7"
+              ],
+              "successor_ids": [
+                "Id_bbcb1d0b-dfd5-4096-9ba9-da46d77fd192"
+              ],
+              "in_degree": 1,
+              "out_degree": 1
+            },
+            "variant": {
+              "node_id": "Id_85e24b6b-39de-4aff-91e9-2f76a7dbc1bf",
+              "predecessor_ids": [
+                "Id_50e4f89c-3584-4c54-86c1-932c80685b34"
+              ],
+              "successor_ids": [
+                "Id_840c6a1c-09cc-4cae-ae5b-423612581a92"
+              ],
+              "in_degree": 1,
+              "out_degree": 1
+            },
+            "matched_neighbors": [
+              {
+                "direction": "predecessor",
+                "reference_node_id": "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7",
+                "variant_node_id": "Id_50e4f89c-3584-4c54-86c1-932c80685b34"
+              },
+              {
+                "direction": "successor",
+                "reference_node_id": "Id_bbcb1d0b-dfd5-4096-9ba9-da46d77fd192",
+                "variant_node_id": "Id_840c6a1c-09cc-4cae-ae5b-423612581a92"
+              }
+            ]
+          }
+        ],
+        "observations": [
+          {
+            "source": "alignment",
+            "description": "token overlap 0.44, string 0.83, sequence 0.59"
+          },
+          {
+            "source": "graph",
+            "description": "Direct predecessor and successor context for aligned nodes."
+          },
+          {
+            "source": "attribute",
+            "description": "\"Displays Down Payment transaction form\" -> \"Displays the Reprint hospitalization receipts form\" (meaning_changed)",
+            "value": {
+              "before": {
+                "id": "Id_baf5345e-3bb0-4235-bb5f-c58fa8217646",
+                "name": "Displays Down Payment transaction form",
+                "kind": "task",
+                "kind_label": "task",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "none",
+                "attached_to": null,
+                "cancel_activity": true,
+                "lane": "System",
+                "pool": "Down payment"
+              },
+              "after": {
+                "id": "Id_85e24b6b-39de-4aff-91e9-2f76a7dbc1bf",
+                "name": "Displays the Reprint hospitalization receipts form",
+                "kind": "task",
+                "kind_label": "task",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "none",
+                "attached_to": null,
+                "cancel_activity": true,
+                "lane": "System",
+                "pool": "Print receipt"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "op": "RENAME_NODE",
+      "legacy_op": "RENAME",
+      "category": 1,
+      "category_name": "Steps (tasks and events)",
+      "element": "node",
+      "before": {
+        "id": "Id_c9ee3cd8-78da-417a-9cf9-0edac7cbbf33",
+        "name": "Searches for patients by register number",
+        "kind": "task",
+        "kind_label": "task",
+        "task_type": "abstract",
+        "event_definition": "none",
+        "marker": "none",
+        "attached_to": null,
+        "cancel_activity": true,
+        "lane": "System",
+        "pool": "Down payment"
+      },
+      "after": {
+        "id": "Id_9b42aeaf-e4f0-4064-b636-3147e03499c8",
+        "name": "Searches for the receipt number",
+        "kind": "task",
+        "kind_label": "task",
+        "task_type": "abstract",
+        "event_definition": "none",
+        "marker": "none",
+        "attached_to": null,
+        "cancel_activity": true,
+        "lane": "System",
+        "pool": "Print receipt"
+      },
+      "detail": "\"Searches for patients by register number\" -> \"Searches for the receipt number\" (meaning_changed)",
+      "label": "meaning_changed",
+      "is_synonym": false,
+      "subtype": "meaning_changed",
+      "score": 0.657,
+      "confidence": "high",
+      "needs_review": false,
+      "schema_version": "change-v1",
+      "change": {
+        "type": "RENAME_NODE",
+        "legacy_type": "RENAME",
+        "category": 1,
+        "category_name": "Steps (tasks and events)",
+        "element": "node",
+        "before": {
+          "id": "Id_c9ee3cd8-78da-417a-9cf9-0edac7cbbf33",
+          "name": "Searches for patients by register number",
+          "kind": "task",
+          "kind_label": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "attached_to": null,
+          "cancel_activity": true,
+          "lane": "System",
+          "pool": "Down payment"
+        },
+        "after": {
+          "id": "Id_9b42aeaf-e4f0-4064-b636-3147e03499c8",
+          "name": "Searches for the receipt number",
+          "kind": "task",
+          "kind_label": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "attached_to": null,
+          "cancel_activity": true,
+          "lane": "System",
+          "pool": "Print receipt"
+        },
+        "detail": "\"Searches for patients by register number\" -> \"Searches for the receipt number\" (meaning_changed)",
+        "label": "meaning_changed",
+        "subtype": "meaning_changed",
+        "is_synonym": false,
+        "score": 0.657,
+        "confidence": "high",
+        "needs_review": false
+      },
+      "evidence": {
+        "alignment": [
+          {
+            "reference_node_id": "Id_c9ee3cd8-78da-417a-9cf9-0edac7cbbf33",
+            "variant_node_id": "Id_9b42aeaf-e4f0-4064-b636-3147e03499c8",
+            "label": "meaning_changed",
+            "score": 0.657,
+            "reason": "token overlap 0.57, string 0.88, sequence 0.76",
+            "confidence": "high",
+            "needs_review": false
+          }
+        ],
+        "structural_context": [
+          {
+            "reference": {
+              "node_id": "Id_c9ee3cd8-78da-417a-9cf9-0edac7cbbf33",
+              "predecessor_ids": [
+                "Id_0a7a1082-affb-4bc8-bfb1-91f073d72dde"
+              ],
+              "successor_ids": [
+                "Id_7a3f28d2-8c48-4551-9672-ee6753bda510"
+              ],
+              "in_degree": 1,
+              "out_degree": 1
+            },
+            "variant": {
+              "node_id": "Id_9b42aeaf-e4f0-4064-b636-3147e03499c8",
+              "predecessor_ids": [
+                "Id_e71f0b32-0bbd-4144-8f4d-1daf0c752097"
+              ],
+              "successor_ids": [
+                "Id_94a17517-4e55-4c3e-b7b6-3639c43c677a"
+              ],
+              "in_degree": 1,
+              "out_degree": 1
+            },
+            "matched_neighbors": [
+              {
+                "direction": "predecessor",
+                "reference_node_id": "Id_0a7a1082-affb-4bc8-bfb1-91f073d72dde",
+                "variant_node_id": "Id_e71f0b32-0bbd-4144-8f4d-1daf0c752097"
+              },
+              {
+                "direction": "successor",
+                "reference_node_id": "Id_7a3f28d2-8c48-4551-9672-ee6753bda510",
+                "variant_node_id": "Id_94a17517-4e55-4c3e-b7b6-3639c43c677a"
+              }
+            ]
+          }
+        ],
+        "observations": [
+          {
+            "source": "alignment",
+            "description": "token overlap 0.57, string 0.88, sequence 0.76"
+          },
+          {
+            "source": "graph",
+            "description": "Direct predecessor and successor context for aligned nodes."
+          },
+          {
+            "source": "attribute",
+            "description": "\"Searches for patients by register number\" -> \"Searches for the receipt number\" (meaning_changed)",
+            "value": {
+              "before": {
+                "id": "Id_c9ee3cd8-78da-417a-9cf9-0edac7cbbf33",
+                "name": "Searches for patients by register number",
+                "kind": "task",
+                "kind_label": "task",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "none",
+                "attached_to": null,
+                "cancel_activity": true,
+                "lane": "System",
+                "pool": "Down payment"
+              },
+              "after": {
+                "id": "Id_9b42aeaf-e4f0-4064-b636-3147e03499c8",
+                "name": "Searches for the receipt number",
+                "kind": "task",
+                "kind_label": "task",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "none",
+                "attached_to": null,
+                "cancel_activity": true,
+                "lane": "System",
+                "pool": "Print receipt"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "op": "RENAME_NODE",
+      "legacy_op": "RENAME",
+      "category": 1,
+      "category_name": "Steps (tasks and events)",
+      "element": "node",
+      "before": {
+        "id": "Id_e024b86e-10e6-46f3-891a-4cf17601323b",
+        "name": "Selects a save button",
+        "kind": "task",
+        "kind_label": "task",
+        "task_type": "abstract",
+        "event_definition": "none",
+        "marker": "none",
+        "attached_to": null,
+        "cancel_activity": true,
+        "lane": "Cashier",
+        "pool": "Down payment"
+      },
+      "after": {
+        "id": "Id_d2ee4444-d910-4f60-ba15-29cadf24766a",
+        "name": "Selects a print button",
+        "kind": "task",
+        "kind_label": "task",
+        "task_type": "abstract",
+        "event_definition": "none",
+        "marker": "none",
+        "attached_to": null,
+        "cancel_activity": true,
+        "lane": "Cashier",
+        "pool": "Print receipt"
+      },
+      "detail": "\"Selects a save button\" -> \"Selects a print button\" (synonym)",
+      "label": "synonym",
+      "is_synonym": true,
+      "subtype": "synonym",
+      "score": 0.722,
+      "confidence": "high",
+      "needs_review": false,
+      "schema_version": "change-v1",
+      "change": {
+        "type": "RENAME_NODE",
+        "legacy_type": "RENAME",
+        "category": 1,
+        "category_name": "Steps (tasks and events)",
+        "element": "node",
+        "before": {
+          "id": "Id_e024b86e-10e6-46f3-891a-4cf17601323b",
+          "name": "Selects a save button",
+          "kind": "task",
+          "kind_label": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "attached_to": null,
+          "cancel_activity": true,
+          "lane": "Cashier",
+          "pool": "Down payment"
+        },
+        "after": {
+          "id": "Id_d2ee4444-d910-4f60-ba15-29cadf24766a",
+          "name": "Selects a print button",
+          "kind": "task",
+          "kind_label": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "attached_to": null,
+          "cancel_activity": true,
+          "lane": "Cashier",
+          "pool": "Print receipt"
+        },
+        "detail": "\"Selects a save button\" -> \"Selects a print button\" (synonym)",
+        "label": "synonym",
+        "subtype": "synonym",
+        "is_synonym": true,
+        "score": 0.722,
+        "confidence": "high",
+        "needs_review": false
+      },
+      "evidence": {
+        "alignment": [
+          {
+            "reference_node_id": "Id_e024b86e-10e6-46f3-891a-4cf17601323b",
+            "variant_node_id": "Id_d2ee4444-d910-4f60-ba15-29cadf24766a",
+            "label": "synonym",
+            "score": 0.722,
+            "reason": "token overlap 0.67, string 0.88, sequence 0.79",
+            "confidence": "high",
+            "needs_review": false
+          }
+        ],
+        "structural_context": [
+          {
+            "reference": {
+              "node_id": "Id_e024b86e-10e6-46f3-891a-4cf17601323b",
+              "predecessor_ids": [
+                "Id_6bc7314b-ee04-4f16-af27-1f79dcebf3d1"
+              ],
+              "successor_ids": [
+                "Id_d92e9b2e-6bb6-4a70-b633-1a4bc7e585f5"
+              ],
+              "in_degree": 1,
+              "out_degree": 1
+            },
+            "variant": {
+              "node_id": "Id_d2ee4444-d910-4f60-ba15-29cadf24766a",
+              "predecessor_ids": [
+                "Id_9722703c-6ec1-4d8a-949e-bc677a61f492"
+              ],
+              "successor_ids": [
+                "Id_976d8015-96b1-4131-955d-b0457be7b28c"
+              ],
+              "in_degree": 1,
+              "out_degree": 1
+            },
+            "matched_neighbors": [
+              {
+                "direction": "predecessor",
+                "reference_node_id": "Id_6bc7314b-ee04-4f16-af27-1f79dcebf3d1",
+                "variant_node_id": "Id_9722703c-6ec1-4d8a-949e-bc677a61f492"
+              },
+              {
+                "direction": "successor",
+                "reference_node_id": "Id_d92e9b2e-6bb6-4a70-b633-1a4bc7e585f5",
+                "variant_node_id": "Id_976d8015-96b1-4131-955d-b0457be7b28c"
+              }
+            ]
+          }
+        ],
+        "observations": [
+          {
+            "source": "alignment",
+            "description": "token overlap 0.67, string 0.88, sequence 0.79"
+          },
+          {
+            "source": "graph",
+            "description": "Direct predecessor and successor context for aligned nodes."
+          },
+          {
+            "source": "attribute",
+            "description": "\"Selects a save button\" -> \"Selects a print button\" (synonym)",
+            "value": {
+              "before": {
+                "id": "Id_e024b86e-10e6-46f3-891a-4cf17601323b",
+                "name": "Selects a save button",
+                "kind": "task",
+                "kind_label": "task",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "none",
+                "attached_to": null,
+                "cancel_activity": true,
+                "lane": "Cashier",
+                "pool": "Down payment"
+              },
+              "after": {
+                "id": "Id_d2ee4444-d910-4f60-ba15-29cadf24766a",
+                "name": "Selects a print button",
+                "kind": "task",
+                "kind_label": "task",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "none",
+                "attached_to": null,
+                "cancel_activity": true,
+                "lane": "Cashier",
+                "pool": "Print receipt"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "op": "INSERT_FLOW",
+      "legacy_op": "INSERT_FLOW",
+      "category": 3,
+      "category_name": "Sequence, flow, and branching",
+      "element": "flow",
+      "before": null,
+      "after": {
+        "source": "<exclusive gateway (XOR)>",
+        "target": "Prints the receipt",
+        "source_id": "Id_976d8015-96b1-4131-955d-b0457be7b28c",
+        "target_id": "Id_72735b08-632e-40a4-ab2b-5315008b5107"
+      },
+      "detail": "flow added (1x)",
+      "label": "unmatched",
+      "confidence": "high",
+      "needs_review": false,
+      "schema_version": "change-v1",
+      "change": {
+        "type": "INSERT_FLOW",
+        "legacy_type": "INSERT_FLOW",
+        "category": 3,
+        "category_name": "Sequence, flow, and branching",
+        "element": "flow",
+        "before": null,
+        "after": {
+          "source": "<exclusive gateway (XOR)>",
+          "target": "Prints the receipt",
+          "source_id": "Id_976d8015-96b1-4131-955d-b0457be7b28c",
+          "target_id": "Id_72735b08-632e-40a4-ab2b-5315008b5107"
+        },
+        "detail": "flow added (1x)",
+        "label": "unmatched",
+        "confidence": "high",
+        "needs_review": false
+      },
+      "evidence": {
+        "alignment": [
+          {
+            "reference_node_id": "Id_d92e9b2e-6bb6-4a70-b633-1a4bc7e585f5",
+            "variant_node_id": "Id_976d8015-96b1-4131-955d-b0457be7b28c",
+            "label": "identical",
+            "score": 0.597,
+            "reason": "structural context 0.33, degree 1.00",
+            "confidence": "medium",
+            "needs_review": false
+          },
+          {
+            "reference_node_id": null,
+            "variant_node_id": "Id_72735b08-632e-40a4-ab2b-5315008b5107",
+            "label": "unmatched",
+            "score": 0.0,
+            "reason": "",
+            "confidence": "high",
+            "needs_review": false
+          }
+        ],
+        "structural_context": [
+          {
+            "reference": {
+              "node_id": "Id_d92e9b2e-6bb6-4a70-b633-1a4bc7e585f5",
+              "predecessor_ids": [
+                "Id_e024b86e-10e6-46f3-891a-4cf17601323b"
+              ],
+              "successor_ids": [
+                "Id_2235724b-6ca2-46d2-95a0-ab88837d316f",
+                "Id_31a3c2fe-2934-4abc-ace3-84e3dad34f83"
+              ],
+              "in_degree": 1,
+              "out_degree": 2
+            },
+            "variant": {
+              "node_id": "Id_976d8015-96b1-4131-955d-b0457be7b28c",
+              "predecessor_ids": [
+                "Id_d2ee4444-d910-4f60-ba15-29cadf24766a"
+              ],
+              "successor_ids": [
+                "Id_72735b08-632e-40a4-ab2b-5315008b5107",
+                "Id_c9c1d94e-5b31-4350-9dde-088d2b5f02ee"
+              ],
+              "in_degree": 1,
+              "out_degree": 2
+            },
+            "matched_neighbors": [
+              {
+                "direction": "predecessor",
+                "reference_node_id": "Id_e024b86e-10e6-46f3-891a-4cf17601323b",
+                "variant_node_id": "Id_d2ee4444-d910-4f60-ba15-29cadf24766a"
+              },
+              {
+                "direction": "successor",
+                "reference_node_id": "Id_31a3c2fe-2934-4abc-ace3-84e3dad34f83",
+                "variant_node_id": "Id_c9c1d94e-5b31-4350-9dde-088d2b5f02ee"
+              }
+            ]
+          },
+          {
+            "reference": null,
+            "variant": {
+              "node_id": "Id_72735b08-632e-40a4-ab2b-5315008b5107",
+              "predecessor_ids": [
+                "Id_976d8015-96b1-4131-955d-b0457be7b28c"
+              ],
+              "successor_ids": [
+                "Id_85d50f7c-da5b-418e-aa1e-4cf2e016e94b"
+              ],
+              "in_degree": 1,
+              "out_degree": 1
+            },
+            "matched_neighbors": []
+          }
+        ],
+        "observations": [
+          {
+            "source": "alignment",
+            "description": "structural context 0.33, degree 1.00"
+          },
+          {
+            "source": "alignment",
+            "description": "Alignment label: unmatched."
+          },
+          {
+            "source": "graph",
+            "description": "Direct predecessor and successor context for aligned nodes."
+          },
+          {
+            "source": "graph",
+            "description": "flow added (1x)",
+            "value": {
+              "before": null,
+              "after": {
+                "source": "<exclusive gateway (XOR)>",
+                "target": "Prints the receipt",
+                "source_id": "Id_976d8015-96b1-4131-955d-b0457be7b28c",
+                "target_id": "Id_72735b08-632e-40a4-ab2b-5315008b5107"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "op": "INSERT_FLOW",
+      "legacy_op": "INSERT_FLOW",
+      "category": 3,
+      "category_name": "Sequence, flow, and branching",
+      "element": "flow",
+      "before": null,
+      "after": {
+        "source": "Prints the receipt",
+        "target": "<exclusive gateway (XOR)>",
+        "source_id": "Id_72735b08-632e-40a4-ab2b-5315008b5107",
+        "target_id": "Id_85d50f7c-da5b-418e-aa1e-4cf2e016e94b"
+      },
+      "detail": "flow added (1x)",
+      "label": "unmatched",
+      "confidence": "high",
+      "needs_review": false,
+      "schema_version": "change-v1",
+      "change": {
+        "type": "INSERT_FLOW",
+        "legacy_type": "INSERT_FLOW",
+        "category": 3,
+        "category_name": "Sequence, flow, and branching",
+        "element": "flow",
+        "before": null,
+        "after": {
+          "source": "Prints the receipt",
+          "target": "<exclusive gateway (XOR)>",
+          "source_id": "Id_72735b08-632e-40a4-ab2b-5315008b5107",
+          "target_id": "Id_85d50f7c-da5b-418e-aa1e-4cf2e016e94b"
+        },
+        "detail": "flow added (1x)",
+        "label": "unmatched",
+        "confidence": "high",
+        "needs_review": false
+      },
+      "evidence": {
+        "alignment": [
+          {
+            "reference_node_id": null,
+            "variant_node_id": "Id_72735b08-632e-40a4-ab2b-5315008b5107",
+            "label": "unmatched",
+            "score": 0.0,
+            "reason": "",
+            "confidence": "high",
+            "needs_review": false
+          },
+          {
+            "reference_node_id": "Id_05603d03-8106-47d8-a069-8e37915278b5",
+            "variant_node_id": "Id_85d50f7c-da5b-418e-aa1e-4cf2e016e94b",
+            "label": "identical",
+            "score": 0.597,
+            "reason": "structural context 0.33, degree 1.00",
+            "confidence": "medium",
+            "needs_review": false
+          }
+        ],
+        "structural_context": [
+          {
+            "reference": null,
+            "variant": {
+              "node_id": "Id_72735b08-632e-40a4-ab2b-5315008b5107",
+              "predecessor_ids": [
+                "Id_976d8015-96b1-4131-955d-b0457be7b28c"
+              ],
+              "successor_ids": [
+                "Id_85d50f7c-da5b-418e-aa1e-4cf2e016e94b"
+              ],
+              "in_degree": 1,
+              "out_degree": 1
+            },
+            "matched_neighbors": []
+          },
+          {
+            "reference": {
+              "node_id": "Id_05603d03-8106-47d8-a069-8e37915278b5",
+              "predecessor_ids": [
+                "Id_2235724b-6ca2-46d2-95a0-ab88837d316f",
+                "Id_31a3c2fe-2934-4abc-ace3-84e3dad34f83"
+              ],
+              "successor_ids": [
+                "Id_b210868a-cf5c-4157-b86e-b21d426d3851"
+              ],
+              "in_degree": 2,
+              "out_degree": 1
+            },
+            "variant": {
+              "node_id": "Id_85d50f7c-da5b-418e-aa1e-4cf2e016e94b",
+              "predecessor_ids": [
+                "Id_72735b08-632e-40a4-ab2b-5315008b5107",
+                "Id_c9c1d94e-5b31-4350-9dde-088d2b5f02ee"
+              ],
+              "successor_ids": [
+                "Id_138a773f-edbe-4a8d-b713-51da30e09d77"
+              ],
+              "in_degree": 2,
+              "out_degree": 1
+            },
+            "matched_neighbors": [
+              {
+                "direction": "predecessor",
+                "reference_node_id": "Id_31a3c2fe-2934-4abc-ace3-84e3dad34f83",
+                "variant_node_id": "Id_c9c1d94e-5b31-4350-9dde-088d2b5f02ee"
+              },
+              {
+                "direction": "successor",
+                "reference_node_id": "Id_b210868a-cf5c-4157-b86e-b21d426d3851",
+                "variant_node_id": "Id_138a773f-edbe-4a8d-b713-51da30e09d77"
+              }
+            ]
+          }
+        ],
+        "observations": [
+          {
+            "source": "alignment",
+            "description": "Alignment label: unmatched."
+          },
+          {
+            "source": "alignment",
+            "description": "structural context 0.33, degree 1.00"
+          },
+          {
+            "source": "graph",
+            "description": "Direct predecessor and successor context for aligned nodes."
+          },
+          {
+            "source": "graph",
+            "description": "flow added (1x)",
+            "value": {
+              "before": null,
+              "after": {
+                "source": "Prints the receipt",
+                "target": "<exclusive gateway (XOR)>",
+                "source_id": "Id_72735b08-632e-40a4-ab2b-5315008b5107",
+                "target_id": "Id_85d50f7c-da5b-418e-aa1e-4cf2e016e94b"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "op": "DATA_CHANGE",
+      "legacy_op": "DATA_CHANGE",
+      "category": 5,
+      "category_name": "Data and cross-pool communication",
+      "element": "data",
+      "before": null,
+      "after": {
+        "id": "Id_b30f933e-df9c-4815-a885-ea016b91cd4f",
+        "name": "Receipt",
+        "kind": "data_store",
+        "connected_nodes": [
+          "Id_9b42aeaf-e4f0-4064-b636-3147e03499c8"
+        ]
+      },
+      "detail": "data store added: \"Receipt\"",
+      "confidence": "high",
+      "needs_review": false,
+      "schema_version": "change-v1",
+      "change": {
+        "type": "DATA_CHANGE",
+        "legacy_type": "DATA_CHANGE",
+        "category": 5,
+        "category_name": "Data and cross-pool communication",
+        "element": "data",
+        "before": null,
+        "after": {
+          "id": "Id_b30f933e-df9c-4815-a885-ea016b91cd4f",
+          "name": "Receipt",
+          "kind": "data_store",
+          "connected_nodes": [
+            "Id_9b42aeaf-e4f0-4064-b636-3147e03499c8"
+          ]
+        },
+        "detail": "data store added: \"Receipt\"",
+        "confidence": "high",
+        "needs_review": false
+      },
+      "evidence": {
+        "alignment": [],
+        "structural_context": [],
+        "observations": [
+          {
+            "source": "data",
+            "description": "data store added: \"Receipt\"",
+            "value": {
+              "before": null,
+              "after": {
+                "id": "Id_b30f933e-df9c-4815-a885-ea016b91cd4f",
+                "name": "Receipt",
+                "kind": "data_store",
+                "connected_nodes": [
+                  "Id_9b42aeaf-e4f0-4064-b636-3147e03499c8"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "op": "DATA_CHANGE",
+      "legacy_op": "DATA_CHANGE",
+      "category": 5,
+      "category_name": "Data and cross-pool communication",
+      "element": "data",
+      "before": {
+        "id": "Id_c9cfa6ca-91ef-4a97-8fa1-e61d9b06d16c",
+        "name": "Patient",
+        "kind": "data_store",
+        "connected_nodes": []
+      },
+      "after": null,
+      "detail": "data store removed: \"Patient\"",
+      "confidence": "high",
+      "needs_review": false,
+      "schema_version": "change-v1",
+      "change": {
+        "type": "DATA_CHANGE",
+        "legacy_type": "DATA_CHANGE",
+        "category": 5,
+        "category_name": "Data and cross-pool communication",
+        "element": "data",
+        "before": {
+          "id": "Id_c9cfa6ca-91ef-4a97-8fa1-e61d9b06d16c",
+          "name": "Patient",
+          "kind": "data_store",
+          "connected_nodes": []
+        },
+        "after": null,
+        "detail": "data store removed: \"Patient\"",
+        "confidence": "high",
+        "needs_review": false
+      },
+      "evidence": {
+        "alignment": [],
+        "structural_context": [],
+        "observations": [
+          {
+            "source": "data",
+            "description": "data store removed: \"Patient\"",
+            "value": {
+              "before": {
+                "id": "Id_c9cfa6ca-91ef-4a97-8fa1-e61d9b06d16c",
+                "name": "Patient",
+                "kind": "data_store",
+                "connected_nodes": []
+              },
+              "after": null
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "behavior": {
+    "equivalent": false,
+    "inconclusive": false,
+    "method": "trace_equivalence (tau-closure + subset construction)",
+    "counterexample": {
+      "direction": "variant_only",
+      "trace": [
+        "Wants to make a Down Payment transaction",
+        "Displays Down Payment transaction form",
+        "Enters Down Payment information",
+        "Searches for patients by register number",
+        "Displays patient information",
+        "Invisible Task",
+        "Selects a save button",
+        "Prints the receipt"
+      ],
+      "detail": "only this model can execute the differing task and still complete"
+    },
+    "dfa_states": {
+      "reference": 9,
+      "variant": 9
+    },
+    "truncated": false,
+    "reference_lts": {
+      "states": 20,
+      "transitions": 22,
+      "final_states": 1,
+      "deadlock_states": 0,
+      "truncated": false
+    },
+    "variant_lts": {
+      "states": 20,
+      "transitions": 22,
+      "final_states": 1,
+      "deadlock_states": 0,
+      "truncated": false
+    },
+    "branching_bisimulation": {
+      "equivalent": false,
+      "reason": "initial states are separated by partition refinement",
+      "checked": true,
+      "blocks": 29,
+      "iterations": 9
+    },
+    "trace_samples": {
+      "reference": {
+        "count": 4,
+        "traces": [
+          [
+            "Wants to make a Down Payment transaction",
+            "Displays Down Payment transaction form",
+            "Enters Down Payment information",
+            "Searches for patients by register number",
+            "Displays patient information",
+            "Invisible Task",
+            "Selects a save button",
+            "Invisible Task"
+          ],
+          [
+            "Wants to make a Down Payment transaction",
+            "Displays Down Payment transaction form",
+            "Enters Down Payment information",
+            "Searches for patients by register number",
+            "Displays patient information",
+            "Invisible Task",
+            "Selects a save button",
+            "Saves the Down Payment information"
+          ],
+          [
+            "Wants to make a Down Payment transaction",
+            "Displays Down Payment transaction form",
+            "Enters Down Payment information",
+            "Searches for patients by register number",
+            "Invisible Task",
+            "Invisible Task",
+            "Selects a save button",
+            "Invisible Task"
+          ],
+          [
+            "Wants to make a Down Payment transaction",
+            "Displays Down Payment transaction form",
+            "Enters Down Payment information",
+            "Searches for patients by register number",
+            "Invisible Task",
+            "Invisible Task",
+            "Selects a save button",
+            "Saves the Down Payment information"
+          ]
+        ],
+        "truncated": true
+      },
+      "variant": {
+        "count": 4,
+        "traces": [
+          [
+            "Wants to make a Down Payment transaction",
+            "Displays Down Payment transaction form",
+            "Enters Down Payment information",
+            "Searches for patients by register number",
+            "Displays patient information",
+            "Invisible Task",
+            "Selects a save button",
+            "Invisible Task"
+          ],
+          [
+            "Wants to make a Down Payment transaction",
+            "Displays Down Payment transaction form",
+            "Enters Down Payment information",
+            "Searches for patients by register number",
+            "Displays patient information",
+            "Invisible Task",
+            "Selects a save button",
+            "Prints the receipt"
+          ],
+          [
+            "Wants to make a Down Payment transaction",
+            "Displays Down Payment transaction form",
+            "Enters Down Payment information",
+            "Searches for patients by register number",
+            "Invisible Task",
+            "Invisible Task",
+            "Selects a save button",
+            "Invisible Task"
+          ],
+          [
+            "Wants to make a Down Payment transaction",
+            "Displays Down Payment transaction form",
+            "Enters Down Payment information",
+            "Searches for patients by register number",
+            "Invisible Task",
+            "Invisible Task",
+            "Selects a save button",
+            "Prints the receipt"
+          ]
+        ],
+        "truncated": true
+      }
+    }
+  },
+  "fragments": {
+    "count": 23,
+    "affected": [
+      {
+        "id": "R02",
+        "entry": "(start)",
+        "exit": "Displays Down Payment transaction form",
+        "size": 3,
+        "nodes": [
+          "Wants to make a Down Payment transaction",
+          "<start event>",
+          "Displays Down Payment transaction form"
+        ],
+        "node_ids": [
+          "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7",
+          "Id_92cb515c-ae81-4364-a587-772f1bcc50f5",
+          "Id_baf5345e-3bb0-4235-bb5f-c58fa8217646"
+        ],
+        "status": "checked",
+        "equivalent": true,
+        "method": "trace_equivalence (tau-closure + subset construction)",
+        "counterexample": null,
+        "states": {
+          "reference": 4,
+          "variant": 4
+        }
+      },
+      {
+        "id": "R10",
+        "entry": "Wants to make a Down Payment transaction",
+        "exit": "<exclusive gateway (XOR)>",
+        "size": 12,
+        "nodes": [
+          "Invisible Task",
+          "Enters Down Payment information",
+          "Displays patient information",
+          "<exclusive gateway (XOR)>",
+          "<exclusive gateway (XOR)>",
+          "Invisible Task",
+          "<exclusive gateway (XOR)>",
+          "Wants to make a Down Payment transaction",
+          "Displays Down Payment transaction form",
+          "<exclusive gateway (XOR)>",
+          "Searches for patients by register number",
+          "Invisible Task"
+        ],
+        "node_ids": [
+          "FlowElement1",
+          "Id_0a7a1082-affb-4bc8-bfb1-91f073d72dde",
+          "Id_259b95ad-426d-4d16-8f7b-6371212aaf57",
+          "Id_5d54bd1c-b17e-4a4d-8364-237334e4b181",
+          "Id_6bc7314b-ee04-4f16-af27-1f79dcebf3d1",
+          "Id_6bf5bd8c-b245-49c0-8f0e-4cc2b7961768",
+          "Id_7a3f28d2-8c48-4551-9672-ee6753bda510",
+          "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7",
+          "Id_baf5345e-3bb0-4235-bb5f-c58fa8217646",
+          "Id_bbcb1d0b-dfd5-4096-9ba9-da46d77fd192",
+          "Id_c9ee3cd8-78da-417a-9cf9-0edac7cbbf33",
+          "Id_cb909efa-4ad8-4c42-8ef5-e9def58f94a9"
+        ],
+        "status": "checked",
+        "equivalent": true,
+        "method": "trace_equivalence (tau-closure + subset construction)",
+        "counterexample": null,
+        "states": {
+          "reference": 12,
+          "variant": 12
+        }
+      },
+      {
+        "id": "R15",
+        "entry": "<exclusive gateway (XOR)>",
+        "exit": "<exclusive gateway (XOR)>",
+        "size": 15,
+        "nodes": [
+          "Invisible Task",
+          "<exclusive gateway (XOR)>",
+          "Enters Down Payment information",
+          "Saves the Down Payment information",
+          "Displays patient information",
+          "Invisible Task",
+          "<exclusive gateway (XOR)>",
+          "<exclusive gateway (XOR)>",
+          "Invisible Task",
+          "<exclusive gateway (XOR)>",
+          "<exclusive gateway (XOR)>",
+          "Searches for patients by register number",
+          "Invisible Task",
+          "<exclusive gateway (XOR)>",
+          "Selects a save button"
+        ],
+        "node_ids": [
+          "FlowElement1",
+          "Id_05603d03-8106-47d8-a069-8e37915278b5",
+          "Id_0a7a1082-affb-4bc8-bfb1-91f073d72dde",
+          "Id_2235724b-6ca2-46d2-95a0-ab88837d316f",
+          "Id_259b95ad-426d-4d16-8f7b-6371212aaf57",
+          "Id_31a3c2fe-2934-4abc-ace3-84e3dad34f83",
+          "Id_5d54bd1c-b17e-4a4d-8364-237334e4b181",
+          "Id_6bc7314b-ee04-4f16-af27-1f79dcebf3d1",
+          "Id_6bf5bd8c-b245-49c0-8f0e-4cc2b7961768",
+          "Id_7a3f28d2-8c48-4551-9672-ee6753bda510",
+          "Id_bbcb1d0b-dfd5-4096-9ba9-da46d77fd192",
+          "Id_c9ee3cd8-78da-417a-9cf9-0edac7cbbf33",
+          "Id_cb909efa-4ad8-4c42-8ef5-e9def58f94a9",
+          "Id_d92e9b2e-6bb6-4a70-b633-1a4bc7e585f5",
+          "Id_e024b86e-10e6-46f3-891a-4cf17601323b"
+        ],
+        "status": "skipped",
+        "reason": "fragment has no entry point"
+      }
+    ]
+  },
+  "fusion": {
+    "overall": "semantic_and_behavioral_change",
+    "needs_review": true,
+    "element_verdicts": [
+      {
+        "a": "Displays patient information",
+        "b": "Displays payment information",
+        "label": "synonym",
+        "verdict": "behavioral_change",
+        "behaviour_scope": "whole-model",
+        "equivalent": false,
+        "needs_review": false
+      },
+      {
+        "a": "Selects a save button",
+        "b": "Selects a print button",
+        "label": "synonym",
+        "verdict": "behavioral_change",
+        "behaviour_scope": "whole-model",
+        "equivalent": false,
+        "needs_review": false
+      },
+      {
+        "a": "Searches for patients by register number",
+        "b": "Searches for the receipt number",
+        "label": "meaning_changed",
+        "verdict": "semantic_change",
+        "behaviour_scope": "whole-model",
+        "equivalent": false,
+        "needs_review": false
+      },
+      {
+        "a": "Displays Down Payment transaction form",
+        "b": "Displays the Reprint hospitalization receipts form",
+        "label": "meaning_changed",
+        "verdict": "needs_review",
+        "behaviour_scope": "R10",
+        "equivalent": true,
+        "needs_review": true
+      },
+      {
+        "a": "Wants to make a Down Payment transaction",
+        "b": "Wants to make Reprint hospitalization receipts",
+        "label": "meaning_changed",
+        "verdict": "needs_review",
+        "behaviour_scope": "R02",
+        "equivalent": true,
+        "needs_review": true
+      },
+      {
+        "a": "<start event>",
+        "b": "<start event>",
+        "label": "identical",
+        "verdict": "unchanged",
+        "behaviour_scope": "unchanged",
+        "equivalent": true,
+        "needs_review": false
+      },
+      {
+        "a": "<exclusive gateway (XOR)>",
+        "b": "<exclusive gateway (XOR)>",
+        "label": "identical",
+        "verdict": "unchanged",
+        "behaviour_scope": "unchanged",
+        "equivalent": true,
+        "needs_review": false
+      },
+      {
+        "a": "<exclusive gateway (XOR)>",
+        "b": "<exclusive gateway (XOR)>",
+        "label": "identical",
+        "verdict": "unchanged",
+        "behaviour_scope": "unchanged",
+        "equivalent": true,
+        "needs_review": false
+      },
+      {
+        "a": "<exclusive gateway (XOR)>",
+        "b": "<exclusive gateway (XOR)>",
+        "label": "identical",
+        "verdict": "unchanged",
+        "behaviour_scope": "unchanged",
+        "equivalent": true,
+        "needs_review": false
+      },
+      {
+        "a": "<exclusive gateway (XOR)>",
+        "b": "<exclusive gateway (XOR)>",
+        "label": "identical",
+        "verdict": "unchanged",
+        "behaviour_scope": "unchanged",
+        "equivalent": true,
+        "needs_review": false
+      },
+      {
+        "a": "<exclusive gateway (XOR)>",
+        "b": "<exclusive gateway (XOR)>",
+        "label": "identical",
+        "verdict": "unchanged",
+        "behaviour_scope": "unchanged",
+        "equivalent": true,
+        "needs_review": false
+      },
+      {
+        "a": "<exclusive gateway (XOR)>",
+        "b": "<exclusive gateway (XOR)>",
+        "label": "identical",
+        "verdict": "unchanged",
+        "behaviour_scope": "unchanged",
+        "equivalent": true,
+        "needs_review": false
+      },
+      {
+        "a": "<end event>",
+        "b": "<end event>",
+        "label": "identical",
+        "verdict": "unchanged",
+        "behaviour_scope": "unchanged",
+        "equivalent": true,
+        "needs_review": false
+      },
+      {
+        "a": "Invisible Task",
+        "b": "Invisible Task",
+        "label": "identical",
+        "verdict": "unchanged",
+        "behaviour_scope": "unchanged",
+        "equivalent": true,
+        "needs_review": false
+      },
+      {
+        "a": "Invisible Task",
+        "b": "Invisible Task",
+        "label": "identical",
+        "verdict": "unchanged",
+        "behaviour_scope": "unchanged",
+        "equivalent": true,
+        "needs_review": false
+      },
+      {
+        "a": "Invisible Task",
+        "b": "Invisible Task",
+        "label": "identical",
+        "verdict": "unchanged",
+        "behaviour_scope": "unchanged",
+        "equivalent": true,
+        "needs_review": false
+      },
+      {
+        "a": "Enters Down Payment information",
+        "b": "Enters the receipt number",
+        "label": "meaning_changed",
+        "verdict": "semantic_change",
+        "behaviour_scope": "whole-model",
+        "equivalent": false,
+        "needs_review": false
+      },
+      {
+        "a": "Invisible Task",
+        "b": "Displays the message data not found",
+        "label": "meaning_changed",
+        "verdict": "semantic_change",
+        "behaviour_scope": "whole-model",
+        "equivalent": false,
+        "needs_review": false
+      },
+      {
+        "a": "Saves the Down Payment information",
+        "b": null,
+        "label": "unmatched",
+        "verdict": "structural_change",
+        "behaviour_scope": "element",
+        "equivalent": false,
+        "needs_review": false
+      },
+      {
+        "a": null,
+        "b": "Prints the receipt",
+        "label": "unmatched",
+        "verdict": "structural_change",
+        "behaviour_scope": "element",
+        "equivalent": false,
+        "needs_review": false
+      }
+    ],
+    "verdict_counts": {
+      "behavioral_change": 2,
+      "semantic_change": 3,
+      "needs_review": 2,
+      "unchanged": 11,
+      "structural_change": 2
+    },
+    "operation_counts": {
+      "DELETE_NODE": 1,
+      "INSERT_NODE": 1,
+      "RENAME_NODE": 7,
+      "INSERT_FLOW": 2,
+      "DATA_CHANGE": 2
+    },
+    "legacy_operation_counts": {
+      "DELETE": 1,
+      "INSERT": 1,
+      "RENAME": 7,
+      "INSERT_FLOW": 2,
+      "DATA_CHANGE": 2
+    }
+  }
+}

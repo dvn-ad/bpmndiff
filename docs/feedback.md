@@ -1,4 +1,9 @@
 ## Feedback dan pengembangan
+
+Catatan historis: Mode A/B/C pernah diusulkan pada tahap perancangan. Implementasi
+saat ini sengaja dibatasi ke perbandingan pairwise (Mode A); strategi alignment
+tetap dapat dipilih melalui CLI.
+
 1. Urutan pipeline masih salah, dimana LLM sekarang ada setelah box/syntactic matching, sehingga rename menjadi false positive di dua tahap. Harusnnya LLM harus dipindah ke depan. Bisa jadi seperti ini
 	- Parse dan normalize (buang layout).
 	- Element alignment: exact, lalu lexical, lalu embedding. LLM hanya dipakai untuk pasangan yang meragukan.

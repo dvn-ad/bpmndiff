@@ -8,7 +8,6 @@ from bpmndiff.decomposition import decompose
 from bpmndiff.diff import DiffOptions, diff_models
 from bpmndiff.lts import build_lts, compare_trace_equivalence
 from bpmndiff.model import Edge, Node, ProcessModel
-from bpmndiff.modes import run_mode_b, run_mode_c
 
 
 def make_model(model_id: str, tasks: list[str], kind: str = "sequence") -> ProcessModel:
@@ -174,27 +173,6 @@ class DiffTests(unittest.TestCase):
         ops = [op["op"] for op in comparison.operations]
         self.assertTrue("GATEWAY_TYPE_CHANGE" in ops or "CHANGE_GATEWAY_TYPE" in ops)
         self.assertFalse(comparison.behavior["equivalent"])
-
-
-class ModeTests(unittest.TestCase):
-    def test_mode_b_core_and_variant_specific(self):
-        ref = make_model("ref", ["A", "B", "C"])
-        v1 = make_model("v1", ["A", "B", "C"])
-        v2 = make_model("v2", ["A", "B"])
-        result = run_mode_b(ref, [v1, v2], DiffOptions(bisimulation=False))
-        core = {row["element"] for row in result["core_elements"]}
-        partial = {row["element"] for row in result["variant_specific"]}
-        self.assertIn("A", core)
-        self.assertIn("B", core)
-        self.assertIn("C", partial)
-
-    def test_mode_c_lineage_revert_and_oracle(self):
-        v1 = make_model("v1", ["Receive request", "Approve request"])
-        v2 = make_model("v2", ["Receive request", "Review request"])
-        v3 = make_model("v3", ["Receive request", "Approve request"])
-        result = run_mode_c([v1, v2, v3], DiffOptions(bisimulation=False))
-        self.assertTrue(result["oracle"]["consistent"])
-        self.assertTrue(any(revert["type"] == "label_revert" for revert in result["reverts"]))
 
 
 if __name__ == "__main__":

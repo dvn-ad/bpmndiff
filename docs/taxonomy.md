@@ -5,6 +5,10 @@ scope categories and compared aspects it covers. It is the operational companion
 to the requirement scope matrix (Event / Activity / Gateway / Connecting object /
 Swimlane / Data).
 
+The canonical operation names and the v1 `change` + `evidence` output contract
+are specified in [`docs/changes.md`](changes.md) and
+[`schema/change-v1.json`](../schema/change-v1.json).
+
 Source of truth for emission logic: `bpmndiff/diff.py` (`_build_operations`).
 Fusion verdict mapping: `bpmndiff/diff.py` (`diff_models`).
 

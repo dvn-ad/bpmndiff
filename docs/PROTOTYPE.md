@@ -17,9 +17,7 @@ code and the demo evidence. The user-facing guide is [`../README.md`](../README.
 | Pure-Python LTS, tau-closure, determinisation, trace compare | `bpmndiff/lts.py` | `test_sequential_models_equivalent`, `test_xor_vs_and_differ` |
 | Branching bisimulation via partition refinement | `bpmndiff/bisimulation.py`; tau-closure signatures | 54/55: equivalent; XOR/AND: separated |
 | Fusion matrix (four classes × behaviour) | `fusion` block in `diff.py` | `reports/*.md` |
-| Mode A: pairwise | `diff_models()` + CLI | scenarios 1–4 |
-| Mode B: reference vs many variants | `modes.run_mode_b()`; core / partial / inserted matrix | scenario 5: 12 core elements |
-| Mode C: version chain, lineage, reverts, transitivity oracle | `modes.run_mode_c()` | scenario 6: 13 lineages, 0 reverts, oracle consistent |
+| Pairwise comparison | `diff_models()` + CLI | dataset pairwise scenarios |
 | CLI `bpmndiff a.xpdl b.xpdl` | `bpmndiff/cli.py`, `python -m bpmndiff` | `tests/test_cli.py` |
 | Report formats | text / JSON / Markdown in `report.py` | `reports/` |
 
@@ -87,5 +85,5 @@ python3 -m bpmndiff demo --out reports
 python3 -m bpmndiff \
   "…/52.Mini hospital (FO).General new patient registration/Diagram 1.xpdl" \
   "…/53.Mini hospital (FO).Corporate new patient registration/Diagram 1.xpdl" \
-  --mode A --out reports/52_vs_53.md --format markdown
+  --out reports/52_vs_53.md --format markdown
 ```

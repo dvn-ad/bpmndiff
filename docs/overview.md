@@ -58,31 +58,12 @@ Setiap pasangan elemen dipetakan ke salah satu dari 4 kelas label: `identical`, 
 
 ---
 
-## 2. Desain Analisis Multi-Versi ("Two or More Versions")
+## 2. Analisis Pairwise
 
-Untuk mendukung *process families* dan analisis evolusi proses, metode diperluas dari sekadar pairwise menjadi tiga mode operasi:
-
-### Mode A: Pairwise Comparison ($V_1$ vs $V_2$)
-- **Fungsi**: Membandingkan dua versi model secara langsung. Berfungsi sebagai modul dasar (*atomic core*) untuk Mode B dan Mode C.
-- **Output**: Edit script mendalam dan counterexample trace jika terjadi inkonsistensi perilaku.
-
-### Mode B: Reference vs. Many Variants ($R$ vs $V_1, V_2, \dots, V_n$)
-- **Landasan Teori**: Process Families & Variability Management (Delgado et al. 2022).
-- **Fungsi**: Membandingkan satu model acuan utama ($R$) dengan $n$ varian bisnis lokal/regional ($V_1 \dots V_n$).
-- **Output**:
-  1. Edit script individual untuk setiap pasangan $(R, V_i)$.
-  2. Matriks Agregat Process Family:
-     - **Core Elements**: Elemen/sub-proses yang wajib ada dan konsisten di seluruh varian ($R \cap V_1 \cap \dots \cap V_n$).
-     - **Variant-Specific Elements**: Elemen opsional atau kustomisasi lokal yang hanya muncul di varian tertentu.
-
-### Mode C: Version Chain / Change History ($V_1 \rightarrow V_2 \rightarrow \dots \rightarrow V_n$)
-- **Fungsi**: Membandingkan pasangan versi berurutan secara kontinyu untuk merekonstruksi riwayat perubahan sistem (*evolution lineage*).
-- **Kemampuan Khusus**:
-  - **Element Lineage Tracking**: Melacak riwayat hidup suatu elemen dari versi awal hingga versi akhir.
-  - **Revert Detection**: Mendeteksi perubahan pada versi $V_i$ yang dibatalkan/dikembalikan ke bentuk semula pada versi $V_{i+1}$.
-- **Test Oracle (Aksioma Konsistensi Transitif)**:
-$$\text{diff}(V_1, V_2) \oplus \text{diff}(V_2, V_3) \equiv \text{diff}(V_1, V_3)$$
-*Menguji apakah penggabungan riwayat perubahan bertahap secara matematis konsisten dengan perbedaan langsung antara versi awal dan versi akhir.*
+Prototype hanya mendukung perbandingan dua versi model ($V_1$ vs $V_2$).
+Perbandingan menghasilkan edit script, pemeriksaan perilaku, dan counterexample
+trace jika ditemukan perbedaan. Perbandingan reference-to-many dan version
+chain tidak termasuk dalam lingkup implementasi saat ini.
 
 ---
 
@@ -104,15 +85,8 @@ Dibuat untuk kebutuhan demonstrasi dan pengujian awal pada dataset:
 
 ### A. Antarmuka Perintah
 ```bash
-# Penggunaan dasar pairwise
-bpmndiff model_a.xpdl model_b.bpmn --mode A
-
-# Mode Reference vs Variants
-bpmndiff ref.bpmn var1.bpmn var2.xpdl var3.xml --mode B --out-matrix summary.json
-
-# Mode Version Chain
-bpmndiff v1.bpmn v2.bpmn v3.bpmn --mode C --track-reverts
-
+# Perbandingan dua model
+bpmndiff model_a.xpdl model_b.bpmn
 ```
 
 ### B. Kemampuan Parser Multi-Format

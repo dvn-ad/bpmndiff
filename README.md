@@ -23,7 +23,7 @@ relabel the variant with the verified alignment
 per-fragment LTS behavioural equivalence
         │
         ▼
-edit script + fusion matrix + Mode A/B/C reports
+edit script + fusion matrix + pairwise reports
 ```
 
 The demo runs on the **Mini Hospital (cashier / FO / ED)** subset of the
@@ -41,13 +41,7 @@ Requirements: Python 3.10+ (standard library only).
 python3 -m bpmndiff demo
 
 # Pairwise comparison
-python3 -m bpmndiff reference.xpdl variant.xpdl --mode A
-
-# Reference vs. many variants
-python3 -m bpmndiff ref.xpdl v1.xpdl v2.xpdl v3.xpdl --mode B
-
-# Version chain
-python3 -m bpmndiff v1.bpmn v2.bpmn v3.xpdl --mode C --track-reverts
+python3 -m bpmndiff reference.xpdl variant.xpdl
 
 # Machine-readable output
 python3 -m bpmndiff a.xpdl b.xpdl --format json --out diff.json
@@ -86,8 +80,6 @@ The scenarios are real process-family pairs from the Mini Hospital dataset:
 | 2 | 52 general → 53 corporate new-patient registration | A | semantic + behavioural change | no |
 | 3 | 54 general → 55 corporate inpatient registration | A | semantic change only | **yes** |
 | 4 | 58 general cashier → 59 down payment | A | semantic + behavioural change | no |
-| 5 | 52 reference vs 53/54/55 variants | B | 12 core elements, variant-specific inserts | no |
-| 6 | 51 → 52 → 53 registration chain | C | 2 steps, 13 tracked lineages, 0 reverts, oracle consistent | no |
 
 Highlights:
 
@@ -100,11 +92,6 @@ Highlights:
   textual difference is the typo `Displays → Risplays`. The lexical/semantic
   matcher classifies the typo as a synonym, so the trace language and branching
   bisimulation are **equivalent**.
-* **Mode B** — the matrix separates 12 core elements (present in every
-  registration variant) from elements inserted only in the corporate or
-  inpatient variants.
-* **Mode C** — the transitivity oracle confirms that the direct 51→53 diff
-  agrees with the composition 51→52→53; no reverts occur in this chain.
 
 Generated artefacts live in [`reports/`](reports/):
 `demo_report.md`, `demo_summary.json`, and per-scenario `.md` and `.json`
@@ -115,7 +102,8 @@ files.
 ## CLI reference
 
 ```
-bpmndiff FILES... [--mode {A,B,C}] [--format {text,json,markdown}]
+bpmndiff FILES... [--format {text,json,markdown}]
+         [--alignment-mode {id,name,structure,hybrid}]
          [--out PATH] [--process ID|NAME]
          [--max-states N] [--no-bisimulation] [--llm]
          [--threshold 0.45] [--fail-on-change]
@@ -125,9 +113,8 @@ bpmndiff demo [--dataset PATH] [--out DIR]
 
 | Option | Meaning |
 |---|---|
-| `--mode A` | Pairwise comparison (default). Exactly two files. |
-| `--mode B` | One reference + N variants. Produces a core/variant-specific matrix. |
-| `--mode C` | Ordered version chain. Produces lineage, reverts and a transitivity oracle. |
+| *(no mode option)* | Pairwise comparison (Mode A) is the default. Exactly two files. |
+| `--alignment-mode` | Select `id`, `name`, `structure`, or `hybrid` matching (default: `hybrid`). |
 | `--process` | Select a workflow process by id or name inside a multi-process package. |
 | `--max-states` | LTS exploration cap per model (default 20 000). |
 | `--no-bisimulation` | Skip the partition-refinement check (faster). |
@@ -184,6 +171,22 @@ network.
    neighbourhood context and degree.
 5. **LLM fallback (optional)** — only ambiguous candidate pairs.
 
+Alignment is selectable for ablation/testing through `--alignment-mode`:
+
+* `id` matches shared BPMN/XML node IDs only.
+* `name` matches named nodes by label similarity only.
+* `structure` ignores IDs and labels while matching unique directed-topology
+  fingerprints; ambiguous symmetric nodes are left unmatched.
+* `hybrid` tries shared IDs first, then label similarity, structural context,
+  and cross-family fallbacks.
+
+Only pairwise comparison (Mode A) is supported. Use
+`--alignment-mode structure` for a pairwise structural comparison.
+Python callers select the same strategy with
+`DiffOptions(alignment_config=AlignmentConfig(strategy="structure"))`; both
+`AlignmentConfig` and `DiffOptions` are exported by `bpmndiff`. JSON results
+record the selected strategy in `alignment_strategy`.
+
 Pairs receive `identical`, `synonym`, `meaning_changed` or `unmatched`, a
 confidence value and a `needs_review` flag. Domain contrasts
 (`general/corporate`, `inpatient/outpatient`, `old/new`, …) deliberately cap
@@ -236,14 +239,10 @@ Per-element fusion follows the table in the specification:
 | `unmatched` | not equivalent | structural insert/delete |
 | low confidence | any | **needs review** |
 
-### 6. Modes
+### 6. Pairwise comparison
 
-* **A — pairwise**: full edit script, behaviour, fragments, fusion.
-* **B — reference vs variants**: per-variant diffs plus an aggregate matrix of
-  core elements and variant-specific/inserted elements.
-* **C — version chain**: consecutive diffs, element lineage, rename/type/reinsert
-  revert detection, and a transitivity oracle comparing the direct first→last
-  diff with the composition of consecutive diffs.
+The CLI compares exactly two process models and emits the edit script,
+behavioural checks, affected fragments, and fusion verdict.
 
 ---
 
@@ -260,10 +259,9 @@ FP/
 │   ├── lts.py             # token game, tau-closure, determinisation, traces
 │   ├── bisimulation.py    # partition-refinement behavioural check
 │   ├── diff.py            # edit script, fragment checks, fusion verdicts
-│   ├── modes.py           # Mode B matrix + Mode C lineage/oracle
 │   ├── report.py          # text / Markdown / JSON renderers
 │   └── cli.py             # argparse CLI + dataset demo
-├── tests/                 # 18 unittest cases (no third-party test runner)
+├── tests/                 # unittest suite (no third-party test runner)
 ├── reports/               # generated demo artefacts
 ├── docs/                  # source specification documents
 └── pyproject.toml
