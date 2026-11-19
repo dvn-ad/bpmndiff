@@ -129,6 +129,7 @@ are implied by its single `DELETE_NODE` and are not counted twice.
 ```bash
 python3 -m bpmndiff generate   # dataset/synthetic/ (reference, variants, GT, manifest)
 python3 -m bpmndiff evaluate   # results/pilot.csv + pilot_pairs.csv + summaries
+python3 -m bpmndiff evaluate --pair-reports  # + results/pairs/<mode>/*.json|.md
 ```
 
 Pilot result (operation-level Precision / Recall / F1 over all 30 pairs):
@@ -152,6 +153,37 @@ detects renames well (F1 `1.000` for `RENAME_NODE`, `NODE_TYPE_CHANGE`,
 `MARKER_CHANGE`, `MOVE_LANE`) but produces flow-level false positives around
 unnamed gateways, and `structure` alignment skips structurally symmetric
 nodes and therefore misses both the node edit and its incident flows.
+
+### Per-pair reports
+
+`bpmndiff evaluate --pair-reports` writes one JSON and one Markdown report for
+every generated pair, using `hybrid` when it is selected and otherwise the
+first `--modes` entry:
+
+```bash
+python3 -m bpmndiff evaluate --pair-reports
+python3 -m bpmndiff evaluate --pair-reports all
+python3 -m bpmndiff evaluate --pair-reports id,hybrid
+```
+
+Each report contains the pair metadata, overall and per-change-type metrics,
+false positives and false negatives, the ground-truth operation list, and the
+full diff report (alignment, edit script, behavioural check, fusion verdict).
+The output layout is:
+
+```text
+results/pairs/
+├── index.json
+└── hybrid/
+    ├── 56_k1_keep.json
+    ├── 56_k1_keep.md
+    └── ...
+```
+
+Metrics are always normalized into reference-ID space through the manifest
+`node_map`, so a new-ID variant is scored on correspondence rather than on the
+random IDs it happens to carry. Reports are opt-in because `--pair-reports all`
+produces 30 pairs × 4 modes × 2 formats = 240 files.
 
 ### Result figures
 
@@ -187,6 +219,7 @@ bpmndiff demo [--dataset PATH] [--out DIR]
 bpmndiff generate [--dataset DIR] [--out DIR] [--bases 56,57,58,63,65] [--seed SALT]
 bpmndiff evaluate [--manifest PATH] [--out DIR]
                   [--modes id,name,structure,hybrid] [--bisimulation]
+                  [--pair-reports [MODE[,MODE]|all]]
 bpmndiff visualize [--results DIR] [--out DIR]
 ```
 
@@ -203,6 +236,7 @@ bpmndiff visualize [--results DIR] [--out DIR]
 | `generate --bases` | Comma-separated base diagram IDs (default: `56,57,58,63,65`). |
 | `evaluate --manifest` | Synthetic dataset manifest (default: `dataset/synthetic/manifest.json`). |
 | `evaluate --modes` | Alignment modes to score (default: all four). |
+| `evaluate --pair-reports` | Write per-pair JSON/Markdown reports. No argument uses `hybrid` (or the first `--modes` entry); `all` uses every selected mode; or pass a comma-separated mode list. |
 | `visualize --results` | Folder with `pilot.csv` and `pilot_pairs.csv` (default: `results`). |
 | `visualize --out` | Figure output folder (default: `results/figures`). Requires the `[viz]` extra. |
 
@@ -351,7 +385,7 @@ FP/
 ├── tests/                 # unittest suite (no third-party test runner)
 ├── reports/               # generated demo artefacts
 ├── dataset/synthetic/     # generated reference/variant pairs + manifest
-├── results/               # pilot.csv, pair metrics, summary, error analysis, figures/
+├── results/               # pilot.csv, pair metrics, summary, error analysis, figures/, pairs/
 ├── docs/                  # source specification documents
 └── pyproject.toml
 ```

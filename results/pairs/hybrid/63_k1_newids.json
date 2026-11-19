@@ -1,0 +1,912 @@
+{
+  "schema": "bpmndiff-pair-evaluation-v1",
+  "pair": {
+    "base_id": "63",
+    "variant": "k1_newids",
+    "k": 1,
+    "id_policy": "newids",
+    "scenario": "new_ids",
+    "mode": "hybrid",
+    "reference": "63/reference.bpmn",
+    "variant_path": "63/k1_newids.bpmn",
+    "ground_truth": "63/k1_newids.groundtruth.json"
+  },
+  "metrics": {
+    "overall": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "support": 1,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "by_change_type": {
+      "NODE_TYPE_CHANGE": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "support": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    }
+  },
+  "false_positives": [],
+  "false_negatives": [],
+  "normalized_keys": {
+    "predicted": [
+      {
+        "change_type": "NODE_TYPE_CHANGE",
+        "identity": [
+          "Id_082521f7-2373-493e-b116-ed46f8443646"
+        ],
+        "count": 1
+      }
+    ],
+    "ground_truth": [
+      {
+        "change_type": "NODE_TYPE_CHANGE",
+        "identity": [
+          "Id_082521f7-2373-493e-b116-ed46f8443646"
+        ],
+        "count": 1
+      }
+    ]
+  },
+  "predicted_operations": [
+    {
+      "op": "NODE_TYPE_CHANGE",
+      "legacy_op": "CHANGE_TYPE",
+      "category": 1,
+      "category_name": "Steps (tasks and events)",
+      "element": "node",
+      "before": {
+        "id": "Id_082521f7-2373-493e-b116-ed46f8443646",
+        "name": "Queries database",
+        "kind": "task",
+        "kind_label": "task",
+        "task_type": "abstract",
+        "event_definition": "none",
+        "marker": "none",
+        "attached_to": null,
+        "cancel_activity": true,
+        "lane": "System",
+        "pool": "Updates Patient Information"
+      },
+      "after": {
+        "id": "Id_f520219d9a445550",
+        "name": "Queries database",
+        "kind": "task",
+        "kind_label": "task",
+        "task_type": "user",
+        "event_definition": "none",
+        "marker": "none",
+        "attached_to": null,
+        "cancel_activity": true,
+        "lane": "System",
+        "pool": "Updates Patient Information"
+      },
+      "detail": "abstract task -> user task",
+      "label": "identical",
+      "confidence": "high",
+      "needs_review": false,
+      "schema_version": "change-v1",
+      "change": {
+        "type": "NODE_TYPE_CHANGE",
+        "legacy_type": "CHANGE_TYPE",
+        "category": 1,
+        "category_name": "Steps (tasks and events)",
+        "element": "node",
+        "before": {
+          "id": "Id_082521f7-2373-493e-b116-ed46f8443646",
+          "name": "Queries database",
+          "kind": "task",
+          "kind_label": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "attached_to": null,
+          "cancel_activity": true,
+          "lane": "System",
+          "pool": "Updates Patient Information"
+        },
+        "after": {
+          "id": "Id_f520219d9a445550",
+          "name": "Queries database",
+          "kind": "task",
+          "kind_label": "task",
+          "task_type": "user",
+          "event_definition": "none",
+          "marker": "none",
+          "attached_to": null,
+          "cancel_activity": true,
+          "lane": "System",
+          "pool": "Updates Patient Information"
+        },
+        "detail": "abstract task -> user task",
+        "label": "identical",
+        "confidence": "high",
+        "needs_review": false
+      },
+      "evidence": {
+        "alignment": [
+          {
+            "reference_node_id": "Id_082521f7-2373-493e-b116-ed46f8443646",
+            "variant_node_id": "Id_f520219d9a445550",
+            "label": "identical",
+            "score": 1.0,
+            "reason": "exact normalised label",
+            "confidence": "high",
+            "needs_review": false
+          }
+        ],
+        "structural_context": [
+          {
+            "reference": {
+              "node_id": "Id_082521f7-2373-493e-b116-ed46f8443646",
+              "predecessor_ids": [
+                "Id_0a7a1082-affb-4bc8-bfb1-91f073d72dde"
+              ],
+              "successor_ids": [
+                "Id_b95890b5-92e4-432a-b709-a96b40733427"
+              ],
+              "in_degree": 1,
+              "out_degree": 1
+            },
+            "variant": {
+              "node_id": "Id_f520219d9a445550",
+              "predecessor_ids": [
+                "Id_90958dce5339e965"
+              ],
+              "successor_ids": [
+                "Id_006c5921f46791c2"
+              ],
+              "in_degree": 1,
+              "out_degree": 1
+            },
+            "matched_neighbors": [
+              {
+                "direction": "predecessor",
+                "reference_node_id": "Id_0a7a1082-affb-4bc8-bfb1-91f073d72dde",
+                "variant_node_id": "Id_90958dce5339e965"
+              },
+              {
+                "direction": "successor",
+                "reference_node_id": "Id_b95890b5-92e4-432a-b709-a96b40733427",
+                "variant_node_id": "Id_006c5921f46791c2"
+              }
+            ]
+          }
+        ],
+        "observations": [
+          {
+            "source": "alignment",
+            "description": "exact normalised label"
+          },
+          {
+            "source": "graph",
+            "description": "Direct predecessor and successor context for aligned nodes."
+          },
+          {
+            "source": "attribute",
+            "description": "abstract task -> user task",
+            "value": {
+              "before": {
+                "id": "Id_082521f7-2373-493e-b116-ed46f8443646",
+                "name": "Queries database",
+                "kind": "task",
+                "kind_label": "task",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "none",
+                "attached_to": null,
+                "cancel_activity": true,
+                "lane": "System",
+                "pool": "Updates Patient Information"
+              },
+              "after": {
+                "id": "Id_f520219d9a445550",
+                "name": "Queries database",
+                "kind": "task",
+                "kind_label": "task",
+                "task_type": "user",
+                "event_definition": "none",
+                "marker": "none",
+                "attached_to": null,
+                "cancel_activity": true,
+                "lane": "System",
+                "pool": "Updates Patient Information"
+              }
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "ground_truth_operations": [
+    {
+      "schema_version": "change-v1",
+      "change": {
+        "type": "NODE_TYPE_CHANGE",
+        "legacy_type": "CHANGE_TYPE",
+        "category": 1,
+        "category_name": "Steps (tasks and events)",
+        "element": "node",
+        "before": {
+          "id": "Id_082521f7-2373-493e-b116-ed46f8443646",
+          "name": "Queries database",
+          "kind": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "lane": "System",
+          "pool": "Updates Patient Information"
+        },
+        "after": {
+          "id": "Id_f520219d9a445550",
+          "name": "Queries database",
+          "kind": "task",
+          "task_type": "user",
+          "event_definition": "none",
+          "marker": "none",
+          "lane": "System",
+          "pool": "Updates Patient Information"
+        },
+        "detail": "abstract task -> user task",
+        "confidence": "high",
+        "needs_review": false
+      },
+      "evidence": {
+        "alignment": [],
+        "structural_context": [],
+        "observations": [
+          {
+            "source": "operation",
+            "description": "abstract task -> user task",
+            "value": {
+              "before": {
+                "id": "Id_082521f7-2373-493e-b116-ed46f8443646",
+                "name": "Queries database",
+                "kind": "task",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "none",
+                "lane": "System",
+                "pool": "Updates Patient Information"
+              },
+              "after": {
+                "id": "Id_f520219d9a445550",
+                "name": "Queries database",
+                "kind": "task",
+                "task_type": "user",
+                "event_definition": "none",
+                "marker": "none",
+                "lane": "System",
+                "pool": "Updates Patient Information"
+              }
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "comparison": {
+    "mode": "A",
+    "alignment_strategy": "hybrid",
+    "reference": {
+      "id": "Id_936a3d55-24cf-4edf-b0f2-e8dab5e9be29",
+      "name": "reference.bpmn",
+      "source": "/home/mendoan/Projects/bpmndiff/dataset/synthetic/63/reference.bpmn",
+      "format": "bpmn",
+      "pool": "Updates Patient Information",
+      "stats": {
+        "nodes": 13,
+        "edges": 13,
+        "tasks": 9,
+        "gateways": 2,
+        "events": 2,
+        "lanes": 2,
+        "message_flows": 0,
+        "data_elements": 23
+      }
+    },
+    "variant": {
+      "id": "Id_a3e37f2edff7618c",
+      "name": "k1_newids.bpmn",
+      "source": "/home/mendoan/Projects/bpmndiff/dataset/synthetic/63/k1_newids.bpmn",
+      "format": "bpmn",
+      "pool": "Updates Patient Information",
+      "stats": {
+        "nodes": 13,
+        "edges": 13,
+        "tasks": 9,
+        "gateways": 2,
+        "events": 2,
+        "lanes": 2,
+        "message_flows": 0,
+        "data_elements": 23
+      }
+    },
+    "alignment": {
+      "counts": {
+        "identical": 13,
+        "synonym": 0,
+        "meaning_changed": 0,
+        "unmatched": 0,
+        "matched": 13,
+        "needs_review": 0
+      },
+      "pairs": [
+        {
+          "a": "Displays form of Updates Patient Information",
+          "b": "Displays form of Updates Patient Information",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "exact normalised label",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_baf5345e-3bb0-4235-bb5f-c58fa8217646",
+          "b_id": "Id_d0d6f0652543a078"
+        },
+        {
+          "a": "Displays the query result",
+          "b": "Displays the query result",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "exact normalised label",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_b95890b5-92e4-432a-b709-a96b40733427",
+          "b_id": "Id_006c5921f46791c2"
+        },
+        {
+          "a": "Enter an update information",
+          "b": "Enter an update information",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "exact normalised label",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_d7a120da-02a8-4de0-b984-e63dd5cda792",
+          "b_id": "Id_9499c27b3df29911"
+        },
+        {
+          "a": "Enters the medical record ID number",
+          "b": "Enters the medical record ID number",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "exact normalised label",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_0a7a1082-affb-4bc8-bfb1-91f073d72dde",
+          "b_id": "Id_90958dce5339e965"
+        },
+        {
+          "a": "Queries database",
+          "b": "Queries database",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "exact normalised label",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_082521f7-2373-493e-b116-ed46f8443646",
+          "b_id": "Id_f520219d9a445550"
+        },
+        {
+          "a": "Saves the Patient information",
+          "b": "Saves the Patient information",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "exact normalised label",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_259b95ad-426d-4d16-8f7b-6371212aaf57",
+          "b_id": "Id_5004b1d890f08318"
+        },
+        {
+          "a": "Select an update button",
+          "b": "Select an update button",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "exact normalised label",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_e024b86e-10e6-46f3-891a-4cf17601323b",
+          "b_id": "Id_530c5d8665269d2e"
+        },
+        {
+          "a": "Wants to Update Patient Information",
+          "b": "Wants to Update Patient Information",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "exact normalised label",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7",
+          "b_id": "Id_9cbd5a954030d0d2"
+        },
+        {
+          "a": "<exclusive gateway (XOR)>",
+          "b": "<exclusive gateway (XOR)>",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "structural context 1.00, degree 1.00",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_7a3f28d2-8c48-4551-9672-ee6753bda510",
+          "b_id": "Id_c01d720e786ed5a6"
+        },
+        {
+          "a": "<start event>",
+          "b": "<start event>",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "structural context 1.00, degree 1.00",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_92cb515c-ae81-4364-a587-772f1bcc50f5",
+          "b_id": "Id_6a01453b62f57730"
+        },
+        {
+          "a": "<exclusive gateway (XOR)>",
+          "b": "<exclusive gateway (XOR)>",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "structural context 1.00, degree 1.00",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_ccb484c1-0a50-4c27-be4e-ac809400520e",
+          "b_id": "Id_a97c56837daeda1a"
+        },
+        {
+          "a": "<end event>",
+          "b": "<end event>",
+          "label": "identical",
+          "score": 0.38,
+          "reason": "structural context 0.00, degree 1.00",
+          "confidence": "medium",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_b210868a-cf5c-4157-b86e-b21d426d3851",
+          "b_id": "Id_cba9458c103cd033"
+        },
+        {
+          "a": "Invisible Task",
+          "b": "Invisible Task",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "structural context 1.00, degree 1.00",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_e5fb9f12-f98a-4a68-8087-c5d428355b13",
+          "b_id": "Id_d992cdb322c2df0a"
+        }
+      ]
+    },
+    "change_schema_version": "change-v1",
+    "operations": [
+      {
+        "op": "NODE_TYPE_CHANGE",
+        "legacy_op": "CHANGE_TYPE",
+        "category": 1,
+        "category_name": "Steps (tasks and events)",
+        "element": "node",
+        "before": {
+          "id": "Id_082521f7-2373-493e-b116-ed46f8443646",
+          "name": "Queries database",
+          "kind": "task",
+          "kind_label": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "attached_to": null,
+          "cancel_activity": true,
+          "lane": "System",
+          "pool": "Updates Patient Information"
+        },
+        "after": {
+          "id": "Id_f520219d9a445550",
+          "name": "Queries database",
+          "kind": "task",
+          "kind_label": "task",
+          "task_type": "user",
+          "event_definition": "none",
+          "marker": "none",
+          "attached_to": null,
+          "cancel_activity": true,
+          "lane": "System",
+          "pool": "Updates Patient Information"
+        },
+        "detail": "abstract task -> user task",
+        "label": "identical",
+        "confidence": "high",
+        "needs_review": false,
+        "schema_version": "change-v1",
+        "change": {
+          "type": "NODE_TYPE_CHANGE",
+          "legacy_type": "CHANGE_TYPE",
+          "category": 1,
+          "category_name": "Steps (tasks and events)",
+          "element": "node",
+          "before": {
+            "id": "Id_082521f7-2373-493e-b116-ed46f8443646",
+            "name": "Queries database",
+            "kind": "task",
+            "kind_label": "task",
+            "task_type": "abstract",
+            "event_definition": "none",
+            "marker": "none",
+            "attached_to": null,
+            "cancel_activity": true,
+            "lane": "System",
+            "pool": "Updates Patient Information"
+          },
+          "after": {
+            "id": "Id_f520219d9a445550",
+            "name": "Queries database",
+            "kind": "task",
+            "kind_label": "task",
+            "task_type": "user",
+            "event_definition": "none",
+            "marker": "none",
+            "attached_to": null,
+            "cancel_activity": true,
+            "lane": "System",
+            "pool": "Updates Patient Information"
+          },
+          "detail": "abstract task -> user task",
+          "label": "identical",
+          "confidence": "high",
+          "needs_review": false
+        },
+        "evidence": {
+          "alignment": [
+            {
+              "reference_node_id": "Id_082521f7-2373-493e-b116-ed46f8443646",
+              "variant_node_id": "Id_f520219d9a445550",
+              "label": "identical",
+              "score": 1.0,
+              "reason": "exact normalised label",
+              "confidence": "high",
+              "needs_review": false
+            }
+          ],
+          "structural_context": [
+            {
+              "reference": {
+                "node_id": "Id_082521f7-2373-493e-b116-ed46f8443646",
+                "predecessor_ids": [
+                  "Id_0a7a1082-affb-4bc8-bfb1-91f073d72dde"
+                ],
+                "successor_ids": [
+                  "Id_b95890b5-92e4-432a-b709-a96b40733427"
+                ],
+                "in_degree": 1,
+                "out_degree": 1
+              },
+              "variant": {
+                "node_id": "Id_f520219d9a445550",
+                "predecessor_ids": [
+                  "Id_90958dce5339e965"
+                ],
+                "successor_ids": [
+                  "Id_006c5921f46791c2"
+                ],
+                "in_degree": 1,
+                "out_degree": 1
+              },
+              "matched_neighbors": [
+                {
+                  "direction": "predecessor",
+                  "reference_node_id": "Id_0a7a1082-affb-4bc8-bfb1-91f073d72dde",
+                  "variant_node_id": "Id_90958dce5339e965"
+                },
+                {
+                  "direction": "successor",
+                  "reference_node_id": "Id_b95890b5-92e4-432a-b709-a96b40733427",
+                  "variant_node_id": "Id_006c5921f46791c2"
+                }
+              ]
+            }
+          ],
+          "observations": [
+            {
+              "source": "alignment",
+              "description": "exact normalised label"
+            },
+            {
+              "source": "graph",
+              "description": "Direct predecessor and successor context for aligned nodes."
+            },
+            {
+              "source": "attribute",
+              "description": "abstract task -> user task",
+              "value": {
+                "before": {
+                  "id": "Id_082521f7-2373-493e-b116-ed46f8443646",
+                  "name": "Queries database",
+                  "kind": "task",
+                  "kind_label": "task",
+                  "task_type": "abstract",
+                  "event_definition": "none",
+                  "marker": "none",
+                  "attached_to": null,
+                  "cancel_activity": true,
+                  "lane": "System",
+                  "pool": "Updates Patient Information"
+                },
+                "after": {
+                  "id": "Id_f520219d9a445550",
+                  "name": "Queries database",
+                  "kind": "task",
+                  "kind_label": "task",
+                  "task_type": "user",
+                  "event_definition": "none",
+                  "marker": "none",
+                  "attached_to": null,
+                  "cancel_activity": true,
+                  "lane": "System",
+                  "pool": "Updates Patient Information"
+                }
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "behavior": {
+      "equivalent": true,
+      "inconclusive": false,
+      "method": "trace_equivalence (tau-closure + subset construction)",
+      "counterexample": null,
+      "dfa_states": {
+        "reference": 9,
+        "variant": 9
+      },
+      "truncated": false,
+      "reference_lts": {
+        "states": 14,
+        "transitions": 14,
+        "final_states": 1,
+        "deadlock_states": 0,
+        "truncated": false
+      },
+      "variant_lts": {
+        "states": 14,
+        "transitions": 14,
+        "final_states": 1,
+        "deadlock_states": 0,
+        "truncated": false
+      },
+      "trace_samples": {
+        "reference": {
+          "count": 2,
+          "traces": [
+            [
+              "Wants to Update Patient Information",
+              "Displays form of Updates Patient Information",
+              "Enters the medical record ID number",
+              "Queries database",
+              "Displays the query result",
+              "Enter an update information",
+              "Select an update button",
+              "Invisible Task"
+            ],
+            [
+              "Wants to Update Patient Information",
+              "Displays form of Updates Patient Information",
+              "Enters the medical record ID number",
+              "Queries database",
+              "Displays the query result",
+              "Enter an update information",
+              "Select an update button",
+              "Saves the Patient information"
+            ]
+          ],
+          "truncated": false
+        },
+        "variant": {
+          "count": 2,
+          "traces": [
+            [
+              "Wants to Update Patient Information",
+              "Displays form of Updates Patient Information",
+              "Enters the medical record ID number",
+              "Queries database",
+              "Displays the query result",
+              "Enter an update information",
+              "Select an update button",
+              "Invisible Task"
+            ],
+            [
+              "Wants to Update Patient Information",
+              "Displays form of Updates Patient Information",
+              "Enters the medical record ID number",
+              "Queries database",
+              "Displays the query result",
+              "Enter an update information",
+              "Select an update button",
+              "Saves the Patient information"
+            ]
+          ],
+          "truncated": false
+        }
+      }
+    },
+    "fragments": {
+      "count": 46,
+      "affected": [
+        {
+          "id": "R07",
+          "entry": "Enters the medical record ID number",
+          "exit": "Displays the query result",
+          "size": 3,
+          "nodes": [
+            "Queries database",
+            "Enters the medical record ID number",
+            "Displays the query result"
+          ],
+          "node_ids": [
+            "Id_082521f7-2373-493e-b116-ed46f8443646",
+            "Id_0a7a1082-affb-4bc8-bfb1-91f073d72dde",
+            "Id_b95890b5-92e4-432a-b709-a96b40733427"
+          ],
+          "status": "checked",
+          "equivalent": true,
+          "method": "trace_equivalence (tau-closure + subset construction)",
+          "counterexample": null,
+          "states": {
+            "reference": 4,
+            "variant": 4
+          }
+        }
+      ]
+    },
+    "fusion": {
+      "overall": "unchanged",
+      "needs_review": false,
+      "element_verdicts": [
+        {
+          "a": "Displays form of Updates Patient Information",
+          "b": "Displays form of Updates Patient Information",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "unchanged",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "Displays the query result",
+          "b": "Displays the query result",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "unchanged",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "Enter an update information",
+          "b": "Enter an update information",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "unchanged",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "Enters the medical record ID number",
+          "b": "Enters the medical record ID number",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "unchanged",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "Queries database",
+          "b": "Queries database",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "R07",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "Saves the Patient information",
+          "b": "Saves the Patient information",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "unchanged",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "Select an update button",
+          "b": "Select an update button",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "unchanged",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "Wants to Update Patient Information",
+          "b": "Wants to Update Patient Information",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "unchanged",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "<exclusive gateway (XOR)>",
+          "b": "<exclusive gateway (XOR)>",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "unchanged",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "<start event>",
+          "b": "<start event>",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "unchanged",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "<exclusive gateway (XOR)>",
+          "b": "<exclusive gateway (XOR)>",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "unchanged",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "<end event>",
+          "b": "<end event>",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "unchanged",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "Invisible Task",
+          "b": "Invisible Task",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "unchanged",
+          "equivalent": true,
+          "needs_review": false
+        }
+      ],
+      "verdict_counts": {
+        "unchanged": 13
+      },
+      "operation_counts": {
+        "NODE_TYPE_CHANGE": 1
+      },
+      "legacy_operation_counts": {
+        "CHANGE_TYPE": 1
+      }
+    }
+  }
+}

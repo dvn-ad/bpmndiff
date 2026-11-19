@@ -1,0 +1,877 @@
+{
+  "schema": "bpmndiff-pair-evaluation-v1",
+  "pair": {
+    "base_id": "56",
+    "variant": "k1_newids",
+    "k": 1,
+    "id_policy": "newids",
+    "scenario": "new_ids",
+    "mode": "hybrid",
+    "reference": "56/reference.bpmn",
+    "variant_path": "56/k1_newids.bpmn",
+    "ground_truth": "56/k1_newids.groundtruth.json"
+  },
+  "metrics": {
+    "overall": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "support": 1,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "by_change_type": {
+      "RENAME_NODE": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "support": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    }
+  },
+  "false_positives": [],
+  "false_negatives": [],
+  "normalized_keys": {
+    "predicted": [
+      {
+        "change_type": "RENAME_NODE",
+        "identity": [
+          "Id_1164e919-3f27-4d09-9a69-2a33a2e98847"
+        ],
+        "count": 1
+      }
+    ],
+    "ground_truth": [
+      {
+        "change_type": "RENAME_NODE",
+        "identity": [
+          "Id_1164e919-3f27-4d09-9a69-2a33a2e98847"
+        ],
+        "count": 1
+      }
+    ]
+  },
+  "predicted_operations": [
+    {
+      "op": "RENAME_NODE",
+      "legacy_op": "RENAME",
+      "category": 1,
+      "category_name": "Steps (tasks and events)",
+      "element": "node",
+      "before": {
+        "id": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+        "name": "Enters the patient's name",
+        "kind": "task",
+        "kind_label": "task",
+        "task_type": "abstract",
+        "event_definition": "none",
+        "marker": "none",
+        "attached_to": null,
+        "cancel_activity": true,
+        "lane": "FO",
+        "pool": "Search for patient data information"
+      },
+      "after": {
+        "id": "Id_dfdfda4f8a86f04e",
+        "name": "Enters the supplier's name",
+        "kind": "task",
+        "kind_label": "task",
+        "task_type": "abstract",
+        "event_definition": "none",
+        "marker": "none",
+        "attached_to": null,
+        "cancel_activity": true,
+        "lane": "FO",
+        "pool": "Search for patient data information"
+      },
+      "detail": "\"Enters the patient's name\" -> \"Enters the supplier's name\" (synonym)",
+      "label": "synonym",
+      "is_synonym": true,
+      "subtype": "synonym",
+      "score": 0.88,
+      "confidence": "high",
+      "needs_review": false,
+      "schema_version": "change-v1",
+      "change": {
+        "type": "RENAME_NODE",
+        "legacy_type": "RENAME",
+        "category": 1,
+        "category_name": "Steps (tasks and events)",
+        "element": "node",
+        "before": {
+          "id": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+          "name": "Enters the patient's name",
+          "kind": "task",
+          "kind_label": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "attached_to": null,
+          "cancel_activity": true,
+          "lane": "FO",
+          "pool": "Search for patient data information"
+        },
+        "after": {
+          "id": "Id_dfdfda4f8a86f04e",
+          "name": "Enters the supplier's name",
+          "kind": "task",
+          "kind_label": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "attached_to": null,
+          "cancel_activity": true,
+          "lane": "FO",
+          "pool": "Search for patient data information"
+        },
+        "detail": "\"Enters the patient's name\" -> \"Enters the supplier's name\" (synonym)",
+        "label": "synonym",
+        "subtype": "synonym",
+        "is_synonym": true,
+        "score": 0.88,
+        "confidence": "high",
+        "needs_review": false
+      },
+      "evidence": {
+        "alignment": [
+          {
+            "reference_node_id": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+            "variant_node_id": "Id_dfdfda4f8a86f04e",
+            "label": "synonym",
+            "score": 0.88,
+            "reason": "token overlap 0.67, string 0.90, sequence 0.81",
+            "confidence": "high",
+            "needs_review": false
+          }
+        ],
+        "structural_context": [
+          {
+            "reference": {
+              "node_id": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+              "predecessor_ids": [
+                "Id_b95890b5-92e4-432a-b709-a96b40733427"
+              ],
+              "successor_ids": [
+                "Id_ac3f7a9c-28e9-4a90-8928-edfd64206da8"
+              ],
+              "in_degree": 1,
+              "out_degree": 1
+            },
+            "variant": {
+              "node_id": "Id_dfdfda4f8a86f04e",
+              "predecessor_ids": [
+                "Id_633ab3eb1c4886f1"
+              ],
+              "successor_ids": [
+                "Id_0c9f856d59ed0ac0"
+              ],
+              "in_degree": 1,
+              "out_degree": 1
+            },
+            "matched_neighbors": [
+              {
+                "direction": "predecessor",
+                "reference_node_id": "Id_b95890b5-92e4-432a-b709-a96b40733427",
+                "variant_node_id": "Id_633ab3eb1c4886f1"
+              },
+              {
+                "direction": "successor",
+                "reference_node_id": "Id_ac3f7a9c-28e9-4a90-8928-edfd64206da8",
+                "variant_node_id": "Id_0c9f856d59ed0ac0"
+              }
+            ]
+          }
+        ],
+        "observations": [
+          {
+            "source": "alignment",
+            "description": "token overlap 0.67, string 0.90, sequence 0.81"
+          },
+          {
+            "source": "graph",
+            "description": "Direct predecessor and successor context for aligned nodes."
+          },
+          {
+            "source": "attribute",
+            "description": "\"Enters the patient's name\" -> \"Enters the supplier's name\" (synonym)",
+            "value": {
+              "before": {
+                "id": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+                "name": "Enters the patient's name",
+                "kind": "task",
+                "kind_label": "task",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "none",
+                "attached_to": null,
+                "cancel_activity": true,
+                "lane": "FO",
+                "pool": "Search for patient data information"
+              },
+              "after": {
+                "id": "Id_dfdfda4f8a86f04e",
+                "name": "Enters the supplier's name",
+                "kind": "task",
+                "kind_label": "task",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "none",
+                "attached_to": null,
+                "cancel_activity": true,
+                "lane": "FO",
+                "pool": "Search for patient data information"
+              }
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "ground_truth_operations": [
+    {
+      "schema_version": "change-v1",
+      "change": {
+        "type": "RENAME_NODE",
+        "legacy_type": "RENAME",
+        "category": 1,
+        "category_name": "Steps (tasks and events)",
+        "element": "node",
+        "before": {
+          "id": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+          "name": "Enters the patient's name",
+          "kind": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "lane": "FO",
+          "pool": "Search for patient data information"
+        },
+        "after": {
+          "id": "Id_dfdfda4f8a86f04e",
+          "name": "Enters the supplier's name",
+          "kind": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "lane": "FO",
+          "pool": "Search for patient data information"
+        },
+        "detail": "\"Enters the patient's name\" -> \"Enters the supplier's name\" (synonym)",
+        "confidence": "high",
+        "needs_review": false,
+        "label": "synonym",
+        "subtype": "synonym",
+        "is_synonym": true,
+        "score": 0.88
+      },
+      "evidence": {
+        "alignment": [],
+        "structural_context": [],
+        "observations": [
+          {
+            "source": "operation",
+            "description": "\"Enters the patient's name\" -> \"Enters the supplier's name\" (synonym)",
+            "value": {
+              "before": {
+                "id": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+                "name": "Enters the patient's name",
+                "kind": "task",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "none",
+                "lane": "FO",
+                "pool": "Search for patient data information"
+              },
+              "after": {
+                "id": "Id_dfdfda4f8a86f04e",
+                "name": "Enters the supplier's name",
+                "kind": "task",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "none",
+                "lane": "FO",
+                "pool": "Search for patient data information"
+              }
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "comparison": {
+    "mode": "A",
+    "alignment_strategy": "hybrid",
+    "reference": {
+      "id": "Id_81a1a7a6-dc7b-461c-80b9-73dee21ec226",
+      "name": "reference.bpmn",
+      "source": "/home/mendoan/Projects/bpmndiff/dataset/synthetic/56/reference.bpmn",
+      "format": "bpmn",
+      "pool": "Search for patient data information",
+      "stats": {
+        "nodes": 11,
+        "edges": 11,
+        "tasks": 7,
+        "gateways": 2,
+        "events": 2,
+        "lanes": 2,
+        "message_flows": 0,
+        "data_elements": 6
+      }
+    },
+    "variant": {
+      "id": "Id_0211346cf073e88e",
+      "name": "k1_newids.bpmn",
+      "source": "/home/mendoan/Projects/bpmndiff/dataset/synthetic/56/k1_newids.bpmn",
+      "format": "bpmn",
+      "pool": "Search for patient data information",
+      "stats": {
+        "nodes": 11,
+        "edges": 11,
+        "tasks": 7,
+        "gateways": 2,
+        "events": 2,
+        "lanes": 2,
+        "message_flows": 0,
+        "data_elements": 6
+      }
+    },
+    "alignment": {
+      "counts": {
+        "identical": 10,
+        "synonym": 1,
+        "meaning_changed": 0,
+        "unmatched": 0,
+        "matched": 11,
+        "needs_review": 0
+      },
+      "pairs": [
+        {
+          "a": "Displays the query results to a table",
+          "b": "Displays the query results to a table",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "exact normalised label",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598",
+          "b_id": "Id_ef126968ce0e051a"
+        },
+        {
+          "a": "Displays the Search for patient data information form",
+          "b": "Displays the Search for patient data information form",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "exact normalised label",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_b95890b5-92e4-432a-b709-a96b40733427",
+          "b_id": "Id_633ab3eb1c4886f1"
+        },
+        {
+          "a": "Queries the Patient database,",
+          "b": "Queries the Patient database,",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "exact normalised label",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49",
+          "b_id": "Id_5a30e46845d8b622"
+        },
+        {
+          "a": "Selects a search button",
+          "b": "Selects a search button",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "exact normalised label",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_ac3f7a9c-28e9-4a90-8928-edfd64206da8",
+          "b_id": "Id_0c9f856d59ed0ac0"
+        },
+        {
+          "a": "Wants Search for patient data information",
+          "b": "Wants Search for patient data information",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "exact normalised label",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7",
+          "b_id": "Id_ef17fcf53e232d50"
+        },
+        {
+          "a": "Enters the patient's name",
+          "b": "Enters the supplier's name",
+          "label": "synonym",
+          "score": 0.88,
+          "reason": "token overlap 0.67, string 0.90, sequence 0.81",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+          "b_id": "Id_dfdfda4f8a86f04e"
+        },
+        {
+          "a": "<start event>",
+          "b": "<start event>",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "structural context 1.00, degree 1.00",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_92cb515c-ae81-4364-a587-772f1bcc50f5",
+          "b_id": "Id_507bdc996c6f1823"
+        },
+        {
+          "a": "<exclusive gateway (XOR)>",
+          "b": "<exclusive gateway (XOR)>",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "structural context 1.00, degree 1.00",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_a7308178-06d5-4269-8dc8-3ff4655e05ad",
+          "b_id": "Id_c70114531740fabf"
+        },
+        {
+          "a": "<exclusive gateway (XOR)>",
+          "b": "<exclusive gateway (XOR)>",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "structural context 1.00, degree 1.00",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_ffd9beac-13dd-4c0f-9c58-f3f304cf90f3",
+          "b_id": "Id_fe625039408823c7"
+        },
+        {
+          "a": "<end event>",
+          "b": "<end event>",
+          "label": "identical",
+          "score": 0.38,
+          "reason": "structural context 0.00, degree 1.00",
+          "confidence": "medium",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_b210868a-cf5c-4157-b86e-b21d426d3851",
+          "b_id": "Id_a7d8bee00e3f9156"
+        },
+        {
+          "a": "Invisible Task",
+          "b": "Invisible Task",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "structural context 1.00, degree 1.00",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_99e847f2-ec4a-4d8d-b149-59c7295b1b81",
+          "b_id": "Id_dbfa964cfe1058ec"
+        }
+      ]
+    },
+    "change_schema_version": "change-v1",
+    "operations": [
+      {
+        "op": "RENAME_NODE",
+        "legacy_op": "RENAME",
+        "category": 1,
+        "category_name": "Steps (tasks and events)",
+        "element": "node",
+        "before": {
+          "id": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+          "name": "Enters the patient's name",
+          "kind": "task",
+          "kind_label": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "attached_to": null,
+          "cancel_activity": true,
+          "lane": "FO",
+          "pool": "Search for patient data information"
+        },
+        "after": {
+          "id": "Id_dfdfda4f8a86f04e",
+          "name": "Enters the supplier's name",
+          "kind": "task",
+          "kind_label": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "attached_to": null,
+          "cancel_activity": true,
+          "lane": "FO",
+          "pool": "Search for patient data information"
+        },
+        "detail": "\"Enters the patient's name\" -> \"Enters the supplier's name\" (synonym)",
+        "label": "synonym",
+        "is_synonym": true,
+        "subtype": "synonym",
+        "score": 0.88,
+        "confidence": "high",
+        "needs_review": false,
+        "schema_version": "change-v1",
+        "change": {
+          "type": "RENAME_NODE",
+          "legacy_type": "RENAME",
+          "category": 1,
+          "category_name": "Steps (tasks and events)",
+          "element": "node",
+          "before": {
+            "id": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+            "name": "Enters the patient's name",
+            "kind": "task",
+            "kind_label": "task",
+            "task_type": "abstract",
+            "event_definition": "none",
+            "marker": "none",
+            "attached_to": null,
+            "cancel_activity": true,
+            "lane": "FO",
+            "pool": "Search for patient data information"
+          },
+          "after": {
+            "id": "Id_dfdfda4f8a86f04e",
+            "name": "Enters the supplier's name",
+            "kind": "task",
+            "kind_label": "task",
+            "task_type": "abstract",
+            "event_definition": "none",
+            "marker": "none",
+            "attached_to": null,
+            "cancel_activity": true,
+            "lane": "FO",
+            "pool": "Search for patient data information"
+          },
+          "detail": "\"Enters the patient's name\" -> \"Enters the supplier's name\" (synonym)",
+          "label": "synonym",
+          "subtype": "synonym",
+          "is_synonym": true,
+          "score": 0.88,
+          "confidence": "high",
+          "needs_review": false
+        },
+        "evidence": {
+          "alignment": [
+            {
+              "reference_node_id": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+              "variant_node_id": "Id_dfdfda4f8a86f04e",
+              "label": "synonym",
+              "score": 0.88,
+              "reason": "token overlap 0.67, string 0.90, sequence 0.81",
+              "confidence": "high",
+              "needs_review": false
+            }
+          ],
+          "structural_context": [
+            {
+              "reference": {
+                "node_id": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+                "predecessor_ids": [
+                  "Id_b95890b5-92e4-432a-b709-a96b40733427"
+                ],
+                "successor_ids": [
+                  "Id_ac3f7a9c-28e9-4a90-8928-edfd64206da8"
+                ],
+                "in_degree": 1,
+                "out_degree": 1
+              },
+              "variant": {
+                "node_id": "Id_dfdfda4f8a86f04e",
+                "predecessor_ids": [
+                  "Id_633ab3eb1c4886f1"
+                ],
+                "successor_ids": [
+                  "Id_0c9f856d59ed0ac0"
+                ],
+                "in_degree": 1,
+                "out_degree": 1
+              },
+              "matched_neighbors": [
+                {
+                  "direction": "predecessor",
+                  "reference_node_id": "Id_b95890b5-92e4-432a-b709-a96b40733427",
+                  "variant_node_id": "Id_633ab3eb1c4886f1"
+                },
+                {
+                  "direction": "successor",
+                  "reference_node_id": "Id_ac3f7a9c-28e9-4a90-8928-edfd64206da8",
+                  "variant_node_id": "Id_0c9f856d59ed0ac0"
+                }
+              ]
+            }
+          ],
+          "observations": [
+            {
+              "source": "alignment",
+              "description": "token overlap 0.67, string 0.90, sequence 0.81"
+            },
+            {
+              "source": "graph",
+              "description": "Direct predecessor and successor context for aligned nodes."
+            },
+            {
+              "source": "attribute",
+              "description": "\"Enters the patient's name\" -> \"Enters the supplier's name\" (synonym)",
+              "value": {
+                "before": {
+                  "id": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+                  "name": "Enters the patient's name",
+                  "kind": "task",
+                  "kind_label": "task",
+                  "task_type": "abstract",
+                  "event_definition": "none",
+                  "marker": "none",
+                  "attached_to": null,
+                  "cancel_activity": true,
+                  "lane": "FO",
+                  "pool": "Search for patient data information"
+                },
+                "after": {
+                  "id": "Id_dfdfda4f8a86f04e",
+                  "name": "Enters the supplier's name",
+                  "kind": "task",
+                  "kind_label": "task",
+                  "task_type": "abstract",
+                  "event_definition": "none",
+                  "marker": "none",
+                  "attached_to": null,
+                  "cancel_activity": true,
+                  "lane": "FO",
+                  "pool": "Search for patient data information"
+                }
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "behavior": {
+      "equivalent": true,
+      "inconclusive": false,
+      "method": "trace_equivalence (tau-closure + subset construction)",
+      "counterexample": null,
+      "dfa_states": {
+        "reference": 7,
+        "variant": 7
+      },
+      "truncated": false,
+      "reference_lts": {
+        "states": 12,
+        "transitions": 12,
+        "final_states": 1,
+        "deadlock_states": 0,
+        "truncated": false
+      },
+      "variant_lts": {
+        "states": 12,
+        "transitions": 12,
+        "final_states": 1,
+        "deadlock_states": 0,
+        "truncated": false
+      },
+      "trace_samples": {
+        "reference": {
+          "count": 2,
+          "traces": [
+            [
+              "Wants Search for patient data information",
+              "Displays the Search for patient data information form",
+              "Enters the patient's name",
+              "Selects a search button",
+              "Invisible Task"
+            ],
+            [
+              "Wants Search for patient data information",
+              "Displays the Search for patient data information form",
+              "Enters the patient's name",
+              "Selects a search button",
+              "Queries the Patient database,",
+              "Displays the query results to a table"
+            ]
+          ],
+          "truncated": false
+        },
+        "variant": {
+          "count": 2,
+          "traces": [
+            [
+              "Wants Search for patient data information",
+              "Displays the Search for patient data information form",
+              "Enters the patient's name",
+              "Selects a search button",
+              "Invisible Task"
+            ],
+            [
+              "Wants Search for patient data information",
+              "Displays the Search for patient data information form",
+              "Enters the patient's name",
+              "Selects a search button",
+              "Queries the Patient database,",
+              "Displays the query results to a table"
+            ]
+          ],
+          "truncated": false
+        }
+      }
+    },
+    "fragments": {
+      "count": 23,
+      "affected": [
+        {
+          "id": "R06",
+          "entry": "Displays the Search for patient data information form",
+          "exit": "Selects a search button",
+          "size": 3,
+          "nodes": [
+            "Enters the patient's name",
+            "Selects a search button",
+            "Displays the Search for patient data information form"
+          ],
+          "node_ids": [
+            "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+            "Id_ac3f7a9c-28e9-4a90-8928-edfd64206da8",
+            "Id_b95890b5-92e4-432a-b709-a96b40733427"
+          ],
+          "status": "checked",
+          "equivalent": true,
+          "method": "trace_equivalence (tau-closure + subset construction)",
+          "counterexample": null,
+          "states": {
+            "reference": 4,
+            "variant": 4
+          }
+        }
+      ]
+    },
+    "fusion": {
+      "overall": "non_behavioral_rename",
+      "needs_review": false,
+      "element_verdicts": [
+        {
+          "a": "Displays the query results to a table",
+          "b": "Displays the query results to a table",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "unchanged",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "Displays the Search for patient data information form",
+          "b": "Displays the Search for patient data information form",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "unchanged",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "Queries the Patient database,",
+          "b": "Queries the Patient database,",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "unchanged",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "Selects a search button",
+          "b": "Selects a search button",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "unchanged",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "Wants Search for patient data information",
+          "b": "Wants Search for patient data information",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "unchanged",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "Enters the patient's name",
+          "b": "Enters the supplier's name",
+          "label": "synonym",
+          "verdict": "non_behavioral_rename",
+          "behaviour_scope": "R06",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "<start event>",
+          "b": "<start event>",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "unchanged",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "<exclusive gateway (XOR)>",
+          "b": "<exclusive gateway (XOR)>",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "unchanged",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "<exclusive gateway (XOR)>",
+          "b": "<exclusive gateway (XOR)>",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "unchanged",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "<end event>",
+          "b": "<end event>",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "unchanged",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "Invisible Task",
+          "b": "Invisible Task",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "unchanged",
+          "equivalent": true,
+          "needs_review": false
+        }
+      ],
+      "verdict_counts": {
+        "unchanged": 10,
+        "non_behavioral_rename": 1
+      },
+      "operation_counts": {
+        "RENAME_NODE": 1
+      },
+      "legacy_operation_counts": {
+        "RENAME": 1
+      }
+    }
+  }
+}

@@ -1,0 +1,2406 @@
+{
+  "schema": "bpmndiff-pair-evaluation-v1",
+  "pair": {
+    "base_id": "58",
+    "variant": "k4_newids",
+    "k": 4,
+    "id_policy": "newids",
+    "scenario": "new_ids",
+    "mode": "hybrid",
+    "reference": "58/reference.bpmn",
+    "variant_path": "58/k4_newids.bpmn",
+    "ground_truth": "58/k4_newids.groundtruth.json"
+  },
+  "metrics": {
+    "overall": {
+      "tp": 4,
+      "fp": 0,
+      "fn": 0,
+      "support": 4,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "by_change_type": {
+      "RENAME_NODE": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "support": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "MARKER_CHANGE": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "support": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "MOVE_LANE": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "support": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "INSERT_FLOW": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "support": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    }
+  },
+  "false_positives": [],
+  "false_negatives": [],
+  "normalized_keys": {
+    "predicted": [
+      {
+        "change_type": "INSERT_FLOW",
+        "identity": [
+          "Id_ee3de915-745e-439b-bb67-c19333dfb907",
+          "Id_6bc7314b-ee04-4f16-af27-1f79dcebf3d1"
+        ],
+        "count": 1
+      },
+      {
+        "change_type": "MARKER_CHANGE",
+        "identity": [
+          "Id_0a7a1082-affb-4bc8-bfb1-91f073d72dde"
+        ],
+        "count": 1
+      },
+      {
+        "change_type": "MOVE_LANE",
+        "identity": [
+          "Id_2235724b-6ca2-46d2-95a0-ab88837d316f"
+        ],
+        "count": 1
+      },
+      {
+        "change_type": "RENAME_NODE",
+        "identity": [
+          "Id_259b95ad-426d-4d16-8f7b-6371212aaf57"
+        ],
+        "count": 1
+      }
+    ],
+    "ground_truth": [
+      {
+        "change_type": "INSERT_FLOW",
+        "identity": [
+          "Id_ee3de915-745e-439b-bb67-c19333dfb907",
+          "Id_6bc7314b-ee04-4f16-af27-1f79dcebf3d1"
+        ],
+        "count": 1
+      },
+      {
+        "change_type": "MARKER_CHANGE",
+        "identity": [
+          "Id_0a7a1082-affb-4bc8-bfb1-91f073d72dde"
+        ],
+        "count": 1
+      },
+      {
+        "change_type": "MOVE_LANE",
+        "identity": [
+          "Id_2235724b-6ca2-46d2-95a0-ab88837d316f"
+        ],
+        "count": 1
+      },
+      {
+        "change_type": "RENAME_NODE",
+        "identity": [
+          "Id_259b95ad-426d-4d16-8f7b-6371212aaf57"
+        ],
+        "count": 1
+      }
+    ]
+  },
+  "predicted_operations": [
+    {
+      "op": "MARKER_CHANGE",
+      "legacy_op": "MARKER_CHANGE",
+      "category": 1,
+      "category_name": "Steps (tasks and events)",
+      "element": "node",
+      "before": {
+        "id": "Id_0a7a1082-affb-4bc8-bfb1-91f073d72dde",
+        "name": "Enter the medical record ID",
+        "kind": "task",
+        "kind_label": "task",
+        "task_type": "abstract",
+        "event_definition": "none",
+        "marker": "none",
+        "attached_to": null,
+        "cancel_activity": true,
+        "lane": "Cashier",
+        "pool": "General patient cashier"
+      },
+      "after": {
+        "id": "Id_985347ea0348f038",
+        "name": "Enter the medical record ID",
+        "kind": "task",
+        "kind_label": "task",
+        "task_type": "abstract",
+        "event_definition": "none",
+        "marker": "loop",
+        "attached_to": null,
+        "cancel_activity": true,
+        "lane": "Cashier",
+        "pool": "General patient cashier"
+      },
+      "detail": "marker: \"none\" -> \"loop\"",
+      "label": "identical",
+      "confidence": "high",
+      "needs_review": false,
+      "schema_version": "change-v1",
+      "change": {
+        "type": "MARKER_CHANGE",
+        "legacy_type": "MARKER_CHANGE",
+        "category": 1,
+        "category_name": "Steps (tasks and events)",
+        "element": "node",
+        "before": {
+          "id": "Id_0a7a1082-affb-4bc8-bfb1-91f073d72dde",
+          "name": "Enter the medical record ID",
+          "kind": "task",
+          "kind_label": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "attached_to": null,
+          "cancel_activity": true,
+          "lane": "Cashier",
+          "pool": "General patient cashier"
+        },
+        "after": {
+          "id": "Id_985347ea0348f038",
+          "name": "Enter the medical record ID",
+          "kind": "task",
+          "kind_label": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "loop",
+          "attached_to": null,
+          "cancel_activity": true,
+          "lane": "Cashier",
+          "pool": "General patient cashier"
+        },
+        "detail": "marker: \"none\" -> \"loop\"",
+        "label": "identical",
+        "confidence": "high",
+        "needs_review": false
+      },
+      "evidence": {
+        "alignment": [
+          {
+            "reference_node_id": "Id_0a7a1082-affb-4bc8-bfb1-91f073d72dde",
+            "variant_node_id": "Id_985347ea0348f038",
+            "label": "identical",
+            "score": 1.0,
+            "reason": "exact normalised label",
+            "confidence": "high",
+            "needs_review": false
+          }
+        ],
+        "structural_context": [
+          {
+            "reference": {
+              "node_id": "Id_0a7a1082-affb-4bc8-bfb1-91f073d72dde",
+              "predecessor_ids": [
+                "Id_baf5345e-3bb0-4235-bb5f-c58fa8217646"
+              ],
+              "successor_ids": [
+                "Id_c9ee3cd8-78da-417a-9cf9-0edac7cbbf33"
+              ],
+              "in_degree": 1,
+              "out_degree": 1
+            },
+            "variant": {
+              "node_id": "Id_985347ea0348f038",
+              "predecessor_ids": [
+                "Id_fc9e431c49594ccc"
+              ],
+              "successor_ids": [
+                "Id_85d1831cd84e4df8"
+              ],
+              "in_degree": 1,
+              "out_degree": 1
+            },
+            "matched_neighbors": [
+              {
+                "direction": "predecessor",
+                "reference_node_id": "Id_baf5345e-3bb0-4235-bb5f-c58fa8217646",
+                "variant_node_id": "Id_fc9e431c49594ccc"
+              },
+              {
+                "direction": "successor",
+                "reference_node_id": "Id_c9ee3cd8-78da-417a-9cf9-0edac7cbbf33",
+                "variant_node_id": "Id_85d1831cd84e4df8"
+              }
+            ]
+          }
+        ],
+        "observations": [
+          {
+            "source": "alignment",
+            "description": "exact normalised label"
+          },
+          {
+            "source": "graph",
+            "description": "Direct predecessor and successor context for aligned nodes."
+          },
+          {
+            "source": "attribute",
+            "description": "marker: \"none\" -> \"loop\"",
+            "value": {
+              "before": {
+                "id": "Id_0a7a1082-affb-4bc8-bfb1-91f073d72dde",
+                "name": "Enter the medical record ID",
+                "kind": "task",
+                "kind_label": "task",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "none",
+                "attached_to": null,
+                "cancel_activity": true,
+                "lane": "Cashier",
+                "pool": "General patient cashier"
+              },
+              "after": {
+                "id": "Id_985347ea0348f038",
+                "name": "Enter the medical record ID",
+                "kind": "task",
+                "kind_label": "task",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "loop",
+                "attached_to": null,
+                "cancel_activity": true,
+                "lane": "Cashier",
+                "pool": "General patient cashier"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "op": "RENAME_NODE",
+      "legacy_op": "RENAME",
+      "category": 1,
+      "category_name": "Steps (tasks and events)",
+      "element": "node",
+      "before": {
+        "id": "Id_259b95ad-426d-4d16-8f7b-6371212aaf57",
+        "name": "Displays the query results",
+        "kind": "task",
+        "kind_label": "task",
+        "task_type": "abstract",
+        "event_definition": "none",
+        "marker": "none",
+        "attached_to": null,
+        "cancel_activity": true,
+        "lane": "System",
+        "pool": "General patient cashier"
+      },
+      "after": {
+        "id": "Id_ac9390599eb35ba0",
+        "name": "Shows the query results",
+        "kind": "task",
+        "kind_label": "task",
+        "task_type": "abstract",
+        "event_definition": "none",
+        "marker": "none",
+        "attached_to": null,
+        "cancel_activity": true,
+        "lane": "System",
+        "pool": "General patient cashier"
+      },
+      "detail": "\"Displays the query results\" -> \"Shows the query results\" (synonym)",
+      "label": "synonym",
+      "is_synonym": true,
+      "subtype": "synonym",
+      "score": 0.94,
+      "confidence": "high",
+      "needs_review": false,
+      "schema_version": "change-v1",
+      "change": {
+        "type": "RENAME_NODE",
+        "legacy_type": "RENAME",
+        "category": 1,
+        "category_name": "Steps (tasks and events)",
+        "element": "node",
+        "before": {
+          "id": "Id_259b95ad-426d-4d16-8f7b-6371212aaf57",
+          "name": "Displays the query results",
+          "kind": "task",
+          "kind_label": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "attached_to": null,
+          "cancel_activity": true,
+          "lane": "System",
+          "pool": "General patient cashier"
+        },
+        "after": {
+          "id": "Id_ac9390599eb35ba0",
+          "name": "Shows the query results",
+          "kind": "task",
+          "kind_label": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "attached_to": null,
+          "cancel_activity": true,
+          "lane": "System",
+          "pool": "General patient cashier"
+        },
+        "detail": "\"Displays the query results\" -> \"Shows the query results\" (synonym)",
+        "label": "synonym",
+        "subtype": "synonym",
+        "is_synonym": true,
+        "score": 0.94,
+        "confidence": "high",
+        "needs_review": false
+      },
+      "evidence": {
+        "alignment": [
+          {
+            "reference_node_id": "Id_259b95ad-426d-4d16-8f7b-6371212aaf57",
+            "variant_node_id": "Id_ac9390599eb35ba0",
+            "label": "synonym",
+            "score": 0.94,
+            "reason": "semantic synonym (canonical tokens)",
+            "confidence": "high",
+            "needs_review": false
+          }
+        ],
+        "structural_context": [
+          {
+            "reference": {
+              "node_id": "Id_259b95ad-426d-4d16-8f7b-6371212aaf57",
+              "predecessor_ids": [
+                "Id_c9ee3cd8-78da-417a-9cf9-0edac7cbbf33"
+              ],
+              "successor_ids": [
+                "Id_467aec19-4802-4dfb-959a-96d262adf979"
+              ],
+              "in_degree": 1,
+              "out_degree": 1
+            },
+            "variant": {
+              "node_id": "Id_ac9390599eb35ba0",
+              "predecessor_ids": [
+                "Id_85d1831cd84e4df8"
+              ],
+              "successor_ids": [
+                "Id_c19208a0ac860fab"
+              ],
+              "in_degree": 1,
+              "out_degree": 1
+            },
+            "matched_neighbors": [
+              {
+                "direction": "predecessor",
+                "reference_node_id": "Id_c9ee3cd8-78da-417a-9cf9-0edac7cbbf33",
+                "variant_node_id": "Id_85d1831cd84e4df8"
+              },
+              {
+                "direction": "successor",
+                "reference_node_id": "Id_467aec19-4802-4dfb-959a-96d262adf979",
+                "variant_node_id": "Id_c19208a0ac860fab"
+              }
+            ]
+          }
+        ],
+        "observations": [
+          {
+            "source": "alignment",
+            "description": "semantic synonym (canonical tokens)"
+          },
+          {
+            "source": "graph",
+            "description": "Direct predecessor and successor context for aligned nodes."
+          },
+          {
+            "source": "attribute",
+            "description": "\"Displays the query results\" -> \"Shows the query results\" (synonym)",
+            "value": {
+              "before": {
+                "id": "Id_259b95ad-426d-4d16-8f7b-6371212aaf57",
+                "name": "Displays the query results",
+                "kind": "task",
+                "kind_label": "task",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "none",
+                "attached_to": null,
+                "cancel_activity": true,
+                "lane": "System",
+                "pool": "General patient cashier"
+              },
+              "after": {
+                "id": "Id_ac9390599eb35ba0",
+                "name": "Shows the query results",
+                "kind": "task",
+                "kind_label": "task",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "none",
+                "attached_to": null,
+                "cancel_activity": true,
+                "lane": "System",
+                "pool": "General patient cashier"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "op": "MOVE_LANE",
+      "legacy_op": "CHANGE_SWIMLANE",
+      "category": 2,
+      "category_name": "Actors (lanes and pools)",
+      "element": "swimlane",
+      "before": {
+        "id": "Id_2235724b-6ca2-46d2-95a0-ab88837d316f",
+        "name": "Displays it to the table",
+        "kind": "task",
+        "kind_label": "task",
+        "task_type": "abstract",
+        "event_definition": "none",
+        "marker": "none",
+        "attached_to": null,
+        "cancel_activity": true,
+        "lane": "System",
+        "pool": "General patient cashier"
+      },
+      "after": {
+        "id": "Id_042289cc0c5d17a1",
+        "name": "Displays it to the table",
+        "kind": "task",
+        "kind_label": "task",
+        "task_type": "abstract",
+        "event_definition": "none",
+        "marker": "none",
+        "attached_to": null,
+        "cancel_activity": true,
+        "lane": "Cashier",
+        "pool": "General patient cashier"
+      },
+      "detail": "Displays it to the table: \"System\" -> \"Cashier\"",
+      "confidence": "high",
+      "needs_review": false,
+      "schema_version": "change-v1",
+      "change": {
+        "type": "MOVE_LANE",
+        "legacy_type": "CHANGE_SWIMLANE",
+        "category": 2,
+        "category_name": "Actors (lanes and pools)",
+        "element": "swimlane",
+        "before": {
+          "id": "Id_2235724b-6ca2-46d2-95a0-ab88837d316f",
+          "name": "Displays it to the table",
+          "kind": "task",
+          "kind_label": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "attached_to": null,
+          "cancel_activity": true,
+          "lane": "System",
+          "pool": "General patient cashier"
+        },
+        "after": {
+          "id": "Id_042289cc0c5d17a1",
+          "name": "Displays it to the table",
+          "kind": "task",
+          "kind_label": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "attached_to": null,
+          "cancel_activity": true,
+          "lane": "Cashier",
+          "pool": "General patient cashier"
+        },
+        "detail": "Displays it to the table: \"System\" -> \"Cashier\"",
+        "confidence": "high",
+        "needs_review": false
+      },
+      "evidence": {
+        "alignment": [
+          {
+            "reference_node_id": "Id_2235724b-6ca2-46d2-95a0-ab88837d316f",
+            "variant_node_id": "Id_042289cc0c5d17a1",
+            "label": "identical",
+            "score": 1.0,
+            "reason": "exact normalised label",
+            "confidence": "high",
+            "needs_review": false
+          }
+        ],
+        "structural_context": [
+          {
+            "reference": {
+              "node_id": "Id_2235724b-6ca2-46d2-95a0-ab88837d316f",
+              "predecessor_ids": [
+                "Id_b8597b55-b0fd-4a78-8049-693d8d2203c7"
+              ],
+              "successor_ids": [
+                "Id_65aaccf1-8026-4183-bb2c-7a5746f87b67"
+              ],
+              "in_degree": 1,
+              "out_degree": 1
+            },
+            "variant": {
+              "node_id": "Id_042289cc0c5d17a1",
+              "predecessor_ids": [
+                "Id_adea77c07f8052f3"
+              ],
+              "successor_ids": [
+                "Id_3d541b84a92a5f5d"
+              ],
+              "in_degree": 1,
+              "out_degree": 1
+            },
+            "matched_neighbors": [
+              {
+                "direction": "predecessor",
+                "reference_node_id": "Id_b8597b55-b0fd-4a78-8049-693d8d2203c7",
+                "variant_node_id": "Id_adea77c07f8052f3"
+              },
+              {
+                "direction": "successor",
+                "reference_node_id": "Id_65aaccf1-8026-4183-bb2c-7a5746f87b67",
+                "variant_node_id": "Id_3d541b84a92a5f5d"
+              }
+            ]
+          }
+        ],
+        "observations": [
+          {
+            "source": "alignment",
+            "description": "exact normalised label"
+          },
+          {
+            "source": "graph",
+            "description": "Direct predecessor and successor context for aligned nodes."
+          },
+          {
+            "source": "lane",
+            "description": "Displays it to the table: \"System\" -> \"Cashier\"",
+            "value": {
+              "before": {
+                "id": "Id_2235724b-6ca2-46d2-95a0-ab88837d316f",
+                "name": "Displays it to the table",
+                "kind": "task",
+                "kind_label": "task",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "none",
+                "attached_to": null,
+                "cancel_activity": true,
+                "lane": "System",
+                "pool": "General patient cashier"
+              },
+              "after": {
+                "id": "Id_042289cc0c5d17a1",
+                "name": "Displays it to the table",
+                "kind": "task",
+                "kind_label": "task",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "none",
+                "attached_to": null,
+                "cancel_activity": true,
+                "lane": "Cashier",
+                "pool": "General patient cashier"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "op": "INSERT_FLOW",
+      "legacy_op": "INSERT_FLOW",
+      "category": 3,
+      "category_name": "Sequence, flow, and branching",
+      "element": "flow",
+      "before": null,
+      "after": {
+        "source": "Invisible Task",
+        "target": "<exclusive gateway (XOR)>",
+        "source_id": "Id_b825d289bb58f042",
+        "target_id": "Id_81309e96dbe07aaf"
+      },
+      "detail": "flow added (1x)",
+      "label": "unmatched",
+      "confidence": "high",
+      "needs_review": false,
+      "schema_version": "change-v1",
+      "change": {
+        "type": "INSERT_FLOW",
+        "legacy_type": "INSERT_FLOW",
+        "category": 3,
+        "category_name": "Sequence, flow, and branching",
+        "element": "flow",
+        "before": null,
+        "after": {
+          "source": "Invisible Task",
+          "target": "<exclusive gateway (XOR)>",
+          "source_id": "Id_b825d289bb58f042",
+          "target_id": "Id_81309e96dbe07aaf"
+        },
+        "detail": "flow added (1x)",
+        "label": "unmatched",
+        "confidence": "high",
+        "needs_review": false
+      },
+      "evidence": {
+        "alignment": [
+          {
+            "reference_node_id": "Id_ee3de915-745e-439b-bb67-c19333dfb907",
+            "variant_node_id": "Id_b825d289bb58f042",
+            "label": "identical",
+            "score": 1.0,
+            "reason": "structural context 1.00, degree 0.80",
+            "confidence": "high",
+            "needs_review": false
+          },
+          {
+            "reference_node_id": "Id_6bc7314b-ee04-4f16-af27-1f79dcebf3d1",
+            "variant_node_id": "Id_81309e96dbe07aaf",
+            "label": "identical",
+            "score": 1.0,
+            "reason": "structural context 1.00, degree 0.86",
+            "confidence": "high",
+            "needs_review": false
+          }
+        ],
+        "structural_context": [
+          {
+            "reference": {
+              "node_id": "Id_ee3de915-745e-439b-bb67-c19333dfb907",
+              "predecessor_ids": [
+                "Id_05603d03-8106-47d8-a069-8e37915278b5"
+              ],
+              "successor_ids": [
+                "Id_6bc7314b-ee04-4f16-af27-1f79dcebf3d1"
+              ],
+              "in_degree": 1,
+              "out_degree": 1
+            },
+            "variant": {
+              "node_id": "Id_b825d289bb58f042",
+              "predecessor_ids": [
+                "Id_845e96efd3e92a47"
+              ],
+              "successor_ids": [
+                "Id_81309e96dbe07aaf",
+                "Id_81309e96dbe07aaf"
+              ],
+              "in_degree": 1,
+              "out_degree": 2
+            },
+            "matched_neighbors": [
+              {
+                "direction": "predecessor",
+                "reference_node_id": "Id_05603d03-8106-47d8-a069-8e37915278b5",
+                "variant_node_id": "Id_845e96efd3e92a47"
+              },
+              {
+                "direction": "successor",
+                "reference_node_id": "Id_6bc7314b-ee04-4f16-af27-1f79dcebf3d1",
+                "variant_node_id": "Id_81309e96dbe07aaf"
+              }
+            ]
+          },
+          {
+            "reference": {
+              "node_id": "Id_6bc7314b-ee04-4f16-af27-1f79dcebf3d1",
+              "predecessor_ids": [
+                "Id_883fd3b8-cdea-4fa5-bf5a-c8924b712021",
+                "Id_ee3de915-745e-439b-bb67-c19333dfb907"
+              ],
+              "successor_ids": [
+                "Id_e024b86e-10e6-46f3-891a-4cf17601323b"
+              ],
+              "in_degree": 2,
+              "out_degree": 1
+            },
+            "variant": {
+              "node_id": "Id_81309e96dbe07aaf",
+              "predecessor_ids": [
+                "Id_16cd12c43ede0870",
+                "Id_b825d289bb58f042",
+                "Id_b825d289bb58f042"
+              ],
+              "successor_ids": [
+                "Id_603902f59baf2a45"
+              ],
+              "in_degree": 3,
+              "out_degree": 1
+            },
+            "matched_neighbors": [
+              {
+                "direction": "predecessor",
+                "reference_node_id": "Id_883fd3b8-cdea-4fa5-bf5a-c8924b712021",
+                "variant_node_id": "Id_16cd12c43ede0870"
+              },
+              {
+                "direction": "predecessor",
+                "reference_node_id": "Id_ee3de915-745e-439b-bb67-c19333dfb907",
+                "variant_node_id": "Id_b825d289bb58f042"
+              },
+              {
+                "direction": "successor",
+                "reference_node_id": "Id_e024b86e-10e6-46f3-891a-4cf17601323b",
+                "variant_node_id": "Id_603902f59baf2a45"
+              }
+            ]
+          }
+        ],
+        "observations": [
+          {
+            "source": "alignment",
+            "description": "structural context 1.00, degree 0.80"
+          },
+          {
+            "source": "alignment",
+            "description": "structural context 1.00, degree 0.86"
+          },
+          {
+            "source": "graph",
+            "description": "Direct predecessor and successor context for aligned nodes."
+          },
+          {
+            "source": "graph",
+            "description": "flow added (1x)",
+            "value": {
+              "before": null,
+              "after": {
+                "source": "Invisible Task",
+                "target": "<exclusive gateway (XOR)>",
+                "source_id": "Id_b825d289bb58f042",
+                "target_id": "Id_81309e96dbe07aaf"
+              }
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "ground_truth_operations": [
+    {
+      "schema_version": "change-v1",
+      "change": {
+        "type": "MARKER_CHANGE",
+        "legacy_type": "MARKER_CHANGE",
+        "category": 1,
+        "category_name": "Steps (tasks and events)",
+        "element": "node",
+        "before": {
+          "id": "Id_0a7a1082-affb-4bc8-bfb1-91f073d72dde",
+          "name": "Enter the medical record ID",
+          "kind": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "lane": "Cashier",
+          "pool": "General patient cashier"
+        },
+        "after": {
+          "id": "Id_985347ea0348f038",
+          "name": "Enter the medical record ID",
+          "kind": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "loop",
+          "lane": "Cashier",
+          "pool": "General patient cashier"
+        },
+        "detail": "marker: \"none\" -> \"loop\"",
+        "confidence": "high",
+        "needs_review": false
+      },
+      "evidence": {
+        "alignment": [],
+        "structural_context": [],
+        "observations": [
+          {
+            "source": "operation",
+            "description": "marker: \"none\" -> \"loop\"",
+            "value": {
+              "before": {
+                "id": "Id_0a7a1082-affb-4bc8-bfb1-91f073d72dde",
+                "name": "Enter the medical record ID",
+                "kind": "task",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "none",
+                "lane": "Cashier",
+                "pool": "General patient cashier"
+              },
+              "after": {
+                "id": "Id_985347ea0348f038",
+                "name": "Enter the medical record ID",
+                "kind": "task",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "loop",
+                "lane": "Cashier",
+                "pool": "General patient cashier"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "schema_version": "change-v1",
+      "change": {
+        "type": "RENAME_NODE",
+        "legacy_type": "RENAME",
+        "category": 1,
+        "category_name": "Steps (tasks and events)",
+        "element": "node",
+        "before": {
+          "id": "Id_259b95ad-426d-4d16-8f7b-6371212aaf57",
+          "name": "Displays the query results",
+          "kind": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "lane": "System",
+          "pool": "General patient cashier"
+        },
+        "after": {
+          "id": "Id_ac9390599eb35ba0",
+          "name": "Shows the query results",
+          "kind": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "lane": "System",
+          "pool": "General patient cashier"
+        },
+        "detail": "\"Displays the query results\" -> \"Shows the query results\" (synonym)",
+        "confidence": "high",
+        "needs_review": false,
+        "label": "synonym",
+        "subtype": "synonym",
+        "is_synonym": true,
+        "score": 0.94
+      },
+      "evidence": {
+        "alignment": [],
+        "structural_context": [],
+        "observations": [
+          {
+            "source": "operation",
+            "description": "\"Displays the query results\" -> \"Shows the query results\" (synonym)",
+            "value": {
+              "before": {
+                "id": "Id_259b95ad-426d-4d16-8f7b-6371212aaf57",
+                "name": "Displays the query results",
+                "kind": "task",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "none",
+                "lane": "System",
+                "pool": "General patient cashier"
+              },
+              "after": {
+                "id": "Id_ac9390599eb35ba0",
+                "name": "Shows the query results",
+                "kind": "task",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "none",
+                "lane": "System",
+                "pool": "General patient cashier"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "schema_version": "change-v1",
+      "change": {
+        "type": "MOVE_LANE",
+        "legacy_type": "CHANGE_SWIMLANE",
+        "category": 2,
+        "category_name": "Actors (lanes and pools)",
+        "element": "swimlane",
+        "before": {
+          "id": "Id_2235724b-6ca2-46d2-95a0-ab88837d316f",
+          "name": "Displays it to the table",
+          "kind": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "lane": "System",
+          "pool": "General patient cashier"
+        },
+        "after": {
+          "id": "Id_042289cc0c5d17a1",
+          "name": "Displays it to the table",
+          "kind": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "lane": "Cashier",
+          "pool": "General patient cashier"
+        },
+        "detail": "Displays it to the table: \"System\" -> \"Cashier\"",
+        "confidence": "high",
+        "needs_review": false
+      },
+      "evidence": {
+        "alignment": [],
+        "structural_context": [],
+        "observations": [
+          {
+            "source": "operation",
+            "description": "Displays it to the table: \"System\" -> \"Cashier\"",
+            "value": {
+              "before": {
+                "id": "Id_2235724b-6ca2-46d2-95a0-ab88837d316f",
+                "name": "Displays it to the table",
+                "kind": "task",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "none",
+                "lane": "System",
+                "pool": "General patient cashier"
+              },
+              "after": {
+                "id": "Id_042289cc0c5d17a1",
+                "name": "Displays it to the table",
+                "kind": "task",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "none",
+                "lane": "Cashier",
+                "pool": "General patient cashier"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "schema_version": "change-v1",
+      "change": {
+        "type": "INSERT_FLOW",
+        "legacy_type": "INSERT_FLOW",
+        "category": 3,
+        "category_name": "Sequence, flow, and branching",
+        "element": "flow",
+        "before": null,
+        "after": {
+          "source": "Invisible Task",
+          "target": "<exclusive gateway (XOR)>",
+          "source_id": "Id_b825d289bb58f042",
+          "target_id": "Id_81309e96dbe07aaf",
+          "condition": "",
+          "is_default": false
+        },
+        "detail": "flow added from \"Invisible Task\" to \"<exclusive gateway (XOR)>\" (1x)",
+        "confidence": "high",
+        "needs_review": false,
+        "label": "unmatched"
+      },
+      "evidence": {
+        "alignment": [],
+        "structural_context": [],
+        "observations": [
+          {
+            "source": "operation",
+            "description": "flow added from \"Invisible Task\" to \"<exclusive gateway (XOR)>\" (1x)",
+            "value": {
+              "before": null,
+              "after": {
+                "source": "Invisible Task",
+                "target": "<exclusive gateway (XOR)>",
+                "source_id": "Id_b825d289bb58f042",
+                "target_id": "Id_81309e96dbe07aaf",
+                "condition": "",
+                "is_default": false
+              }
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "comparison": {
+    "mode": "A",
+    "alignment_strategy": "hybrid",
+    "reference": {
+      "id": "Id_531812ec-35ec-47d2-9ab9-f583d13fc209",
+      "name": "reference.bpmn",
+      "source": "/home/mendoan/Projects/bpmndiff/dataset/synthetic/58/reference.bpmn",
+      "format": "bpmn",
+      "pool": "General patient cashier",
+      "stats": {
+        "nodes": 23,
+        "edges": 24,
+        "tasks": 17,
+        "gateways": 4,
+        "events": 2,
+        "lanes": 2,
+        "message_flows": 0,
+        "data_elements": 14
+      }
+    },
+    "variant": {
+      "id": "Id_d8d544bbda8541b3",
+      "name": "k4_newids.bpmn",
+      "source": "/home/mendoan/Projects/bpmndiff/dataset/synthetic/58/k4_newids.bpmn",
+      "format": "bpmn",
+      "pool": "General patient cashier",
+      "stats": {
+        "nodes": 23,
+        "edges": 25,
+        "tasks": 17,
+        "gateways": 4,
+        "events": 2,
+        "lanes": 2,
+        "message_flows": 0,
+        "data_elements": 14
+      }
+    },
+    "alignment": {
+      "counts": {
+        "identical": 22,
+        "synonym": 1,
+        "meaning_changed": 0,
+        "unmatched": 0,
+        "matched": 23,
+        "needs_review": 0
+      },
+      "pairs": [
+        {
+          "a": "Adds it to the list",
+          "b": "Adds it to the list",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "exact normalised label",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_b8597b55-b0fd-4a78-8049-693d8d2203c7",
+          "b_id": "Id_adea77c07f8052f3"
+        },
+        {
+          "a": "Chooses the type of payment",
+          "b": "Chooses the type of payment",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "exact normalised label",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_467aec19-4802-4dfb-959a-96d262adf979",
+          "b_id": "Id_c19208a0ac860fab"
+        },
+        {
+          "a": "Displays a general patient payment form",
+          "b": "Displays a general patient payment form",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "exact normalised label",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_baf5345e-3bb0-4235-bb5f-c58fa8217646",
+          "b_id": "Id_fc9e431c49594ccc"
+        },
+        {
+          "a": "Displays it to the table",
+          "b": "Displays it to the table",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "exact normalised label",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_2235724b-6ca2-46d2-95a0-ab88837d316f",
+          "b_id": "Id_042289cc0c5d17a1"
+        },
+        {
+          "a": "Displays the price",
+          "b": "Displays the price",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "exact normalised label",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_eb1c9f06-7a54-4aff-91bb-e0594c6b655a",
+          "b_id": "Id_37fe1c85f30d8013"
+        },
+        {
+          "a": "Enter the medical record ID",
+          "b": "Enter the medical record ID",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "exact normalised label",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_0a7a1082-affb-4bc8-bfb1-91f073d72dde",
+          "b_id": "Id_985347ea0348f038"
+        },
+        {
+          "a": "Enters the transaction code, transaction type, quantity",
+          "b": "Enters the transaction code, transaction type, quantity",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "exact normalised label",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_e024b86e-10e6-46f3-891a-4cf17601323b",
+          "b_id": "Id_603902f59baf2a45"
+        },
+        {
+          "a": "Prints the transaction to the printer",
+          "b": "Prints the transaction to the printer",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "exact normalised label",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_691d30ec-9bd8-420f-afc5-26b933f76c01",
+          "b_id": "Id_6240b4974375baf5"
+        },
+        {
+          "a": "Reads the Patient and Registration Database",
+          "b": "Reads the Patient and Registration Database",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "exact normalised label",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_c9ee3cd8-78da-417a-9cf9-0edac7cbbf33",
+          "b_id": "Id_85d1831cd84e4df8"
+        },
+        {
+          "a": "Reads the Transaction Master database",
+          "b": "Reads the Transaction Master database",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "exact normalised label",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_883fd3b8-cdea-4fa5-bf5a-c8924b712021",
+          "b_id": "Id_16cd12c43ede0870"
+        },
+        {
+          "a": "Saves the Transaction",
+          "b": "Saves the Transaction",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "exact normalised label",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_5347b8df-2a52-44ed-9503-4f9b9d6a5243",
+          "b_id": "Id_512abc209714bd3f"
+        },
+        {
+          "a": "Saves the Transaction",
+          "b": "Saves the Transaction",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "exact normalised label",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_89298069-ad05-4a3d-983b-b4c085ac8852",
+          "b_id": "Id_48bc200691434a30"
+        },
+        {
+          "a": "Selects a save button",
+          "b": "Selects a save button",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "exact normalised label",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_5a51b47a-2646-4727-bfe8-11cb6cf8135a",
+          "b_id": "Id_c0e8c64966a91145"
+        },
+        {
+          "a": "Selects an add button",
+          "b": "Selects an add button",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "exact normalised label",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_65aaccf1-8026-4183-bb2c-7a5746f87b67",
+          "b_id": "Id_3d541b84a92a5f5d"
+        },
+        {
+          "a": "Wants to make a general patient payment",
+          "b": "Wants to make a general patient payment",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "exact normalised label",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7",
+          "b_id": "Id_084d9a33c0a74582"
+        },
+        {
+          "a": "Displays the query results",
+          "b": "Shows the query results",
+          "label": "synonym",
+          "score": 0.94,
+          "reason": "semantic synonym (canonical tokens)",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_259b95ad-426d-4d16-8f7b-6371212aaf57",
+          "b_id": "Id_ac9390599eb35ba0"
+        },
+        {
+          "a": "<exclusive gateway (XOR)>",
+          "b": "<exclusive gateway (XOR)>",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "structural context 1.00, degree 1.00",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_05603d03-8106-47d8-a069-8e37915278b5",
+          "b_id": "Id_845e96efd3e92a47"
+        },
+        {
+          "a": "<exclusive gateway (XOR)>",
+          "b": "<exclusive gateway (XOR)>",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "structural context 1.00, degree 0.86",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_6bc7314b-ee04-4f16-af27-1f79dcebf3d1",
+          "b_id": "Id_81309e96dbe07aaf"
+        },
+        {
+          "a": "<start event>",
+          "b": "<start event>",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "structural context 1.00, degree 1.00",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_92cb515c-ae81-4364-a587-772f1bcc50f5",
+          "b_id": "Id_65bf7a4dfd693cbd"
+        },
+        {
+          "a": "<exclusive gateway (XOR)>",
+          "b": "<exclusive gateway (XOR)>",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "structural context 1.00, degree 1.00",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_9cecd4c0-b94d-457c-99d3-52cc97ee020f",
+          "b_id": "Id_163fa1b92bea30cd"
+        },
+        {
+          "a": "<exclusive gateway (XOR)>",
+          "b": "<exclusive gateway (XOR)>",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "structural context 1.00, degree 1.00",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_e06571e0-a23d-405d-9bde-427856a91d60",
+          "b_id": "Id_77fa870c6f5c6d52"
+        },
+        {
+          "a": "<end event>",
+          "b": "<end event>",
+          "label": "identical",
+          "score": 0.38,
+          "reason": "structural context 0.00, degree 1.00",
+          "confidence": "medium",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_b210868a-cf5c-4157-b86e-b21d426d3851",
+          "b_id": "Id_3fc295488902578c"
+        },
+        {
+          "a": "Invisible Task",
+          "b": "Invisible Task",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "structural context 1.00, degree 0.80",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_ee3de915-745e-439b-bb67-c19333dfb907",
+          "b_id": "Id_b825d289bb58f042"
+        }
+      ]
+    },
+    "change_schema_version": "change-v1",
+    "operations": [
+      {
+        "op": "MARKER_CHANGE",
+        "legacy_op": "MARKER_CHANGE",
+        "category": 1,
+        "category_name": "Steps (tasks and events)",
+        "element": "node",
+        "before": {
+          "id": "Id_0a7a1082-affb-4bc8-bfb1-91f073d72dde",
+          "name": "Enter the medical record ID",
+          "kind": "task",
+          "kind_label": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "attached_to": null,
+          "cancel_activity": true,
+          "lane": "Cashier",
+          "pool": "General patient cashier"
+        },
+        "after": {
+          "id": "Id_985347ea0348f038",
+          "name": "Enter the medical record ID",
+          "kind": "task",
+          "kind_label": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "loop",
+          "attached_to": null,
+          "cancel_activity": true,
+          "lane": "Cashier",
+          "pool": "General patient cashier"
+        },
+        "detail": "marker: \"none\" -> \"loop\"",
+        "label": "identical",
+        "confidence": "high",
+        "needs_review": false,
+        "schema_version": "change-v1",
+        "change": {
+          "type": "MARKER_CHANGE",
+          "legacy_type": "MARKER_CHANGE",
+          "category": 1,
+          "category_name": "Steps (tasks and events)",
+          "element": "node",
+          "before": {
+            "id": "Id_0a7a1082-affb-4bc8-bfb1-91f073d72dde",
+            "name": "Enter the medical record ID",
+            "kind": "task",
+            "kind_label": "task",
+            "task_type": "abstract",
+            "event_definition": "none",
+            "marker": "none",
+            "attached_to": null,
+            "cancel_activity": true,
+            "lane": "Cashier",
+            "pool": "General patient cashier"
+          },
+          "after": {
+            "id": "Id_985347ea0348f038",
+            "name": "Enter the medical record ID",
+            "kind": "task",
+            "kind_label": "task",
+            "task_type": "abstract",
+            "event_definition": "none",
+            "marker": "loop",
+            "attached_to": null,
+            "cancel_activity": true,
+            "lane": "Cashier",
+            "pool": "General patient cashier"
+          },
+          "detail": "marker: \"none\" -> \"loop\"",
+          "label": "identical",
+          "confidence": "high",
+          "needs_review": false
+        },
+        "evidence": {
+          "alignment": [
+            {
+              "reference_node_id": "Id_0a7a1082-affb-4bc8-bfb1-91f073d72dde",
+              "variant_node_id": "Id_985347ea0348f038",
+              "label": "identical",
+              "score": 1.0,
+              "reason": "exact normalised label",
+              "confidence": "high",
+              "needs_review": false
+            }
+          ],
+          "structural_context": [
+            {
+              "reference": {
+                "node_id": "Id_0a7a1082-affb-4bc8-bfb1-91f073d72dde",
+                "predecessor_ids": [
+                  "Id_baf5345e-3bb0-4235-bb5f-c58fa8217646"
+                ],
+                "successor_ids": [
+                  "Id_c9ee3cd8-78da-417a-9cf9-0edac7cbbf33"
+                ],
+                "in_degree": 1,
+                "out_degree": 1
+              },
+              "variant": {
+                "node_id": "Id_985347ea0348f038",
+                "predecessor_ids": [
+                  "Id_fc9e431c49594ccc"
+                ],
+                "successor_ids": [
+                  "Id_85d1831cd84e4df8"
+                ],
+                "in_degree": 1,
+                "out_degree": 1
+              },
+              "matched_neighbors": [
+                {
+                  "direction": "predecessor",
+                  "reference_node_id": "Id_baf5345e-3bb0-4235-bb5f-c58fa8217646",
+                  "variant_node_id": "Id_fc9e431c49594ccc"
+                },
+                {
+                  "direction": "successor",
+                  "reference_node_id": "Id_c9ee3cd8-78da-417a-9cf9-0edac7cbbf33",
+                  "variant_node_id": "Id_85d1831cd84e4df8"
+                }
+              ]
+            }
+          ],
+          "observations": [
+            {
+              "source": "alignment",
+              "description": "exact normalised label"
+            },
+            {
+              "source": "graph",
+              "description": "Direct predecessor and successor context for aligned nodes."
+            },
+            {
+              "source": "attribute",
+              "description": "marker: \"none\" -> \"loop\"",
+              "value": {
+                "before": {
+                  "id": "Id_0a7a1082-affb-4bc8-bfb1-91f073d72dde",
+                  "name": "Enter the medical record ID",
+                  "kind": "task",
+                  "kind_label": "task",
+                  "task_type": "abstract",
+                  "event_definition": "none",
+                  "marker": "none",
+                  "attached_to": null,
+                  "cancel_activity": true,
+                  "lane": "Cashier",
+                  "pool": "General patient cashier"
+                },
+                "after": {
+                  "id": "Id_985347ea0348f038",
+                  "name": "Enter the medical record ID",
+                  "kind": "task",
+                  "kind_label": "task",
+                  "task_type": "abstract",
+                  "event_definition": "none",
+                  "marker": "loop",
+                  "attached_to": null,
+                  "cancel_activity": true,
+                  "lane": "Cashier",
+                  "pool": "General patient cashier"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "RENAME_NODE",
+        "legacy_op": "RENAME",
+        "category": 1,
+        "category_name": "Steps (tasks and events)",
+        "element": "node",
+        "before": {
+          "id": "Id_259b95ad-426d-4d16-8f7b-6371212aaf57",
+          "name": "Displays the query results",
+          "kind": "task",
+          "kind_label": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "attached_to": null,
+          "cancel_activity": true,
+          "lane": "System",
+          "pool": "General patient cashier"
+        },
+        "after": {
+          "id": "Id_ac9390599eb35ba0",
+          "name": "Shows the query results",
+          "kind": "task",
+          "kind_label": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "attached_to": null,
+          "cancel_activity": true,
+          "lane": "System",
+          "pool": "General patient cashier"
+        },
+        "detail": "\"Displays the query results\" -> \"Shows the query results\" (synonym)",
+        "label": "synonym",
+        "is_synonym": true,
+        "subtype": "synonym",
+        "score": 0.94,
+        "confidence": "high",
+        "needs_review": false,
+        "schema_version": "change-v1",
+        "change": {
+          "type": "RENAME_NODE",
+          "legacy_type": "RENAME",
+          "category": 1,
+          "category_name": "Steps (tasks and events)",
+          "element": "node",
+          "before": {
+            "id": "Id_259b95ad-426d-4d16-8f7b-6371212aaf57",
+            "name": "Displays the query results",
+            "kind": "task",
+            "kind_label": "task",
+            "task_type": "abstract",
+            "event_definition": "none",
+            "marker": "none",
+            "attached_to": null,
+            "cancel_activity": true,
+            "lane": "System",
+            "pool": "General patient cashier"
+          },
+          "after": {
+            "id": "Id_ac9390599eb35ba0",
+            "name": "Shows the query results",
+            "kind": "task",
+            "kind_label": "task",
+            "task_type": "abstract",
+            "event_definition": "none",
+            "marker": "none",
+            "attached_to": null,
+            "cancel_activity": true,
+            "lane": "System",
+            "pool": "General patient cashier"
+          },
+          "detail": "\"Displays the query results\" -> \"Shows the query results\" (synonym)",
+          "label": "synonym",
+          "subtype": "synonym",
+          "is_synonym": true,
+          "score": 0.94,
+          "confidence": "high",
+          "needs_review": false
+        },
+        "evidence": {
+          "alignment": [
+            {
+              "reference_node_id": "Id_259b95ad-426d-4d16-8f7b-6371212aaf57",
+              "variant_node_id": "Id_ac9390599eb35ba0",
+              "label": "synonym",
+              "score": 0.94,
+              "reason": "semantic synonym (canonical tokens)",
+              "confidence": "high",
+              "needs_review": false
+            }
+          ],
+          "structural_context": [
+            {
+              "reference": {
+                "node_id": "Id_259b95ad-426d-4d16-8f7b-6371212aaf57",
+                "predecessor_ids": [
+                  "Id_c9ee3cd8-78da-417a-9cf9-0edac7cbbf33"
+                ],
+                "successor_ids": [
+                  "Id_467aec19-4802-4dfb-959a-96d262adf979"
+                ],
+                "in_degree": 1,
+                "out_degree": 1
+              },
+              "variant": {
+                "node_id": "Id_ac9390599eb35ba0",
+                "predecessor_ids": [
+                  "Id_85d1831cd84e4df8"
+                ],
+                "successor_ids": [
+                  "Id_c19208a0ac860fab"
+                ],
+                "in_degree": 1,
+                "out_degree": 1
+              },
+              "matched_neighbors": [
+                {
+                  "direction": "predecessor",
+                  "reference_node_id": "Id_c9ee3cd8-78da-417a-9cf9-0edac7cbbf33",
+                  "variant_node_id": "Id_85d1831cd84e4df8"
+                },
+                {
+                  "direction": "successor",
+                  "reference_node_id": "Id_467aec19-4802-4dfb-959a-96d262adf979",
+                  "variant_node_id": "Id_c19208a0ac860fab"
+                }
+              ]
+            }
+          ],
+          "observations": [
+            {
+              "source": "alignment",
+              "description": "semantic synonym (canonical tokens)"
+            },
+            {
+              "source": "graph",
+              "description": "Direct predecessor and successor context for aligned nodes."
+            },
+            {
+              "source": "attribute",
+              "description": "\"Displays the query results\" -> \"Shows the query results\" (synonym)",
+              "value": {
+                "before": {
+                  "id": "Id_259b95ad-426d-4d16-8f7b-6371212aaf57",
+                  "name": "Displays the query results",
+                  "kind": "task",
+                  "kind_label": "task",
+                  "task_type": "abstract",
+                  "event_definition": "none",
+                  "marker": "none",
+                  "attached_to": null,
+                  "cancel_activity": true,
+                  "lane": "System",
+                  "pool": "General patient cashier"
+                },
+                "after": {
+                  "id": "Id_ac9390599eb35ba0",
+                  "name": "Shows the query results",
+                  "kind": "task",
+                  "kind_label": "task",
+                  "task_type": "abstract",
+                  "event_definition": "none",
+                  "marker": "none",
+                  "attached_to": null,
+                  "cancel_activity": true,
+                  "lane": "System",
+                  "pool": "General patient cashier"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "MOVE_LANE",
+        "legacy_op": "CHANGE_SWIMLANE",
+        "category": 2,
+        "category_name": "Actors (lanes and pools)",
+        "element": "swimlane",
+        "before": {
+          "id": "Id_2235724b-6ca2-46d2-95a0-ab88837d316f",
+          "name": "Displays it to the table",
+          "kind": "task",
+          "kind_label": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "attached_to": null,
+          "cancel_activity": true,
+          "lane": "System",
+          "pool": "General patient cashier"
+        },
+        "after": {
+          "id": "Id_042289cc0c5d17a1",
+          "name": "Displays it to the table",
+          "kind": "task",
+          "kind_label": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "attached_to": null,
+          "cancel_activity": true,
+          "lane": "Cashier",
+          "pool": "General patient cashier"
+        },
+        "detail": "Displays it to the table: \"System\" -> \"Cashier\"",
+        "confidence": "high",
+        "needs_review": false,
+        "schema_version": "change-v1",
+        "change": {
+          "type": "MOVE_LANE",
+          "legacy_type": "CHANGE_SWIMLANE",
+          "category": 2,
+          "category_name": "Actors (lanes and pools)",
+          "element": "swimlane",
+          "before": {
+            "id": "Id_2235724b-6ca2-46d2-95a0-ab88837d316f",
+            "name": "Displays it to the table",
+            "kind": "task",
+            "kind_label": "task",
+            "task_type": "abstract",
+            "event_definition": "none",
+            "marker": "none",
+            "attached_to": null,
+            "cancel_activity": true,
+            "lane": "System",
+            "pool": "General patient cashier"
+          },
+          "after": {
+            "id": "Id_042289cc0c5d17a1",
+            "name": "Displays it to the table",
+            "kind": "task",
+            "kind_label": "task",
+            "task_type": "abstract",
+            "event_definition": "none",
+            "marker": "none",
+            "attached_to": null,
+            "cancel_activity": true,
+            "lane": "Cashier",
+            "pool": "General patient cashier"
+          },
+          "detail": "Displays it to the table: \"System\" -> \"Cashier\"",
+          "confidence": "high",
+          "needs_review": false
+        },
+        "evidence": {
+          "alignment": [
+            {
+              "reference_node_id": "Id_2235724b-6ca2-46d2-95a0-ab88837d316f",
+              "variant_node_id": "Id_042289cc0c5d17a1",
+              "label": "identical",
+              "score": 1.0,
+              "reason": "exact normalised label",
+              "confidence": "high",
+              "needs_review": false
+            }
+          ],
+          "structural_context": [
+            {
+              "reference": {
+                "node_id": "Id_2235724b-6ca2-46d2-95a0-ab88837d316f",
+                "predecessor_ids": [
+                  "Id_b8597b55-b0fd-4a78-8049-693d8d2203c7"
+                ],
+                "successor_ids": [
+                  "Id_65aaccf1-8026-4183-bb2c-7a5746f87b67"
+                ],
+                "in_degree": 1,
+                "out_degree": 1
+              },
+              "variant": {
+                "node_id": "Id_042289cc0c5d17a1",
+                "predecessor_ids": [
+                  "Id_adea77c07f8052f3"
+                ],
+                "successor_ids": [
+                  "Id_3d541b84a92a5f5d"
+                ],
+                "in_degree": 1,
+                "out_degree": 1
+              },
+              "matched_neighbors": [
+                {
+                  "direction": "predecessor",
+                  "reference_node_id": "Id_b8597b55-b0fd-4a78-8049-693d8d2203c7",
+                  "variant_node_id": "Id_adea77c07f8052f3"
+                },
+                {
+                  "direction": "successor",
+                  "reference_node_id": "Id_65aaccf1-8026-4183-bb2c-7a5746f87b67",
+                  "variant_node_id": "Id_3d541b84a92a5f5d"
+                }
+              ]
+            }
+          ],
+          "observations": [
+            {
+              "source": "alignment",
+              "description": "exact normalised label"
+            },
+            {
+              "source": "graph",
+              "description": "Direct predecessor and successor context for aligned nodes."
+            },
+            {
+              "source": "lane",
+              "description": "Displays it to the table: \"System\" -> \"Cashier\"",
+              "value": {
+                "before": {
+                  "id": "Id_2235724b-6ca2-46d2-95a0-ab88837d316f",
+                  "name": "Displays it to the table",
+                  "kind": "task",
+                  "kind_label": "task",
+                  "task_type": "abstract",
+                  "event_definition": "none",
+                  "marker": "none",
+                  "attached_to": null,
+                  "cancel_activity": true,
+                  "lane": "System",
+                  "pool": "General patient cashier"
+                },
+                "after": {
+                  "id": "Id_042289cc0c5d17a1",
+                  "name": "Displays it to the table",
+                  "kind": "task",
+                  "kind_label": "task",
+                  "task_type": "abstract",
+                  "event_definition": "none",
+                  "marker": "none",
+                  "attached_to": null,
+                  "cancel_activity": true,
+                  "lane": "Cashier",
+                  "pool": "General patient cashier"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "INSERT_FLOW",
+        "legacy_op": "INSERT_FLOW",
+        "category": 3,
+        "category_name": "Sequence, flow, and branching",
+        "element": "flow",
+        "before": null,
+        "after": {
+          "source": "Invisible Task",
+          "target": "<exclusive gateway (XOR)>",
+          "source_id": "Id_b825d289bb58f042",
+          "target_id": "Id_81309e96dbe07aaf"
+        },
+        "detail": "flow added (1x)",
+        "label": "unmatched",
+        "confidence": "high",
+        "needs_review": false,
+        "schema_version": "change-v1",
+        "change": {
+          "type": "INSERT_FLOW",
+          "legacy_type": "INSERT_FLOW",
+          "category": 3,
+          "category_name": "Sequence, flow, and branching",
+          "element": "flow",
+          "before": null,
+          "after": {
+            "source": "Invisible Task",
+            "target": "<exclusive gateway (XOR)>",
+            "source_id": "Id_b825d289bb58f042",
+            "target_id": "Id_81309e96dbe07aaf"
+          },
+          "detail": "flow added (1x)",
+          "label": "unmatched",
+          "confidence": "high",
+          "needs_review": false
+        },
+        "evidence": {
+          "alignment": [
+            {
+              "reference_node_id": "Id_ee3de915-745e-439b-bb67-c19333dfb907",
+              "variant_node_id": "Id_b825d289bb58f042",
+              "label": "identical",
+              "score": 1.0,
+              "reason": "structural context 1.00, degree 0.80",
+              "confidence": "high",
+              "needs_review": false
+            },
+            {
+              "reference_node_id": "Id_6bc7314b-ee04-4f16-af27-1f79dcebf3d1",
+              "variant_node_id": "Id_81309e96dbe07aaf",
+              "label": "identical",
+              "score": 1.0,
+              "reason": "structural context 1.00, degree 0.86",
+              "confidence": "high",
+              "needs_review": false
+            }
+          ],
+          "structural_context": [
+            {
+              "reference": {
+                "node_id": "Id_ee3de915-745e-439b-bb67-c19333dfb907",
+                "predecessor_ids": [
+                  "Id_05603d03-8106-47d8-a069-8e37915278b5"
+                ],
+                "successor_ids": [
+                  "Id_6bc7314b-ee04-4f16-af27-1f79dcebf3d1"
+                ],
+                "in_degree": 1,
+                "out_degree": 1
+              },
+              "variant": {
+                "node_id": "Id_b825d289bb58f042",
+                "predecessor_ids": [
+                  "Id_845e96efd3e92a47"
+                ],
+                "successor_ids": [
+                  "Id_81309e96dbe07aaf",
+                  "Id_81309e96dbe07aaf"
+                ],
+                "in_degree": 1,
+                "out_degree": 2
+              },
+              "matched_neighbors": [
+                {
+                  "direction": "predecessor",
+                  "reference_node_id": "Id_05603d03-8106-47d8-a069-8e37915278b5",
+                  "variant_node_id": "Id_845e96efd3e92a47"
+                },
+                {
+                  "direction": "successor",
+                  "reference_node_id": "Id_6bc7314b-ee04-4f16-af27-1f79dcebf3d1",
+                  "variant_node_id": "Id_81309e96dbe07aaf"
+                }
+              ]
+            },
+            {
+              "reference": {
+                "node_id": "Id_6bc7314b-ee04-4f16-af27-1f79dcebf3d1",
+                "predecessor_ids": [
+                  "Id_883fd3b8-cdea-4fa5-bf5a-c8924b712021",
+                  "Id_ee3de915-745e-439b-bb67-c19333dfb907"
+                ],
+                "successor_ids": [
+                  "Id_e024b86e-10e6-46f3-891a-4cf17601323b"
+                ],
+                "in_degree": 2,
+                "out_degree": 1
+              },
+              "variant": {
+                "node_id": "Id_81309e96dbe07aaf",
+                "predecessor_ids": [
+                  "Id_16cd12c43ede0870",
+                  "Id_b825d289bb58f042",
+                  "Id_b825d289bb58f042"
+                ],
+                "successor_ids": [
+                  "Id_603902f59baf2a45"
+                ],
+                "in_degree": 3,
+                "out_degree": 1
+              },
+              "matched_neighbors": [
+                {
+                  "direction": "predecessor",
+                  "reference_node_id": "Id_883fd3b8-cdea-4fa5-bf5a-c8924b712021",
+                  "variant_node_id": "Id_16cd12c43ede0870"
+                },
+                {
+                  "direction": "predecessor",
+                  "reference_node_id": "Id_ee3de915-745e-439b-bb67-c19333dfb907",
+                  "variant_node_id": "Id_b825d289bb58f042"
+                },
+                {
+                  "direction": "successor",
+                  "reference_node_id": "Id_e024b86e-10e6-46f3-891a-4cf17601323b",
+                  "variant_node_id": "Id_603902f59baf2a45"
+                }
+              ]
+            }
+          ],
+          "observations": [
+            {
+              "source": "alignment",
+              "description": "structural context 1.00, degree 0.80"
+            },
+            {
+              "source": "alignment",
+              "description": "structural context 1.00, degree 0.86"
+            },
+            {
+              "source": "graph",
+              "description": "Direct predecessor and successor context for aligned nodes."
+            },
+            {
+              "source": "graph",
+              "description": "flow added (1x)",
+              "value": {
+                "before": null,
+                "after": {
+                  "source": "Invisible Task",
+                  "target": "<exclusive gateway (XOR)>",
+                  "source_id": "Id_b825d289bb58f042",
+                  "target_id": "Id_81309e96dbe07aaf"
+                }
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "behavior": {
+      "equivalent": true,
+      "inconclusive": false,
+      "method": "trace_equivalence (tau-closure + subset construction)",
+      "counterexample": null,
+      "dfa_states": {
+        "reference": 16,
+        "variant": 16
+      },
+      "truncated": false,
+      "reference_lts": {
+        "states": 24,
+        "transitions": 25,
+        "final_states": 1,
+        "deadlock_states": 0,
+        "truncated": false
+      },
+      "variant_lts": {
+        "states": 24,
+        "transitions": 25,
+        "final_states": 1,
+        "deadlock_states": 0,
+        "truncated": false
+      },
+      "trace_samples": {
+        "reference": {
+          "count": 0,
+          "traces": [],
+          "truncated": true
+        },
+        "variant": {
+          "count": 0,
+          "traces": [],
+          "truncated": true
+        }
+      }
+    },
+    "fragments": {
+      "count": 69,
+      "affected": [
+        {
+          "id": "R10",
+          "entry": "Displays a general patient payment form",
+          "exit": "Reads the Patient and Registration Database",
+          "size": 3,
+          "nodes": [
+            "Enter the medical record ID",
+            "Displays a general patient payment form",
+            "Reads the Patient and Registration Database"
+          ],
+          "node_ids": [
+            "Id_0a7a1082-affb-4bc8-bfb1-91f073d72dde",
+            "Id_baf5345e-3bb0-4235-bb5f-c58fa8217646",
+            "Id_c9ee3cd8-78da-417a-9cf9-0edac7cbbf33"
+          ],
+          "status": "checked",
+          "equivalent": true,
+          "method": "trace_equivalence (tau-closure + subset construction)",
+          "counterexample": null,
+          "states": {
+            "reference": 4,
+            "variant": 4
+          }
+        },
+        {
+          "id": "R12",
+          "entry": "Reads the Patient and Registration Database",
+          "exit": "Chooses the type of payment",
+          "size": 3,
+          "nodes": [
+            "Displays the query results",
+            "Chooses the type of payment",
+            "Reads the Patient and Registration Database"
+          ],
+          "node_ids": [
+            "Id_259b95ad-426d-4d16-8f7b-6371212aaf57",
+            "Id_467aec19-4802-4dfb-959a-96d262adf979",
+            "Id_c9ee3cd8-78da-417a-9cf9-0edac7cbbf33"
+          ],
+          "status": "checked",
+          "equivalent": true,
+          "method": "trace_equivalence (tau-closure + subset construction)",
+          "counterexample": null,
+          "states": {
+            "reference": 4,
+            "variant": 4
+          }
+        },
+        {
+          "id": "R32",
+          "entry": "<exclusive gateway (XOR)>",
+          "exit": "<exclusive gateway (XOR)>",
+          "size": 8,
+          "nodes": [
+            "<exclusive gateway (XOR)>",
+            "Displays it to the table",
+            "Selects an add button",
+            "<exclusive gateway (XOR)>",
+            "Adds it to the list",
+            "Enters the transaction code, transaction type, quantity",
+            "Displays the price",
+            "Invisible Task"
+          ],
+          "node_ids": [
+            "Id_05603d03-8106-47d8-a069-8e37915278b5",
+            "Id_2235724b-6ca2-46d2-95a0-ab88837d316f",
+            "Id_65aaccf1-8026-4183-bb2c-7a5746f87b67",
+            "Id_6bc7314b-ee04-4f16-af27-1f79dcebf3d1",
+            "Id_b8597b55-b0fd-4a78-8049-693d8d2203c7",
+            "Id_e024b86e-10e6-46f3-891a-4cf17601323b",
+            "Id_eb1c9f06-7a54-4aff-91bb-e0594c6b655a",
+            "Id_ee3de915-745e-439b-bb67-c19333dfb907"
+          ],
+          "status": "skipped",
+          "reason": "fragment has no entry point"
+        }
+      ]
+    },
+    "fusion": {
+      "overall": "non_behavioral_swimlane_change",
+      "needs_review": false,
+      "element_verdicts": [
+        {
+          "a": "Adds it to the list",
+          "b": "Adds it to the list",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "unchanged",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "Chooses the type of payment",
+          "b": "Chooses the type of payment",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "unchanged",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "Displays a general patient payment form",
+          "b": "Displays a general patient payment form",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "unchanged",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "Displays it to the table",
+          "b": "Displays it to the table",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "unchanged",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "Displays the price",
+          "b": "Displays the price",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "unchanged",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "Enter the medical record ID",
+          "b": "Enter the medical record ID",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "R10",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "Enters the transaction code, transaction type, quantity",
+          "b": "Enters the transaction code, transaction type, quantity",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "unchanged",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "Prints the transaction to the printer",
+          "b": "Prints the transaction to the printer",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "unchanged",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "Reads the Patient and Registration Database",
+          "b": "Reads the Patient and Registration Database",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "unchanged",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "Reads the Transaction Master database",
+          "b": "Reads the Transaction Master database",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "unchanged",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "Saves the Transaction",
+          "b": "Saves the Transaction",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "unchanged",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "Saves the Transaction",
+          "b": "Saves the Transaction",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "unchanged",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "Selects a save button",
+          "b": "Selects a save button",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "unchanged",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "Selects an add button",
+          "b": "Selects an add button",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "unchanged",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "Wants to make a general patient payment",
+          "b": "Wants to make a general patient payment",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "unchanged",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "Displays the query results",
+          "b": "Shows the query results",
+          "label": "synonym",
+          "verdict": "non_behavioral_rename",
+          "behaviour_scope": "R12",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "<exclusive gateway (XOR)>",
+          "b": "<exclusive gateway (XOR)>",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "unchanged",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "<exclusive gateway (XOR)>",
+          "b": "<exclusive gateway (XOR)>",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "unchanged",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "<start event>",
+          "b": "<start event>",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "unchanged",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "<exclusive gateway (XOR)>",
+          "b": "<exclusive gateway (XOR)>",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "unchanged",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "<exclusive gateway (XOR)>",
+          "b": "<exclusive gateway (XOR)>",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "unchanged",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "<end event>",
+          "b": "<end event>",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "unchanged",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "Invisible Task",
+          "b": "Invisible Task",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "unchanged",
+          "equivalent": true,
+          "needs_review": false
+        }
+      ],
+      "verdict_counts": {
+        "unchanged": 22,
+        "non_behavioral_rename": 1
+      },
+      "operation_counts": {
+        "MARKER_CHANGE": 1,
+        "RENAME_NODE": 1,
+        "MOVE_LANE": 1,
+        "INSERT_FLOW": 1
+      },
+      "legacy_operation_counts": {
+        "MARKER_CHANGE": 1,
+        "RENAME": 1,
+        "CHANGE_SWIMLANE": 1,
+        "INSERT_FLOW": 1
+      }
+    }
+  }
+}

@@ -15,6 +15,7 @@ from bpmndiff.evaluation import (
     Counts,
     evaluate_dataset,
     operation_key,
+    write_pair_reports,
     write_reports,
 )
 from bpmndiff.generator import generate_dataset
@@ -111,8 +112,11 @@ class EndToEndTests(unittest.TestCase):
         cls.results = cls.root / "results"
         generate_dataset(CONVERTED, cls.dataset, bases=("57",), seed="eval-test")
         cls.manifest_path = cls.dataset / "manifest.json"
-        cls.evaluation = evaluate_dataset(cls.manifest_path)
+        cls.evaluation = evaluate_dataset(
+            cls.manifest_path, pair_modes=("hybrid",)
+        )
         cls.paths = write_reports(cls.evaluation, cls.results)
+        cls.pair_paths = write_pair_reports(cls.evaluation, cls.results)
 
     @classmethod
     def tearDownClass(cls) -> None:
@@ -159,12 +163,66 @@ class EndToEndTests(unittest.TestCase):
         payload = json.loads(self.paths["json"].read_text(encoding="utf-8"))
         self.assertIn("hybrid", payload["counts"])
 
+    def test_pair_reports_are_written(self):
+        reports = self.pair_paths["reports"]
+        self.assertEqual(len(reports), 6)
+        for entry in reports:
+            json_path = self.pair_paths["dir"] / entry["json"]
+            markdown_path = self.pair_paths["dir"] / entry["markdown"]
+            self.assertTrue(json_path.is_file(), json_path)
+            self.assertTrue(markdown_path.is_file(), markdown_path)
+
+            payload = json.loads(json_path.read_text(encoding="utf-8"))
+            self.assertEqual(payload["schema"], "bpmndiff-pair-evaluation-v1")
+            self.assertEqual(payload["pair"]["mode"], "hybrid")
+            self.assertEqual(payload["pair"]["base_id"], "57")
+            self.assertIn("overall", payload["metrics"])
+            self.assertIn("by_change_type", payload["metrics"])
+            self.assertTrue(payload["ground_truth_operations"])
+            self.assertIn("comparison", payload)
+            self.assertIn("operations", payload["comparison"])
+
+            markdown = markdown_path.read_text(encoding="utf-8")
+            self.assertIn("## Metrics", markdown)
+            self.assertIn("## Ground truth operations", markdown)
+            self.assertIn("## Diff report", markdown)
+
+    def test_pair_report_index(self):
+        index = json.loads(
+            self.pair_paths["index"].read_text(encoding="utf-8")
+        )
+        self.assertEqual(index["schema"], "bpmndiff-pair-index-v1")
+        self.assertEqual(len(index["reports"]), 6)
+        self.assertEqual(
+            {entry["mode"] for entry in index["reports"]}, {"hybrid"}
+        )
+
     def test_unknown_mode_is_rejected(self):
         with self.assertRaises(ValueError):
             evaluate_dataset(self.manifest_path, modes=("nope",))
 
+    def test_unknown_pair_report_mode_is_rejected(self):
+        with self.assertRaises(ValueError):
+            evaluate_dataset(self.manifest_path, pair_modes=("nope",))
+
 
 class EvaluationCLITests(unittest.TestCase):
+    def test_invalid_pair_report_mode_is_rejected(self):
+        errors = io.StringIO()
+        with contextlib.redirect_stderr(errors):
+            status = main(["evaluate", "--pair-reports", "nope"])
+        self.assertEqual(status, 2)
+        self.assertIn("unknown pair report mode", errors.getvalue())
+
+    def test_pair_report_mode_must_be_selected(self):
+        errors = io.StringIO()
+        with contextlib.redirect_stderr(errors):
+            status = main(
+                ["evaluate", "--modes", "hybrid", "--pair-reports", "id"]
+            )
+        self.assertEqual(status, 2)
+        self.assertIn("not selected by --modes", errors.getvalue())
+
     def test_generate_and_evaluate_subcommands(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
@@ -183,13 +241,21 @@ class EvaluationCLITests(unittest.TestCase):
                             str(dataset / "manifest.json"),
                             "--out",
                             str(results),
+                            "--pair-reports",
                         ]
                     ),
                     0,
                 )
             self.assertTrue((dataset / "manifest.json").is_file())
             self.assertTrue((results / "pilot.csv").is_file())
+            self.assertTrue(
+                (results / "pairs" / "hybrid" / "57_k1_keep.json").is_file()
+            )
+            self.assertTrue(
+                (results / "pairs" / "hybrid" / "57_k1_keep.md").is_file()
+            )
             self.assertIn("hybrid", output.getvalue())
+            self.assertIn("pair reports written", output.getvalue())
 
 
 if __name__ == "__main__":

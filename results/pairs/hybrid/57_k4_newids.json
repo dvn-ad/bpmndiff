@@ -1,0 +1,3025 @@
+{
+  "schema": "bpmndiff-pair-evaluation-v1",
+  "pair": {
+    "base_id": "57",
+    "variant": "k4_newids",
+    "k": 4,
+    "id_policy": "newids",
+    "scenario": "new_ids",
+    "mode": "hybrid",
+    "reference": "57/reference.bpmn",
+    "variant_path": "57/k4_newids.bpmn",
+    "ground_truth": "57/k4_newids.groundtruth.json"
+  },
+  "metrics": {
+    "overall": {
+      "tp": 8,
+      "fp": 0,
+      "fn": 0,
+      "support": 8,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "by_change_type": {
+      "INSERT_NODE": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "support": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "DELETE_NODE": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "support": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "INSERT_FLOW": {
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "support": 3,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "DELETE_FLOW": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "support": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "FLOW_CONDITION_CHANGE": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "support": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "DATA_CHANGE": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "support": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    }
+  },
+  "false_positives": [],
+  "false_negatives": [],
+  "normalized_keys": {
+    "predicted": [
+      {
+        "change_type": "DATA_CHANGE",
+        "identity": [
+          "Audit log 2"
+        ],
+        "count": 1
+      },
+      {
+        "change_type": "DELETE_FLOW",
+        "identity": [
+          "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49",
+          "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598"
+        ],
+        "count": 1
+      },
+      {
+        "change_type": "DELETE_NODE",
+        "identity": [
+          "Id_1164e919-3f27-4d09-9a69-2a33a2e98847"
+        ],
+        "count": 1
+      },
+      {
+        "change_type": "FLOW_CONDITION_CHANGE",
+        "identity": [
+          "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7",
+          "Id_baf5345e-3bb0-4235-bb5f-c58fa8217646"
+        ],
+        "count": 1
+      },
+      {
+        "change_type": "INSERT_FLOW",
+        "identity": [
+          "Id_013d7c2e46c25ecf",
+          "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598"
+        ],
+        "count": 1
+      },
+      {
+        "change_type": "INSERT_FLOW",
+        "identity": [
+          "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49",
+          "Id_013d7c2e46c25ecf"
+        ],
+        "count": 1
+      },
+      {
+        "change_type": "INSERT_FLOW",
+        "identity": [
+          "Id_b95890b5-92e4-432a-b709-a96b40733427",
+          "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49"
+        ],
+        "count": 1
+      },
+      {
+        "change_type": "INSERT_NODE",
+        "identity": [
+          "Id_013d7c2e46c25ecf"
+        ],
+        "count": 1
+      }
+    ],
+    "ground_truth": [
+      {
+        "change_type": "DATA_CHANGE",
+        "identity": [
+          "Audit log 2"
+        ],
+        "count": 1
+      },
+      {
+        "change_type": "DELETE_FLOW",
+        "identity": [
+          "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49",
+          "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598"
+        ],
+        "count": 1
+      },
+      {
+        "change_type": "DELETE_NODE",
+        "identity": [
+          "Id_1164e919-3f27-4d09-9a69-2a33a2e98847"
+        ],
+        "count": 1
+      },
+      {
+        "change_type": "FLOW_CONDITION_CHANGE",
+        "identity": [
+          "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7",
+          "Id_baf5345e-3bb0-4235-bb5f-c58fa8217646"
+        ],
+        "count": 1
+      },
+      {
+        "change_type": "INSERT_FLOW",
+        "identity": [
+          "Id_013d7c2e46c25ecf",
+          "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598"
+        ],
+        "count": 1
+      },
+      {
+        "change_type": "INSERT_FLOW",
+        "identity": [
+          "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49",
+          "Id_013d7c2e46c25ecf"
+        ],
+        "count": 1
+      },
+      {
+        "change_type": "INSERT_FLOW",
+        "identity": [
+          "Id_b95890b5-92e4-432a-b709-a96b40733427",
+          "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49"
+        ],
+        "count": 1
+      },
+      {
+        "change_type": "INSERT_NODE",
+        "identity": [
+          "Id_013d7c2e46c25ecf"
+        ],
+        "count": 1
+      }
+    ]
+  },
+  "predicted_operations": [
+    {
+      "op": "DELETE_NODE",
+      "legacy_op": "DELETE",
+      "category": 1,
+      "category_name": "Steps (tasks and events)",
+      "element": "node",
+      "before": {
+        "id": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+        "name": "Selects the room category",
+        "kind": "task",
+        "kind_label": "task",
+        "task_type": "abstract",
+        "event_definition": "none",
+        "marker": "none",
+        "attached_to": null,
+        "cancel_activity": true,
+        "lane": "FO",
+        "pool": "Looking for room data"
+      },
+      "after": null,
+      "detail": "removed task",
+      "label": "unmatched",
+      "confidence": "high",
+      "needs_review": false,
+      "schema_version": "change-v1",
+      "change": {
+        "type": "DELETE_NODE",
+        "legacy_type": "DELETE",
+        "category": 1,
+        "category_name": "Steps (tasks and events)",
+        "element": "node",
+        "before": {
+          "id": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+          "name": "Selects the room category",
+          "kind": "task",
+          "kind_label": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "attached_to": null,
+          "cancel_activity": true,
+          "lane": "FO",
+          "pool": "Looking for room data"
+        },
+        "after": null,
+        "detail": "removed task",
+        "label": "unmatched",
+        "confidence": "high",
+        "needs_review": false
+      },
+      "evidence": {
+        "alignment": [
+          {
+            "reference_node_id": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+            "variant_node_id": null,
+            "label": "unmatched",
+            "score": 0.0,
+            "reason": "",
+            "confidence": "high",
+            "needs_review": false
+          }
+        ],
+        "structural_context": [
+          {
+            "reference": {
+              "node_id": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+              "predecessor_ids": [
+                "Id_b95890b5-92e4-432a-b709-a96b40733427"
+              ],
+              "successor_ids": [
+                "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49"
+              ],
+              "in_degree": 1,
+              "out_degree": 1
+            },
+            "variant": null,
+            "matched_neighbors": []
+          }
+        ],
+        "observations": [
+          {
+            "source": "alignment",
+            "description": "Alignment label: unmatched."
+          },
+          {
+            "source": "graph",
+            "description": "Direct predecessor and successor context for aligned nodes."
+          },
+          {
+            "source": "operation",
+            "description": "removed task",
+            "value": {
+              "before": {
+                "id": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+                "name": "Selects the room category",
+                "kind": "task",
+                "kind_label": "task",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "none",
+                "attached_to": null,
+                "cancel_activity": true,
+                "lane": "FO",
+                "pool": "Looking for room data"
+              },
+              "after": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "op": "INSERT_NODE",
+      "legacy_op": "INSERT",
+      "category": 1,
+      "category_name": "Steps (tasks and events)",
+      "element": "node",
+      "before": null,
+      "after": {
+        "id": "Id_013d7c2e46c25ecf",
+        "name": "Adds verification step 2",
+        "kind": "task",
+        "kind_label": "task",
+        "task_type": "abstract",
+        "event_definition": "none",
+        "marker": "none",
+        "attached_to": null,
+        "cancel_activity": true,
+        "lane": "System",
+        "pool": "Looking for room data"
+      },
+      "detail": "added task",
+      "label": "unmatched",
+      "confidence": "high",
+      "needs_review": false,
+      "schema_version": "change-v1",
+      "change": {
+        "type": "INSERT_NODE",
+        "legacy_type": "INSERT",
+        "category": 1,
+        "category_name": "Steps (tasks and events)",
+        "element": "node",
+        "before": null,
+        "after": {
+          "id": "Id_013d7c2e46c25ecf",
+          "name": "Adds verification step 2",
+          "kind": "task",
+          "kind_label": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "attached_to": null,
+          "cancel_activity": true,
+          "lane": "System",
+          "pool": "Looking for room data"
+        },
+        "detail": "added task",
+        "label": "unmatched",
+        "confidence": "high",
+        "needs_review": false
+      },
+      "evidence": {
+        "alignment": [
+          {
+            "reference_node_id": null,
+            "variant_node_id": "Id_013d7c2e46c25ecf",
+            "label": "unmatched",
+            "score": 0.0,
+            "reason": "",
+            "confidence": "high",
+            "needs_review": false
+          }
+        ],
+        "structural_context": [
+          {
+            "reference": null,
+            "variant": {
+              "node_id": "Id_013d7c2e46c25ecf",
+              "predecessor_ids": [
+                "Id_d5961c1f5718fbde"
+              ],
+              "successor_ids": [
+                "Id_e52e896036b105cf"
+              ],
+              "in_degree": 1,
+              "out_degree": 1
+            },
+            "matched_neighbors": []
+          }
+        ],
+        "observations": [
+          {
+            "source": "alignment",
+            "description": "Alignment label: unmatched."
+          },
+          {
+            "source": "graph",
+            "description": "Direct predecessor and successor context for aligned nodes."
+          },
+          {
+            "source": "operation",
+            "description": "added task",
+            "value": {
+              "before": null,
+              "after": {
+                "id": "Id_013d7c2e46c25ecf",
+                "name": "Adds verification step 2",
+                "kind": "task",
+                "kind_label": "task",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "none",
+                "attached_to": null,
+                "cancel_activity": true,
+                "lane": "System",
+                "pool": "Looking for room data"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "op": "DELETE_FLOW",
+      "legacy_op": "DELETE_FLOW",
+      "category": 3,
+      "category_name": "Sequence, flow, and branching",
+      "element": "flow",
+      "before": {
+        "source": "Queries to the Rooms database",
+        "target": "Displays the query results to a table",
+        "source_id": "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49",
+        "target_id": "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598"
+      },
+      "after": null,
+      "detail": "flow removed (1x)",
+      "label": "unmatched",
+      "confidence": "high",
+      "needs_review": false,
+      "schema_version": "change-v1",
+      "change": {
+        "type": "DELETE_FLOW",
+        "legacy_type": "DELETE_FLOW",
+        "category": 3,
+        "category_name": "Sequence, flow, and branching",
+        "element": "flow",
+        "before": {
+          "source": "Queries to the Rooms database",
+          "target": "Displays the query results to a table",
+          "source_id": "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49",
+          "target_id": "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598"
+        },
+        "after": null,
+        "detail": "flow removed (1x)",
+        "label": "unmatched",
+        "confidence": "high",
+        "needs_review": false
+      },
+      "evidence": {
+        "alignment": [
+          {
+            "reference_node_id": "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49",
+            "variant_node_id": "Id_d5961c1f5718fbde",
+            "label": "identical",
+            "score": 1.0,
+            "reason": "exact normalised label",
+            "confidence": "high",
+            "needs_review": false
+          },
+          {
+            "reference_node_id": "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598",
+            "variant_node_id": "Id_e52e896036b105cf",
+            "label": "identical",
+            "score": 1.0,
+            "reason": "exact normalised label",
+            "confidence": "high",
+            "needs_review": false
+          }
+        ],
+        "structural_context": [
+          {
+            "reference": {
+              "node_id": "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49",
+              "predecessor_ids": [
+                "Id_1164e919-3f27-4d09-9a69-2a33a2e98847"
+              ],
+              "successor_ids": [
+                "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598"
+              ],
+              "in_degree": 1,
+              "out_degree": 1
+            },
+            "variant": {
+              "node_id": "Id_d5961c1f5718fbde",
+              "predecessor_ids": [
+                "Id_623aa990ac80758e"
+              ],
+              "successor_ids": [
+                "Id_013d7c2e46c25ecf"
+              ],
+              "in_degree": 1,
+              "out_degree": 1
+            },
+            "matched_neighbors": []
+          },
+          {
+            "reference": {
+              "node_id": "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598",
+              "predecessor_ids": [
+                "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49"
+              ],
+              "successor_ids": [
+                "Id_b210868a-cf5c-4157-b86e-b21d426d3851"
+              ],
+              "in_degree": 1,
+              "out_degree": 1
+            },
+            "variant": {
+              "node_id": "Id_e52e896036b105cf",
+              "predecessor_ids": [
+                "Id_013d7c2e46c25ecf"
+              ],
+              "successor_ids": [
+                "Id_d8800f04a9124134"
+              ],
+              "in_degree": 1,
+              "out_degree": 1
+            },
+            "matched_neighbors": [
+              {
+                "direction": "successor",
+                "reference_node_id": "Id_b210868a-cf5c-4157-b86e-b21d426d3851",
+                "variant_node_id": "Id_d8800f04a9124134"
+              }
+            ]
+          }
+        ],
+        "observations": [
+          {
+            "source": "alignment",
+            "description": "exact normalised label"
+          },
+          {
+            "source": "alignment",
+            "description": "exact normalised label"
+          },
+          {
+            "source": "graph",
+            "description": "Direct predecessor and successor context for aligned nodes."
+          },
+          {
+            "source": "graph",
+            "description": "flow removed (1x)",
+            "value": {
+              "before": {
+                "source": "Queries to the Rooms database",
+                "target": "Displays the query results to a table",
+                "source_id": "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49",
+                "target_id": "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598"
+              },
+              "after": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "op": "FLOW_CONDITION_CHANGE",
+      "legacy_op": "FLOW_CONDITION_CHANGE",
+      "category": 3,
+      "category_name": "Sequence, flow, and branching",
+      "element": "flow",
+      "before": {
+        "condition": "",
+        "is_default": false,
+        "source": "Wants Looking for room data",
+        "target": "Reads the Room database",
+        "source_id": "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7",
+        "target_id": "Id_baf5345e-3bb0-4235-bb5f-c58fa8217646"
+      },
+      "after": {
+        "condition": "amount > 2",
+        "is_default": false,
+        "source": "Wants Looking for room data",
+        "target": "Reads the Room database",
+        "source_id": "Id_85024e925eae6afe",
+        "target_id": "Id_e97a6e3065c72124"
+      },
+      "detail": "condition: \"\" -> \"amount > 2\"",
+      "confidence": "high",
+      "needs_review": false,
+      "schema_version": "change-v1",
+      "change": {
+        "type": "FLOW_CONDITION_CHANGE",
+        "legacy_type": "FLOW_CONDITION_CHANGE",
+        "category": 3,
+        "category_name": "Sequence, flow, and branching",
+        "element": "flow",
+        "before": {
+          "condition": "",
+          "is_default": false,
+          "source": "Wants Looking for room data",
+          "target": "Reads the Room database",
+          "source_id": "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7",
+          "target_id": "Id_baf5345e-3bb0-4235-bb5f-c58fa8217646"
+        },
+        "after": {
+          "condition": "amount > 2",
+          "is_default": false,
+          "source": "Wants Looking for room data",
+          "target": "Reads the Room database",
+          "source_id": "Id_85024e925eae6afe",
+          "target_id": "Id_e97a6e3065c72124"
+        },
+        "detail": "condition: \"\" -> \"amount > 2\"",
+        "confidence": "high",
+        "needs_review": false
+      },
+      "evidence": {
+        "alignment": [
+          {
+            "reference_node_id": "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7",
+            "variant_node_id": "Id_85024e925eae6afe",
+            "label": "identical",
+            "score": 1.0,
+            "reason": "exact normalised label",
+            "confidence": "high",
+            "needs_review": false
+          },
+          {
+            "reference_node_id": "Id_baf5345e-3bb0-4235-bb5f-c58fa8217646",
+            "variant_node_id": "Id_e97a6e3065c72124",
+            "label": "identical",
+            "score": 1.0,
+            "reason": "exact normalised label",
+            "confidence": "high",
+            "needs_review": false
+          }
+        ],
+        "structural_context": [
+          {
+            "reference": {
+              "node_id": "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7",
+              "predecessor_ids": [
+                "Id_92cb515c-ae81-4364-a587-772f1bcc50f5"
+              ],
+              "successor_ids": [
+                "Id_baf5345e-3bb0-4235-bb5f-c58fa8217646"
+              ],
+              "in_degree": 1,
+              "out_degree": 1
+            },
+            "variant": {
+              "node_id": "Id_85024e925eae6afe",
+              "predecessor_ids": [
+                "Id_9faee3ebd630675e"
+              ],
+              "successor_ids": [
+                "Id_e97a6e3065c72124"
+              ],
+              "in_degree": 1,
+              "out_degree": 1
+            },
+            "matched_neighbors": [
+              {
+                "direction": "predecessor",
+                "reference_node_id": "Id_92cb515c-ae81-4364-a587-772f1bcc50f5",
+                "variant_node_id": "Id_9faee3ebd630675e"
+              },
+              {
+                "direction": "successor",
+                "reference_node_id": "Id_baf5345e-3bb0-4235-bb5f-c58fa8217646",
+                "variant_node_id": "Id_e97a6e3065c72124"
+              }
+            ]
+          },
+          {
+            "reference": {
+              "node_id": "Id_baf5345e-3bb0-4235-bb5f-c58fa8217646",
+              "predecessor_ids": [
+                "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7"
+              ],
+              "successor_ids": [
+                "Id_b95890b5-92e4-432a-b709-a96b40733427"
+              ],
+              "in_degree": 1,
+              "out_degree": 1
+            },
+            "variant": {
+              "node_id": "Id_e97a6e3065c72124",
+              "predecessor_ids": [
+                "Id_85024e925eae6afe"
+              ],
+              "successor_ids": [
+                "Id_623aa990ac80758e"
+              ],
+              "in_degree": 1,
+              "out_degree": 1
+            },
+            "matched_neighbors": [
+              {
+                "direction": "predecessor",
+                "reference_node_id": "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7",
+                "variant_node_id": "Id_85024e925eae6afe"
+              },
+              {
+                "direction": "successor",
+                "reference_node_id": "Id_b95890b5-92e4-432a-b709-a96b40733427",
+                "variant_node_id": "Id_623aa990ac80758e"
+              }
+            ]
+          }
+        ],
+        "observations": [
+          {
+            "source": "alignment",
+            "description": "exact normalised label"
+          },
+          {
+            "source": "alignment",
+            "description": "exact normalised label"
+          },
+          {
+            "source": "graph",
+            "description": "Direct predecessor and successor context for aligned nodes."
+          },
+          {
+            "source": "graph",
+            "description": "condition: \"\" -> \"amount > 2\"",
+            "value": {
+              "before": {
+                "condition": "",
+                "is_default": false,
+                "source": "Wants Looking for room data",
+                "target": "Reads the Room database",
+                "source_id": "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7",
+                "target_id": "Id_baf5345e-3bb0-4235-bb5f-c58fa8217646"
+              },
+              "after": {
+                "condition": "amount > 2",
+                "is_default": false,
+                "source": "Wants Looking for room data",
+                "target": "Reads the Room database",
+                "source_id": "Id_85024e925eae6afe",
+                "target_id": "Id_e97a6e3065c72124"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "op": "INSERT_FLOW",
+      "legacy_op": "INSERT_FLOW",
+      "category": 3,
+      "category_name": "Sequence, flow, and branching",
+      "element": "flow",
+      "before": null,
+      "after": {
+        "source": "Adds verification step 2",
+        "target": "Displays the query results to a table",
+        "source_id": "Id_013d7c2e46c25ecf",
+        "target_id": "Id_e52e896036b105cf"
+      },
+      "detail": "flow added (1x)",
+      "label": "unmatched",
+      "confidence": "high",
+      "needs_review": false,
+      "schema_version": "change-v1",
+      "change": {
+        "type": "INSERT_FLOW",
+        "legacy_type": "INSERT_FLOW",
+        "category": 3,
+        "category_name": "Sequence, flow, and branching",
+        "element": "flow",
+        "before": null,
+        "after": {
+          "source": "Adds verification step 2",
+          "target": "Displays the query results to a table",
+          "source_id": "Id_013d7c2e46c25ecf",
+          "target_id": "Id_e52e896036b105cf"
+        },
+        "detail": "flow added (1x)",
+        "label": "unmatched",
+        "confidence": "high",
+        "needs_review": false
+      },
+      "evidence": {
+        "alignment": [
+          {
+            "reference_node_id": null,
+            "variant_node_id": "Id_013d7c2e46c25ecf",
+            "label": "unmatched",
+            "score": 0.0,
+            "reason": "",
+            "confidence": "high",
+            "needs_review": false
+          },
+          {
+            "reference_node_id": "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598",
+            "variant_node_id": "Id_e52e896036b105cf",
+            "label": "identical",
+            "score": 1.0,
+            "reason": "exact normalised label",
+            "confidence": "high",
+            "needs_review": false
+          }
+        ],
+        "structural_context": [
+          {
+            "reference": null,
+            "variant": {
+              "node_id": "Id_013d7c2e46c25ecf",
+              "predecessor_ids": [
+                "Id_d5961c1f5718fbde"
+              ],
+              "successor_ids": [
+                "Id_e52e896036b105cf"
+              ],
+              "in_degree": 1,
+              "out_degree": 1
+            },
+            "matched_neighbors": []
+          },
+          {
+            "reference": {
+              "node_id": "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598",
+              "predecessor_ids": [
+                "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49"
+              ],
+              "successor_ids": [
+                "Id_b210868a-cf5c-4157-b86e-b21d426d3851"
+              ],
+              "in_degree": 1,
+              "out_degree": 1
+            },
+            "variant": {
+              "node_id": "Id_e52e896036b105cf",
+              "predecessor_ids": [
+                "Id_013d7c2e46c25ecf"
+              ],
+              "successor_ids": [
+                "Id_d8800f04a9124134"
+              ],
+              "in_degree": 1,
+              "out_degree": 1
+            },
+            "matched_neighbors": [
+              {
+                "direction": "successor",
+                "reference_node_id": "Id_b210868a-cf5c-4157-b86e-b21d426d3851",
+                "variant_node_id": "Id_d8800f04a9124134"
+              }
+            ]
+          }
+        ],
+        "observations": [
+          {
+            "source": "alignment",
+            "description": "Alignment label: unmatched."
+          },
+          {
+            "source": "alignment",
+            "description": "exact normalised label"
+          },
+          {
+            "source": "graph",
+            "description": "Direct predecessor and successor context for aligned nodes."
+          },
+          {
+            "source": "graph",
+            "description": "flow added (1x)",
+            "value": {
+              "before": null,
+              "after": {
+                "source": "Adds verification step 2",
+                "target": "Displays the query results to a table",
+                "source_id": "Id_013d7c2e46c25ecf",
+                "target_id": "Id_e52e896036b105cf"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "op": "INSERT_FLOW",
+      "legacy_op": "INSERT_FLOW",
+      "category": 3,
+      "category_name": "Sequence, flow, and branching",
+      "element": "flow",
+      "before": null,
+      "after": {
+        "source": "Displays the Looking for room data form",
+        "target": "Queries to the Rooms database",
+        "source_id": "Id_623aa990ac80758e",
+        "target_id": "Id_d5961c1f5718fbde"
+      },
+      "detail": "flow added (1x)",
+      "label": "unmatched",
+      "confidence": "high",
+      "needs_review": false,
+      "schema_version": "change-v1",
+      "change": {
+        "type": "INSERT_FLOW",
+        "legacy_type": "INSERT_FLOW",
+        "category": 3,
+        "category_name": "Sequence, flow, and branching",
+        "element": "flow",
+        "before": null,
+        "after": {
+          "source": "Displays the Looking for room data form",
+          "target": "Queries to the Rooms database",
+          "source_id": "Id_623aa990ac80758e",
+          "target_id": "Id_d5961c1f5718fbde"
+        },
+        "detail": "flow added (1x)",
+        "label": "unmatched",
+        "confidence": "high",
+        "needs_review": false
+      },
+      "evidence": {
+        "alignment": [
+          {
+            "reference_node_id": "Id_b95890b5-92e4-432a-b709-a96b40733427",
+            "variant_node_id": "Id_623aa990ac80758e",
+            "label": "identical",
+            "score": 1.0,
+            "reason": "exact normalised label",
+            "confidence": "high",
+            "needs_review": false
+          },
+          {
+            "reference_node_id": "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49",
+            "variant_node_id": "Id_d5961c1f5718fbde",
+            "label": "identical",
+            "score": 1.0,
+            "reason": "exact normalised label",
+            "confidence": "high",
+            "needs_review": false
+          }
+        ],
+        "structural_context": [
+          {
+            "reference": {
+              "node_id": "Id_b95890b5-92e4-432a-b709-a96b40733427",
+              "predecessor_ids": [
+                "Id_baf5345e-3bb0-4235-bb5f-c58fa8217646"
+              ],
+              "successor_ids": [
+                "Id_1164e919-3f27-4d09-9a69-2a33a2e98847"
+              ],
+              "in_degree": 1,
+              "out_degree": 1
+            },
+            "variant": {
+              "node_id": "Id_623aa990ac80758e",
+              "predecessor_ids": [
+                "Id_e97a6e3065c72124"
+              ],
+              "successor_ids": [
+                "Id_d5961c1f5718fbde"
+              ],
+              "in_degree": 1,
+              "out_degree": 1
+            },
+            "matched_neighbors": [
+              {
+                "direction": "predecessor",
+                "reference_node_id": "Id_baf5345e-3bb0-4235-bb5f-c58fa8217646",
+                "variant_node_id": "Id_e97a6e3065c72124"
+              }
+            ]
+          },
+          {
+            "reference": {
+              "node_id": "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49",
+              "predecessor_ids": [
+                "Id_1164e919-3f27-4d09-9a69-2a33a2e98847"
+              ],
+              "successor_ids": [
+                "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598"
+              ],
+              "in_degree": 1,
+              "out_degree": 1
+            },
+            "variant": {
+              "node_id": "Id_d5961c1f5718fbde",
+              "predecessor_ids": [
+                "Id_623aa990ac80758e"
+              ],
+              "successor_ids": [
+                "Id_013d7c2e46c25ecf"
+              ],
+              "in_degree": 1,
+              "out_degree": 1
+            },
+            "matched_neighbors": []
+          }
+        ],
+        "observations": [
+          {
+            "source": "alignment",
+            "description": "exact normalised label"
+          },
+          {
+            "source": "alignment",
+            "description": "exact normalised label"
+          },
+          {
+            "source": "graph",
+            "description": "Direct predecessor and successor context for aligned nodes."
+          },
+          {
+            "source": "graph",
+            "description": "flow added (1x)",
+            "value": {
+              "before": null,
+              "after": {
+                "source": "Displays the Looking for room data form",
+                "target": "Queries to the Rooms database",
+                "source_id": "Id_623aa990ac80758e",
+                "target_id": "Id_d5961c1f5718fbde"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "op": "INSERT_FLOW",
+      "legacy_op": "INSERT_FLOW",
+      "category": 3,
+      "category_name": "Sequence, flow, and branching",
+      "element": "flow",
+      "before": null,
+      "after": {
+        "source": "Queries to the Rooms database",
+        "target": "Adds verification step 2",
+        "source_id": "Id_d5961c1f5718fbde",
+        "target_id": "Id_013d7c2e46c25ecf"
+      },
+      "detail": "flow added (1x)",
+      "label": "unmatched",
+      "confidence": "high",
+      "needs_review": false,
+      "schema_version": "change-v1",
+      "change": {
+        "type": "INSERT_FLOW",
+        "legacy_type": "INSERT_FLOW",
+        "category": 3,
+        "category_name": "Sequence, flow, and branching",
+        "element": "flow",
+        "before": null,
+        "after": {
+          "source": "Queries to the Rooms database",
+          "target": "Adds verification step 2",
+          "source_id": "Id_d5961c1f5718fbde",
+          "target_id": "Id_013d7c2e46c25ecf"
+        },
+        "detail": "flow added (1x)",
+        "label": "unmatched",
+        "confidence": "high",
+        "needs_review": false
+      },
+      "evidence": {
+        "alignment": [
+          {
+            "reference_node_id": "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49",
+            "variant_node_id": "Id_d5961c1f5718fbde",
+            "label": "identical",
+            "score": 1.0,
+            "reason": "exact normalised label",
+            "confidence": "high",
+            "needs_review": false
+          },
+          {
+            "reference_node_id": null,
+            "variant_node_id": "Id_013d7c2e46c25ecf",
+            "label": "unmatched",
+            "score": 0.0,
+            "reason": "",
+            "confidence": "high",
+            "needs_review": false
+          }
+        ],
+        "structural_context": [
+          {
+            "reference": {
+              "node_id": "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49",
+              "predecessor_ids": [
+                "Id_1164e919-3f27-4d09-9a69-2a33a2e98847"
+              ],
+              "successor_ids": [
+                "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598"
+              ],
+              "in_degree": 1,
+              "out_degree": 1
+            },
+            "variant": {
+              "node_id": "Id_d5961c1f5718fbde",
+              "predecessor_ids": [
+                "Id_623aa990ac80758e"
+              ],
+              "successor_ids": [
+                "Id_013d7c2e46c25ecf"
+              ],
+              "in_degree": 1,
+              "out_degree": 1
+            },
+            "matched_neighbors": []
+          },
+          {
+            "reference": null,
+            "variant": {
+              "node_id": "Id_013d7c2e46c25ecf",
+              "predecessor_ids": [
+                "Id_d5961c1f5718fbde"
+              ],
+              "successor_ids": [
+                "Id_e52e896036b105cf"
+              ],
+              "in_degree": 1,
+              "out_degree": 1
+            },
+            "matched_neighbors": []
+          }
+        ],
+        "observations": [
+          {
+            "source": "alignment",
+            "description": "exact normalised label"
+          },
+          {
+            "source": "alignment",
+            "description": "Alignment label: unmatched."
+          },
+          {
+            "source": "graph",
+            "description": "Direct predecessor and successor context for aligned nodes."
+          },
+          {
+            "source": "graph",
+            "description": "flow added (1x)",
+            "value": {
+              "before": null,
+              "after": {
+                "source": "Queries to the Rooms database",
+                "target": "Adds verification step 2",
+                "source_id": "Id_d5961c1f5718fbde",
+                "target_id": "Id_013d7c2e46c25ecf"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "op": "DATA_CHANGE",
+      "legacy_op": "DATA_CHANGE",
+      "category": 5,
+      "category_name": "Data and cross-pool communication",
+      "element": "data",
+      "before": null,
+      "after": {
+        "id": "Id_fd08637a54801b5f",
+        "name": "Audit log 2",
+        "kind": "data_object",
+        "connected_nodes": []
+      },
+      "detail": "data object added: \"Audit log 2\"",
+      "confidence": "high",
+      "needs_review": false,
+      "schema_version": "change-v1",
+      "change": {
+        "type": "DATA_CHANGE",
+        "legacy_type": "DATA_CHANGE",
+        "category": 5,
+        "category_name": "Data and cross-pool communication",
+        "element": "data",
+        "before": null,
+        "after": {
+          "id": "Id_fd08637a54801b5f",
+          "name": "Audit log 2",
+          "kind": "data_object",
+          "connected_nodes": []
+        },
+        "detail": "data object added: \"Audit log 2\"",
+        "confidence": "high",
+        "needs_review": false
+      },
+      "evidence": {
+        "alignment": [],
+        "structural_context": [],
+        "observations": [
+          {
+            "source": "data",
+            "description": "data object added: \"Audit log 2\"",
+            "value": {
+              "before": null,
+              "after": {
+                "id": "Id_fd08637a54801b5f",
+                "name": "Audit log 2",
+                "kind": "data_object",
+                "connected_nodes": []
+              }
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "ground_truth_operations": [
+    {
+      "schema_version": "change-v1",
+      "change": {
+        "type": "DELETE_NODE",
+        "legacy_type": "DELETE",
+        "category": 1,
+        "category_name": "Steps (tasks and events)",
+        "element": "node",
+        "before": {
+          "id": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+          "name": "Selects the room category",
+          "kind": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "lane": "FO",
+          "pool": "Looking for room data"
+        },
+        "after": null,
+        "detail": "removed task: Selects the room category",
+        "confidence": "high",
+        "needs_review": false,
+        "label": "unmatched"
+      },
+      "evidence": {
+        "alignment": [],
+        "structural_context": [],
+        "observations": [
+          {
+            "source": "operation",
+            "description": "removed task: Selects the room category",
+            "value": {
+              "before": {
+                "id": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+                "name": "Selects the room category",
+                "kind": "task",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "none",
+                "lane": "FO",
+                "pool": "Looking for room data"
+              },
+              "after": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "schema_version": "change-v1",
+      "change": {
+        "type": "INSERT_NODE",
+        "legacy_type": "INSERT",
+        "category": 1,
+        "category_name": "Steps (tasks and events)",
+        "element": "node",
+        "before": null,
+        "after": {
+          "id": "Id_013d7c2e46c25ecf",
+          "name": "Adds verification step 2",
+          "kind": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "lane": "System",
+          "pool": "Looking for room data"
+        },
+        "detail": "added task: Adds verification step 2",
+        "confidence": "high",
+        "needs_review": false,
+        "label": "unmatched"
+      },
+      "evidence": {
+        "alignment": [],
+        "structural_context": [],
+        "observations": [
+          {
+            "source": "operation",
+            "description": "added task: Adds verification step 2",
+            "value": {
+              "before": null,
+              "after": {
+                "id": "Id_013d7c2e46c25ecf",
+                "name": "Adds verification step 2",
+                "kind": "task",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "none",
+                "lane": "System",
+                "pool": "Looking for room data"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "schema_version": "change-v1",
+      "change": {
+        "type": "DELETE_FLOW",
+        "legacy_type": "DELETE_FLOW",
+        "category": 3,
+        "category_name": "Sequence, flow, and branching",
+        "element": "flow",
+        "before": {
+          "source": "Queries to the Rooms database",
+          "target": "Displays the query results to a table",
+          "source_id": "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49",
+          "target_id": "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598",
+          "condition": "",
+          "is_default": false
+        },
+        "after": null,
+        "detail": "flow removed from \"Queries to the Rooms database\" to \"Displays the query results to a table\" (1x)",
+        "confidence": "high",
+        "needs_review": false,
+        "label": "unmatched"
+      },
+      "evidence": {
+        "alignment": [],
+        "structural_context": [],
+        "observations": [
+          {
+            "source": "operation",
+            "description": "flow removed from \"Queries to the Rooms database\" to \"Displays the query results to a table\" (1x)",
+            "value": {
+              "before": {
+                "source": "Queries to the Rooms database",
+                "target": "Displays the query results to a table",
+                "source_id": "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49",
+                "target_id": "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598",
+                "condition": "",
+                "is_default": false
+              },
+              "after": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "schema_version": "change-v1",
+      "change": {
+        "type": "FLOW_CONDITION_CHANGE",
+        "legacy_type": "FLOW_CONDITION_CHANGE",
+        "category": 3,
+        "category_name": "Sequence, flow, and branching",
+        "element": "flow",
+        "before": {
+          "source": "Wants Looking for room data",
+          "target": "Reads the Room database",
+          "source_id": "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7",
+          "target_id": "Id_baf5345e-3bb0-4235-bb5f-c58fa8217646",
+          "condition": "",
+          "is_default": false
+        },
+        "after": {
+          "source": "Wants Looking for room data",
+          "target": "Reads the Room database",
+          "source_id": "Id_85024e925eae6afe",
+          "target_id": "Id_e97a6e3065c72124",
+          "condition": "amount > 2",
+          "is_default": false
+        },
+        "detail": "condition: \"\" -> \"amount > 2\"",
+        "confidence": "high",
+        "needs_review": false
+      },
+      "evidence": {
+        "alignment": [],
+        "structural_context": [],
+        "observations": [
+          {
+            "source": "operation",
+            "description": "condition: \"\" -> \"amount > 2\"",
+            "value": {
+              "before": {
+                "source": "Wants Looking for room data",
+                "target": "Reads the Room database",
+                "source_id": "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7",
+                "target_id": "Id_baf5345e-3bb0-4235-bb5f-c58fa8217646",
+                "condition": "",
+                "is_default": false
+              },
+              "after": {
+                "source": "Wants Looking for room data",
+                "target": "Reads the Room database",
+                "source_id": "Id_85024e925eae6afe",
+                "target_id": "Id_e97a6e3065c72124",
+                "condition": "amount > 2",
+                "is_default": false
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "schema_version": "change-v1",
+      "change": {
+        "type": "INSERT_FLOW",
+        "legacy_type": "INSERT_FLOW",
+        "category": 3,
+        "category_name": "Sequence, flow, and branching",
+        "element": "flow",
+        "before": null,
+        "after": {
+          "source": "Adds verification step 2",
+          "target": "Displays the query results to a table",
+          "source_id": "Id_013d7c2e46c25ecf",
+          "target_id": "Id_e52e896036b105cf",
+          "condition": "",
+          "is_default": false
+        },
+        "detail": "flow added from \"Adds verification step 2\" to \"Displays the query results to a table\" (1x)",
+        "confidence": "high",
+        "needs_review": false,
+        "label": "unmatched"
+      },
+      "evidence": {
+        "alignment": [],
+        "structural_context": [],
+        "observations": [
+          {
+            "source": "operation",
+            "description": "flow added from \"Adds verification step 2\" to \"Displays the query results to a table\" (1x)",
+            "value": {
+              "before": null,
+              "after": {
+                "source": "Adds verification step 2",
+                "target": "Displays the query results to a table",
+                "source_id": "Id_013d7c2e46c25ecf",
+                "target_id": "Id_e52e896036b105cf",
+                "condition": "",
+                "is_default": false
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "schema_version": "change-v1",
+      "change": {
+        "type": "INSERT_FLOW",
+        "legacy_type": "INSERT_FLOW",
+        "category": 3,
+        "category_name": "Sequence, flow, and branching",
+        "element": "flow",
+        "before": null,
+        "after": {
+          "source": "Displays the Looking for room data form",
+          "target": "Queries to the Rooms database",
+          "source_id": "Id_623aa990ac80758e",
+          "target_id": "Id_d5961c1f5718fbde",
+          "condition": "",
+          "is_default": false
+        },
+        "detail": "flow added from \"Displays the Looking for room data form\" to \"Queries to the Rooms database\" (1x)",
+        "confidence": "high",
+        "needs_review": false,
+        "label": "unmatched"
+      },
+      "evidence": {
+        "alignment": [],
+        "structural_context": [],
+        "observations": [
+          {
+            "source": "operation",
+            "description": "flow added from \"Displays the Looking for room data form\" to \"Queries to the Rooms database\" (1x)",
+            "value": {
+              "before": null,
+              "after": {
+                "source": "Displays the Looking for room data form",
+                "target": "Queries to the Rooms database",
+                "source_id": "Id_623aa990ac80758e",
+                "target_id": "Id_d5961c1f5718fbde",
+                "condition": "",
+                "is_default": false
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "schema_version": "change-v1",
+      "change": {
+        "type": "INSERT_FLOW",
+        "legacy_type": "INSERT_FLOW",
+        "category": 3,
+        "category_name": "Sequence, flow, and branching",
+        "element": "flow",
+        "before": null,
+        "after": {
+          "source": "Queries to the Rooms database",
+          "target": "Adds verification step 2",
+          "source_id": "Id_d5961c1f5718fbde",
+          "target_id": "Id_013d7c2e46c25ecf",
+          "condition": "",
+          "is_default": false
+        },
+        "detail": "flow added from \"Queries to the Rooms database\" to \"Adds verification step 2\" (1x)",
+        "confidence": "high",
+        "needs_review": false,
+        "label": "unmatched"
+      },
+      "evidence": {
+        "alignment": [],
+        "structural_context": [],
+        "observations": [
+          {
+            "source": "operation",
+            "description": "flow added from \"Queries to the Rooms database\" to \"Adds verification step 2\" (1x)",
+            "value": {
+              "before": null,
+              "after": {
+                "source": "Queries to the Rooms database",
+                "target": "Adds verification step 2",
+                "source_id": "Id_d5961c1f5718fbde",
+                "target_id": "Id_013d7c2e46c25ecf",
+                "condition": "",
+                "is_default": false
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "schema_version": "change-v1",
+      "change": {
+        "type": "DATA_CHANGE",
+        "legacy_type": "DATA_CHANGE",
+        "category": 5,
+        "category_name": "Data and cross-pool communication",
+        "element": "data",
+        "before": null,
+        "after": {
+          "id": "Id_fd08637a54801b5f",
+          "name": "Audit log 2",
+          "kind": "data_object",
+          "connected_nodes": []
+        },
+        "detail": "data object added: \"Audit log 2\"",
+        "confidence": "high",
+        "needs_review": false
+      },
+      "evidence": {
+        "alignment": [],
+        "structural_context": [],
+        "observations": [
+          {
+            "source": "operation",
+            "description": "data object added: \"Audit log 2\"",
+            "value": {
+              "before": null,
+              "after": {
+                "id": "Id_fd08637a54801b5f",
+                "name": "Audit log 2",
+                "kind": "data_object",
+                "connected_nodes": []
+              }
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "comparison": {
+    "mode": "A",
+    "alignment_strategy": "hybrid",
+    "reference": {
+      "id": "Id_5131e569-49e0-41c1-9c14-3898e24a35bc",
+      "name": "reference.bpmn",
+      "source": "/home/mendoan/Projects/bpmndiff/dataset/synthetic/57/reference.bpmn",
+      "format": "bpmn",
+      "pool": "Looking for room data",
+      "stats": {
+        "nodes": 8,
+        "edges": 7,
+        "tasks": 6,
+        "gateways": 0,
+        "events": 2,
+        "lanes": 2,
+        "message_flows": 0,
+        "data_elements": 7
+      }
+    },
+    "variant": {
+      "id": "Id_7b0a7c8ed62537b7",
+      "name": "k4_newids.bpmn",
+      "source": "/home/mendoan/Projects/bpmndiff/dataset/synthetic/57/k4_newids.bpmn",
+      "format": "bpmn",
+      "pool": "Looking for room data",
+      "stats": {
+        "nodes": 8,
+        "edges": 7,
+        "tasks": 6,
+        "gateways": 0,
+        "events": 2,
+        "lanes": 2,
+        "message_flows": 0,
+        "data_elements": 8
+      }
+    },
+    "alignment": {
+      "counts": {
+        "identical": 7,
+        "synonym": 0,
+        "meaning_changed": 0,
+        "unmatched": 2,
+        "matched": 7,
+        "needs_review": 0
+      },
+      "pairs": [
+        {
+          "a": "Displays the Looking for room data form",
+          "b": "Displays the Looking for room data form",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "exact normalised label",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_b95890b5-92e4-432a-b709-a96b40733427",
+          "b_id": "Id_623aa990ac80758e"
+        },
+        {
+          "a": "Displays the query results to a table",
+          "b": "Displays the query results to a table",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "exact normalised label",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598",
+          "b_id": "Id_e52e896036b105cf"
+        },
+        {
+          "a": "Queries to the Rooms database",
+          "b": "Queries to the Rooms database",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "exact normalised label",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49",
+          "b_id": "Id_d5961c1f5718fbde"
+        },
+        {
+          "a": "Reads the Room database",
+          "b": "Reads the Room database",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "exact normalised label",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_baf5345e-3bb0-4235-bb5f-c58fa8217646",
+          "b_id": "Id_e97a6e3065c72124"
+        },
+        {
+          "a": "Wants Looking for room data",
+          "b": "Wants Looking for room data",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "exact normalised label",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7",
+          "b_id": "Id_85024e925eae6afe"
+        },
+        {
+          "a": "<start event>",
+          "b": "<start event>",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "structural context 1.00, degree 1.00",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_92cb515c-ae81-4364-a587-772f1bcc50f5",
+          "b_id": "Id_9faee3ebd630675e"
+        },
+        {
+          "a": "<end event>",
+          "b": "<end event>",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "structural context 1.00, degree 1.00",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_b210868a-cf5c-4157-b86e-b21d426d3851",
+          "b_id": "Id_d8800f04a9124134"
+        },
+        {
+          "a": "Selects the room category",
+          "b": null,
+          "label": "unmatched",
+          "score": 0.0,
+          "reason": "",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847"
+        },
+        {
+          "a": null,
+          "b": "Adds verification step 2",
+          "label": "unmatched",
+          "score": 0.0,
+          "reason": "",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "b_id": "Id_013d7c2e46c25ecf"
+        }
+      ]
+    },
+    "change_schema_version": "change-v1",
+    "operations": [
+      {
+        "op": "DELETE_NODE",
+        "legacy_op": "DELETE",
+        "category": 1,
+        "category_name": "Steps (tasks and events)",
+        "element": "node",
+        "before": {
+          "id": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+          "name": "Selects the room category",
+          "kind": "task",
+          "kind_label": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "attached_to": null,
+          "cancel_activity": true,
+          "lane": "FO",
+          "pool": "Looking for room data"
+        },
+        "after": null,
+        "detail": "removed task",
+        "label": "unmatched",
+        "confidence": "high",
+        "needs_review": false,
+        "schema_version": "change-v1",
+        "change": {
+          "type": "DELETE_NODE",
+          "legacy_type": "DELETE",
+          "category": 1,
+          "category_name": "Steps (tasks and events)",
+          "element": "node",
+          "before": {
+            "id": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+            "name": "Selects the room category",
+            "kind": "task",
+            "kind_label": "task",
+            "task_type": "abstract",
+            "event_definition": "none",
+            "marker": "none",
+            "attached_to": null,
+            "cancel_activity": true,
+            "lane": "FO",
+            "pool": "Looking for room data"
+          },
+          "after": null,
+          "detail": "removed task",
+          "label": "unmatched",
+          "confidence": "high",
+          "needs_review": false
+        },
+        "evidence": {
+          "alignment": [
+            {
+              "reference_node_id": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+              "variant_node_id": null,
+              "label": "unmatched",
+              "score": 0.0,
+              "reason": "",
+              "confidence": "high",
+              "needs_review": false
+            }
+          ],
+          "structural_context": [
+            {
+              "reference": {
+                "node_id": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+                "predecessor_ids": [
+                  "Id_b95890b5-92e4-432a-b709-a96b40733427"
+                ],
+                "successor_ids": [
+                  "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49"
+                ],
+                "in_degree": 1,
+                "out_degree": 1
+              },
+              "variant": null,
+              "matched_neighbors": []
+            }
+          ],
+          "observations": [
+            {
+              "source": "alignment",
+              "description": "Alignment label: unmatched."
+            },
+            {
+              "source": "graph",
+              "description": "Direct predecessor and successor context for aligned nodes."
+            },
+            {
+              "source": "operation",
+              "description": "removed task",
+              "value": {
+                "before": {
+                  "id": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+                  "name": "Selects the room category",
+                  "kind": "task",
+                  "kind_label": "task",
+                  "task_type": "abstract",
+                  "event_definition": "none",
+                  "marker": "none",
+                  "attached_to": null,
+                  "cancel_activity": true,
+                  "lane": "FO",
+                  "pool": "Looking for room data"
+                },
+                "after": null
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "INSERT_NODE",
+        "legacy_op": "INSERT",
+        "category": 1,
+        "category_name": "Steps (tasks and events)",
+        "element": "node",
+        "before": null,
+        "after": {
+          "id": "Id_013d7c2e46c25ecf",
+          "name": "Adds verification step 2",
+          "kind": "task",
+          "kind_label": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "attached_to": null,
+          "cancel_activity": true,
+          "lane": "System",
+          "pool": "Looking for room data"
+        },
+        "detail": "added task",
+        "label": "unmatched",
+        "confidence": "high",
+        "needs_review": false,
+        "schema_version": "change-v1",
+        "change": {
+          "type": "INSERT_NODE",
+          "legacy_type": "INSERT",
+          "category": 1,
+          "category_name": "Steps (tasks and events)",
+          "element": "node",
+          "before": null,
+          "after": {
+            "id": "Id_013d7c2e46c25ecf",
+            "name": "Adds verification step 2",
+            "kind": "task",
+            "kind_label": "task",
+            "task_type": "abstract",
+            "event_definition": "none",
+            "marker": "none",
+            "attached_to": null,
+            "cancel_activity": true,
+            "lane": "System",
+            "pool": "Looking for room data"
+          },
+          "detail": "added task",
+          "label": "unmatched",
+          "confidence": "high",
+          "needs_review": false
+        },
+        "evidence": {
+          "alignment": [
+            {
+              "reference_node_id": null,
+              "variant_node_id": "Id_013d7c2e46c25ecf",
+              "label": "unmatched",
+              "score": 0.0,
+              "reason": "",
+              "confidence": "high",
+              "needs_review": false
+            }
+          ],
+          "structural_context": [
+            {
+              "reference": null,
+              "variant": {
+                "node_id": "Id_013d7c2e46c25ecf",
+                "predecessor_ids": [
+                  "Id_d5961c1f5718fbde"
+                ],
+                "successor_ids": [
+                  "Id_e52e896036b105cf"
+                ],
+                "in_degree": 1,
+                "out_degree": 1
+              },
+              "matched_neighbors": []
+            }
+          ],
+          "observations": [
+            {
+              "source": "alignment",
+              "description": "Alignment label: unmatched."
+            },
+            {
+              "source": "graph",
+              "description": "Direct predecessor and successor context for aligned nodes."
+            },
+            {
+              "source": "operation",
+              "description": "added task",
+              "value": {
+                "before": null,
+                "after": {
+                  "id": "Id_013d7c2e46c25ecf",
+                  "name": "Adds verification step 2",
+                  "kind": "task",
+                  "kind_label": "task",
+                  "task_type": "abstract",
+                  "event_definition": "none",
+                  "marker": "none",
+                  "attached_to": null,
+                  "cancel_activity": true,
+                  "lane": "System",
+                  "pool": "Looking for room data"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "DELETE_FLOW",
+        "legacy_op": "DELETE_FLOW",
+        "category": 3,
+        "category_name": "Sequence, flow, and branching",
+        "element": "flow",
+        "before": {
+          "source": "Queries to the Rooms database",
+          "target": "Displays the query results to a table",
+          "source_id": "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49",
+          "target_id": "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598"
+        },
+        "after": null,
+        "detail": "flow removed (1x)",
+        "label": "unmatched",
+        "confidence": "high",
+        "needs_review": false,
+        "schema_version": "change-v1",
+        "change": {
+          "type": "DELETE_FLOW",
+          "legacy_type": "DELETE_FLOW",
+          "category": 3,
+          "category_name": "Sequence, flow, and branching",
+          "element": "flow",
+          "before": {
+            "source": "Queries to the Rooms database",
+            "target": "Displays the query results to a table",
+            "source_id": "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49",
+            "target_id": "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598"
+          },
+          "after": null,
+          "detail": "flow removed (1x)",
+          "label": "unmatched",
+          "confidence": "high",
+          "needs_review": false
+        },
+        "evidence": {
+          "alignment": [
+            {
+              "reference_node_id": "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49",
+              "variant_node_id": "Id_d5961c1f5718fbde",
+              "label": "identical",
+              "score": 1.0,
+              "reason": "exact normalised label",
+              "confidence": "high",
+              "needs_review": false
+            },
+            {
+              "reference_node_id": "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598",
+              "variant_node_id": "Id_e52e896036b105cf",
+              "label": "identical",
+              "score": 1.0,
+              "reason": "exact normalised label",
+              "confidence": "high",
+              "needs_review": false
+            }
+          ],
+          "structural_context": [
+            {
+              "reference": {
+                "node_id": "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49",
+                "predecessor_ids": [
+                  "Id_1164e919-3f27-4d09-9a69-2a33a2e98847"
+                ],
+                "successor_ids": [
+                  "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598"
+                ],
+                "in_degree": 1,
+                "out_degree": 1
+              },
+              "variant": {
+                "node_id": "Id_d5961c1f5718fbde",
+                "predecessor_ids": [
+                  "Id_623aa990ac80758e"
+                ],
+                "successor_ids": [
+                  "Id_013d7c2e46c25ecf"
+                ],
+                "in_degree": 1,
+                "out_degree": 1
+              },
+              "matched_neighbors": []
+            },
+            {
+              "reference": {
+                "node_id": "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598",
+                "predecessor_ids": [
+                  "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49"
+                ],
+                "successor_ids": [
+                  "Id_b210868a-cf5c-4157-b86e-b21d426d3851"
+                ],
+                "in_degree": 1,
+                "out_degree": 1
+              },
+              "variant": {
+                "node_id": "Id_e52e896036b105cf",
+                "predecessor_ids": [
+                  "Id_013d7c2e46c25ecf"
+                ],
+                "successor_ids": [
+                  "Id_d8800f04a9124134"
+                ],
+                "in_degree": 1,
+                "out_degree": 1
+              },
+              "matched_neighbors": [
+                {
+                  "direction": "successor",
+                  "reference_node_id": "Id_b210868a-cf5c-4157-b86e-b21d426d3851",
+                  "variant_node_id": "Id_d8800f04a9124134"
+                }
+              ]
+            }
+          ],
+          "observations": [
+            {
+              "source": "alignment",
+              "description": "exact normalised label"
+            },
+            {
+              "source": "alignment",
+              "description": "exact normalised label"
+            },
+            {
+              "source": "graph",
+              "description": "Direct predecessor and successor context for aligned nodes."
+            },
+            {
+              "source": "graph",
+              "description": "flow removed (1x)",
+              "value": {
+                "before": {
+                  "source": "Queries to the Rooms database",
+                  "target": "Displays the query results to a table",
+                  "source_id": "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49",
+                  "target_id": "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598"
+                },
+                "after": null
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "FLOW_CONDITION_CHANGE",
+        "legacy_op": "FLOW_CONDITION_CHANGE",
+        "category": 3,
+        "category_name": "Sequence, flow, and branching",
+        "element": "flow",
+        "before": {
+          "condition": "",
+          "is_default": false,
+          "source": "Wants Looking for room data",
+          "target": "Reads the Room database",
+          "source_id": "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7",
+          "target_id": "Id_baf5345e-3bb0-4235-bb5f-c58fa8217646"
+        },
+        "after": {
+          "condition": "amount > 2",
+          "is_default": false,
+          "source": "Wants Looking for room data",
+          "target": "Reads the Room database",
+          "source_id": "Id_85024e925eae6afe",
+          "target_id": "Id_e97a6e3065c72124"
+        },
+        "detail": "condition: \"\" -> \"amount > 2\"",
+        "confidence": "high",
+        "needs_review": false,
+        "schema_version": "change-v1",
+        "change": {
+          "type": "FLOW_CONDITION_CHANGE",
+          "legacy_type": "FLOW_CONDITION_CHANGE",
+          "category": 3,
+          "category_name": "Sequence, flow, and branching",
+          "element": "flow",
+          "before": {
+            "condition": "",
+            "is_default": false,
+            "source": "Wants Looking for room data",
+            "target": "Reads the Room database",
+            "source_id": "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7",
+            "target_id": "Id_baf5345e-3bb0-4235-bb5f-c58fa8217646"
+          },
+          "after": {
+            "condition": "amount > 2",
+            "is_default": false,
+            "source": "Wants Looking for room data",
+            "target": "Reads the Room database",
+            "source_id": "Id_85024e925eae6afe",
+            "target_id": "Id_e97a6e3065c72124"
+          },
+          "detail": "condition: \"\" -> \"amount > 2\"",
+          "confidence": "high",
+          "needs_review": false
+        },
+        "evidence": {
+          "alignment": [
+            {
+              "reference_node_id": "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7",
+              "variant_node_id": "Id_85024e925eae6afe",
+              "label": "identical",
+              "score": 1.0,
+              "reason": "exact normalised label",
+              "confidence": "high",
+              "needs_review": false
+            },
+            {
+              "reference_node_id": "Id_baf5345e-3bb0-4235-bb5f-c58fa8217646",
+              "variant_node_id": "Id_e97a6e3065c72124",
+              "label": "identical",
+              "score": 1.0,
+              "reason": "exact normalised label",
+              "confidence": "high",
+              "needs_review": false
+            }
+          ],
+          "structural_context": [
+            {
+              "reference": {
+                "node_id": "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7",
+                "predecessor_ids": [
+                  "Id_92cb515c-ae81-4364-a587-772f1bcc50f5"
+                ],
+                "successor_ids": [
+                  "Id_baf5345e-3bb0-4235-bb5f-c58fa8217646"
+                ],
+                "in_degree": 1,
+                "out_degree": 1
+              },
+              "variant": {
+                "node_id": "Id_85024e925eae6afe",
+                "predecessor_ids": [
+                  "Id_9faee3ebd630675e"
+                ],
+                "successor_ids": [
+                  "Id_e97a6e3065c72124"
+                ],
+                "in_degree": 1,
+                "out_degree": 1
+              },
+              "matched_neighbors": [
+                {
+                  "direction": "predecessor",
+                  "reference_node_id": "Id_92cb515c-ae81-4364-a587-772f1bcc50f5",
+                  "variant_node_id": "Id_9faee3ebd630675e"
+                },
+                {
+                  "direction": "successor",
+                  "reference_node_id": "Id_baf5345e-3bb0-4235-bb5f-c58fa8217646",
+                  "variant_node_id": "Id_e97a6e3065c72124"
+                }
+              ]
+            },
+            {
+              "reference": {
+                "node_id": "Id_baf5345e-3bb0-4235-bb5f-c58fa8217646",
+                "predecessor_ids": [
+                  "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7"
+                ],
+                "successor_ids": [
+                  "Id_b95890b5-92e4-432a-b709-a96b40733427"
+                ],
+                "in_degree": 1,
+                "out_degree": 1
+              },
+              "variant": {
+                "node_id": "Id_e97a6e3065c72124",
+                "predecessor_ids": [
+                  "Id_85024e925eae6afe"
+                ],
+                "successor_ids": [
+                  "Id_623aa990ac80758e"
+                ],
+                "in_degree": 1,
+                "out_degree": 1
+              },
+              "matched_neighbors": [
+                {
+                  "direction": "predecessor",
+                  "reference_node_id": "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7",
+                  "variant_node_id": "Id_85024e925eae6afe"
+                },
+                {
+                  "direction": "successor",
+                  "reference_node_id": "Id_b95890b5-92e4-432a-b709-a96b40733427",
+                  "variant_node_id": "Id_623aa990ac80758e"
+                }
+              ]
+            }
+          ],
+          "observations": [
+            {
+              "source": "alignment",
+              "description": "exact normalised label"
+            },
+            {
+              "source": "alignment",
+              "description": "exact normalised label"
+            },
+            {
+              "source": "graph",
+              "description": "Direct predecessor and successor context for aligned nodes."
+            },
+            {
+              "source": "graph",
+              "description": "condition: \"\" -> \"amount > 2\"",
+              "value": {
+                "before": {
+                  "condition": "",
+                  "is_default": false,
+                  "source": "Wants Looking for room data",
+                  "target": "Reads the Room database",
+                  "source_id": "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7",
+                  "target_id": "Id_baf5345e-3bb0-4235-bb5f-c58fa8217646"
+                },
+                "after": {
+                  "condition": "amount > 2",
+                  "is_default": false,
+                  "source": "Wants Looking for room data",
+                  "target": "Reads the Room database",
+                  "source_id": "Id_85024e925eae6afe",
+                  "target_id": "Id_e97a6e3065c72124"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "INSERT_FLOW",
+        "legacy_op": "INSERT_FLOW",
+        "category": 3,
+        "category_name": "Sequence, flow, and branching",
+        "element": "flow",
+        "before": null,
+        "after": {
+          "source": "Adds verification step 2",
+          "target": "Displays the query results to a table",
+          "source_id": "Id_013d7c2e46c25ecf",
+          "target_id": "Id_e52e896036b105cf"
+        },
+        "detail": "flow added (1x)",
+        "label": "unmatched",
+        "confidence": "high",
+        "needs_review": false,
+        "schema_version": "change-v1",
+        "change": {
+          "type": "INSERT_FLOW",
+          "legacy_type": "INSERT_FLOW",
+          "category": 3,
+          "category_name": "Sequence, flow, and branching",
+          "element": "flow",
+          "before": null,
+          "after": {
+            "source": "Adds verification step 2",
+            "target": "Displays the query results to a table",
+            "source_id": "Id_013d7c2e46c25ecf",
+            "target_id": "Id_e52e896036b105cf"
+          },
+          "detail": "flow added (1x)",
+          "label": "unmatched",
+          "confidence": "high",
+          "needs_review": false
+        },
+        "evidence": {
+          "alignment": [
+            {
+              "reference_node_id": null,
+              "variant_node_id": "Id_013d7c2e46c25ecf",
+              "label": "unmatched",
+              "score": 0.0,
+              "reason": "",
+              "confidence": "high",
+              "needs_review": false
+            },
+            {
+              "reference_node_id": "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598",
+              "variant_node_id": "Id_e52e896036b105cf",
+              "label": "identical",
+              "score": 1.0,
+              "reason": "exact normalised label",
+              "confidence": "high",
+              "needs_review": false
+            }
+          ],
+          "structural_context": [
+            {
+              "reference": null,
+              "variant": {
+                "node_id": "Id_013d7c2e46c25ecf",
+                "predecessor_ids": [
+                  "Id_d5961c1f5718fbde"
+                ],
+                "successor_ids": [
+                  "Id_e52e896036b105cf"
+                ],
+                "in_degree": 1,
+                "out_degree": 1
+              },
+              "matched_neighbors": []
+            },
+            {
+              "reference": {
+                "node_id": "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598",
+                "predecessor_ids": [
+                  "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49"
+                ],
+                "successor_ids": [
+                  "Id_b210868a-cf5c-4157-b86e-b21d426d3851"
+                ],
+                "in_degree": 1,
+                "out_degree": 1
+              },
+              "variant": {
+                "node_id": "Id_e52e896036b105cf",
+                "predecessor_ids": [
+                  "Id_013d7c2e46c25ecf"
+                ],
+                "successor_ids": [
+                  "Id_d8800f04a9124134"
+                ],
+                "in_degree": 1,
+                "out_degree": 1
+              },
+              "matched_neighbors": [
+                {
+                  "direction": "successor",
+                  "reference_node_id": "Id_b210868a-cf5c-4157-b86e-b21d426d3851",
+                  "variant_node_id": "Id_d8800f04a9124134"
+                }
+              ]
+            }
+          ],
+          "observations": [
+            {
+              "source": "alignment",
+              "description": "Alignment label: unmatched."
+            },
+            {
+              "source": "alignment",
+              "description": "exact normalised label"
+            },
+            {
+              "source": "graph",
+              "description": "Direct predecessor and successor context for aligned nodes."
+            },
+            {
+              "source": "graph",
+              "description": "flow added (1x)",
+              "value": {
+                "before": null,
+                "after": {
+                  "source": "Adds verification step 2",
+                  "target": "Displays the query results to a table",
+                  "source_id": "Id_013d7c2e46c25ecf",
+                  "target_id": "Id_e52e896036b105cf"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "INSERT_FLOW",
+        "legacy_op": "INSERT_FLOW",
+        "category": 3,
+        "category_name": "Sequence, flow, and branching",
+        "element": "flow",
+        "before": null,
+        "after": {
+          "source": "Displays the Looking for room data form",
+          "target": "Queries to the Rooms database",
+          "source_id": "Id_623aa990ac80758e",
+          "target_id": "Id_d5961c1f5718fbde"
+        },
+        "detail": "flow added (1x)",
+        "label": "unmatched",
+        "confidence": "high",
+        "needs_review": false,
+        "schema_version": "change-v1",
+        "change": {
+          "type": "INSERT_FLOW",
+          "legacy_type": "INSERT_FLOW",
+          "category": 3,
+          "category_name": "Sequence, flow, and branching",
+          "element": "flow",
+          "before": null,
+          "after": {
+            "source": "Displays the Looking for room data form",
+            "target": "Queries to the Rooms database",
+            "source_id": "Id_623aa990ac80758e",
+            "target_id": "Id_d5961c1f5718fbde"
+          },
+          "detail": "flow added (1x)",
+          "label": "unmatched",
+          "confidence": "high",
+          "needs_review": false
+        },
+        "evidence": {
+          "alignment": [
+            {
+              "reference_node_id": "Id_b95890b5-92e4-432a-b709-a96b40733427",
+              "variant_node_id": "Id_623aa990ac80758e",
+              "label": "identical",
+              "score": 1.0,
+              "reason": "exact normalised label",
+              "confidence": "high",
+              "needs_review": false
+            },
+            {
+              "reference_node_id": "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49",
+              "variant_node_id": "Id_d5961c1f5718fbde",
+              "label": "identical",
+              "score": 1.0,
+              "reason": "exact normalised label",
+              "confidence": "high",
+              "needs_review": false
+            }
+          ],
+          "structural_context": [
+            {
+              "reference": {
+                "node_id": "Id_b95890b5-92e4-432a-b709-a96b40733427",
+                "predecessor_ids": [
+                  "Id_baf5345e-3bb0-4235-bb5f-c58fa8217646"
+                ],
+                "successor_ids": [
+                  "Id_1164e919-3f27-4d09-9a69-2a33a2e98847"
+                ],
+                "in_degree": 1,
+                "out_degree": 1
+              },
+              "variant": {
+                "node_id": "Id_623aa990ac80758e",
+                "predecessor_ids": [
+                  "Id_e97a6e3065c72124"
+                ],
+                "successor_ids": [
+                  "Id_d5961c1f5718fbde"
+                ],
+                "in_degree": 1,
+                "out_degree": 1
+              },
+              "matched_neighbors": [
+                {
+                  "direction": "predecessor",
+                  "reference_node_id": "Id_baf5345e-3bb0-4235-bb5f-c58fa8217646",
+                  "variant_node_id": "Id_e97a6e3065c72124"
+                }
+              ]
+            },
+            {
+              "reference": {
+                "node_id": "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49",
+                "predecessor_ids": [
+                  "Id_1164e919-3f27-4d09-9a69-2a33a2e98847"
+                ],
+                "successor_ids": [
+                  "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598"
+                ],
+                "in_degree": 1,
+                "out_degree": 1
+              },
+              "variant": {
+                "node_id": "Id_d5961c1f5718fbde",
+                "predecessor_ids": [
+                  "Id_623aa990ac80758e"
+                ],
+                "successor_ids": [
+                  "Id_013d7c2e46c25ecf"
+                ],
+                "in_degree": 1,
+                "out_degree": 1
+              },
+              "matched_neighbors": []
+            }
+          ],
+          "observations": [
+            {
+              "source": "alignment",
+              "description": "exact normalised label"
+            },
+            {
+              "source": "alignment",
+              "description": "exact normalised label"
+            },
+            {
+              "source": "graph",
+              "description": "Direct predecessor and successor context for aligned nodes."
+            },
+            {
+              "source": "graph",
+              "description": "flow added (1x)",
+              "value": {
+                "before": null,
+                "after": {
+                  "source": "Displays the Looking for room data form",
+                  "target": "Queries to the Rooms database",
+                  "source_id": "Id_623aa990ac80758e",
+                  "target_id": "Id_d5961c1f5718fbde"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "INSERT_FLOW",
+        "legacy_op": "INSERT_FLOW",
+        "category": 3,
+        "category_name": "Sequence, flow, and branching",
+        "element": "flow",
+        "before": null,
+        "after": {
+          "source": "Queries to the Rooms database",
+          "target": "Adds verification step 2",
+          "source_id": "Id_d5961c1f5718fbde",
+          "target_id": "Id_013d7c2e46c25ecf"
+        },
+        "detail": "flow added (1x)",
+        "label": "unmatched",
+        "confidence": "high",
+        "needs_review": false,
+        "schema_version": "change-v1",
+        "change": {
+          "type": "INSERT_FLOW",
+          "legacy_type": "INSERT_FLOW",
+          "category": 3,
+          "category_name": "Sequence, flow, and branching",
+          "element": "flow",
+          "before": null,
+          "after": {
+            "source": "Queries to the Rooms database",
+            "target": "Adds verification step 2",
+            "source_id": "Id_d5961c1f5718fbde",
+            "target_id": "Id_013d7c2e46c25ecf"
+          },
+          "detail": "flow added (1x)",
+          "label": "unmatched",
+          "confidence": "high",
+          "needs_review": false
+        },
+        "evidence": {
+          "alignment": [
+            {
+              "reference_node_id": "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49",
+              "variant_node_id": "Id_d5961c1f5718fbde",
+              "label": "identical",
+              "score": 1.0,
+              "reason": "exact normalised label",
+              "confidence": "high",
+              "needs_review": false
+            },
+            {
+              "reference_node_id": null,
+              "variant_node_id": "Id_013d7c2e46c25ecf",
+              "label": "unmatched",
+              "score": 0.0,
+              "reason": "",
+              "confidence": "high",
+              "needs_review": false
+            }
+          ],
+          "structural_context": [
+            {
+              "reference": {
+                "node_id": "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49",
+                "predecessor_ids": [
+                  "Id_1164e919-3f27-4d09-9a69-2a33a2e98847"
+                ],
+                "successor_ids": [
+                  "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598"
+                ],
+                "in_degree": 1,
+                "out_degree": 1
+              },
+              "variant": {
+                "node_id": "Id_d5961c1f5718fbde",
+                "predecessor_ids": [
+                  "Id_623aa990ac80758e"
+                ],
+                "successor_ids": [
+                  "Id_013d7c2e46c25ecf"
+                ],
+                "in_degree": 1,
+                "out_degree": 1
+              },
+              "matched_neighbors": []
+            },
+            {
+              "reference": null,
+              "variant": {
+                "node_id": "Id_013d7c2e46c25ecf",
+                "predecessor_ids": [
+                  "Id_d5961c1f5718fbde"
+                ],
+                "successor_ids": [
+                  "Id_e52e896036b105cf"
+                ],
+                "in_degree": 1,
+                "out_degree": 1
+              },
+              "matched_neighbors": []
+            }
+          ],
+          "observations": [
+            {
+              "source": "alignment",
+              "description": "exact normalised label"
+            },
+            {
+              "source": "alignment",
+              "description": "Alignment label: unmatched."
+            },
+            {
+              "source": "graph",
+              "description": "Direct predecessor and successor context for aligned nodes."
+            },
+            {
+              "source": "graph",
+              "description": "flow added (1x)",
+              "value": {
+                "before": null,
+                "after": {
+                  "source": "Queries to the Rooms database",
+                  "target": "Adds verification step 2",
+                  "source_id": "Id_d5961c1f5718fbde",
+                  "target_id": "Id_013d7c2e46c25ecf"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "DATA_CHANGE",
+        "legacy_op": "DATA_CHANGE",
+        "category": 5,
+        "category_name": "Data and cross-pool communication",
+        "element": "data",
+        "before": null,
+        "after": {
+          "id": "Id_fd08637a54801b5f",
+          "name": "Audit log 2",
+          "kind": "data_object",
+          "connected_nodes": []
+        },
+        "detail": "data object added: \"Audit log 2\"",
+        "confidence": "high",
+        "needs_review": false,
+        "schema_version": "change-v1",
+        "change": {
+          "type": "DATA_CHANGE",
+          "legacy_type": "DATA_CHANGE",
+          "category": 5,
+          "category_name": "Data and cross-pool communication",
+          "element": "data",
+          "before": null,
+          "after": {
+            "id": "Id_fd08637a54801b5f",
+            "name": "Audit log 2",
+            "kind": "data_object",
+            "connected_nodes": []
+          },
+          "detail": "data object added: \"Audit log 2\"",
+          "confidence": "high",
+          "needs_review": false
+        },
+        "evidence": {
+          "alignment": [],
+          "structural_context": [],
+          "observations": [
+            {
+              "source": "data",
+              "description": "data object added: \"Audit log 2\"",
+              "value": {
+                "before": null,
+                "after": {
+                  "id": "Id_fd08637a54801b5f",
+                  "name": "Audit log 2",
+                  "kind": "data_object",
+                  "connected_nodes": []
+                }
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "behavior": {
+      "equivalent": false,
+      "inconclusive": false,
+      "method": "trace_equivalence (tau-closure + subset construction)",
+      "counterexample": {
+        "direction": "variant_only",
+        "trace": [
+          "Wants Looking for room data",
+          "Reads the Room database",
+          "Displays the Looking for room data form",
+          "Queries to the Rooms database",
+          "Adds verification step 2",
+          "Displays the query results to a table"
+        ],
+        "detail": "only this model can execute the differing task and still complete"
+      },
+      "dfa_states": {
+        "reference": 7,
+        "variant": 7
+      },
+      "truncated": false,
+      "reference_lts": {
+        "states": 9,
+        "transitions": 8,
+        "final_states": 1,
+        "deadlock_states": 0,
+        "truncated": false
+      },
+      "variant_lts": {
+        "states": 9,
+        "transitions": 8,
+        "final_states": 1,
+        "deadlock_states": 0,
+        "truncated": false
+      },
+      "trace_samples": {
+        "reference": {
+          "count": 1,
+          "traces": [
+            [
+              "Wants Looking for room data",
+              "Reads the Room database",
+              "Displays the Looking for room data form",
+              "Selects the room category",
+              "Queries to the Rooms database",
+              "Displays the query results to a table"
+            ]
+          ],
+          "truncated": false
+        },
+        "variant": {
+          "count": 1,
+          "traces": [
+            [
+              "Wants Looking for room data",
+              "Reads the Room database",
+              "Displays the Looking for room data form",
+              "Queries to the Rooms database",
+              "Adds verification step 2",
+              "Displays the query results to a table"
+            ]
+          ],
+          "truncated": false
+        }
+      }
+    },
+    "fragments": {
+      "count": 28,
+      "affected": [
+        {
+          "id": "R02",
+          "entry": "Queries to the Rooms database",
+          "exit": "Displays the query results to a table",
+          "size": 2,
+          "nodes": [
+            "Queries to the Rooms database",
+            "Displays the query results to a table"
+          ],
+          "node_ids": [
+            "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49",
+            "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598"
+          ],
+          "status": "checked",
+          "equivalent": false,
+          "method": "trace_equivalence (tau-closure + subset construction)",
+          "counterexample": {
+            "direction": "variant_only",
+            "trace": [
+              "Queries to the Rooms database",
+              "Adds verification step 2",
+              "Displays the query results to a table"
+            ],
+            "detail": "only this model can execute the differing task and still complete"
+          },
+          "states": {
+            "reference": 3,
+            "variant": 4
+          }
+        },
+        {
+          "id": "R05",
+          "entry": "Wants Looking for room data",
+          "exit": "Reads the Room database",
+          "size": 2,
+          "nodes": [
+            "Wants Looking for room data",
+            "Reads the Room database"
+          ],
+          "node_ids": [
+            "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7",
+            "Id_baf5345e-3bb0-4235-bb5f-c58fa8217646"
+          ],
+          "status": "checked",
+          "equivalent": true,
+          "method": "trace_equivalence (tau-closure + subset construction)",
+          "counterexample": null,
+          "states": {
+            "reference": 3,
+            "variant": 3
+          }
+        },
+        {
+          "id": "R08",
+          "entry": "Displays the Looking for room data form",
+          "exit": "Queries to the Rooms database",
+          "size": 3,
+          "nodes": [
+            "Selects the room category",
+            "Queries to the Rooms database",
+            "Displays the Looking for room data form"
+          ],
+          "node_ids": [
+            "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+            "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49",
+            "Id_b95890b5-92e4-432a-b709-a96b40733427"
+          ],
+          "status": "checked",
+          "equivalent": false,
+          "method": "trace_equivalence (tau-closure + subset construction)",
+          "counterexample": {
+            "direction": "variant_only",
+            "trace": [
+              "Displays the Looking for room data form",
+              "Queries to the Rooms database"
+            ],
+            "detail": "only this model can execute the differing task and still complete"
+          },
+          "states": {
+            "reference": 4,
+            "variant": 3
+          }
+        }
+      ]
+    },
+    "fusion": {
+      "overall": "behavioral_change",
+      "needs_review": false,
+      "element_verdicts": [
+        {
+          "a": "Displays the Looking for room data form",
+          "b": "Displays the Looking for room data form",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "unchanged",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "Displays the query results to a table",
+          "b": "Displays the query results to a table",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "unchanged",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "Queries to the Rooms database",
+          "b": "Queries to the Rooms database",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "unchanged",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "Reads the Room database",
+          "b": "Reads the Room database",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "unchanged",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "Wants Looking for room data",
+          "b": "Wants Looking for room data",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "unchanged",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "<start event>",
+          "b": "<start event>",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "unchanged",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "<end event>",
+          "b": "<end event>",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "unchanged",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "Selects the room category",
+          "b": null,
+          "label": "unmatched",
+          "verdict": "structural_change",
+          "behaviour_scope": "element",
+          "equivalent": false,
+          "needs_review": false
+        },
+        {
+          "a": null,
+          "b": "Adds verification step 2",
+          "label": "unmatched",
+          "verdict": "structural_change",
+          "behaviour_scope": "element",
+          "equivalent": false,
+          "needs_review": false
+        }
+      ],
+      "verdict_counts": {
+        "unchanged": 7,
+        "structural_change": 2
+      },
+      "operation_counts": {
+        "DELETE_NODE": 1,
+        "INSERT_NODE": 1,
+        "DELETE_FLOW": 1,
+        "FLOW_CONDITION_CHANGE": 1,
+        "INSERT_FLOW": 3,
+        "DATA_CHANGE": 1
+      },
+      "legacy_operation_counts": {
+        "DELETE": 1,
+        "INSERT": 1,
+        "DELETE_FLOW": 1,
+        "FLOW_CONDITION_CHANGE": 1,
+        "INSERT_FLOW": 3,
+        "DATA_CHANGE": 1
+      }
+    }
+  }
+}

@@ -50,6 +50,7 @@ Melakukan evaluasi ilmiah secara kuantitatif terhadap sistem yang dibangun maupu
 - [x] **Evaluation Harness (`results/pilot.csv`)**
   - Skrip otomatis untuk membandingkan hasil deteksi sistem dan baseline terhadap *ground truth*, lalu menghitung metrik **Precision**, **Recall**, dan **F1-Score** yang dirinci **per jenis perubahan** dan **per mode** (`id`, `name`, `structure`, `hybrid`).
   - Implementasi: `bpmndiff/evaluation.py`, perintah `bpmndiff evaluate`; keluaran `results/pilot.csv` (+ `pilot_pairs.csv`, `pilot_summary.md`, `pilot.json`).
+  - Laporan per pasangan: `bpmndiff evaluate --pair-reports` menulis JSON + Markdown per pasangan/mode ke `results/pairs/` (metrik, FP/FN, ground truth, dan diff lengkap).
 - [x] **Analisis Kegagalan (*Error Analysis*)**
   - Mengidentifikasi **3 pola kegagalan paling sering** yang terjadi pada sistem, dilengkapi **1 contoh kasus diagram** untuk masing-masing pola kegagalan.
   - Keluaran: `results/error_analysis.md`.

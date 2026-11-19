@@ -1,0 +1,245 @@
+{
+  "schema": "bpmndiff-pair-index-v1",
+  "reports": [
+    {
+      "base_id": "56",
+      "variant": "k1_keep",
+      "mode": "hybrid",
+      "scenario": "keep_ids",
+      "json": "hybrid/56_k1_keep.json",
+      "markdown": "hybrid/56_k1_keep.md"
+    },
+    {
+      "base_id": "56",
+      "variant": "k1_newids",
+      "mode": "hybrid",
+      "scenario": "new_ids",
+      "json": "hybrid/56_k1_newids.json",
+      "markdown": "hybrid/56_k1_newids.md"
+    },
+    {
+      "base_id": "56",
+      "variant": "k2_keep",
+      "mode": "hybrid",
+      "scenario": "keep_ids",
+      "json": "hybrid/56_k2_keep.json",
+      "markdown": "hybrid/56_k2_keep.md"
+    },
+    {
+      "base_id": "56",
+      "variant": "k2_newids",
+      "mode": "hybrid",
+      "scenario": "new_ids",
+      "json": "hybrid/56_k2_newids.json",
+      "markdown": "hybrid/56_k2_newids.md"
+    },
+    {
+      "base_id": "56",
+      "variant": "k4_keep",
+      "mode": "hybrid",
+      "scenario": "keep_ids",
+      "json": "hybrid/56_k4_keep.json",
+      "markdown": "hybrid/56_k4_keep.md"
+    },
+    {
+      "base_id": "56",
+      "variant": "k4_newids",
+      "mode": "hybrid",
+      "scenario": "new_ids",
+      "json": "hybrid/56_k4_newids.json",
+      "markdown": "hybrid/56_k4_newids.md"
+    },
+    {
+      "base_id": "57",
+      "variant": "k1_keep",
+      "mode": "hybrid",
+      "scenario": "keep_ids",
+      "json": "hybrid/57_k1_keep.json",
+      "markdown": "hybrid/57_k1_keep.md"
+    },
+    {
+      "base_id": "57",
+      "variant": "k1_newids",
+      "mode": "hybrid",
+      "scenario": "new_ids",
+      "json": "hybrid/57_k1_newids.json",
+      "markdown": "hybrid/57_k1_newids.md"
+    },
+    {
+      "base_id": "57",
+      "variant": "k2_keep",
+      "mode": "hybrid",
+      "scenario": "keep_ids",
+      "json": "hybrid/57_k2_keep.json",
+      "markdown": "hybrid/57_k2_keep.md"
+    },
+    {
+      "base_id": "57",
+      "variant": "k2_newids",
+      "mode": "hybrid",
+      "scenario": "new_ids",
+      "json": "hybrid/57_k2_newids.json",
+      "markdown": "hybrid/57_k2_newids.md"
+    },
+    {
+      "base_id": "57",
+      "variant": "k4_keep",
+      "mode": "hybrid",
+      "scenario": "keep_ids",
+      "json": "hybrid/57_k4_keep.json",
+      "markdown": "hybrid/57_k4_keep.md"
+    },
+    {
+      "base_id": "57",
+      "variant": "k4_newids",
+      "mode": "hybrid",
+      "scenario": "new_ids",
+      "json": "hybrid/57_k4_newids.json",
+      "markdown": "hybrid/57_k4_newids.md"
+    },
+    {
+      "base_id": "58",
+      "variant": "k1_keep",
+      "mode": "hybrid",
+      "scenario": "keep_ids",
+      "json": "hybrid/58_k1_keep.json",
+      "markdown": "hybrid/58_k1_keep.md"
+    },
+    {
+      "base_id": "58",
+      "variant": "k1_newids",
+      "mode": "hybrid",
+      "scenario": "new_ids",
+      "json": "hybrid/58_k1_newids.json",
+      "markdown": "hybrid/58_k1_newids.md"
+    },
+    {
+      "base_id": "58",
+      "variant": "k2_keep",
+      "mode": "hybrid",
+      "scenario": "keep_ids",
+      "json": "hybrid/58_k2_keep.json",
+      "markdown": "hybrid/58_k2_keep.md"
+    },
+    {
+      "base_id": "58",
+      "variant": "k2_newids",
+      "mode": "hybrid",
+      "scenario": "new_ids",
+      "json": "hybrid/58_k2_newids.json",
+      "markdown": "hybrid/58_k2_newids.md"
+    },
+    {
+      "base_id": "58",
+      "variant": "k4_keep",
+      "mode": "hybrid",
+      "scenario": "keep_ids",
+      "json": "hybrid/58_k4_keep.json",
+      "markdown": "hybrid/58_k4_keep.md"
+    },
+    {
+      "base_id": "58",
+      "variant": "k4_newids",
+      "mode": "hybrid",
+      "scenario": "new_ids",
+      "json": "hybrid/58_k4_newids.json",
+      "markdown": "hybrid/58_k4_newids.md"
+    },
+    {
+      "base_id": "63",
+      "variant": "k1_keep",
+      "mode": "hybrid",
+      "scenario": "keep_ids",
+      "json": "hybrid/63_k1_keep.json",
+      "markdown": "hybrid/63_k1_keep.md"
+    },
+    {
+      "base_id": "63",
+      "variant": "k1_newids",
+      "mode": "hybrid",
+      "scenario": "new_ids",
+      "json": "hybrid/63_k1_newids.json",
+      "markdown": "hybrid/63_k1_newids.md"
+    },
+    {
+      "base_id": "63",
+      "variant": "k2_keep",
+      "mode": "hybrid",
+      "scenario": "keep_ids",
+      "json": "hybrid/63_k2_keep.json",
+      "markdown": "hybrid/63_k2_keep.md"
+    },
+    {
+      "base_id": "63",
+      "variant": "k2_newids",
+      "mode": "hybrid",
+      "scenario": "new_ids",
+      "json": "hybrid/63_k2_newids.json",
+      "markdown": "hybrid/63_k2_newids.md"
+    },
+    {
+      "base_id": "63",
+      "variant": "k4_keep",
+      "mode": "hybrid",
+      "scenario": "keep_ids",
+      "json": "hybrid/63_k4_keep.json",
+      "markdown": "hybrid/63_k4_keep.md"
+    },
+    {
+      "base_id": "63",
+      "variant": "k4_newids",
+      "mode": "hybrid",
+      "scenario": "new_ids",
+      "json": "hybrid/63_k4_newids.json",
+      "markdown": "hybrid/63_k4_newids.md"
+    },
+    {
+      "base_id": "65",
+      "variant": "k1_keep",
+      "mode": "hybrid",
+      "scenario": "keep_ids",
+      "json": "hybrid/65_k1_keep.json",
+      "markdown": "hybrid/65_k1_keep.md"
+    },
+    {
+      "base_id": "65",
+      "variant": "k1_newids",
+      "mode": "hybrid",
+      "scenario": "new_ids",
+      "json": "hybrid/65_k1_newids.json",
+      "markdown": "hybrid/65_k1_newids.md"
+    },
+    {
+      "base_id": "65",
+      "variant": "k2_keep",
+      "mode": "hybrid",
+      "scenario": "keep_ids",
+      "json": "hybrid/65_k2_keep.json",
+      "markdown": "hybrid/65_k2_keep.md"
+    },
+    {
+      "base_id": "65",
+      "variant": "k2_newids",
+      "mode": "hybrid",
+      "scenario": "new_ids",
+      "json": "hybrid/65_k2_newids.json",
+      "markdown": "hybrid/65_k2_newids.md"
+    },
+    {
+      "base_id": "65",
+      "variant": "k4_keep",
+      "mode": "hybrid",
+      "scenario": "keep_ids",
+      "json": "hybrid/65_k4_keep.json",
+      "markdown": "hybrid/65_k4_keep.md"
+    },
+    {
+      "base_id": "65",
+      "variant": "k4_newids",
+      "mode": "hybrid",
+      "scenario": "new_ids",
+      "json": "hybrid/65_k4_newids.json",
+      "markdown": "hybrid/65_k4_newids.md"
+    }
+  ]
+}

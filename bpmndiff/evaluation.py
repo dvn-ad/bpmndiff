@@ -4,7 +4,8 @@ The harness compares detected operations with ``change-v1`` ground truth and
 reports Precision, Recall, and F1 per change type and per alignment mode.  It
 normalizes variant IDs back to their reference IDs through the generator's
 manifest, so ``INSERT_FLOW`` operations can be compared even when every ID was
-regenerated.
+regenerated.  ``write_pair_reports`` optionally turns the collected pair
+details into one JSON and one Markdown report per pair/mode.
 """
 
 from __future__ import annotations
@@ -19,6 +20,7 @@ from typing import Any, Iterable
 from .alignment import ALIGNMENT_STRATEGIES, AlignmentConfig
 from .diff import DiffOptions, diff_models
 from .parsers import load_model
+from .report import render_markdown
 
 #: Canonical order used in reports when types have equal counts.
 CHANGE_TYPES = (
@@ -119,11 +121,35 @@ class ErrorExample:
 
 
 @dataclass
+class PairEvaluation:
+    """Everything needed to render one pair/mode evaluation report."""
+
+    base_id: str
+    variant: str
+    k: int
+    id_policy: str
+    scenario: str
+    mode: str
+    reference_path: str
+    variant_path: str
+    ground_truth_path: str
+    counts: dict[str, Counts]
+    predicted: list[dict[str, Any]]
+    ground_truth: list[dict[str, Any]]
+    predicted_keys: Counter
+    truth_keys: Counter
+    false_positives: list[tuple]
+    false_negatives: list[tuple]
+    comparison: dict[str, Any]
+
+
+@dataclass
 class EvaluationResult:
     manifest: dict[str, Any]
     root: Path | None = None
     counts: dict[tuple[str, str], dict[str, Counts]] = field(default_factory=dict)
     pair_counts: list[dict[str, Any]] = field(default_factory=list)
+    pair_details: list[PairEvaluation] = field(default_factory=list)
     errors: list[ErrorExample] = field(default_factory=list)
 
     def row(self, mode: str, scenario: str, change_type: str) -> Counts:
@@ -217,6 +243,7 @@ def evaluate_dataset(
     *,
     modes: Iterable[str] = ("id", "name", "structure", "hybrid"),
     bisimulation: bool = False,
+    pair_modes: Iterable[str] = (),
 ) -> EvaluationResult:
     manifest_file = Path(manifest_path)
     manifest = json.loads(manifest_file.read_text(encoding="utf-8"))
@@ -225,6 +252,20 @@ def evaluate_dataset(
     invalid = set(selected_modes) - set(ALIGNMENT_STRATEGIES)
     if invalid:
         raise ValueError(f"unknown alignment mode(s): {sorted(invalid)}")
+
+    selected_pair_modes = list(pair_modes)
+    invalid_pair_modes = set(selected_pair_modes) - set(ALIGNMENT_STRATEGIES)
+    if invalid_pair_modes:
+        raise ValueError(
+            f"unknown pair report mode(s): {sorted(invalid_pair_modes)}"
+        )
+    missing_pair_modes = set(selected_pair_modes) - set(selected_modes)
+    if missing_pair_modes:
+        raise ValueError(
+            "pair report mode(s) must also be selected in modes: "
+            f"{sorted(missing_pair_modes)}"
+        )
+    pair_mode_set = set(selected_pair_modes)
 
     result = EvaluationResult(manifest=manifest, root=root)
 
@@ -252,30 +293,36 @@ def evaluate_dataset(
                     ),
                 )
                 predicted_keys = _count_keys(comparison.operations, variant_to_reference)
-                for scope in (scenario, "all"):
-                    bucket = result.counts.setdefault((mode, scope), {})
-                    for change_type in _sorted_types(
-                        {key[0] for key in truth_keys}
-                        | {key[0] for key in predicted_keys}
-                    ):
-                        predicted_type = Counter(
-                            {
-                                key: value
-                                for key, value in predicted_keys.items()
-                                if key[0] == change_type
-                            }
-                        )
-                        truth_type = Counter(
-                            {
-                                key: value
-                                for key, value in truth_keys.items()
-                                if key[0] == change_type
-                            }
-                        )
-                        counts, fp_keys, fn_keys = _compare(predicted_type, truth_type)
-                        bucket.setdefault(change_type, Counts()).add(counts)
 
-                predicted_summary, fp_keys, fn_keys = _compare(predicted_keys, truth_keys)
+                type_counts: dict[str, Counts] = {}
+                for change_type in _sorted_types(
+                    {key[0] for key in truth_keys}
+                    | {key[0] for key in predicted_keys}
+                ):
+                    predicted_type = Counter(
+                        {
+                            key: value
+                            for key, value in predicted_keys.items()
+                            if key[0] == change_type
+                        }
+                    )
+                    truth_type = Counter(
+                        {
+                            key: value
+                            for key, value in truth_keys.items()
+                            if key[0] == change_type
+                        }
+                    )
+                    counts, _, _ = _compare(predicted_type, truth_type)
+                    type_counts[change_type] = counts
+                    for scope in (scenario, "all"):
+                        result.counts.setdefault((mode, scope), {}).setdefault(
+                            change_type, Counts()
+                        ).add(counts)
+
+                predicted_summary, fp_keys, fn_keys = _compare(
+                    predicted_keys, truth_keys
+                )
                 result.pair_counts.append(
                     {
                         "base_id": base["base_id"],
@@ -289,6 +336,31 @@ def evaluate_dataset(
                         "expected": sum(truth_keys.values()),
                     }
                 )
+
+                if mode in pair_mode_set:
+                    pair_type_counts = dict(type_counts)
+                    pair_type_counts["ALL"] = predicted_summary
+                    result.pair_details.append(
+                        PairEvaluation(
+                            base_id=base["base_id"],
+                            variant=variant_entry["variant"],
+                            k=variant_entry["k"],
+                            id_policy=variant_entry["id_policy"],
+                            scenario=scenario,
+                            mode=mode,
+                            reference_path=base["reference"],
+                            variant_path=variant_entry["path"],
+                            ground_truth_path=variant_entry["ground_truth"],
+                            counts=pair_type_counts,
+                            predicted=list(comparison.operations),
+                            ground_truth=list(truth),
+                            predicted_keys=predicted_keys,
+                            truth_keys=truth_keys,
+                            false_positives=list(fp_keys),
+                            false_negatives=list(fn_keys),
+                            comparison=comparison.to_dict(),
+                        )
+                    )
 
                 for direction, keys in (("fp", fp_keys), ("fn", fn_keys)):
                     for key in keys:
@@ -441,6 +513,272 @@ def write_reports(
         "errors": errors_path,
         "json": json_path,
     }
+
+
+# ---------------------------------------------------------------------------
+# Per-pair evaluation reports
+# ---------------------------------------------------------------------------
+PAIR_REPORT_SCHEMA = "bpmndiff-pair-evaluation-v1"
+PAIR_INDEX_SCHEMA = "bpmndiff-pair-index-v1"
+
+
+def _pair_identity_label(key: tuple) -> str:
+    parts = list(key[1:]) if key else []
+    identity = " → ".join(
+        str(part) if part not in (None, "") else "?" for part in parts
+    )
+    return identity or "?"
+
+
+def _pair_counter_payload(counter: Counter) -> list[dict[str, Any]]:
+    return [
+        {
+            "change_type": key[0],
+            "identity": list(key[1:]),
+            "count": count,
+        }
+        for key, count in sorted(counter.items(), key=lambda item: repr(item[0]))
+    ]
+
+
+def _pair_key_label(key: tuple) -> str:
+    if not key:
+        return "?"
+    change_type, *_ = key
+    identity = _pair_identity_label(key)
+    return f"{change_type}: {identity}" if identity != "?" else change_type
+
+
+def _pair_payload(pair: PairEvaluation) -> dict[str, Any]:
+    overall = pair.counts.get("ALL", Counts())
+    types = [name for name in _sorted_types(pair.counts) if name != "ALL"]
+    return {
+        "schema": PAIR_REPORT_SCHEMA,
+        "pair": {
+            "base_id": pair.base_id,
+            "variant": pair.variant,
+            "k": pair.k,
+            "id_policy": pair.id_policy,
+            "scenario": pair.scenario,
+            "mode": pair.mode,
+            "reference": pair.reference_path,
+            "variant_path": pair.variant_path,
+            "ground_truth": pair.ground_truth_path,
+        },
+        "metrics": {
+            "overall": overall.as_row(),
+            "by_change_type": {
+                change_type: pair.counts[change_type].as_row()
+                for change_type in types
+            },
+        },
+        "false_positives": [
+            {"change_type": key[0], "identity": list(key[1:])}
+            for key in pair.false_positives
+        ],
+        "false_negatives": [
+            {"change_type": key[0], "identity": list(key[1:])}
+            for key in pair.false_negatives
+        ],
+        "normalized_keys": {
+            "predicted": _pair_counter_payload(pair.predicted_keys),
+            "ground_truth": _pair_counter_payload(pair.truth_keys),
+        },
+        "predicted_operations": pair.predicted,
+        "ground_truth_operations": pair.ground_truth,
+        "comparison": pair.comparison,
+    }
+
+
+def render_pair_json(pair: PairEvaluation) -> str:
+    return json.dumps(_pair_payload(pair), indent=2, ensure_ascii=False) + "\n"
+
+
+def _pair_table(headers: list[str], rows: list[list[Any]]) -> str:
+    lines = [
+        "| " + " | ".join(headers) + " |",
+        "|" + "|".join(["---"] * len(headers)) + "|",
+    ]
+    for row in rows:
+        lines.append(
+            "| " + " | ".join(str(cell).replace("|", "\\|") for cell in row) + " |"
+        )
+    return "\n".join(lines)
+
+
+def _demote_headings(text: str, levels: int = 2) -> str:
+    prefix = "#" * levels
+    return "\n".join(
+        f"{prefix}{line}" if line.startswith("#") else line
+        for line in text.splitlines()
+    )
+
+
+def render_pair_markdown(pair: PairEvaluation) -> str:
+    overall = pair.counts.get("ALL", Counts())
+    types = [name for name in _sorted_types(pair.counts) if name != "ALL"]
+    lines = [
+        f"# Pair evaluation: {pair.base_id} / {pair.variant}",
+        "",
+        _pair_table(
+            ["Field", "Value"],
+            [
+                ["Base diagram", pair.base_id],
+                ["Variant", pair.variant],
+                ["k", pair.k],
+                ["ID policy", pair.id_policy],
+                ["Scenario", pair.scenario],
+                ["Alignment mode", pair.mode],
+                ["Reference", f"`{pair.reference_path}`"],
+                ["Variant path", f"`{pair.variant_path}`"],
+                ["Ground truth", f"`{pair.ground_truth_path}`"],
+            ],
+        ),
+        "",
+        "## Metrics",
+        "",
+        _pair_table(
+            ["TP", "FP", "FN", "Support", "Precision", "Recall", "F1"],
+            [
+                [
+                    overall.tp,
+                    overall.fp,
+                    overall.fn,
+                    overall.support,
+                    f"{overall.precision:.3f}",
+                    f"{overall.recall:.3f}",
+                    f"{overall.f1:.3f}",
+                ]
+            ],
+        ),
+        "",
+        "### Per change type",
+        "",
+    ]
+
+    if types:
+        type_rows = []
+        for change_type in types:
+            counts = pair.counts[change_type]
+            type_rows.append(
+                [
+                    change_type,
+                    counts.support,
+                    counts.tp,
+                    counts.fp,
+                    counts.fn,
+                    f"{counts.precision:.3f}",
+                    f"{counts.recall:.3f}",
+                    f"{counts.f1:.3f}",
+                ]
+            )
+        lines.append(
+            _pair_table(
+                [
+                    "Change type",
+                    "Support",
+                    "TP",
+                    "FP",
+                    "FN",
+                    "Precision",
+                    "Recall",
+                    "F1",
+                ],
+                type_rows,
+            )
+        )
+    else:
+        lines.append("_No operations._")
+
+    lines += ["", "## Mismatches", ""]
+    for title, keys in (
+        ("False positives", pair.false_positives),
+        ("False negatives", pair.false_negatives),
+    ):
+        lines += [f"### {title}", ""]
+        if keys:
+            lines += [f"- `{_pair_key_label(key)}`" for key in keys]
+        else:
+            lines.append("_None._")
+        lines.append("")
+
+    lines += ["## Ground truth operations", ""]
+    if pair.ground_truth:
+        lines.append(
+            _pair_table(
+                ["Change type", "Identity"],
+                [
+                    [
+                        _record_layers(record)[0],
+                        _pair_identity_label(operation_key(record, {})),
+                    ]
+                    for record in pair.ground_truth
+                ],
+            )
+        )
+    else:
+        lines.append("_No ground-truth operations._")
+
+    lines += [
+        "",
+        "## Diff report",
+        "",
+        _demote_headings(render_markdown(pair.comparison)),
+        "",
+    ]
+    return "\n".join(lines)
+
+
+def _safe_report_name(value: str) -> str:
+    cleaned = "".join(
+        char if char.isalnum() or char in "-_." else "_" for char in str(value)
+    )
+    return cleaned.strip("_") or "report"
+
+
+def write_pair_reports(
+    result: EvaluationResult, out_dir: str | Path
+) -> dict[str, Any]:
+    """Write one JSON and one Markdown report per collected pair/mode."""
+    if not result.pair_details:
+        raise ValueError(
+            "no pair details collected; call evaluate_dataset(..., pair_modes=...)"
+        )
+
+    pairs_dir = Path(out_dir) / "pairs"
+    pairs_dir.mkdir(parents=True, exist_ok=True)
+    entries: list[dict[str, Any]] = []
+
+    for pair in result.pair_details:
+        mode_dir = pairs_dir / _safe_report_name(pair.mode)
+        mode_dir.mkdir(parents=True, exist_ok=True)
+        stem = f"{_safe_report_name(pair.base_id)}_{_safe_report_name(pair.variant)}"
+        json_path = mode_dir / f"{stem}.json"
+        markdown_path = mode_dir / f"{stem}.md"
+        json_path.write_text(render_pair_json(pair), encoding="utf-8")
+        markdown_path.write_text(render_pair_markdown(pair), encoding="utf-8")
+        entries.append(
+            {
+                "base_id": pair.base_id,
+                "variant": pair.variant,
+                "mode": pair.mode,
+                "scenario": pair.scenario,
+                "json": json_path.relative_to(pairs_dir).as_posix(),
+                "markdown": markdown_path.relative_to(pairs_dir).as_posix(),
+            }
+        )
+
+    index_path = pairs_dir / "index.json"
+    index_path.write_text(
+        json.dumps(
+            {"schema": PAIR_INDEX_SCHEMA, "reports": entries},
+            indent=2,
+            ensure_ascii=False,
+        )
+        + "\n",
+        encoding="utf-8",
+    )
+    return {"dir": pairs_dir, "index": index_path, "reports": entries}
 
 
 def _render_summary(result: EvaluationResult, modes: list[str]) -> str:

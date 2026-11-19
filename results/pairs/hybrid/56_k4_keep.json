@@ -1,0 +1,3283 @@
+{
+  "schema": "bpmndiff-pair-evaluation-v1",
+  "pair": {
+    "base_id": "56",
+    "variant": "k4_keep",
+    "k": 4,
+    "id_policy": "keep",
+    "scenario": "keep_ids",
+    "mode": "hybrid",
+    "reference": "56/reference.bpmn",
+    "variant_path": "56/k4_keep.bpmn",
+    "ground_truth": "56/k4_keep.groundtruth.json"
+  },
+  "metrics": {
+    "overall": {
+      "tp": 7,
+      "fp": 0,
+      "fn": 0,
+      "support": 7,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "by_change_type": {
+      "INSERT_NODE": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "support": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "RENAME_NODE": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "support": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "NODE_TYPE_CHANGE": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "support": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "RENAME_LANE": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "support": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "INSERT_FLOW": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "support": 2,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "DELETE_FLOW": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "support": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    }
+  },
+  "false_positives": [],
+  "false_negatives": [],
+  "normalized_keys": {
+    "predicted": [
+      {
+        "change_type": "DELETE_FLOW",
+        "identity": [
+          "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598",
+          "Id_ffd9beac-13dd-4c0f-9c58-f3f304cf90f3"
+        ],
+        "count": 1
+      },
+      {
+        "change_type": "INSERT_FLOW",
+        "identity": [
+          "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598",
+          "Mut_Node_1"
+        ],
+        "count": 1
+      },
+      {
+        "change_type": "INSERT_FLOW",
+        "identity": [
+          "Mut_Node_1",
+          "Id_ffd9beac-13dd-4c0f-9c58-f3f304cf90f3"
+        ],
+        "count": 1
+      },
+      {
+        "change_type": "INSERT_NODE",
+        "identity": [
+          "Mut_Node_1"
+        ],
+        "count": 1
+      },
+      {
+        "change_type": "NODE_TYPE_CHANGE",
+        "identity": [
+          "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49"
+        ],
+        "count": 1
+      },
+      {
+        "change_type": "RENAME_LANE",
+        "identity": [
+          "FO"
+        ],
+        "count": 1
+      },
+      {
+        "change_type": "RENAME_NODE",
+        "identity": [
+          "Id_1164e919-3f27-4d09-9a69-2a33a2e98847"
+        ],
+        "count": 1
+      }
+    ],
+    "ground_truth": [
+      {
+        "change_type": "DELETE_FLOW",
+        "identity": [
+          "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598",
+          "Id_ffd9beac-13dd-4c0f-9c58-f3f304cf90f3"
+        ],
+        "count": 1
+      },
+      {
+        "change_type": "INSERT_FLOW",
+        "identity": [
+          "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598",
+          "Mut_Node_1"
+        ],
+        "count": 1
+      },
+      {
+        "change_type": "INSERT_FLOW",
+        "identity": [
+          "Mut_Node_1",
+          "Id_ffd9beac-13dd-4c0f-9c58-f3f304cf90f3"
+        ],
+        "count": 1
+      },
+      {
+        "change_type": "INSERT_NODE",
+        "identity": [
+          "Mut_Node_1"
+        ],
+        "count": 1
+      },
+      {
+        "change_type": "NODE_TYPE_CHANGE",
+        "identity": [
+          "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49"
+        ],
+        "count": 1
+      },
+      {
+        "change_type": "RENAME_LANE",
+        "identity": [
+          "FO"
+        ],
+        "count": 1
+      },
+      {
+        "change_type": "RENAME_NODE",
+        "identity": [
+          "Id_1164e919-3f27-4d09-9a69-2a33a2e98847"
+        ],
+        "count": 1
+      }
+    ]
+  },
+  "predicted_operations": [
+    {
+      "op": "INSERT_NODE",
+      "legacy_op": "INSERT",
+      "category": 1,
+      "category_name": "Steps (tasks and events)",
+      "element": "node",
+      "before": null,
+      "after": {
+        "id": "Mut_Node_1",
+        "name": "Adds verification step 1",
+        "kind": "task",
+        "kind_label": "task",
+        "task_type": "abstract",
+        "event_definition": "none",
+        "marker": "none",
+        "attached_to": null,
+        "cancel_activity": true,
+        "lane": "System",
+        "pool": "Search for patient data information"
+      },
+      "detail": "added task",
+      "label": "unmatched",
+      "confidence": "high",
+      "needs_review": false,
+      "schema_version": "change-v1",
+      "change": {
+        "type": "INSERT_NODE",
+        "legacy_type": "INSERT",
+        "category": 1,
+        "category_name": "Steps (tasks and events)",
+        "element": "node",
+        "before": null,
+        "after": {
+          "id": "Mut_Node_1",
+          "name": "Adds verification step 1",
+          "kind": "task",
+          "kind_label": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "attached_to": null,
+          "cancel_activity": true,
+          "lane": "System",
+          "pool": "Search for patient data information"
+        },
+        "detail": "added task",
+        "label": "unmatched",
+        "confidence": "high",
+        "needs_review": false
+      },
+      "evidence": {
+        "alignment": [
+          {
+            "reference_node_id": null,
+            "variant_node_id": "Mut_Node_1",
+            "label": "unmatched",
+            "score": 0.0,
+            "reason": "",
+            "confidence": "high",
+            "needs_review": false
+          }
+        ],
+        "structural_context": [
+          {
+            "reference": null,
+            "variant": {
+              "node_id": "Mut_Node_1",
+              "predecessor_ids": [
+                "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598"
+              ],
+              "successor_ids": [
+                "Id_ffd9beac-13dd-4c0f-9c58-f3f304cf90f3"
+              ],
+              "in_degree": 1,
+              "out_degree": 1
+            },
+            "matched_neighbors": []
+          }
+        ],
+        "observations": [
+          {
+            "source": "alignment",
+            "description": "Alignment label: unmatched."
+          },
+          {
+            "source": "graph",
+            "description": "Direct predecessor and successor context for aligned nodes."
+          },
+          {
+            "source": "operation",
+            "description": "added task",
+            "value": {
+              "before": null,
+              "after": {
+                "id": "Mut_Node_1",
+                "name": "Adds verification step 1",
+                "kind": "task",
+                "kind_label": "task",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "none",
+                "attached_to": null,
+                "cancel_activity": true,
+                "lane": "System",
+                "pool": "Search for patient data information"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "op": "NODE_TYPE_CHANGE",
+      "legacy_op": "CHANGE_TYPE",
+      "category": 1,
+      "category_name": "Steps (tasks and events)",
+      "element": "node",
+      "before": {
+        "id": "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49",
+        "name": "Queries the Patient database,",
+        "kind": "task",
+        "kind_label": "task",
+        "task_type": "abstract",
+        "event_definition": "none",
+        "marker": "none",
+        "attached_to": null,
+        "cancel_activity": true,
+        "lane": "System",
+        "pool": "Search for patient data information"
+      },
+      "after": {
+        "id": "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49",
+        "name": "Queries the Patient database,",
+        "kind": "task",
+        "kind_label": "task",
+        "task_type": "user",
+        "event_definition": "none",
+        "marker": "none",
+        "attached_to": null,
+        "cancel_activity": true,
+        "lane": "System",
+        "pool": "Search for patient data information"
+      },
+      "detail": "abstract task -> user task",
+      "label": "identical",
+      "confidence": "high",
+      "needs_review": false,
+      "schema_version": "change-v1",
+      "change": {
+        "type": "NODE_TYPE_CHANGE",
+        "legacy_type": "CHANGE_TYPE",
+        "category": 1,
+        "category_name": "Steps (tasks and events)",
+        "element": "node",
+        "before": {
+          "id": "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49",
+          "name": "Queries the Patient database,",
+          "kind": "task",
+          "kind_label": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "attached_to": null,
+          "cancel_activity": true,
+          "lane": "System",
+          "pool": "Search for patient data information"
+        },
+        "after": {
+          "id": "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49",
+          "name": "Queries the Patient database,",
+          "kind": "task",
+          "kind_label": "task",
+          "task_type": "user",
+          "event_definition": "none",
+          "marker": "none",
+          "attached_to": null,
+          "cancel_activity": true,
+          "lane": "System",
+          "pool": "Search for patient data information"
+        },
+        "detail": "abstract task -> user task",
+        "label": "identical",
+        "confidence": "high",
+        "needs_review": false
+      },
+      "evidence": {
+        "alignment": [
+          {
+            "reference_node_id": "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49",
+            "variant_node_id": "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49",
+            "label": "identical",
+            "score": 1.0,
+            "reason": "same element ID; exact normalised label",
+            "confidence": "high",
+            "needs_review": false
+          }
+        ],
+        "structural_context": [
+          {
+            "reference": {
+              "node_id": "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49",
+              "predecessor_ids": [
+                "Id_a7308178-06d5-4269-8dc8-3ff4655e05ad"
+              ],
+              "successor_ids": [
+                "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598"
+              ],
+              "in_degree": 1,
+              "out_degree": 1
+            },
+            "variant": {
+              "node_id": "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49",
+              "predecessor_ids": [
+                "Id_a7308178-06d5-4269-8dc8-3ff4655e05ad"
+              ],
+              "successor_ids": [
+                "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598"
+              ],
+              "in_degree": 1,
+              "out_degree": 1
+            },
+            "matched_neighbors": [
+              {
+                "direction": "predecessor",
+                "reference_node_id": "Id_a7308178-06d5-4269-8dc8-3ff4655e05ad",
+                "variant_node_id": "Id_a7308178-06d5-4269-8dc8-3ff4655e05ad"
+              },
+              {
+                "direction": "successor",
+                "reference_node_id": "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598",
+                "variant_node_id": "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598"
+              }
+            ]
+          }
+        ],
+        "observations": [
+          {
+            "source": "alignment",
+            "description": "same element ID; exact normalised label"
+          },
+          {
+            "source": "graph",
+            "description": "Direct predecessor and successor context for aligned nodes."
+          },
+          {
+            "source": "attribute",
+            "description": "abstract task -> user task",
+            "value": {
+              "before": {
+                "id": "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49",
+                "name": "Queries the Patient database,",
+                "kind": "task",
+                "kind_label": "task",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "none",
+                "attached_to": null,
+                "cancel_activity": true,
+                "lane": "System",
+                "pool": "Search for patient data information"
+              },
+              "after": {
+                "id": "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49",
+                "name": "Queries the Patient database,",
+                "kind": "task",
+                "kind_label": "task",
+                "task_type": "user",
+                "event_definition": "none",
+                "marker": "none",
+                "attached_to": null,
+                "cancel_activity": true,
+                "lane": "System",
+                "pool": "Search for patient data information"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "op": "RENAME_NODE",
+      "legacy_op": "RENAME",
+      "category": 1,
+      "category_name": "Steps (tasks and events)",
+      "element": "node",
+      "before": {
+        "id": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+        "name": "Enters the patient's name",
+        "kind": "task",
+        "kind_label": "task",
+        "task_type": "abstract",
+        "event_definition": "none",
+        "marker": "none",
+        "attached_to": null,
+        "cancel_activity": true,
+        "lane": "FO",
+        "pool": "Search for patient data information"
+      },
+      "after": {
+        "id": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+        "name": "Enters the supplier's name",
+        "kind": "task",
+        "kind_label": "task",
+        "task_type": "abstract",
+        "event_definition": "none",
+        "marker": "none",
+        "attached_to": null,
+        "cancel_activity": true,
+        "lane": "Front Office",
+        "pool": "Search for patient data information"
+      },
+      "detail": "\"Enters the patient's name\" -> \"Enters the supplier's name\" (synonym)",
+      "label": "synonym",
+      "is_synonym": true,
+      "subtype": "synonym",
+      "score": 1.0,
+      "confidence": "high",
+      "needs_review": false,
+      "schema_version": "change-v1",
+      "change": {
+        "type": "RENAME_NODE",
+        "legacy_type": "RENAME",
+        "category": 1,
+        "category_name": "Steps (tasks and events)",
+        "element": "node",
+        "before": {
+          "id": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+          "name": "Enters the patient's name",
+          "kind": "task",
+          "kind_label": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "attached_to": null,
+          "cancel_activity": true,
+          "lane": "FO",
+          "pool": "Search for patient data information"
+        },
+        "after": {
+          "id": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+          "name": "Enters the supplier's name",
+          "kind": "task",
+          "kind_label": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "attached_to": null,
+          "cancel_activity": true,
+          "lane": "Front Office",
+          "pool": "Search for patient data information"
+        },
+        "detail": "\"Enters the patient's name\" -> \"Enters the supplier's name\" (synonym)",
+        "label": "synonym",
+        "subtype": "synonym",
+        "is_synonym": true,
+        "score": 1.0,
+        "confidence": "high",
+        "needs_review": false
+      },
+      "evidence": {
+        "alignment": [
+          {
+            "reference_node_id": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+            "variant_node_id": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+            "label": "synonym",
+            "score": 1.0,
+            "reason": "same element ID; token overlap 0.67, string 0.90, sequence 0.81",
+            "confidence": "high",
+            "needs_review": false
+          }
+        ],
+        "structural_context": [
+          {
+            "reference": {
+              "node_id": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+              "predecessor_ids": [
+                "Id_b95890b5-92e4-432a-b709-a96b40733427"
+              ],
+              "successor_ids": [
+                "Id_ac3f7a9c-28e9-4a90-8928-edfd64206da8"
+              ],
+              "in_degree": 1,
+              "out_degree": 1
+            },
+            "variant": {
+              "node_id": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+              "predecessor_ids": [
+                "Id_b95890b5-92e4-432a-b709-a96b40733427"
+              ],
+              "successor_ids": [
+                "Id_ac3f7a9c-28e9-4a90-8928-edfd64206da8"
+              ],
+              "in_degree": 1,
+              "out_degree": 1
+            },
+            "matched_neighbors": [
+              {
+                "direction": "predecessor",
+                "reference_node_id": "Id_b95890b5-92e4-432a-b709-a96b40733427",
+                "variant_node_id": "Id_b95890b5-92e4-432a-b709-a96b40733427"
+              },
+              {
+                "direction": "successor",
+                "reference_node_id": "Id_ac3f7a9c-28e9-4a90-8928-edfd64206da8",
+                "variant_node_id": "Id_ac3f7a9c-28e9-4a90-8928-edfd64206da8"
+              }
+            ]
+          }
+        ],
+        "observations": [
+          {
+            "source": "alignment",
+            "description": "same element ID; token overlap 0.67, string 0.90, sequence 0.81"
+          },
+          {
+            "source": "graph",
+            "description": "Direct predecessor and successor context for aligned nodes."
+          },
+          {
+            "source": "attribute",
+            "description": "\"Enters the patient's name\" -> \"Enters the supplier's name\" (synonym)",
+            "value": {
+              "before": {
+                "id": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+                "name": "Enters the patient's name",
+                "kind": "task",
+                "kind_label": "task",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "none",
+                "attached_to": null,
+                "cancel_activity": true,
+                "lane": "FO",
+                "pool": "Search for patient data information"
+              },
+              "after": {
+                "id": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+                "name": "Enters the supplier's name",
+                "kind": "task",
+                "kind_label": "task",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "none",
+                "attached_to": null,
+                "cancel_activity": true,
+                "lane": "Front Office",
+                "pool": "Search for patient data information"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "op": "RENAME_LANE",
+      "legacy_op": "RENAME_SWIMLANE",
+      "category": 2,
+      "category_name": "Actors (lanes and pools)",
+      "element": "swimlane",
+      "before": {
+        "name": "FO"
+      },
+      "after": {
+        "name": "Front Office"
+      },
+      "detail": "\"FO\" -> \"Front Office\"",
+      "confidence": "high",
+      "needs_review": false,
+      "schema_version": "change-v1",
+      "change": {
+        "type": "RENAME_LANE",
+        "legacy_type": "RENAME_SWIMLANE",
+        "category": 2,
+        "category_name": "Actors (lanes and pools)",
+        "element": "swimlane",
+        "before": {
+          "name": "FO"
+        },
+        "after": {
+          "name": "Front Office"
+        },
+        "detail": "\"FO\" -> \"Front Office\"",
+        "confidence": "high",
+        "needs_review": false
+      },
+      "evidence": {
+        "alignment": [
+          {
+            "reference_node_id": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+            "variant_node_id": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+            "label": "synonym",
+            "score": 1.0,
+            "reason": "same element ID; token overlap 0.67, string 0.90, sequence 0.81",
+            "confidence": "high",
+            "needs_review": false
+          },
+          {
+            "reference_node_id": "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7",
+            "variant_node_id": "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7",
+            "label": "identical",
+            "score": 1.0,
+            "reason": "same element ID; exact normalised label",
+            "confidence": "high",
+            "needs_review": false
+          },
+          {
+            "reference_node_id": "Id_92cb515c-ae81-4364-a587-772f1bcc50f5",
+            "variant_node_id": "Id_92cb515c-ae81-4364-a587-772f1bcc50f5",
+            "label": "identical",
+            "score": 1.0,
+            "reason": "same element ID; empty label",
+            "confidence": "high",
+            "needs_review": false
+          },
+          {
+            "reference_node_id": "Id_ac3f7a9c-28e9-4a90-8928-edfd64206da8",
+            "variant_node_id": "Id_ac3f7a9c-28e9-4a90-8928-edfd64206da8",
+            "label": "identical",
+            "score": 1.0,
+            "reason": "same element ID; exact normalised label",
+            "confidence": "high",
+            "needs_review": false
+          }
+        ],
+        "structural_context": [
+          {
+            "reference": {
+              "node_id": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+              "predecessor_ids": [
+                "Id_b95890b5-92e4-432a-b709-a96b40733427"
+              ],
+              "successor_ids": [
+                "Id_ac3f7a9c-28e9-4a90-8928-edfd64206da8"
+              ],
+              "in_degree": 1,
+              "out_degree": 1
+            },
+            "variant": {
+              "node_id": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+              "predecessor_ids": [
+                "Id_b95890b5-92e4-432a-b709-a96b40733427"
+              ],
+              "successor_ids": [
+                "Id_ac3f7a9c-28e9-4a90-8928-edfd64206da8"
+              ],
+              "in_degree": 1,
+              "out_degree": 1
+            },
+            "matched_neighbors": [
+              {
+                "direction": "predecessor",
+                "reference_node_id": "Id_b95890b5-92e4-432a-b709-a96b40733427",
+                "variant_node_id": "Id_b95890b5-92e4-432a-b709-a96b40733427"
+              },
+              {
+                "direction": "successor",
+                "reference_node_id": "Id_ac3f7a9c-28e9-4a90-8928-edfd64206da8",
+                "variant_node_id": "Id_ac3f7a9c-28e9-4a90-8928-edfd64206da8"
+              }
+            ]
+          },
+          {
+            "reference": {
+              "node_id": "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7",
+              "predecessor_ids": [
+                "Id_92cb515c-ae81-4364-a587-772f1bcc50f5"
+              ],
+              "successor_ids": [
+                "Id_b95890b5-92e4-432a-b709-a96b40733427"
+              ],
+              "in_degree": 1,
+              "out_degree": 1
+            },
+            "variant": {
+              "node_id": "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7",
+              "predecessor_ids": [
+                "Id_92cb515c-ae81-4364-a587-772f1bcc50f5"
+              ],
+              "successor_ids": [
+                "Id_b95890b5-92e4-432a-b709-a96b40733427"
+              ],
+              "in_degree": 1,
+              "out_degree": 1
+            },
+            "matched_neighbors": [
+              {
+                "direction": "predecessor",
+                "reference_node_id": "Id_92cb515c-ae81-4364-a587-772f1bcc50f5",
+                "variant_node_id": "Id_92cb515c-ae81-4364-a587-772f1bcc50f5"
+              },
+              {
+                "direction": "successor",
+                "reference_node_id": "Id_b95890b5-92e4-432a-b709-a96b40733427",
+                "variant_node_id": "Id_b95890b5-92e4-432a-b709-a96b40733427"
+              }
+            ]
+          },
+          {
+            "reference": {
+              "node_id": "Id_92cb515c-ae81-4364-a587-772f1bcc50f5",
+              "predecessor_ids": [],
+              "successor_ids": [
+                "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7"
+              ],
+              "in_degree": 0,
+              "out_degree": 1
+            },
+            "variant": {
+              "node_id": "Id_92cb515c-ae81-4364-a587-772f1bcc50f5",
+              "predecessor_ids": [],
+              "successor_ids": [
+                "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7"
+              ],
+              "in_degree": 0,
+              "out_degree": 1
+            },
+            "matched_neighbors": [
+              {
+                "direction": "successor",
+                "reference_node_id": "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7",
+                "variant_node_id": "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7"
+              }
+            ]
+          },
+          {
+            "reference": {
+              "node_id": "Id_ac3f7a9c-28e9-4a90-8928-edfd64206da8",
+              "predecessor_ids": [
+                "Id_1164e919-3f27-4d09-9a69-2a33a2e98847"
+              ],
+              "successor_ids": [
+                "Id_a7308178-06d5-4269-8dc8-3ff4655e05ad"
+              ],
+              "in_degree": 1,
+              "out_degree": 1
+            },
+            "variant": {
+              "node_id": "Id_ac3f7a9c-28e9-4a90-8928-edfd64206da8",
+              "predecessor_ids": [
+                "Id_1164e919-3f27-4d09-9a69-2a33a2e98847"
+              ],
+              "successor_ids": [
+                "Id_a7308178-06d5-4269-8dc8-3ff4655e05ad"
+              ],
+              "in_degree": 1,
+              "out_degree": 1
+            },
+            "matched_neighbors": [
+              {
+                "direction": "predecessor",
+                "reference_node_id": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+                "variant_node_id": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847"
+              },
+              {
+                "direction": "successor",
+                "reference_node_id": "Id_a7308178-06d5-4269-8dc8-3ff4655e05ad",
+                "variant_node_id": "Id_a7308178-06d5-4269-8dc8-3ff4655e05ad"
+              }
+            ]
+          }
+        ],
+        "observations": [
+          {
+            "source": "alignment",
+            "description": "same element ID; token overlap 0.67, string 0.90, sequence 0.81"
+          },
+          {
+            "source": "alignment",
+            "description": "same element ID; exact normalised label"
+          },
+          {
+            "source": "alignment",
+            "description": "same element ID; empty label"
+          },
+          {
+            "source": "alignment",
+            "description": "same element ID; exact normalised label"
+          },
+          {
+            "source": "graph",
+            "description": "Direct predecessor and successor context for aligned nodes."
+          },
+          {
+            "source": "lane",
+            "description": "\"FO\" -> \"Front Office\"",
+            "value": {
+              "before": {
+                "name": "FO"
+              },
+              "after": {
+                "name": "Front Office"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "op": "DELETE_FLOW",
+      "legacy_op": "DELETE_FLOW",
+      "category": 3,
+      "category_name": "Sequence, flow, and branching",
+      "element": "flow",
+      "before": {
+        "source": "Displays the query results to a table",
+        "target": "<exclusive gateway (XOR)>",
+        "source_id": "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598",
+        "target_id": "Id_ffd9beac-13dd-4c0f-9c58-f3f304cf90f3"
+      },
+      "after": null,
+      "detail": "flow removed (1x)",
+      "label": "unmatched",
+      "confidence": "high",
+      "needs_review": false,
+      "schema_version": "change-v1",
+      "change": {
+        "type": "DELETE_FLOW",
+        "legacy_type": "DELETE_FLOW",
+        "category": 3,
+        "category_name": "Sequence, flow, and branching",
+        "element": "flow",
+        "before": {
+          "source": "Displays the query results to a table",
+          "target": "<exclusive gateway (XOR)>",
+          "source_id": "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598",
+          "target_id": "Id_ffd9beac-13dd-4c0f-9c58-f3f304cf90f3"
+        },
+        "after": null,
+        "detail": "flow removed (1x)",
+        "label": "unmatched",
+        "confidence": "high",
+        "needs_review": false
+      },
+      "evidence": {
+        "alignment": [
+          {
+            "reference_node_id": "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598",
+            "variant_node_id": "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598",
+            "label": "identical",
+            "score": 1.0,
+            "reason": "same element ID; exact normalised label",
+            "confidence": "high",
+            "needs_review": false
+          },
+          {
+            "reference_node_id": "Id_ffd9beac-13dd-4c0f-9c58-f3f304cf90f3",
+            "variant_node_id": "Id_ffd9beac-13dd-4c0f-9c58-f3f304cf90f3",
+            "label": "identical",
+            "score": 1.0,
+            "reason": "same element ID; empty label",
+            "confidence": "high",
+            "needs_review": false
+          }
+        ],
+        "structural_context": [
+          {
+            "reference": {
+              "node_id": "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598",
+              "predecessor_ids": [
+                "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49"
+              ],
+              "successor_ids": [
+                "Id_ffd9beac-13dd-4c0f-9c58-f3f304cf90f3"
+              ],
+              "in_degree": 1,
+              "out_degree": 1
+            },
+            "variant": {
+              "node_id": "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598",
+              "predecessor_ids": [
+                "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49"
+              ],
+              "successor_ids": [
+                "Mut_Node_1"
+              ],
+              "in_degree": 1,
+              "out_degree": 1
+            },
+            "matched_neighbors": [
+              {
+                "direction": "predecessor",
+                "reference_node_id": "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49",
+                "variant_node_id": "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49"
+              }
+            ]
+          },
+          {
+            "reference": {
+              "node_id": "Id_ffd9beac-13dd-4c0f-9c58-f3f304cf90f3",
+              "predecessor_ids": [
+                "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598",
+                "Id_99e847f2-ec4a-4d8d-b149-59c7295b1b81"
+              ],
+              "successor_ids": [
+                "Id_b210868a-cf5c-4157-b86e-b21d426d3851"
+              ],
+              "in_degree": 2,
+              "out_degree": 1
+            },
+            "variant": {
+              "node_id": "Id_ffd9beac-13dd-4c0f-9c58-f3f304cf90f3",
+              "predecessor_ids": [
+                "Id_99e847f2-ec4a-4d8d-b149-59c7295b1b81",
+                "Mut_Node_1"
+              ],
+              "successor_ids": [
+                "Id_b210868a-cf5c-4157-b86e-b21d426d3851"
+              ],
+              "in_degree": 2,
+              "out_degree": 1
+            },
+            "matched_neighbors": [
+              {
+                "direction": "predecessor",
+                "reference_node_id": "Id_99e847f2-ec4a-4d8d-b149-59c7295b1b81",
+                "variant_node_id": "Id_99e847f2-ec4a-4d8d-b149-59c7295b1b81"
+              },
+              {
+                "direction": "successor",
+                "reference_node_id": "Id_b210868a-cf5c-4157-b86e-b21d426d3851",
+                "variant_node_id": "Id_b210868a-cf5c-4157-b86e-b21d426d3851"
+              }
+            ]
+          }
+        ],
+        "observations": [
+          {
+            "source": "alignment",
+            "description": "same element ID; exact normalised label"
+          },
+          {
+            "source": "alignment",
+            "description": "same element ID; empty label"
+          },
+          {
+            "source": "graph",
+            "description": "Direct predecessor and successor context for aligned nodes."
+          },
+          {
+            "source": "graph",
+            "description": "flow removed (1x)",
+            "value": {
+              "before": {
+                "source": "Displays the query results to a table",
+                "target": "<exclusive gateway (XOR)>",
+                "source_id": "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598",
+                "target_id": "Id_ffd9beac-13dd-4c0f-9c58-f3f304cf90f3"
+              },
+              "after": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "op": "INSERT_FLOW",
+      "legacy_op": "INSERT_FLOW",
+      "category": 3,
+      "category_name": "Sequence, flow, and branching",
+      "element": "flow",
+      "before": null,
+      "after": {
+        "source": "Adds verification step 1",
+        "target": "<exclusive gateway (XOR)>",
+        "source_id": "Mut_Node_1",
+        "target_id": "Id_ffd9beac-13dd-4c0f-9c58-f3f304cf90f3"
+      },
+      "detail": "flow added (1x)",
+      "label": "unmatched",
+      "confidence": "high",
+      "needs_review": false,
+      "schema_version": "change-v1",
+      "change": {
+        "type": "INSERT_FLOW",
+        "legacy_type": "INSERT_FLOW",
+        "category": 3,
+        "category_name": "Sequence, flow, and branching",
+        "element": "flow",
+        "before": null,
+        "after": {
+          "source": "Adds verification step 1",
+          "target": "<exclusive gateway (XOR)>",
+          "source_id": "Mut_Node_1",
+          "target_id": "Id_ffd9beac-13dd-4c0f-9c58-f3f304cf90f3"
+        },
+        "detail": "flow added (1x)",
+        "label": "unmatched",
+        "confidence": "high",
+        "needs_review": false
+      },
+      "evidence": {
+        "alignment": [
+          {
+            "reference_node_id": null,
+            "variant_node_id": "Mut_Node_1",
+            "label": "unmatched",
+            "score": 0.0,
+            "reason": "",
+            "confidence": "high",
+            "needs_review": false
+          },
+          {
+            "reference_node_id": "Id_ffd9beac-13dd-4c0f-9c58-f3f304cf90f3",
+            "variant_node_id": "Id_ffd9beac-13dd-4c0f-9c58-f3f304cf90f3",
+            "label": "identical",
+            "score": 1.0,
+            "reason": "same element ID; empty label",
+            "confidence": "high",
+            "needs_review": false
+          }
+        ],
+        "structural_context": [
+          {
+            "reference": null,
+            "variant": {
+              "node_id": "Mut_Node_1",
+              "predecessor_ids": [
+                "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598"
+              ],
+              "successor_ids": [
+                "Id_ffd9beac-13dd-4c0f-9c58-f3f304cf90f3"
+              ],
+              "in_degree": 1,
+              "out_degree": 1
+            },
+            "matched_neighbors": []
+          },
+          {
+            "reference": {
+              "node_id": "Id_ffd9beac-13dd-4c0f-9c58-f3f304cf90f3",
+              "predecessor_ids": [
+                "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598",
+                "Id_99e847f2-ec4a-4d8d-b149-59c7295b1b81"
+              ],
+              "successor_ids": [
+                "Id_b210868a-cf5c-4157-b86e-b21d426d3851"
+              ],
+              "in_degree": 2,
+              "out_degree": 1
+            },
+            "variant": {
+              "node_id": "Id_ffd9beac-13dd-4c0f-9c58-f3f304cf90f3",
+              "predecessor_ids": [
+                "Id_99e847f2-ec4a-4d8d-b149-59c7295b1b81",
+                "Mut_Node_1"
+              ],
+              "successor_ids": [
+                "Id_b210868a-cf5c-4157-b86e-b21d426d3851"
+              ],
+              "in_degree": 2,
+              "out_degree": 1
+            },
+            "matched_neighbors": [
+              {
+                "direction": "predecessor",
+                "reference_node_id": "Id_99e847f2-ec4a-4d8d-b149-59c7295b1b81",
+                "variant_node_id": "Id_99e847f2-ec4a-4d8d-b149-59c7295b1b81"
+              },
+              {
+                "direction": "successor",
+                "reference_node_id": "Id_b210868a-cf5c-4157-b86e-b21d426d3851",
+                "variant_node_id": "Id_b210868a-cf5c-4157-b86e-b21d426d3851"
+              }
+            ]
+          }
+        ],
+        "observations": [
+          {
+            "source": "alignment",
+            "description": "Alignment label: unmatched."
+          },
+          {
+            "source": "alignment",
+            "description": "same element ID; empty label"
+          },
+          {
+            "source": "graph",
+            "description": "Direct predecessor and successor context for aligned nodes."
+          },
+          {
+            "source": "graph",
+            "description": "flow added (1x)",
+            "value": {
+              "before": null,
+              "after": {
+                "source": "Adds verification step 1",
+                "target": "<exclusive gateway (XOR)>",
+                "source_id": "Mut_Node_1",
+                "target_id": "Id_ffd9beac-13dd-4c0f-9c58-f3f304cf90f3"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "op": "INSERT_FLOW",
+      "legacy_op": "INSERT_FLOW",
+      "category": 3,
+      "category_name": "Sequence, flow, and branching",
+      "element": "flow",
+      "before": null,
+      "after": {
+        "source": "Displays the query results to a table",
+        "target": "Adds verification step 1",
+        "source_id": "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598",
+        "target_id": "Mut_Node_1"
+      },
+      "detail": "flow added (1x)",
+      "label": "unmatched",
+      "confidence": "high",
+      "needs_review": false,
+      "schema_version": "change-v1",
+      "change": {
+        "type": "INSERT_FLOW",
+        "legacy_type": "INSERT_FLOW",
+        "category": 3,
+        "category_name": "Sequence, flow, and branching",
+        "element": "flow",
+        "before": null,
+        "after": {
+          "source": "Displays the query results to a table",
+          "target": "Adds verification step 1",
+          "source_id": "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598",
+          "target_id": "Mut_Node_1"
+        },
+        "detail": "flow added (1x)",
+        "label": "unmatched",
+        "confidence": "high",
+        "needs_review": false
+      },
+      "evidence": {
+        "alignment": [
+          {
+            "reference_node_id": "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598",
+            "variant_node_id": "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598",
+            "label": "identical",
+            "score": 1.0,
+            "reason": "same element ID; exact normalised label",
+            "confidence": "high",
+            "needs_review": false
+          },
+          {
+            "reference_node_id": null,
+            "variant_node_id": "Mut_Node_1",
+            "label": "unmatched",
+            "score": 0.0,
+            "reason": "",
+            "confidence": "high",
+            "needs_review": false
+          }
+        ],
+        "structural_context": [
+          {
+            "reference": {
+              "node_id": "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598",
+              "predecessor_ids": [
+                "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49"
+              ],
+              "successor_ids": [
+                "Id_ffd9beac-13dd-4c0f-9c58-f3f304cf90f3"
+              ],
+              "in_degree": 1,
+              "out_degree": 1
+            },
+            "variant": {
+              "node_id": "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598",
+              "predecessor_ids": [
+                "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49"
+              ],
+              "successor_ids": [
+                "Mut_Node_1"
+              ],
+              "in_degree": 1,
+              "out_degree": 1
+            },
+            "matched_neighbors": [
+              {
+                "direction": "predecessor",
+                "reference_node_id": "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49",
+                "variant_node_id": "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49"
+              }
+            ]
+          },
+          {
+            "reference": null,
+            "variant": {
+              "node_id": "Mut_Node_1",
+              "predecessor_ids": [
+                "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598"
+              ],
+              "successor_ids": [
+                "Id_ffd9beac-13dd-4c0f-9c58-f3f304cf90f3"
+              ],
+              "in_degree": 1,
+              "out_degree": 1
+            },
+            "matched_neighbors": []
+          }
+        ],
+        "observations": [
+          {
+            "source": "alignment",
+            "description": "same element ID; exact normalised label"
+          },
+          {
+            "source": "alignment",
+            "description": "Alignment label: unmatched."
+          },
+          {
+            "source": "graph",
+            "description": "Direct predecessor and successor context for aligned nodes."
+          },
+          {
+            "source": "graph",
+            "description": "flow added (1x)",
+            "value": {
+              "before": null,
+              "after": {
+                "source": "Displays the query results to a table",
+                "target": "Adds verification step 1",
+                "source_id": "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598",
+                "target_id": "Mut_Node_1"
+              }
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "ground_truth_operations": [
+    {
+      "schema_version": "change-v1",
+      "change": {
+        "type": "INSERT_NODE",
+        "legacy_type": "INSERT",
+        "category": 1,
+        "category_name": "Steps (tasks and events)",
+        "element": "node",
+        "before": null,
+        "after": {
+          "id": "Mut_Node_1",
+          "name": "Adds verification step 1",
+          "kind": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "lane": "System",
+          "pool": "Search for patient data information"
+        },
+        "detail": "added task: Adds verification step 1",
+        "confidence": "high",
+        "needs_review": false,
+        "label": "unmatched"
+      },
+      "evidence": {
+        "alignment": [],
+        "structural_context": [],
+        "observations": [
+          {
+            "source": "operation",
+            "description": "added task: Adds verification step 1",
+            "value": {
+              "before": null,
+              "after": {
+                "id": "Mut_Node_1",
+                "name": "Adds verification step 1",
+                "kind": "task",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "none",
+                "lane": "System",
+                "pool": "Search for patient data information"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "schema_version": "change-v1",
+      "change": {
+        "type": "NODE_TYPE_CHANGE",
+        "legacy_type": "CHANGE_TYPE",
+        "category": 1,
+        "category_name": "Steps (tasks and events)",
+        "element": "node",
+        "before": {
+          "id": "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49",
+          "name": "Queries the Patient database,",
+          "kind": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "lane": "System",
+          "pool": "Search for patient data information"
+        },
+        "after": {
+          "id": "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49",
+          "name": "Queries the Patient database,",
+          "kind": "task",
+          "task_type": "user",
+          "event_definition": "none",
+          "marker": "none",
+          "lane": "System",
+          "pool": "Search for patient data information"
+        },
+        "detail": "abstract task -> user task",
+        "confidence": "high",
+        "needs_review": false
+      },
+      "evidence": {
+        "alignment": [],
+        "structural_context": [],
+        "observations": [
+          {
+            "source": "operation",
+            "description": "abstract task -> user task",
+            "value": {
+              "before": {
+                "id": "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49",
+                "name": "Queries the Patient database,",
+                "kind": "task",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "none",
+                "lane": "System",
+                "pool": "Search for patient data information"
+              },
+              "after": {
+                "id": "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49",
+                "name": "Queries the Patient database,",
+                "kind": "task",
+                "task_type": "user",
+                "event_definition": "none",
+                "marker": "none",
+                "lane": "System",
+                "pool": "Search for patient data information"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "schema_version": "change-v1",
+      "change": {
+        "type": "RENAME_NODE",
+        "legacy_type": "RENAME",
+        "category": 1,
+        "category_name": "Steps (tasks and events)",
+        "element": "node",
+        "before": {
+          "id": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+          "name": "Enters the patient's name",
+          "kind": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "lane": "FO",
+          "pool": "Search for patient data information"
+        },
+        "after": {
+          "id": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+          "name": "Enters the supplier's name",
+          "kind": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "lane": "Front Office",
+          "pool": "Search for patient data information"
+        },
+        "detail": "\"Enters the patient's name\" -> \"Enters the supplier's name\" (synonym)",
+        "confidence": "high",
+        "needs_review": false,
+        "label": "synonym",
+        "subtype": "synonym",
+        "is_synonym": true,
+        "score": 0.88
+      },
+      "evidence": {
+        "alignment": [],
+        "structural_context": [],
+        "observations": [
+          {
+            "source": "operation",
+            "description": "\"Enters the patient's name\" -> \"Enters the supplier's name\" (synonym)",
+            "value": {
+              "before": {
+                "id": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+                "name": "Enters the patient's name",
+                "kind": "task",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "none",
+                "lane": "FO",
+                "pool": "Search for patient data information"
+              },
+              "after": {
+                "id": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+                "name": "Enters the supplier's name",
+                "kind": "task",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "none",
+                "lane": "Front Office",
+                "pool": "Search for patient data information"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "schema_version": "change-v1",
+      "change": {
+        "type": "RENAME_LANE",
+        "legacy_type": "RENAME_SWIMLANE",
+        "category": 2,
+        "category_name": "Actors (lanes and pools)",
+        "element": "swimlane",
+        "before": {
+          "name": "FO"
+        },
+        "after": {
+          "name": "Front Office"
+        },
+        "detail": "\"FO\" -> \"Front Office\"",
+        "confidence": "high",
+        "needs_review": false
+      },
+      "evidence": {
+        "alignment": [],
+        "structural_context": [],
+        "observations": [
+          {
+            "source": "operation",
+            "description": "\"FO\" -> \"Front Office\"",
+            "value": {
+              "before": {
+                "name": "FO"
+              },
+              "after": {
+                "name": "Front Office"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "schema_version": "change-v1",
+      "change": {
+        "type": "DELETE_FLOW",
+        "legacy_type": "DELETE_FLOW",
+        "category": 3,
+        "category_name": "Sequence, flow, and branching",
+        "element": "flow",
+        "before": {
+          "source": "Displays the query results to a table",
+          "target": "<exclusive gateway (XOR)>",
+          "source_id": "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598",
+          "target_id": "Id_ffd9beac-13dd-4c0f-9c58-f3f304cf90f3",
+          "condition": "",
+          "is_default": false
+        },
+        "after": null,
+        "detail": "flow removed from \"Displays the query results to a table\" to \"<exclusive gateway (XOR)>\" (1x)",
+        "confidence": "high",
+        "needs_review": false,
+        "label": "unmatched"
+      },
+      "evidence": {
+        "alignment": [],
+        "structural_context": [],
+        "observations": [
+          {
+            "source": "operation",
+            "description": "flow removed from \"Displays the query results to a table\" to \"<exclusive gateway (XOR)>\" (1x)",
+            "value": {
+              "before": {
+                "source": "Displays the query results to a table",
+                "target": "<exclusive gateway (XOR)>",
+                "source_id": "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598",
+                "target_id": "Id_ffd9beac-13dd-4c0f-9c58-f3f304cf90f3",
+                "condition": "",
+                "is_default": false
+              },
+              "after": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "schema_version": "change-v1",
+      "change": {
+        "type": "INSERT_FLOW",
+        "legacy_type": "INSERT_FLOW",
+        "category": 3,
+        "category_name": "Sequence, flow, and branching",
+        "element": "flow",
+        "before": null,
+        "after": {
+          "source": "Adds verification step 1",
+          "target": "<exclusive gateway (XOR)>",
+          "source_id": "Mut_Node_1",
+          "target_id": "Id_ffd9beac-13dd-4c0f-9c58-f3f304cf90f3",
+          "condition": "",
+          "is_default": false
+        },
+        "detail": "flow added from \"Adds verification step 1\" to \"<exclusive gateway (XOR)>\" (1x)",
+        "confidence": "high",
+        "needs_review": false,
+        "label": "unmatched"
+      },
+      "evidence": {
+        "alignment": [],
+        "structural_context": [],
+        "observations": [
+          {
+            "source": "operation",
+            "description": "flow added from \"Adds verification step 1\" to \"<exclusive gateway (XOR)>\" (1x)",
+            "value": {
+              "before": null,
+              "after": {
+                "source": "Adds verification step 1",
+                "target": "<exclusive gateway (XOR)>",
+                "source_id": "Mut_Node_1",
+                "target_id": "Id_ffd9beac-13dd-4c0f-9c58-f3f304cf90f3",
+                "condition": "",
+                "is_default": false
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "schema_version": "change-v1",
+      "change": {
+        "type": "INSERT_FLOW",
+        "legacy_type": "INSERT_FLOW",
+        "category": 3,
+        "category_name": "Sequence, flow, and branching",
+        "element": "flow",
+        "before": null,
+        "after": {
+          "source": "Displays the query results to a table",
+          "target": "Adds verification step 1",
+          "source_id": "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598",
+          "target_id": "Mut_Node_1",
+          "condition": "",
+          "is_default": false
+        },
+        "detail": "flow added from \"Displays the query results to a table\" to \"Adds verification step 1\" (1x)",
+        "confidence": "high",
+        "needs_review": false,
+        "label": "unmatched"
+      },
+      "evidence": {
+        "alignment": [],
+        "structural_context": [],
+        "observations": [
+          {
+            "source": "operation",
+            "description": "flow added from \"Displays the query results to a table\" to \"Adds verification step 1\" (1x)",
+            "value": {
+              "before": null,
+              "after": {
+                "source": "Displays the query results to a table",
+                "target": "Adds verification step 1",
+                "source_id": "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598",
+                "target_id": "Mut_Node_1",
+                "condition": "",
+                "is_default": false
+              }
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "comparison": {
+    "mode": "A",
+    "alignment_strategy": "hybrid",
+    "reference": {
+      "id": "Id_81a1a7a6-dc7b-461c-80b9-73dee21ec226",
+      "name": "reference.bpmn",
+      "source": "/home/mendoan/Projects/bpmndiff/dataset/synthetic/56/reference.bpmn",
+      "format": "bpmn",
+      "pool": "Search for patient data information",
+      "stats": {
+        "nodes": 11,
+        "edges": 11,
+        "tasks": 7,
+        "gateways": 2,
+        "events": 2,
+        "lanes": 2,
+        "message_flows": 0,
+        "data_elements": 6
+      }
+    },
+    "variant": {
+      "id": "Id_81a1a7a6-dc7b-461c-80b9-73dee21ec226",
+      "name": "k4_keep.bpmn",
+      "source": "/home/mendoan/Projects/bpmndiff/dataset/synthetic/56/k4_keep.bpmn",
+      "format": "bpmn",
+      "pool": "Search for patient data information",
+      "stats": {
+        "nodes": 12,
+        "edges": 12,
+        "tasks": 8,
+        "gateways": 2,
+        "events": 2,
+        "lanes": 2,
+        "message_flows": 0,
+        "data_elements": 6
+      }
+    },
+    "alignment": {
+      "counts": {
+        "identical": 10,
+        "synonym": 1,
+        "meaning_changed": 0,
+        "unmatched": 1,
+        "matched": 11,
+        "needs_review": 0
+      },
+      "pairs": [
+        {
+          "a": "Enters the patient's name",
+          "b": "Enters the supplier's name",
+          "label": "synonym",
+          "score": 1.0,
+          "reason": "same element ID; token overlap 0.67, string 0.90, sequence 0.81",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+          "b_id": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847"
+        },
+        {
+          "a": "Queries the Patient database,",
+          "b": "Queries the Patient database,",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "same element ID; exact normalised label",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49",
+          "b_id": "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49"
+        },
+        {
+          "a": "Displays the query results to a table",
+          "b": "Displays the query results to a table",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "same element ID; exact normalised label",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598",
+          "b_id": "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598"
+        },
+        {
+          "a": "Wants Search for patient data information",
+          "b": "Wants Search for patient data information",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "same element ID; exact normalised label",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7",
+          "b_id": "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7"
+        },
+        {
+          "a": "<start event>",
+          "b": "<start event>",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "same element ID; empty label",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_92cb515c-ae81-4364-a587-772f1bcc50f5",
+          "b_id": "Id_92cb515c-ae81-4364-a587-772f1bcc50f5"
+        },
+        {
+          "a": "Invisible Task",
+          "b": "Invisible Task",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "same element ID; exact normalised label",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_99e847f2-ec4a-4d8d-b149-59c7295b1b81",
+          "b_id": "Id_99e847f2-ec4a-4d8d-b149-59c7295b1b81"
+        },
+        {
+          "a": "<exclusive gateway (XOR)>",
+          "b": "<exclusive gateway (XOR)>",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "same element ID; empty label",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_a7308178-06d5-4269-8dc8-3ff4655e05ad",
+          "b_id": "Id_a7308178-06d5-4269-8dc8-3ff4655e05ad"
+        },
+        {
+          "a": "Selects a search button",
+          "b": "Selects a search button",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "same element ID; exact normalised label",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_ac3f7a9c-28e9-4a90-8928-edfd64206da8",
+          "b_id": "Id_ac3f7a9c-28e9-4a90-8928-edfd64206da8"
+        },
+        {
+          "a": "<end event>",
+          "b": "<end event>",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "same element ID; empty label",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_b210868a-cf5c-4157-b86e-b21d426d3851",
+          "b_id": "Id_b210868a-cf5c-4157-b86e-b21d426d3851"
+        },
+        {
+          "a": "Displays the Search for patient data information form",
+          "b": "Displays the Search for patient data information form",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "same element ID; exact normalised label",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_b95890b5-92e4-432a-b709-a96b40733427",
+          "b_id": "Id_b95890b5-92e4-432a-b709-a96b40733427"
+        },
+        {
+          "a": "<exclusive gateway (XOR)>",
+          "b": "<exclusive gateway (XOR)>",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "same element ID; empty label",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_ffd9beac-13dd-4c0f-9c58-f3f304cf90f3",
+          "b_id": "Id_ffd9beac-13dd-4c0f-9c58-f3f304cf90f3"
+        },
+        {
+          "a": null,
+          "b": "Adds verification step 1",
+          "label": "unmatched",
+          "score": 0.0,
+          "reason": "",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "b_id": "Mut_Node_1"
+        }
+      ]
+    },
+    "change_schema_version": "change-v1",
+    "operations": [
+      {
+        "op": "INSERT_NODE",
+        "legacy_op": "INSERT",
+        "category": 1,
+        "category_name": "Steps (tasks and events)",
+        "element": "node",
+        "before": null,
+        "after": {
+          "id": "Mut_Node_1",
+          "name": "Adds verification step 1",
+          "kind": "task",
+          "kind_label": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "attached_to": null,
+          "cancel_activity": true,
+          "lane": "System",
+          "pool": "Search for patient data information"
+        },
+        "detail": "added task",
+        "label": "unmatched",
+        "confidence": "high",
+        "needs_review": false,
+        "schema_version": "change-v1",
+        "change": {
+          "type": "INSERT_NODE",
+          "legacy_type": "INSERT",
+          "category": 1,
+          "category_name": "Steps (tasks and events)",
+          "element": "node",
+          "before": null,
+          "after": {
+            "id": "Mut_Node_1",
+            "name": "Adds verification step 1",
+            "kind": "task",
+            "kind_label": "task",
+            "task_type": "abstract",
+            "event_definition": "none",
+            "marker": "none",
+            "attached_to": null,
+            "cancel_activity": true,
+            "lane": "System",
+            "pool": "Search for patient data information"
+          },
+          "detail": "added task",
+          "label": "unmatched",
+          "confidence": "high",
+          "needs_review": false
+        },
+        "evidence": {
+          "alignment": [
+            {
+              "reference_node_id": null,
+              "variant_node_id": "Mut_Node_1",
+              "label": "unmatched",
+              "score": 0.0,
+              "reason": "",
+              "confidence": "high",
+              "needs_review": false
+            }
+          ],
+          "structural_context": [
+            {
+              "reference": null,
+              "variant": {
+                "node_id": "Mut_Node_1",
+                "predecessor_ids": [
+                  "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598"
+                ],
+                "successor_ids": [
+                  "Id_ffd9beac-13dd-4c0f-9c58-f3f304cf90f3"
+                ],
+                "in_degree": 1,
+                "out_degree": 1
+              },
+              "matched_neighbors": []
+            }
+          ],
+          "observations": [
+            {
+              "source": "alignment",
+              "description": "Alignment label: unmatched."
+            },
+            {
+              "source": "graph",
+              "description": "Direct predecessor and successor context for aligned nodes."
+            },
+            {
+              "source": "operation",
+              "description": "added task",
+              "value": {
+                "before": null,
+                "after": {
+                  "id": "Mut_Node_1",
+                  "name": "Adds verification step 1",
+                  "kind": "task",
+                  "kind_label": "task",
+                  "task_type": "abstract",
+                  "event_definition": "none",
+                  "marker": "none",
+                  "attached_to": null,
+                  "cancel_activity": true,
+                  "lane": "System",
+                  "pool": "Search for patient data information"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "NODE_TYPE_CHANGE",
+        "legacy_op": "CHANGE_TYPE",
+        "category": 1,
+        "category_name": "Steps (tasks and events)",
+        "element": "node",
+        "before": {
+          "id": "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49",
+          "name": "Queries the Patient database,",
+          "kind": "task",
+          "kind_label": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "attached_to": null,
+          "cancel_activity": true,
+          "lane": "System",
+          "pool": "Search for patient data information"
+        },
+        "after": {
+          "id": "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49",
+          "name": "Queries the Patient database,",
+          "kind": "task",
+          "kind_label": "task",
+          "task_type": "user",
+          "event_definition": "none",
+          "marker": "none",
+          "attached_to": null,
+          "cancel_activity": true,
+          "lane": "System",
+          "pool": "Search for patient data information"
+        },
+        "detail": "abstract task -> user task",
+        "label": "identical",
+        "confidence": "high",
+        "needs_review": false,
+        "schema_version": "change-v1",
+        "change": {
+          "type": "NODE_TYPE_CHANGE",
+          "legacy_type": "CHANGE_TYPE",
+          "category": 1,
+          "category_name": "Steps (tasks and events)",
+          "element": "node",
+          "before": {
+            "id": "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49",
+            "name": "Queries the Patient database,",
+            "kind": "task",
+            "kind_label": "task",
+            "task_type": "abstract",
+            "event_definition": "none",
+            "marker": "none",
+            "attached_to": null,
+            "cancel_activity": true,
+            "lane": "System",
+            "pool": "Search for patient data information"
+          },
+          "after": {
+            "id": "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49",
+            "name": "Queries the Patient database,",
+            "kind": "task",
+            "kind_label": "task",
+            "task_type": "user",
+            "event_definition": "none",
+            "marker": "none",
+            "attached_to": null,
+            "cancel_activity": true,
+            "lane": "System",
+            "pool": "Search for patient data information"
+          },
+          "detail": "abstract task -> user task",
+          "label": "identical",
+          "confidence": "high",
+          "needs_review": false
+        },
+        "evidence": {
+          "alignment": [
+            {
+              "reference_node_id": "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49",
+              "variant_node_id": "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49",
+              "label": "identical",
+              "score": 1.0,
+              "reason": "same element ID; exact normalised label",
+              "confidence": "high",
+              "needs_review": false
+            }
+          ],
+          "structural_context": [
+            {
+              "reference": {
+                "node_id": "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49",
+                "predecessor_ids": [
+                  "Id_a7308178-06d5-4269-8dc8-3ff4655e05ad"
+                ],
+                "successor_ids": [
+                  "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598"
+                ],
+                "in_degree": 1,
+                "out_degree": 1
+              },
+              "variant": {
+                "node_id": "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49",
+                "predecessor_ids": [
+                  "Id_a7308178-06d5-4269-8dc8-3ff4655e05ad"
+                ],
+                "successor_ids": [
+                  "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598"
+                ],
+                "in_degree": 1,
+                "out_degree": 1
+              },
+              "matched_neighbors": [
+                {
+                  "direction": "predecessor",
+                  "reference_node_id": "Id_a7308178-06d5-4269-8dc8-3ff4655e05ad",
+                  "variant_node_id": "Id_a7308178-06d5-4269-8dc8-3ff4655e05ad"
+                },
+                {
+                  "direction": "successor",
+                  "reference_node_id": "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598",
+                  "variant_node_id": "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598"
+                }
+              ]
+            }
+          ],
+          "observations": [
+            {
+              "source": "alignment",
+              "description": "same element ID; exact normalised label"
+            },
+            {
+              "source": "graph",
+              "description": "Direct predecessor and successor context for aligned nodes."
+            },
+            {
+              "source": "attribute",
+              "description": "abstract task -> user task",
+              "value": {
+                "before": {
+                  "id": "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49",
+                  "name": "Queries the Patient database,",
+                  "kind": "task",
+                  "kind_label": "task",
+                  "task_type": "abstract",
+                  "event_definition": "none",
+                  "marker": "none",
+                  "attached_to": null,
+                  "cancel_activity": true,
+                  "lane": "System",
+                  "pool": "Search for patient data information"
+                },
+                "after": {
+                  "id": "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49",
+                  "name": "Queries the Patient database,",
+                  "kind": "task",
+                  "kind_label": "task",
+                  "task_type": "user",
+                  "event_definition": "none",
+                  "marker": "none",
+                  "attached_to": null,
+                  "cancel_activity": true,
+                  "lane": "System",
+                  "pool": "Search for patient data information"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "RENAME_NODE",
+        "legacy_op": "RENAME",
+        "category": 1,
+        "category_name": "Steps (tasks and events)",
+        "element": "node",
+        "before": {
+          "id": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+          "name": "Enters the patient's name",
+          "kind": "task",
+          "kind_label": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "attached_to": null,
+          "cancel_activity": true,
+          "lane": "FO",
+          "pool": "Search for patient data information"
+        },
+        "after": {
+          "id": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+          "name": "Enters the supplier's name",
+          "kind": "task",
+          "kind_label": "task",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "attached_to": null,
+          "cancel_activity": true,
+          "lane": "Front Office",
+          "pool": "Search for patient data information"
+        },
+        "detail": "\"Enters the patient's name\" -> \"Enters the supplier's name\" (synonym)",
+        "label": "synonym",
+        "is_synonym": true,
+        "subtype": "synonym",
+        "score": 1.0,
+        "confidence": "high",
+        "needs_review": false,
+        "schema_version": "change-v1",
+        "change": {
+          "type": "RENAME_NODE",
+          "legacy_type": "RENAME",
+          "category": 1,
+          "category_name": "Steps (tasks and events)",
+          "element": "node",
+          "before": {
+            "id": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+            "name": "Enters the patient's name",
+            "kind": "task",
+            "kind_label": "task",
+            "task_type": "abstract",
+            "event_definition": "none",
+            "marker": "none",
+            "attached_to": null,
+            "cancel_activity": true,
+            "lane": "FO",
+            "pool": "Search for patient data information"
+          },
+          "after": {
+            "id": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+            "name": "Enters the supplier's name",
+            "kind": "task",
+            "kind_label": "task",
+            "task_type": "abstract",
+            "event_definition": "none",
+            "marker": "none",
+            "attached_to": null,
+            "cancel_activity": true,
+            "lane": "Front Office",
+            "pool": "Search for patient data information"
+          },
+          "detail": "\"Enters the patient's name\" -> \"Enters the supplier's name\" (synonym)",
+          "label": "synonym",
+          "subtype": "synonym",
+          "is_synonym": true,
+          "score": 1.0,
+          "confidence": "high",
+          "needs_review": false
+        },
+        "evidence": {
+          "alignment": [
+            {
+              "reference_node_id": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+              "variant_node_id": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+              "label": "synonym",
+              "score": 1.0,
+              "reason": "same element ID; token overlap 0.67, string 0.90, sequence 0.81",
+              "confidence": "high",
+              "needs_review": false
+            }
+          ],
+          "structural_context": [
+            {
+              "reference": {
+                "node_id": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+                "predecessor_ids": [
+                  "Id_b95890b5-92e4-432a-b709-a96b40733427"
+                ],
+                "successor_ids": [
+                  "Id_ac3f7a9c-28e9-4a90-8928-edfd64206da8"
+                ],
+                "in_degree": 1,
+                "out_degree": 1
+              },
+              "variant": {
+                "node_id": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+                "predecessor_ids": [
+                  "Id_b95890b5-92e4-432a-b709-a96b40733427"
+                ],
+                "successor_ids": [
+                  "Id_ac3f7a9c-28e9-4a90-8928-edfd64206da8"
+                ],
+                "in_degree": 1,
+                "out_degree": 1
+              },
+              "matched_neighbors": [
+                {
+                  "direction": "predecessor",
+                  "reference_node_id": "Id_b95890b5-92e4-432a-b709-a96b40733427",
+                  "variant_node_id": "Id_b95890b5-92e4-432a-b709-a96b40733427"
+                },
+                {
+                  "direction": "successor",
+                  "reference_node_id": "Id_ac3f7a9c-28e9-4a90-8928-edfd64206da8",
+                  "variant_node_id": "Id_ac3f7a9c-28e9-4a90-8928-edfd64206da8"
+                }
+              ]
+            }
+          ],
+          "observations": [
+            {
+              "source": "alignment",
+              "description": "same element ID; token overlap 0.67, string 0.90, sequence 0.81"
+            },
+            {
+              "source": "graph",
+              "description": "Direct predecessor and successor context for aligned nodes."
+            },
+            {
+              "source": "attribute",
+              "description": "\"Enters the patient's name\" -> \"Enters the supplier's name\" (synonym)",
+              "value": {
+                "before": {
+                  "id": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+                  "name": "Enters the patient's name",
+                  "kind": "task",
+                  "kind_label": "task",
+                  "task_type": "abstract",
+                  "event_definition": "none",
+                  "marker": "none",
+                  "attached_to": null,
+                  "cancel_activity": true,
+                  "lane": "FO",
+                  "pool": "Search for patient data information"
+                },
+                "after": {
+                  "id": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+                  "name": "Enters the supplier's name",
+                  "kind": "task",
+                  "kind_label": "task",
+                  "task_type": "abstract",
+                  "event_definition": "none",
+                  "marker": "none",
+                  "attached_to": null,
+                  "cancel_activity": true,
+                  "lane": "Front Office",
+                  "pool": "Search for patient data information"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "RENAME_LANE",
+        "legacy_op": "RENAME_SWIMLANE",
+        "category": 2,
+        "category_name": "Actors (lanes and pools)",
+        "element": "swimlane",
+        "before": {
+          "name": "FO"
+        },
+        "after": {
+          "name": "Front Office"
+        },
+        "detail": "\"FO\" -> \"Front Office\"",
+        "confidence": "high",
+        "needs_review": false,
+        "schema_version": "change-v1",
+        "change": {
+          "type": "RENAME_LANE",
+          "legacy_type": "RENAME_SWIMLANE",
+          "category": 2,
+          "category_name": "Actors (lanes and pools)",
+          "element": "swimlane",
+          "before": {
+            "name": "FO"
+          },
+          "after": {
+            "name": "Front Office"
+          },
+          "detail": "\"FO\" -> \"Front Office\"",
+          "confidence": "high",
+          "needs_review": false
+        },
+        "evidence": {
+          "alignment": [
+            {
+              "reference_node_id": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+              "variant_node_id": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+              "label": "synonym",
+              "score": 1.0,
+              "reason": "same element ID; token overlap 0.67, string 0.90, sequence 0.81",
+              "confidence": "high",
+              "needs_review": false
+            },
+            {
+              "reference_node_id": "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7",
+              "variant_node_id": "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7",
+              "label": "identical",
+              "score": 1.0,
+              "reason": "same element ID; exact normalised label",
+              "confidence": "high",
+              "needs_review": false
+            },
+            {
+              "reference_node_id": "Id_92cb515c-ae81-4364-a587-772f1bcc50f5",
+              "variant_node_id": "Id_92cb515c-ae81-4364-a587-772f1bcc50f5",
+              "label": "identical",
+              "score": 1.0,
+              "reason": "same element ID; empty label",
+              "confidence": "high",
+              "needs_review": false
+            },
+            {
+              "reference_node_id": "Id_ac3f7a9c-28e9-4a90-8928-edfd64206da8",
+              "variant_node_id": "Id_ac3f7a9c-28e9-4a90-8928-edfd64206da8",
+              "label": "identical",
+              "score": 1.0,
+              "reason": "same element ID; exact normalised label",
+              "confidence": "high",
+              "needs_review": false
+            }
+          ],
+          "structural_context": [
+            {
+              "reference": {
+                "node_id": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+                "predecessor_ids": [
+                  "Id_b95890b5-92e4-432a-b709-a96b40733427"
+                ],
+                "successor_ids": [
+                  "Id_ac3f7a9c-28e9-4a90-8928-edfd64206da8"
+                ],
+                "in_degree": 1,
+                "out_degree": 1
+              },
+              "variant": {
+                "node_id": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+                "predecessor_ids": [
+                  "Id_b95890b5-92e4-432a-b709-a96b40733427"
+                ],
+                "successor_ids": [
+                  "Id_ac3f7a9c-28e9-4a90-8928-edfd64206da8"
+                ],
+                "in_degree": 1,
+                "out_degree": 1
+              },
+              "matched_neighbors": [
+                {
+                  "direction": "predecessor",
+                  "reference_node_id": "Id_b95890b5-92e4-432a-b709-a96b40733427",
+                  "variant_node_id": "Id_b95890b5-92e4-432a-b709-a96b40733427"
+                },
+                {
+                  "direction": "successor",
+                  "reference_node_id": "Id_ac3f7a9c-28e9-4a90-8928-edfd64206da8",
+                  "variant_node_id": "Id_ac3f7a9c-28e9-4a90-8928-edfd64206da8"
+                }
+              ]
+            },
+            {
+              "reference": {
+                "node_id": "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7",
+                "predecessor_ids": [
+                  "Id_92cb515c-ae81-4364-a587-772f1bcc50f5"
+                ],
+                "successor_ids": [
+                  "Id_b95890b5-92e4-432a-b709-a96b40733427"
+                ],
+                "in_degree": 1,
+                "out_degree": 1
+              },
+              "variant": {
+                "node_id": "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7",
+                "predecessor_ids": [
+                  "Id_92cb515c-ae81-4364-a587-772f1bcc50f5"
+                ],
+                "successor_ids": [
+                  "Id_b95890b5-92e4-432a-b709-a96b40733427"
+                ],
+                "in_degree": 1,
+                "out_degree": 1
+              },
+              "matched_neighbors": [
+                {
+                  "direction": "predecessor",
+                  "reference_node_id": "Id_92cb515c-ae81-4364-a587-772f1bcc50f5",
+                  "variant_node_id": "Id_92cb515c-ae81-4364-a587-772f1bcc50f5"
+                },
+                {
+                  "direction": "successor",
+                  "reference_node_id": "Id_b95890b5-92e4-432a-b709-a96b40733427",
+                  "variant_node_id": "Id_b95890b5-92e4-432a-b709-a96b40733427"
+                }
+              ]
+            },
+            {
+              "reference": {
+                "node_id": "Id_92cb515c-ae81-4364-a587-772f1bcc50f5",
+                "predecessor_ids": [],
+                "successor_ids": [
+                  "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7"
+                ],
+                "in_degree": 0,
+                "out_degree": 1
+              },
+              "variant": {
+                "node_id": "Id_92cb515c-ae81-4364-a587-772f1bcc50f5",
+                "predecessor_ids": [],
+                "successor_ids": [
+                  "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7"
+                ],
+                "in_degree": 0,
+                "out_degree": 1
+              },
+              "matched_neighbors": [
+                {
+                  "direction": "successor",
+                  "reference_node_id": "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7",
+                  "variant_node_id": "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7"
+                }
+              ]
+            },
+            {
+              "reference": {
+                "node_id": "Id_ac3f7a9c-28e9-4a90-8928-edfd64206da8",
+                "predecessor_ids": [
+                  "Id_1164e919-3f27-4d09-9a69-2a33a2e98847"
+                ],
+                "successor_ids": [
+                  "Id_a7308178-06d5-4269-8dc8-3ff4655e05ad"
+                ],
+                "in_degree": 1,
+                "out_degree": 1
+              },
+              "variant": {
+                "node_id": "Id_ac3f7a9c-28e9-4a90-8928-edfd64206da8",
+                "predecessor_ids": [
+                  "Id_1164e919-3f27-4d09-9a69-2a33a2e98847"
+                ],
+                "successor_ids": [
+                  "Id_a7308178-06d5-4269-8dc8-3ff4655e05ad"
+                ],
+                "in_degree": 1,
+                "out_degree": 1
+              },
+              "matched_neighbors": [
+                {
+                  "direction": "predecessor",
+                  "reference_node_id": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+                  "variant_node_id": "Id_1164e919-3f27-4d09-9a69-2a33a2e98847"
+                },
+                {
+                  "direction": "successor",
+                  "reference_node_id": "Id_a7308178-06d5-4269-8dc8-3ff4655e05ad",
+                  "variant_node_id": "Id_a7308178-06d5-4269-8dc8-3ff4655e05ad"
+                }
+              ]
+            }
+          ],
+          "observations": [
+            {
+              "source": "alignment",
+              "description": "same element ID; token overlap 0.67, string 0.90, sequence 0.81"
+            },
+            {
+              "source": "alignment",
+              "description": "same element ID; exact normalised label"
+            },
+            {
+              "source": "alignment",
+              "description": "same element ID; empty label"
+            },
+            {
+              "source": "alignment",
+              "description": "same element ID; exact normalised label"
+            },
+            {
+              "source": "graph",
+              "description": "Direct predecessor and successor context for aligned nodes."
+            },
+            {
+              "source": "lane",
+              "description": "\"FO\" -> \"Front Office\"",
+              "value": {
+                "before": {
+                  "name": "FO"
+                },
+                "after": {
+                  "name": "Front Office"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "DELETE_FLOW",
+        "legacy_op": "DELETE_FLOW",
+        "category": 3,
+        "category_name": "Sequence, flow, and branching",
+        "element": "flow",
+        "before": {
+          "source": "Displays the query results to a table",
+          "target": "<exclusive gateway (XOR)>",
+          "source_id": "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598",
+          "target_id": "Id_ffd9beac-13dd-4c0f-9c58-f3f304cf90f3"
+        },
+        "after": null,
+        "detail": "flow removed (1x)",
+        "label": "unmatched",
+        "confidence": "high",
+        "needs_review": false,
+        "schema_version": "change-v1",
+        "change": {
+          "type": "DELETE_FLOW",
+          "legacy_type": "DELETE_FLOW",
+          "category": 3,
+          "category_name": "Sequence, flow, and branching",
+          "element": "flow",
+          "before": {
+            "source": "Displays the query results to a table",
+            "target": "<exclusive gateway (XOR)>",
+            "source_id": "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598",
+            "target_id": "Id_ffd9beac-13dd-4c0f-9c58-f3f304cf90f3"
+          },
+          "after": null,
+          "detail": "flow removed (1x)",
+          "label": "unmatched",
+          "confidence": "high",
+          "needs_review": false
+        },
+        "evidence": {
+          "alignment": [
+            {
+              "reference_node_id": "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598",
+              "variant_node_id": "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598",
+              "label": "identical",
+              "score": 1.0,
+              "reason": "same element ID; exact normalised label",
+              "confidence": "high",
+              "needs_review": false
+            },
+            {
+              "reference_node_id": "Id_ffd9beac-13dd-4c0f-9c58-f3f304cf90f3",
+              "variant_node_id": "Id_ffd9beac-13dd-4c0f-9c58-f3f304cf90f3",
+              "label": "identical",
+              "score": 1.0,
+              "reason": "same element ID; empty label",
+              "confidence": "high",
+              "needs_review": false
+            }
+          ],
+          "structural_context": [
+            {
+              "reference": {
+                "node_id": "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598",
+                "predecessor_ids": [
+                  "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49"
+                ],
+                "successor_ids": [
+                  "Id_ffd9beac-13dd-4c0f-9c58-f3f304cf90f3"
+                ],
+                "in_degree": 1,
+                "out_degree": 1
+              },
+              "variant": {
+                "node_id": "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598",
+                "predecessor_ids": [
+                  "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49"
+                ],
+                "successor_ids": [
+                  "Mut_Node_1"
+                ],
+                "in_degree": 1,
+                "out_degree": 1
+              },
+              "matched_neighbors": [
+                {
+                  "direction": "predecessor",
+                  "reference_node_id": "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49",
+                  "variant_node_id": "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49"
+                }
+              ]
+            },
+            {
+              "reference": {
+                "node_id": "Id_ffd9beac-13dd-4c0f-9c58-f3f304cf90f3",
+                "predecessor_ids": [
+                  "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598",
+                  "Id_99e847f2-ec4a-4d8d-b149-59c7295b1b81"
+                ],
+                "successor_ids": [
+                  "Id_b210868a-cf5c-4157-b86e-b21d426d3851"
+                ],
+                "in_degree": 2,
+                "out_degree": 1
+              },
+              "variant": {
+                "node_id": "Id_ffd9beac-13dd-4c0f-9c58-f3f304cf90f3",
+                "predecessor_ids": [
+                  "Id_99e847f2-ec4a-4d8d-b149-59c7295b1b81",
+                  "Mut_Node_1"
+                ],
+                "successor_ids": [
+                  "Id_b210868a-cf5c-4157-b86e-b21d426d3851"
+                ],
+                "in_degree": 2,
+                "out_degree": 1
+              },
+              "matched_neighbors": [
+                {
+                  "direction": "predecessor",
+                  "reference_node_id": "Id_99e847f2-ec4a-4d8d-b149-59c7295b1b81",
+                  "variant_node_id": "Id_99e847f2-ec4a-4d8d-b149-59c7295b1b81"
+                },
+                {
+                  "direction": "successor",
+                  "reference_node_id": "Id_b210868a-cf5c-4157-b86e-b21d426d3851",
+                  "variant_node_id": "Id_b210868a-cf5c-4157-b86e-b21d426d3851"
+                }
+              ]
+            }
+          ],
+          "observations": [
+            {
+              "source": "alignment",
+              "description": "same element ID; exact normalised label"
+            },
+            {
+              "source": "alignment",
+              "description": "same element ID; empty label"
+            },
+            {
+              "source": "graph",
+              "description": "Direct predecessor and successor context for aligned nodes."
+            },
+            {
+              "source": "graph",
+              "description": "flow removed (1x)",
+              "value": {
+                "before": {
+                  "source": "Displays the query results to a table",
+                  "target": "<exclusive gateway (XOR)>",
+                  "source_id": "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598",
+                  "target_id": "Id_ffd9beac-13dd-4c0f-9c58-f3f304cf90f3"
+                },
+                "after": null
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "INSERT_FLOW",
+        "legacy_op": "INSERT_FLOW",
+        "category": 3,
+        "category_name": "Sequence, flow, and branching",
+        "element": "flow",
+        "before": null,
+        "after": {
+          "source": "Adds verification step 1",
+          "target": "<exclusive gateway (XOR)>",
+          "source_id": "Mut_Node_1",
+          "target_id": "Id_ffd9beac-13dd-4c0f-9c58-f3f304cf90f3"
+        },
+        "detail": "flow added (1x)",
+        "label": "unmatched",
+        "confidence": "high",
+        "needs_review": false,
+        "schema_version": "change-v1",
+        "change": {
+          "type": "INSERT_FLOW",
+          "legacy_type": "INSERT_FLOW",
+          "category": 3,
+          "category_name": "Sequence, flow, and branching",
+          "element": "flow",
+          "before": null,
+          "after": {
+            "source": "Adds verification step 1",
+            "target": "<exclusive gateway (XOR)>",
+            "source_id": "Mut_Node_1",
+            "target_id": "Id_ffd9beac-13dd-4c0f-9c58-f3f304cf90f3"
+          },
+          "detail": "flow added (1x)",
+          "label": "unmatched",
+          "confidence": "high",
+          "needs_review": false
+        },
+        "evidence": {
+          "alignment": [
+            {
+              "reference_node_id": null,
+              "variant_node_id": "Mut_Node_1",
+              "label": "unmatched",
+              "score": 0.0,
+              "reason": "",
+              "confidence": "high",
+              "needs_review": false
+            },
+            {
+              "reference_node_id": "Id_ffd9beac-13dd-4c0f-9c58-f3f304cf90f3",
+              "variant_node_id": "Id_ffd9beac-13dd-4c0f-9c58-f3f304cf90f3",
+              "label": "identical",
+              "score": 1.0,
+              "reason": "same element ID; empty label",
+              "confidence": "high",
+              "needs_review": false
+            }
+          ],
+          "structural_context": [
+            {
+              "reference": null,
+              "variant": {
+                "node_id": "Mut_Node_1",
+                "predecessor_ids": [
+                  "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598"
+                ],
+                "successor_ids": [
+                  "Id_ffd9beac-13dd-4c0f-9c58-f3f304cf90f3"
+                ],
+                "in_degree": 1,
+                "out_degree": 1
+              },
+              "matched_neighbors": []
+            },
+            {
+              "reference": {
+                "node_id": "Id_ffd9beac-13dd-4c0f-9c58-f3f304cf90f3",
+                "predecessor_ids": [
+                  "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598",
+                  "Id_99e847f2-ec4a-4d8d-b149-59c7295b1b81"
+                ],
+                "successor_ids": [
+                  "Id_b210868a-cf5c-4157-b86e-b21d426d3851"
+                ],
+                "in_degree": 2,
+                "out_degree": 1
+              },
+              "variant": {
+                "node_id": "Id_ffd9beac-13dd-4c0f-9c58-f3f304cf90f3",
+                "predecessor_ids": [
+                  "Id_99e847f2-ec4a-4d8d-b149-59c7295b1b81",
+                  "Mut_Node_1"
+                ],
+                "successor_ids": [
+                  "Id_b210868a-cf5c-4157-b86e-b21d426d3851"
+                ],
+                "in_degree": 2,
+                "out_degree": 1
+              },
+              "matched_neighbors": [
+                {
+                  "direction": "predecessor",
+                  "reference_node_id": "Id_99e847f2-ec4a-4d8d-b149-59c7295b1b81",
+                  "variant_node_id": "Id_99e847f2-ec4a-4d8d-b149-59c7295b1b81"
+                },
+                {
+                  "direction": "successor",
+                  "reference_node_id": "Id_b210868a-cf5c-4157-b86e-b21d426d3851",
+                  "variant_node_id": "Id_b210868a-cf5c-4157-b86e-b21d426d3851"
+                }
+              ]
+            }
+          ],
+          "observations": [
+            {
+              "source": "alignment",
+              "description": "Alignment label: unmatched."
+            },
+            {
+              "source": "alignment",
+              "description": "same element ID; empty label"
+            },
+            {
+              "source": "graph",
+              "description": "Direct predecessor and successor context for aligned nodes."
+            },
+            {
+              "source": "graph",
+              "description": "flow added (1x)",
+              "value": {
+                "before": null,
+                "after": {
+                  "source": "Adds verification step 1",
+                  "target": "<exclusive gateway (XOR)>",
+                  "source_id": "Mut_Node_1",
+                  "target_id": "Id_ffd9beac-13dd-4c0f-9c58-f3f304cf90f3"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "INSERT_FLOW",
+        "legacy_op": "INSERT_FLOW",
+        "category": 3,
+        "category_name": "Sequence, flow, and branching",
+        "element": "flow",
+        "before": null,
+        "after": {
+          "source": "Displays the query results to a table",
+          "target": "Adds verification step 1",
+          "source_id": "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598",
+          "target_id": "Mut_Node_1"
+        },
+        "detail": "flow added (1x)",
+        "label": "unmatched",
+        "confidence": "high",
+        "needs_review": false,
+        "schema_version": "change-v1",
+        "change": {
+          "type": "INSERT_FLOW",
+          "legacy_type": "INSERT_FLOW",
+          "category": 3,
+          "category_name": "Sequence, flow, and branching",
+          "element": "flow",
+          "before": null,
+          "after": {
+            "source": "Displays the query results to a table",
+            "target": "Adds verification step 1",
+            "source_id": "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598",
+            "target_id": "Mut_Node_1"
+          },
+          "detail": "flow added (1x)",
+          "label": "unmatched",
+          "confidence": "high",
+          "needs_review": false
+        },
+        "evidence": {
+          "alignment": [
+            {
+              "reference_node_id": "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598",
+              "variant_node_id": "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598",
+              "label": "identical",
+              "score": 1.0,
+              "reason": "same element ID; exact normalised label",
+              "confidence": "high",
+              "needs_review": false
+            },
+            {
+              "reference_node_id": null,
+              "variant_node_id": "Mut_Node_1",
+              "label": "unmatched",
+              "score": 0.0,
+              "reason": "",
+              "confidence": "high",
+              "needs_review": false
+            }
+          ],
+          "structural_context": [
+            {
+              "reference": {
+                "node_id": "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598",
+                "predecessor_ids": [
+                  "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49"
+                ],
+                "successor_ids": [
+                  "Id_ffd9beac-13dd-4c0f-9c58-f3f304cf90f3"
+                ],
+                "in_degree": 1,
+                "out_degree": 1
+              },
+              "variant": {
+                "node_id": "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598",
+                "predecessor_ids": [
+                  "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49"
+                ],
+                "successor_ids": [
+                  "Mut_Node_1"
+                ],
+                "in_degree": 1,
+                "out_degree": 1
+              },
+              "matched_neighbors": [
+                {
+                  "direction": "predecessor",
+                  "reference_node_id": "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49",
+                  "variant_node_id": "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49"
+                }
+              ]
+            },
+            {
+              "reference": null,
+              "variant": {
+                "node_id": "Mut_Node_1",
+                "predecessor_ids": [
+                  "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598"
+                ],
+                "successor_ids": [
+                  "Id_ffd9beac-13dd-4c0f-9c58-f3f304cf90f3"
+                ],
+                "in_degree": 1,
+                "out_degree": 1
+              },
+              "matched_neighbors": []
+            }
+          ],
+          "observations": [
+            {
+              "source": "alignment",
+              "description": "same element ID; exact normalised label"
+            },
+            {
+              "source": "alignment",
+              "description": "Alignment label: unmatched."
+            },
+            {
+              "source": "graph",
+              "description": "Direct predecessor and successor context for aligned nodes."
+            },
+            {
+              "source": "graph",
+              "description": "flow added (1x)",
+              "value": {
+                "before": null,
+                "after": {
+                  "source": "Displays the query results to a table",
+                  "target": "Adds verification step 1",
+                  "source_id": "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598",
+                  "target_id": "Mut_Node_1"
+                }
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "behavior": {
+      "equivalent": false,
+      "inconclusive": false,
+      "method": "trace_equivalence (tau-closure + subset construction)",
+      "counterexample": {
+        "direction": "reference_only",
+        "trace": [
+          "Wants Search for patient data information",
+          "Displays the Search for patient data information form",
+          "Enters the patient's name",
+          "Selects a search button",
+          "Queries the Patient database,",
+          "Displays the query results to a table"
+        ],
+        "detail": "one model accepts this completed trace, the other does not"
+      },
+      "dfa_states": {
+        "reference": 7,
+        "variant": 8
+      },
+      "truncated": false,
+      "reference_lts": {
+        "states": 12,
+        "transitions": 12,
+        "final_states": 1,
+        "deadlock_states": 0,
+        "truncated": false
+      },
+      "variant_lts": {
+        "states": 13,
+        "transitions": 13,
+        "final_states": 1,
+        "deadlock_states": 0,
+        "truncated": false
+      },
+      "trace_samples": {
+        "reference": {
+          "count": 2,
+          "traces": [
+            [
+              "Wants Search for patient data information",
+              "Displays the Search for patient data information form",
+              "Enters the patient's name",
+              "Selects a search button",
+              "Invisible Task"
+            ],
+            [
+              "Wants Search for patient data information",
+              "Displays the Search for patient data information form",
+              "Enters the patient's name",
+              "Selects a search button",
+              "Queries the Patient database,",
+              "Displays the query results to a table"
+            ]
+          ],
+          "truncated": false
+        },
+        "variant": {
+          "count": 2,
+          "traces": [
+            [
+              "Wants Search for patient data information",
+              "Displays the Search for patient data information form",
+              "Enters the patient's name",
+              "Selects a search button",
+              "Invisible Task"
+            ],
+            [
+              "Wants Search for patient data information",
+              "Displays the Search for patient data information form",
+              "Enters the patient's name",
+              "Selects a search button",
+              "Queries the Patient database,",
+              "Displays the query results to a table",
+              "Adds verification step 1"
+            ]
+          ],
+          "truncated": false
+        }
+      }
+    },
+    "fragments": {
+      "count": 23,
+      "affected": [
+        {
+          "id": "R06",
+          "entry": "Displays the Search for patient data information form",
+          "exit": "Selects a search button",
+          "size": 3,
+          "nodes": [
+            "Enters the patient's name",
+            "Selects a search button",
+            "Displays the Search for patient data information form"
+          ],
+          "node_ids": [
+            "Id_1164e919-3f27-4d09-9a69-2a33a2e98847",
+            "Id_ac3f7a9c-28e9-4a90-8928-edfd64206da8",
+            "Id_b95890b5-92e4-432a-b709-a96b40733427"
+          ],
+          "status": "checked",
+          "equivalent": true,
+          "method": "trace_equivalence (tau-closure + subset construction)",
+          "counterexample": null,
+          "states": {
+            "reference": 4,
+            "variant": 4
+          }
+        },
+        {
+          "id": "R11",
+          "entry": "<exclusive gateway (XOR)>",
+          "exit": "<exclusive gateway (XOR)>",
+          "size": 5,
+          "nodes": [
+            "Queries the Patient database,",
+            "Displays the query results to a table",
+            "Invisible Task",
+            "<exclusive gateway (XOR)>",
+            "<exclusive gateway (XOR)>"
+          ],
+          "node_ids": [
+            "Id_61ffd82b-3da4-4f55-b5ea-a01fc381ca49",
+            "Id_7fe42d3b-450f-4fbf-bbc1-02243994a598",
+            "Id_99e847f2-ec4a-4d8d-b149-59c7295b1b81",
+            "Id_a7308178-06d5-4269-8dc8-3ff4655e05ad",
+            "Id_ffd9beac-13dd-4c0f-9c58-f3f304cf90f3"
+          ],
+          "status": "checked",
+          "equivalent": false,
+          "method": "trace_equivalence (tau-closure + subset construction)",
+          "counterexample": {
+            "direction": "reference_only",
+            "trace": [
+              "Queries the Patient database,",
+              "Displays the query results to a table"
+            ],
+            "detail": "one model accepts this completed trace, the other does not"
+          },
+          "states": {
+            "reference": 6,
+            "variant": 7
+          }
+        }
+      ]
+    },
+    "fusion": {
+      "overall": "behavioral_change",
+      "needs_review": false,
+      "element_verdicts": [
+        {
+          "a": "Enters the patient's name",
+          "b": "Enters the supplier's name",
+          "label": "synonym",
+          "verdict": "non_behavioral_rename",
+          "behaviour_scope": "R06",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "Queries the Patient database,",
+          "b": "Queries the Patient database,",
+          "label": "identical",
+          "verdict": "behavioral_change",
+          "behaviour_scope": "R11",
+          "equivalent": false,
+          "needs_review": false
+        },
+        {
+          "a": "Displays the query results to a table",
+          "b": "Displays the query results to a table",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "unchanged",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "Wants Search for patient data information",
+          "b": "Wants Search for patient data information",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "unchanged",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "<start event>",
+          "b": "<start event>",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "unchanged",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "Invisible Task",
+          "b": "Invisible Task",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "unchanged",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "<exclusive gateway (XOR)>",
+          "b": "<exclusive gateway (XOR)>",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "unchanged",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "Selects a search button",
+          "b": "Selects a search button",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "unchanged",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "<end event>",
+          "b": "<end event>",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "unchanged",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "Displays the Search for patient data information form",
+          "b": "Displays the Search for patient data information form",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "unchanged",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "<exclusive gateway (XOR)>",
+          "b": "<exclusive gateway (XOR)>",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "unchanged",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": null,
+          "b": "Adds verification step 1",
+          "label": "unmatched",
+          "verdict": "structural_change",
+          "behaviour_scope": "element",
+          "equivalent": false,
+          "needs_review": false
+        }
+      ],
+      "verdict_counts": {
+        "non_behavioral_rename": 1,
+        "behavioral_change": 1,
+        "unchanged": 9,
+        "structural_change": 1
+      },
+      "operation_counts": {
+        "INSERT_NODE": 1,
+        "NODE_TYPE_CHANGE": 1,
+        "RENAME_NODE": 1,
+        "RENAME_LANE": 1,
+        "DELETE_FLOW": 1,
+        "INSERT_FLOW": 2
+      },
+      "legacy_operation_counts": {
+        "INSERT": 1,
+        "CHANGE_TYPE": 1,
+        "RENAME": 1,
+        "RENAME_SWIMLANE": 1,
+        "DELETE_FLOW": 1,
+        "INSERT_FLOW": 2
+      }
+    }
+  }
+}

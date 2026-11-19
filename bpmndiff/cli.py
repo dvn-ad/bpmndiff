@@ -11,7 +11,7 @@ from pathlib import Path
 from . import __version__
 from .alignment import ALIGNMENT_STRATEGIES, AlignmentConfig
 from .diff import DiffOptions, diff_models
-from .evaluation import evaluate_dataset, write_reports
+from .evaluation import evaluate_dataset, write_pair_reports, write_reports
 from .generator import DEFAULT_BASES, generate_dataset
 from .llm import get_adjudicator
 from .parsers import ParseError, load_model
@@ -371,15 +371,55 @@ def _build_evaluate_parser() -> argparse.ArgumentParser:
         action="store_true",
         help="also run the partition-refinement check (slower)",
     )
+    parser.add_argument(
+        "--pair-reports",
+        nargs="?",
+        const="auto",
+        default=None,
+        metavar="MODE[,MODE]|all",
+        help=(
+            "also write one JSON and Markdown report per pair; no argument uses "
+            "hybrid when selected, otherwise the first --modes entry; 'all' uses "
+            "every selected mode (default: off)"
+        ),
+    )
     return parser
+
+
+def _resolve_pair_report_modes(raw: str | None, modes: list[str]) -> list[str]:
+    if raw is None:
+        return []
+    value = raw.strip().lower()
+    if value == "auto":
+        if not modes:
+            raise ValueError("--pair-reports needs at least one --modes entry")
+        return ["hybrid"] if "hybrid" in modes else [modes[0]]
+    if value == "all":
+        return list(modes)
+    pair_modes = [mode.strip() for mode in value.split(",") if mode.strip()]
+    unknown = set(pair_modes) - set(ALIGNMENT_STRATEGIES)
+    if unknown:
+        raise ValueError(f"unknown pair report mode(s): {sorted(unknown)}")
+    missing = set(pair_modes) - set(modes)
+    if missing:
+        raise ValueError(
+            f"pair report mode(s) not selected by --modes: {sorted(missing)}"
+        )
+    return list(dict.fromkeys(pair_modes))
 
 
 def run_evaluate(args: argparse.Namespace) -> int:
     modes = [mode.strip() for mode in args.modes.split(",") if mode.strip()]
+    try:
+        pair_modes = _resolve_pair_report_modes(args.pair_reports, modes)
+    except ValueError as exc:
+        print(f"error: {exc}", file=sys.stderr)
+        return 2
     result = evaluate_dataset(
         args.manifest,
         modes=modes,
         bisimulation=args.bisimulation,
+        pair_modes=pair_modes,
     )
     paths = write_reports(result, args.out, modes=modes)
     for mode in modes:
@@ -389,6 +429,12 @@ def run_evaluate(args: argparse.Namespace) -> int:
             f"F1={counts.f1:.3f} (TP={counts.tp}, FP={counts.fp}, FN={counts.fn})"
         )
     print(f"pilot written to {paths['pilot']}")
+    if pair_modes:
+        pair_paths = write_pair_reports(result, args.out)
+        print(
+            f"pair reports written to {pair_paths['dir']} "
+            f"({len(pair_paths['reports'])} reports)"
+        )
     return 0
 
 

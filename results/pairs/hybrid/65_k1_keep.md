@@ -1,0 +1,81 @@
+# Pair evaluation: 65 / k1_keep
+
+| Field | Value |
+|---|---|
+| Base diagram | 65 |
+| Variant | k1_keep |
+| k | 1 |
+| ID policy | keep |
+| Scenario | keep_ids |
+| Alignment mode | hybrid |
+| Reference | `65/reference.bpmn` |
+| Variant path | `65/k1_keep.bpmn` |
+| Ground truth | `65/k1_keep.groundtruth.json` |
+
+## Metrics
+
+| TP | FP | FN | Support | Precision | Recall | F1 |
+|---|---|---|---|---|---|---|
+| 1 | 0 | 0 | 1 | 1.000 | 1.000 | 1.000 |
+
+### Per change type
+
+| Change type | Support | TP | FP | FN | Precision | Recall | F1 |
+|---|---|---|---|---|---|---|---|
+| FLOW_CONDITION_CHANGE | 1 | 1 | 0 | 0 | 1.000 | 1.000 | 1.000 |
+
+## Mismatches
+
+### False positives
+
+_None._
+
+### False negatives
+
+_None._
+
+## Ground truth operations
+
+| Change type | Identity |
+|---|---|
+| FLOW_CONDITION_CHANGE | Id_8a71f31d-70b3-48c5-bc2c-eea96af4d56f → Id_d877f453-58b4-46a1-aa8c-b53c44b2a526 |
+
+## Diff report
+
+### Pairwise comparison: reference.bpmn vs k1_keep.bpmn
+
+| Model | Format | Nodes | Flows | Source |
+|---|---|---|---|---|
+| Reference | bpmn | 22 | 26 | /home/mendoan/Projects/bpmndiff/dataset/synthetic/65/reference.bpmn |
+| Variant | bpmn | 22 | 26 | /home/mendoan/Projects/bpmndiff/dataset/synthetic/65/k1_keep.bpmn |
+
+#### Alignment Summary
+
+| Identical | Synonym | Meaning Changed | Deleted | Inserted | Needs Review |
+|---|---|---|---|---|---|
+| 22 | 0 | 0 | 0 | 0 | 0 |
+
+#### Edit script (1 operations)
+
+| Category | Operation | Element | Detail | Review |
+|---|---|---|---|---|
+| 3. Sequence, flow, and branching | FLOW_CONDITION_CHANGE | <exclusive gateway (XOR)> -> Displays the message "data not found". | condition: "" -> "amount > 5" | no |
+
+#### Behavioural verification
+
+- Trace equivalence: **EQUIVALENT**
+- Method: `trace_equivalence (tau-closure + subset construction)`
+
+#### SESE fragments (58 regions)
+
+| Region | Nodes | Behaviour | Counterexample |
+|---|---|---|---|
+| R10 | 4 | EQUIVALENT | (empty trace) |
+
+#### Fusion verdict
+
+**unchanged**
+
+- Element verdicts: `{'unchanged': 22}`
+- Operations: `{'FLOW_CONDITION_CHANGE': 1}`
+- Needs review: False

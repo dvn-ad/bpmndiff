@@ -1,0 +1,1781 @@
+{
+  "schema": "bpmndiff-pair-evaluation-v1",
+  "pair": {
+    "base_id": "65",
+    "variant": "k2_keep",
+    "k": 2,
+    "id_policy": "keep",
+    "scenario": "keep_ids",
+    "mode": "hybrid",
+    "reference": "65/reference.bpmn",
+    "variant_path": "65/k2_keep.bpmn",
+    "ground_truth": "65/k2_keep.groundtruth.json"
+  },
+  "metrics": {
+    "overall": {
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "support": 2,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "by_change_type": {
+      "GATEWAY_TYPE_CHANGE": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "support": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "FLOW_CONDITION_CHANGE": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "support": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    }
+  },
+  "false_positives": [],
+  "false_negatives": [],
+  "normalized_keys": {
+    "predicted": [
+      {
+        "change_type": "FLOW_CONDITION_CHANGE",
+        "identity": [
+          "Id_8a71f31d-70b3-48c5-bc2c-eea96af4d56f",
+          "Id_d877f453-58b4-46a1-aa8c-b53c44b2a526"
+        ],
+        "count": 1
+      },
+      {
+        "change_type": "GATEWAY_TYPE_CHANGE",
+        "identity": [
+          "Id_6fe753e9-ea2f-4694-a19f-d7585b540d01"
+        ],
+        "count": 1
+      }
+    ],
+    "ground_truth": [
+      {
+        "change_type": "FLOW_CONDITION_CHANGE",
+        "identity": [
+          "Id_8a71f31d-70b3-48c5-bc2c-eea96af4d56f",
+          "Id_d877f453-58b4-46a1-aa8c-b53c44b2a526"
+        ],
+        "count": 1
+      },
+      {
+        "change_type": "GATEWAY_TYPE_CHANGE",
+        "identity": [
+          "Id_6fe753e9-ea2f-4694-a19f-d7585b540d01"
+        ],
+        "count": 1
+      }
+    ]
+  },
+  "predicted_operations": [
+    {
+      "op": "FLOW_CONDITION_CHANGE",
+      "legacy_op": "FLOW_CONDITION_CHANGE",
+      "category": 3,
+      "category_name": "Sequence, flow, and branching",
+      "element": "flow",
+      "before": {
+        "condition": "",
+        "is_default": false,
+        "source": "<exclusive gateway (XOR)>",
+        "target": "Displays the message \"data not found\".",
+        "source_id": "Id_8a71f31d-70b3-48c5-bc2c-eea96af4d56f",
+        "target_id": "Id_d877f453-58b4-46a1-aa8c-b53c44b2a526"
+      },
+      "after": {
+        "condition": "amount > 5",
+        "is_default": false,
+        "source": "<exclusive gateway (XOR)>",
+        "target": "Displays the message \"data not found\".",
+        "source_id": "Id_8a71f31d-70b3-48c5-bc2c-eea96af4d56f",
+        "target_id": "Id_d877f453-58b4-46a1-aa8c-b53c44b2a526"
+      },
+      "detail": "condition: \"\" -> \"amount > 5\"",
+      "confidence": "high",
+      "needs_review": false,
+      "schema_version": "change-v1",
+      "change": {
+        "type": "FLOW_CONDITION_CHANGE",
+        "legacy_type": "FLOW_CONDITION_CHANGE",
+        "category": 3,
+        "category_name": "Sequence, flow, and branching",
+        "element": "flow",
+        "before": {
+          "condition": "",
+          "is_default": false,
+          "source": "<exclusive gateway (XOR)>",
+          "target": "Displays the message \"data not found\".",
+          "source_id": "Id_8a71f31d-70b3-48c5-bc2c-eea96af4d56f",
+          "target_id": "Id_d877f453-58b4-46a1-aa8c-b53c44b2a526"
+        },
+        "after": {
+          "condition": "amount > 5",
+          "is_default": false,
+          "source": "<exclusive gateway (XOR)>",
+          "target": "Displays the message \"data not found\".",
+          "source_id": "Id_8a71f31d-70b3-48c5-bc2c-eea96af4d56f",
+          "target_id": "Id_d877f453-58b4-46a1-aa8c-b53c44b2a526"
+        },
+        "detail": "condition: \"\" -> \"amount > 5\"",
+        "confidence": "high",
+        "needs_review": false
+      },
+      "evidence": {
+        "alignment": [
+          {
+            "reference_node_id": "Id_8a71f31d-70b3-48c5-bc2c-eea96af4d56f",
+            "variant_node_id": "Id_8a71f31d-70b3-48c5-bc2c-eea96af4d56f",
+            "label": "identical",
+            "score": 1.0,
+            "reason": "same element ID; empty label",
+            "confidence": "high",
+            "needs_review": false
+          },
+          {
+            "reference_node_id": "Id_d877f453-58b4-46a1-aa8c-b53c44b2a526",
+            "variant_node_id": "Id_d877f453-58b4-46a1-aa8c-b53c44b2a526",
+            "label": "identical",
+            "score": 1.0,
+            "reason": "same element ID; exact normalised label",
+            "confidence": "high",
+            "needs_review": false
+          }
+        ],
+        "structural_context": [
+          {
+            "reference": {
+              "node_id": "Id_8a71f31d-70b3-48c5-bc2c-eea96af4d56f",
+              "predecessor_ids": [
+                "Id_082521f7-2373-493e-b116-ed46f8443646"
+              ],
+              "successor_ids": [
+                "Id_b95890b5-92e4-432a-b709-a96b40733427",
+                "Id_d877f453-58b4-46a1-aa8c-b53c44b2a526"
+              ],
+              "in_degree": 1,
+              "out_degree": 2
+            },
+            "variant": {
+              "node_id": "Id_8a71f31d-70b3-48c5-bc2c-eea96af4d56f",
+              "predecessor_ids": [
+                "Id_082521f7-2373-493e-b116-ed46f8443646"
+              ],
+              "successor_ids": [
+                "Id_b95890b5-92e4-432a-b709-a96b40733427",
+                "Id_d877f453-58b4-46a1-aa8c-b53c44b2a526"
+              ],
+              "in_degree": 1,
+              "out_degree": 2
+            },
+            "matched_neighbors": [
+              {
+                "direction": "predecessor",
+                "reference_node_id": "Id_082521f7-2373-493e-b116-ed46f8443646",
+                "variant_node_id": "Id_082521f7-2373-493e-b116-ed46f8443646"
+              },
+              {
+                "direction": "successor",
+                "reference_node_id": "Id_b95890b5-92e4-432a-b709-a96b40733427",
+                "variant_node_id": "Id_b95890b5-92e4-432a-b709-a96b40733427"
+              },
+              {
+                "direction": "successor",
+                "reference_node_id": "Id_d877f453-58b4-46a1-aa8c-b53c44b2a526",
+                "variant_node_id": "Id_d877f453-58b4-46a1-aa8c-b53c44b2a526"
+              }
+            ]
+          },
+          {
+            "reference": {
+              "node_id": "Id_d877f453-58b4-46a1-aa8c-b53c44b2a526",
+              "predecessor_ids": [
+                "Id_8a71f31d-70b3-48c5-bc2c-eea96af4d56f"
+              ],
+              "successor_ids": [
+                "Id_7bcfb632-b79c-4c0f-b3d7-4da10fd0b486"
+              ],
+              "in_degree": 1,
+              "out_degree": 1
+            },
+            "variant": {
+              "node_id": "Id_d877f453-58b4-46a1-aa8c-b53c44b2a526",
+              "predecessor_ids": [
+                "Id_8a71f31d-70b3-48c5-bc2c-eea96af4d56f"
+              ],
+              "successor_ids": [
+                "Id_7bcfb632-b79c-4c0f-b3d7-4da10fd0b486"
+              ],
+              "in_degree": 1,
+              "out_degree": 1
+            },
+            "matched_neighbors": [
+              {
+                "direction": "predecessor",
+                "reference_node_id": "Id_8a71f31d-70b3-48c5-bc2c-eea96af4d56f",
+                "variant_node_id": "Id_8a71f31d-70b3-48c5-bc2c-eea96af4d56f"
+              },
+              {
+                "direction": "successor",
+                "reference_node_id": "Id_7bcfb632-b79c-4c0f-b3d7-4da10fd0b486",
+                "variant_node_id": "Id_7bcfb632-b79c-4c0f-b3d7-4da10fd0b486"
+              }
+            ]
+          }
+        ],
+        "observations": [
+          {
+            "source": "alignment",
+            "description": "same element ID; empty label"
+          },
+          {
+            "source": "alignment",
+            "description": "same element ID; exact normalised label"
+          },
+          {
+            "source": "graph",
+            "description": "Direct predecessor and successor context for aligned nodes."
+          },
+          {
+            "source": "graph",
+            "description": "condition: \"\" -> \"amount > 5\"",
+            "value": {
+              "before": {
+                "condition": "",
+                "is_default": false,
+                "source": "<exclusive gateway (XOR)>",
+                "target": "Displays the message \"data not found\".",
+                "source_id": "Id_8a71f31d-70b3-48c5-bc2c-eea96af4d56f",
+                "target_id": "Id_d877f453-58b4-46a1-aa8c-b53c44b2a526"
+              },
+              "after": {
+                "condition": "amount > 5",
+                "is_default": false,
+                "source": "<exclusive gateway (XOR)>",
+                "target": "Displays the message \"data not found\".",
+                "source_id": "Id_8a71f31d-70b3-48c5-bc2c-eea96af4d56f",
+                "target_id": "Id_d877f453-58b4-46a1-aa8c-b53c44b2a526"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "op": "GATEWAY_TYPE_CHANGE",
+      "legacy_op": "CHANGE_GATEWAY_TYPE",
+      "category": 3,
+      "category_name": "Sequence, flow, and branching",
+      "element": "gateway",
+      "before": {
+        "id": "Id_6fe753e9-ea2f-4694-a19f-d7585b540d01",
+        "name": "<exclusive gateway (XOR)>",
+        "kind": "xor",
+        "kind_label": "exclusive gateway (XOR)",
+        "task_type": "abstract",
+        "event_definition": "none",
+        "marker": "none",
+        "attached_to": null,
+        "cancel_activity": true,
+        "lane": "System",
+        "pool": "Emergency room Triage"
+      },
+      "after": {
+        "id": "Id_6fe753e9-ea2f-4694-a19f-d7585b540d01",
+        "name": "<parallel gateway (AND)>",
+        "kind": "and",
+        "kind_label": "parallel gateway (AND)",
+        "task_type": "abstract",
+        "event_definition": "none",
+        "marker": "none",
+        "attached_to": null,
+        "cancel_activity": true,
+        "lane": "System",
+        "pool": "Emergency room Triage"
+      },
+      "detail": "XOR -> AND",
+      "label": "identical",
+      "confidence": "high",
+      "needs_review": false,
+      "schema_version": "change-v1",
+      "change": {
+        "type": "GATEWAY_TYPE_CHANGE",
+        "legacy_type": "CHANGE_GATEWAY_TYPE",
+        "category": 3,
+        "category_name": "Sequence, flow, and branching",
+        "element": "gateway",
+        "before": {
+          "id": "Id_6fe753e9-ea2f-4694-a19f-d7585b540d01",
+          "name": "<exclusive gateway (XOR)>",
+          "kind": "xor",
+          "kind_label": "exclusive gateway (XOR)",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "attached_to": null,
+          "cancel_activity": true,
+          "lane": "System",
+          "pool": "Emergency room Triage"
+        },
+        "after": {
+          "id": "Id_6fe753e9-ea2f-4694-a19f-d7585b540d01",
+          "name": "<parallel gateway (AND)>",
+          "kind": "and",
+          "kind_label": "parallel gateway (AND)",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "attached_to": null,
+          "cancel_activity": true,
+          "lane": "System",
+          "pool": "Emergency room Triage"
+        },
+        "detail": "XOR -> AND",
+        "label": "identical",
+        "confidence": "high",
+        "needs_review": false
+      },
+      "evidence": {
+        "alignment": [
+          {
+            "reference_node_id": "Id_6fe753e9-ea2f-4694-a19f-d7585b540d01",
+            "variant_node_id": "Id_6fe753e9-ea2f-4694-a19f-d7585b540d01",
+            "label": "identical",
+            "score": 1.0,
+            "reason": "same element ID; empty label",
+            "confidence": "high",
+            "needs_review": false
+          }
+        ],
+        "structural_context": [
+          {
+            "reference": {
+              "node_id": "Id_6fe753e9-ea2f-4694-a19f-d7585b540d01",
+              "predecessor_ids": [
+                "Id_69abd614-343f-4d22-a7e2-5d546051dc02",
+                "Id_39e26069-902c-4ec6-84c8-f2431c97c4d8",
+                "Id_febfcfab-7199-445f-ac65-16405d5968d7",
+                "Id_00c1c0de-a945-4c67-8347-f9569d10f77f"
+              ],
+              "successor_ids": [
+                "Id_b2834f10-e7c5-4c97-92b1-ed0e4758ef8a"
+              ],
+              "in_degree": 4,
+              "out_degree": 1
+            },
+            "variant": {
+              "node_id": "Id_6fe753e9-ea2f-4694-a19f-d7585b540d01",
+              "predecessor_ids": [
+                "Id_69abd614-343f-4d22-a7e2-5d546051dc02",
+                "Id_39e26069-902c-4ec6-84c8-f2431c97c4d8",
+                "Id_febfcfab-7199-445f-ac65-16405d5968d7",
+                "Id_00c1c0de-a945-4c67-8347-f9569d10f77f"
+              ],
+              "successor_ids": [
+                "Id_b2834f10-e7c5-4c97-92b1-ed0e4758ef8a"
+              ],
+              "in_degree": 4,
+              "out_degree": 1
+            },
+            "matched_neighbors": [
+              {
+                "direction": "predecessor",
+                "reference_node_id": "Id_69abd614-343f-4d22-a7e2-5d546051dc02",
+                "variant_node_id": "Id_69abd614-343f-4d22-a7e2-5d546051dc02"
+              },
+              {
+                "direction": "predecessor",
+                "reference_node_id": "Id_39e26069-902c-4ec6-84c8-f2431c97c4d8",
+                "variant_node_id": "Id_39e26069-902c-4ec6-84c8-f2431c97c4d8"
+              },
+              {
+                "direction": "predecessor",
+                "reference_node_id": "Id_febfcfab-7199-445f-ac65-16405d5968d7",
+                "variant_node_id": "Id_febfcfab-7199-445f-ac65-16405d5968d7"
+              },
+              {
+                "direction": "predecessor",
+                "reference_node_id": "Id_00c1c0de-a945-4c67-8347-f9569d10f77f",
+                "variant_node_id": "Id_00c1c0de-a945-4c67-8347-f9569d10f77f"
+              },
+              {
+                "direction": "successor",
+                "reference_node_id": "Id_b2834f10-e7c5-4c97-92b1-ed0e4758ef8a",
+                "variant_node_id": "Id_b2834f10-e7c5-4c97-92b1-ed0e4758ef8a"
+              }
+            ]
+          }
+        ],
+        "observations": [
+          {
+            "source": "alignment",
+            "description": "same element ID; empty label"
+          },
+          {
+            "source": "graph",
+            "description": "Direct predecessor and successor context for aligned nodes."
+          },
+          {
+            "source": "operation",
+            "description": "XOR -> AND",
+            "value": {
+              "before": {
+                "id": "Id_6fe753e9-ea2f-4694-a19f-d7585b540d01",
+                "name": "<exclusive gateway (XOR)>",
+                "kind": "xor",
+                "kind_label": "exclusive gateway (XOR)",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "none",
+                "attached_to": null,
+                "cancel_activity": true,
+                "lane": "System",
+                "pool": "Emergency room Triage"
+              },
+              "after": {
+                "id": "Id_6fe753e9-ea2f-4694-a19f-d7585b540d01",
+                "name": "<parallel gateway (AND)>",
+                "kind": "and",
+                "kind_label": "parallel gateway (AND)",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "none",
+                "attached_to": null,
+                "cancel_activity": true,
+                "lane": "System",
+                "pool": "Emergency room Triage"
+              }
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "ground_truth_operations": [
+    {
+      "schema_version": "change-v1",
+      "change": {
+        "type": "FLOW_CONDITION_CHANGE",
+        "legacy_type": "FLOW_CONDITION_CHANGE",
+        "category": 3,
+        "category_name": "Sequence, flow, and branching",
+        "element": "flow",
+        "before": {
+          "source": "<exclusive gateway (XOR)>",
+          "target": "Displays the message \"data not found\".",
+          "source_id": "Id_8a71f31d-70b3-48c5-bc2c-eea96af4d56f",
+          "target_id": "Id_d877f453-58b4-46a1-aa8c-b53c44b2a526",
+          "condition": "",
+          "is_default": false
+        },
+        "after": {
+          "source": "<exclusive gateway (XOR)>",
+          "target": "Displays the message \"data not found\".",
+          "source_id": "Id_8a71f31d-70b3-48c5-bc2c-eea96af4d56f",
+          "target_id": "Id_d877f453-58b4-46a1-aa8c-b53c44b2a526",
+          "condition": "amount > 5",
+          "is_default": false
+        },
+        "detail": "condition: \"\" -> \"amount > 5\"",
+        "confidence": "high",
+        "needs_review": false
+      },
+      "evidence": {
+        "alignment": [],
+        "structural_context": [],
+        "observations": [
+          {
+            "source": "operation",
+            "description": "condition: \"\" -> \"amount > 5\"",
+            "value": {
+              "before": {
+                "source": "<exclusive gateway (XOR)>",
+                "target": "Displays the message \"data not found\".",
+                "source_id": "Id_8a71f31d-70b3-48c5-bc2c-eea96af4d56f",
+                "target_id": "Id_d877f453-58b4-46a1-aa8c-b53c44b2a526",
+                "condition": "",
+                "is_default": false
+              },
+              "after": {
+                "source": "<exclusive gateway (XOR)>",
+                "target": "Displays the message \"data not found\".",
+                "source_id": "Id_8a71f31d-70b3-48c5-bc2c-eea96af4d56f",
+                "target_id": "Id_d877f453-58b4-46a1-aa8c-b53c44b2a526",
+                "condition": "amount > 5",
+                "is_default": false
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "schema_version": "change-v1",
+      "change": {
+        "type": "GATEWAY_TYPE_CHANGE",
+        "legacy_type": "CHANGE_GATEWAY_TYPE",
+        "category": 3,
+        "category_name": "Sequence, flow, and branching",
+        "element": "gateway",
+        "before": {
+          "id": "Id_6fe753e9-ea2f-4694-a19f-d7585b540d01",
+          "name": "<exclusive gateway (XOR)>",
+          "kind": "xor",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "lane": "System",
+          "pool": "Emergency room Triage"
+        },
+        "after": {
+          "id": "Id_6fe753e9-ea2f-4694-a19f-d7585b540d01",
+          "name": "<parallel gateway (AND)>",
+          "kind": "and",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "lane": "System",
+          "pool": "Emergency room Triage"
+        },
+        "detail": "XOR -> AND",
+        "confidence": "high",
+        "needs_review": false
+      },
+      "evidence": {
+        "alignment": [],
+        "structural_context": [],
+        "observations": [
+          {
+            "source": "operation",
+            "description": "XOR -> AND",
+            "value": {
+              "before": {
+                "id": "Id_6fe753e9-ea2f-4694-a19f-d7585b540d01",
+                "name": "<exclusive gateway (XOR)>",
+                "kind": "xor",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "none",
+                "lane": "System",
+                "pool": "Emergency room Triage"
+              },
+              "after": {
+                "id": "Id_6fe753e9-ea2f-4694-a19f-d7585b540d01",
+                "name": "<parallel gateway (AND)>",
+                "kind": "and",
+                "task_type": "abstract",
+                "event_definition": "none",
+                "marker": "none",
+                "lane": "System",
+                "pool": "Emergency room Triage"
+              }
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "comparison": {
+    "mode": "A",
+    "alignment_strategy": "hybrid",
+    "reference": {
+      "id": "Id_57f4bdef-6ebc-41f5-83af-34608fc9b60c",
+      "name": "reference.bpmn",
+      "source": "/home/mendoan/Projects/bpmndiff/dataset/synthetic/65/reference.bpmn",
+      "format": "bpmn",
+      "pool": "Emergency room Triage",
+      "stats": {
+        "nodes": 22,
+        "edges": 26,
+        "tasks": 10,
+        "gateways": 6,
+        "events": 6,
+        "lanes": 2,
+        "message_flows": 0,
+        "data_elements": 12
+      }
+    },
+    "variant": {
+      "id": "Id_57f4bdef-6ebc-41f5-83af-34608fc9b60c",
+      "name": "k2_keep.bpmn",
+      "source": "/home/mendoan/Projects/bpmndiff/dataset/synthetic/65/k2_keep.bpmn",
+      "format": "bpmn",
+      "pool": "Emergency room Triage",
+      "stats": {
+        "nodes": 22,
+        "edges": 26,
+        "tasks": 10,
+        "gateways": 6,
+        "events": 6,
+        "lanes": 2,
+        "message_flows": 0,
+        "data_elements": 12
+      }
+    },
+    "alignment": {
+      "counts": {
+        "identical": 22,
+        "synonym": 0,
+        "meaning_changed": 0,
+        "unmatched": 0,
+        "matched": 22,
+        "needs_review": 0
+      },
+      "pairs": [
+        {
+          "a": "Deceased",
+          "b": "Deceased",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "same element ID; exact normalised label",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_00c1c0de-a945-4c67-8347-f9569d10f77f",
+          "b_id": "Id_00c1c0de-a945-4c67-8347-f9569d10f77f"
+        },
+        {
+          "a": "Sreads the Registration database",
+          "b": "Sreads the Registration database",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "same element ID; exact normalised label",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_082521f7-2373-493e-b116-ed46f8443646",
+          "b_id": "Id_082521f7-2373-493e-b116-ed46f8443646"
+        },
+        {
+          "a": "Enters register number of a patient",
+          "b": "Enters register number of a patient",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "same element ID; exact normalised label",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_0a7a1082-affb-4bc8-bfb1-91f073d72dde",
+          "b_id": "Id_0a7a1082-affb-4bc8-bfb1-91f073d72dde"
+        },
+        {
+          "a": "<exclusive gateway (XOR)>",
+          "b": "<exclusive gateway (XOR)>",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "same element ID; empty label",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_0b5b77be-75b0-45a9-bd17-b1997420ce28",
+          "b_id": "Id_0b5b77be-75b0-45a9-bd17-b1997420ce28"
+        },
+        {
+          "a": "<exclusive gateway (XOR)>",
+          "b": "<exclusive gateway (XOR)>",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "same element ID; empty label",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_30480a4a-9208-4c99-a015-5b6c33e47dfd",
+          "b_id": "Id_30480a4a-9208-4c99-a015-5b6c33e47dfd"
+        },
+        {
+          "a": "Bad not emerfency",
+          "b": "Bad not emerfency",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "same element ID; exact normalised label",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_39e26069-902c-4ec6-84c8-f2431c97c4d8",
+          "b_id": "Id_39e26069-902c-4ec6-84c8-f2431c97c4d8"
+        },
+        {
+          "a": "Bad",
+          "b": "Bad",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "same element ID; exact normalised label",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_69abd614-343f-4d22-a7e2-5d546051dc02",
+          "b_id": "Id_69abd614-343f-4d22-a7e2-5d546051dc02"
+        },
+        {
+          "a": "<exclusive gateway (XOR)>",
+          "b": "<parallel gateway (AND)>",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "same element ID; empty label",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_6fe753e9-ea2f-4694-a19f-d7585b540d01",
+          "b_id": "Id_6fe753e9-ea2f-4694-a19f-d7585b540d01"
+        },
+        {
+          "a": "Selects the condition button",
+          "b": "Selects the condition button",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "same element ID; exact normalised label",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_778fd50a-2f20-4db3-9a8b-ea705dc632c1",
+          "b_id": "Id_778fd50a-2f20-4db3-9a8b-ea705dc632c1"
+        },
+        {
+          "a": "<exclusive gateway (XOR)>",
+          "b": "<exclusive gateway (XOR)>",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "same element ID; empty label",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_7bcfb632-b79c-4c0f-b3d7-4da10fd0b486",
+          "b_id": "Id_7bcfb632-b79c-4c0f-b3d7-4da10fd0b486"
+        },
+        {
+          "a": "<exclusive gateway (XOR)>",
+          "b": "<exclusive gateway (XOR)>",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "same element ID; empty label",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_8a71f31d-70b3-48c5-bc2c-eea96af4d56f",
+          "b_id": "Id_8a71f31d-70b3-48c5-bc2c-eea96af4d56f"
+        },
+        {
+          "a": "Wants to create an Emergency room Triage",
+          "b": "Wants to create an Emergency room Triage",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "same element ID; exact normalised label",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7",
+          "b_id": "Id_8d8ff637-b07c-4252-a38a-d6864657c6a7"
+        },
+        {
+          "a": "<start event>",
+          "b": "<start event>",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "same element ID; empty label",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_92cb515c-ae81-4364-a587-772f1bcc50f5",
+          "b_id": "Id_92cb515c-ae81-4364-a587-772f1bcc50f5"
+        },
+        {
+          "a": "Invisible Task",
+          "b": "Invisible Task",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "same element ID; exact normalised label",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_a61c944a-4e06-416c-8054-72710c5547db",
+          "b_id": "Id_a61c944a-4e06-416c-8054-72710c5547db"
+        },
+        {
+          "a": "<end event>",
+          "b": "<end event>",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "same element ID; empty label",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_b210868a-cf5c-4157-b86e-b21d426d3851",
+          "b_id": "Id_b210868a-cf5c-4157-b86e-b21d426d3851"
+        },
+        {
+          "a": "Selects the save button",
+          "b": "Selects the save button",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "same element ID; exact normalised label",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_b2834f10-e7c5-4c97-92b1-ed0e4758ef8a",
+          "b_id": "Id_b2834f10-e7c5-4c97-92b1-ed0e4758ef8a"
+        },
+        {
+          "a": "Displays patient information",
+          "b": "Displays patient information",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "same element ID; exact normalised label",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_b95890b5-92e4-432a-b709-a96b40733427",
+          "b_id": "Id_b95890b5-92e4-432a-b709-a96b40733427"
+        },
+        {
+          "a": "Displays the Emergency room Triage form",
+          "b": "Displays the Emergency room Triage form",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "same element ID; exact normalised label",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_baf5345e-3bb0-4235-bb5f-c58fa8217646",
+          "b_id": "Id_baf5345e-3bb0-4235-bb5f-c58fa8217646"
+        },
+        {
+          "a": "Saves the triages",
+          "b": "Saves the triages",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "same element ID; exact normalised label",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_be8fff2e-b098-45e2-b716-8f162b0c4ced",
+          "b_id": "Id_be8fff2e-b098-45e2-b716-8f162b0c4ced"
+        },
+        {
+          "a": "<exclusive gateway (XOR)>",
+          "b": "<exclusive gateway (XOR)>",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "same element ID; empty label",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_c4d65e81-c03c-4448-b16e-30e66f1889ea",
+          "b_id": "Id_c4d65e81-c03c-4448-b16e-30e66f1889ea"
+        },
+        {
+          "a": "Displays the message \"data not found\".",
+          "b": "Displays the message \"data not found\".",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "same element ID; exact normalised label",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_d877f453-58b4-46a1-aa8c-b53c44b2a526",
+          "b_id": "Id_d877f453-58b4-46a1-aa8c-b53c44b2a526"
+        },
+        {
+          "a": "Emerfency",
+          "b": "Emerfency",
+          "label": "identical",
+          "score": 1.0,
+          "reason": "same element ID; exact normalised label",
+          "confidence": "high",
+          "needs_review": false,
+          "llm_reason": "",
+          "a_id": "Id_febfcfab-7199-445f-ac65-16405d5968d7",
+          "b_id": "Id_febfcfab-7199-445f-ac65-16405d5968d7"
+        }
+      ]
+    },
+    "change_schema_version": "change-v1",
+    "operations": [
+      {
+        "op": "FLOW_CONDITION_CHANGE",
+        "legacy_op": "FLOW_CONDITION_CHANGE",
+        "category": 3,
+        "category_name": "Sequence, flow, and branching",
+        "element": "flow",
+        "before": {
+          "condition": "",
+          "is_default": false,
+          "source": "<exclusive gateway (XOR)>",
+          "target": "Displays the message \"data not found\".",
+          "source_id": "Id_8a71f31d-70b3-48c5-bc2c-eea96af4d56f",
+          "target_id": "Id_d877f453-58b4-46a1-aa8c-b53c44b2a526"
+        },
+        "after": {
+          "condition": "amount > 5",
+          "is_default": false,
+          "source": "<exclusive gateway (XOR)>",
+          "target": "Displays the message \"data not found\".",
+          "source_id": "Id_8a71f31d-70b3-48c5-bc2c-eea96af4d56f",
+          "target_id": "Id_d877f453-58b4-46a1-aa8c-b53c44b2a526"
+        },
+        "detail": "condition: \"\" -> \"amount > 5\"",
+        "confidence": "high",
+        "needs_review": false,
+        "schema_version": "change-v1",
+        "change": {
+          "type": "FLOW_CONDITION_CHANGE",
+          "legacy_type": "FLOW_CONDITION_CHANGE",
+          "category": 3,
+          "category_name": "Sequence, flow, and branching",
+          "element": "flow",
+          "before": {
+            "condition": "",
+            "is_default": false,
+            "source": "<exclusive gateway (XOR)>",
+            "target": "Displays the message \"data not found\".",
+            "source_id": "Id_8a71f31d-70b3-48c5-bc2c-eea96af4d56f",
+            "target_id": "Id_d877f453-58b4-46a1-aa8c-b53c44b2a526"
+          },
+          "after": {
+            "condition": "amount > 5",
+            "is_default": false,
+            "source": "<exclusive gateway (XOR)>",
+            "target": "Displays the message \"data not found\".",
+            "source_id": "Id_8a71f31d-70b3-48c5-bc2c-eea96af4d56f",
+            "target_id": "Id_d877f453-58b4-46a1-aa8c-b53c44b2a526"
+          },
+          "detail": "condition: \"\" -> \"amount > 5\"",
+          "confidence": "high",
+          "needs_review": false
+        },
+        "evidence": {
+          "alignment": [
+            {
+              "reference_node_id": "Id_8a71f31d-70b3-48c5-bc2c-eea96af4d56f",
+              "variant_node_id": "Id_8a71f31d-70b3-48c5-bc2c-eea96af4d56f",
+              "label": "identical",
+              "score": 1.0,
+              "reason": "same element ID; empty label",
+              "confidence": "high",
+              "needs_review": false
+            },
+            {
+              "reference_node_id": "Id_d877f453-58b4-46a1-aa8c-b53c44b2a526",
+              "variant_node_id": "Id_d877f453-58b4-46a1-aa8c-b53c44b2a526",
+              "label": "identical",
+              "score": 1.0,
+              "reason": "same element ID; exact normalised label",
+              "confidence": "high",
+              "needs_review": false
+            }
+          ],
+          "structural_context": [
+            {
+              "reference": {
+                "node_id": "Id_8a71f31d-70b3-48c5-bc2c-eea96af4d56f",
+                "predecessor_ids": [
+                  "Id_082521f7-2373-493e-b116-ed46f8443646"
+                ],
+                "successor_ids": [
+                  "Id_b95890b5-92e4-432a-b709-a96b40733427",
+                  "Id_d877f453-58b4-46a1-aa8c-b53c44b2a526"
+                ],
+                "in_degree": 1,
+                "out_degree": 2
+              },
+              "variant": {
+                "node_id": "Id_8a71f31d-70b3-48c5-bc2c-eea96af4d56f",
+                "predecessor_ids": [
+                  "Id_082521f7-2373-493e-b116-ed46f8443646"
+                ],
+                "successor_ids": [
+                  "Id_b95890b5-92e4-432a-b709-a96b40733427",
+                  "Id_d877f453-58b4-46a1-aa8c-b53c44b2a526"
+                ],
+                "in_degree": 1,
+                "out_degree": 2
+              },
+              "matched_neighbors": [
+                {
+                  "direction": "predecessor",
+                  "reference_node_id": "Id_082521f7-2373-493e-b116-ed46f8443646",
+                  "variant_node_id": "Id_082521f7-2373-493e-b116-ed46f8443646"
+                },
+                {
+                  "direction": "successor",
+                  "reference_node_id": "Id_b95890b5-92e4-432a-b709-a96b40733427",
+                  "variant_node_id": "Id_b95890b5-92e4-432a-b709-a96b40733427"
+                },
+                {
+                  "direction": "successor",
+                  "reference_node_id": "Id_d877f453-58b4-46a1-aa8c-b53c44b2a526",
+                  "variant_node_id": "Id_d877f453-58b4-46a1-aa8c-b53c44b2a526"
+                }
+              ]
+            },
+            {
+              "reference": {
+                "node_id": "Id_d877f453-58b4-46a1-aa8c-b53c44b2a526",
+                "predecessor_ids": [
+                  "Id_8a71f31d-70b3-48c5-bc2c-eea96af4d56f"
+                ],
+                "successor_ids": [
+                  "Id_7bcfb632-b79c-4c0f-b3d7-4da10fd0b486"
+                ],
+                "in_degree": 1,
+                "out_degree": 1
+              },
+              "variant": {
+                "node_id": "Id_d877f453-58b4-46a1-aa8c-b53c44b2a526",
+                "predecessor_ids": [
+                  "Id_8a71f31d-70b3-48c5-bc2c-eea96af4d56f"
+                ],
+                "successor_ids": [
+                  "Id_7bcfb632-b79c-4c0f-b3d7-4da10fd0b486"
+                ],
+                "in_degree": 1,
+                "out_degree": 1
+              },
+              "matched_neighbors": [
+                {
+                  "direction": "predecessor",
+                  "reference_node_id": "Id_8a71f31d-70b3-48c5-bc2c-eea96af4d56f",
+                  "variant_node_id": "Id_8a71f31d-70b3-48c5-bc2c-eea96af4d56f"
+                },
+                {
+                  "direction": "successor",
+                  "reference_node_id": "Id_7bcfb632-b79c-4c0f-b3d7-4da10fd0b486",
+                  "variant_node_id": "Id_7bcfb632-b79c-4c0f-b3d7-4da10fd0b486"
+                }
+              ]
+            }
+          ],
+          "observations": [
+            {
+              "source": "alignment",
+              "description": "same element ID; empty label"
+            },
+            {
+              "source": "alignment",
+              "description": "same element ID; exact normalised label"
+            },
+            {
+              "source": "graph",
+              "description": "Direct predecessor and successor context for aligned nodes."
+            },
+            {
+              "source": "graph",
+              "description": "condition: \"\" -> \"amount > 5\"",
+              "value": {
+                "before": {
+                  "condition": "",
+                  "is_default": false,
+                  "source": "<exclusive gateway (XOR)>",
+                  "target": "Displays the message \"data not found\".",
+                  "source_id": "Id_8a71f31d-70b3-48c5-bc2c-eea96af4d56f",
+                  "target_id": "Id_d877f453-58b4-46a1-aa8c-b53c44b2a526"
+                },
+                "after": {
+                  "condition": "amount > 5",
+                  "is_default": false,
+                  "source": "<exclusive gateway (XOR)>",
+                  "target": "Displays the message \"data not found\".",
+                  "source_id": "Id_8a71f31d-70b3-48c5-bc2c-eea96af4d56f",
+                  "target_id": "Id_d877f453-58b4-46a1-aa8c-b53c44b2a526"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "GATEWAY_TYPE_CHANGE",
+        "legacy_op": "CHANGE_GATEWAY_TYPE",
+        "category": 3,
+        "category_name": "Sequence, flow, and branching",
+        "element": "gateway",
+        "before": {
+          "id": "Id_6fe753e9-ea2f-4694-a19f-d7585b540d01",
+          "name": "<exclusive gateway (XOR)>",
+          "kind": "xor",
+          "kind_label": "exclusive gateway (XOR)",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "attached_to": null,
+          "cancel_activity": true,
+          "lane": "System",
+          "pool": "Emergency room Triage"
+        },
+        "after": {
+          "id": "Id_6fe753e9-ea2f-4694-a19f-d7585b540d01",
+          "name": "<parallel gateway (AND)>",
+          "kind": "and",
+          "kind_label": "parallel gateway (AND)",
+          "task_type": "abstract",
+          "event_definition": "none",
+          "marker": "none",
+          "attached_to": null,
+          "cancel_activity": true,
+          "lane": "System",
+          "pool": "Emergency room Triage"
+        },
+        "detail": "XOR -> AND",
+        "label": "identical",
+        "confidence": "high",
+        "needs_review": false,
+        "schema_version": "change-v1",
+        "change": {
+          "type": "GATEWAY_TYPE_CHANGE",
+          "legacy_type": "CHANGE_GATEWAY_TYPE",
+          "category": 3,
+          "category_name": "Sequence, flow, and branching",
+          "element": "gateway",
+          "before": {
+            "id": "Id_6fe753e9-ea2f-4694-a19f-d7585b540d01",
+            "name": "<exclusive gateway (XOR)>",
+            "kind": "xor",
+            "kind_label": "exclusive gateway (XOR)",
+            "task_type": "abstract",
+            "event_definition": "none",
+            "marker": "none",
+            "attached_to": null,
+            "cancel_activity": true,
+            "lane": "System",
+            "pool": "Emergency room Triage"
+          },
+          "after": {
+            "id": "Id_6fe753e9-ea2f-4694-a19f-d7585b540d01",
+            "name": "<parallel gateway (AND)>",
+            "kind": "and",
+            "kind_label": "parallel gateway (AND)",
+            "task_type": "abstract",
+            "event_definition": "none",
+            "marker": "none",
+            "attached_to": null,
+            "cancel_activity": true,
+            "lane": "System",
+            "pool": "Emergency room Triage"
+          },
+          "detail": "XOR -> AND",
+          "label": "identical",
+          "confidence": "high",
+          "needs_review": false
+        },
+        "evidence": {
+          "alignment": [
+            {
+              "reference_node_id": "Id_6fe753e9-ea2f-4694-a19f-d7585b540d01",
+              "variant_node_id": "Id_6fe753e9-ea2f-4694-a19f-d7585b540d01",
+              "label": "identical",
+              "score": 1.0,
+              "reason": "same element ID; empty label",
+              "confidence": "high",
+              "needs_review": false
+            }
+          ],
+          "structural_context": [
+            {
+              "reference": {
+                "node_id": "Id_6fe753e9-ea2f-4694-a19f-d7585b540d01",
+                "predecessor_ids": [
+                  "Id_69abd614-343f-4d22-a7e2-5d546051dc02",
+                  "Id_39e26069-902c-4ec6-84c8-f2431c97c4d8",
+                  "Id_febfcfab-7199-445f-ac65-16405d5968d7",
+                  "Id_00c1c0de-a945-4c67-8347-f9569d10f77f"
+                ],
+                "successor_ids": [
+                  "Id_b2834f10-e7c5-4c97-92b1-ed0e4758ef8a"
+                ],
+                "in_degree": 4,
+                "out_degree": 1
+              },
+              "variant": {
+                "node_id": "Id_6fe753e9-ea2f-4694-a19f-d7585b540d01",
+                "predecessor_ids": [
+                  "Id_69abd614-343f-4d22-a7e2-5d546051dc02",
+                  "Id_39e26069-902c-4ec6-84c8-f2431c97c4d8",
+                  "Id_febfcfab-7199-445f-ac65-16405d5968d7",
+                  "Id_00c1c0de-a945-4c67-8347-f9569d10f77f"
+                ],
+                "successor_ids": [
+                  "Id_b2834f10-e7c5-4c97-92b1-ed0e4758ef8a"
+                ],
+                "in_degree": 4,
+                "out_degree": 1
+              },
+              "matched_neighbors": [
+                {
+                  "direction": "predecessor",
+                  "reference_node_id": "Id_69abd614-343f-4d22-a7e2-5d546051dc02",
+                  "variant_node_id": "Id_69abd614-343f-4d22-a7e2-5d546051dc02"
+                },
+                {
+                  "direction": "predecessor",
+                  "reference_node_id": "Id_39e26069-902c-4ec6-84c8-f2431c97c4d8",
+                  "variant_node_id": "Id_39e26069-902c-4ec6-84c8-f2431c97c4d8"
+                },
+                {
+                  "direction": "predecessor",
+                  "reference_node_id": "Id_febfcfab-7199-445f-ac65-16405d5968d7",
+                  "variant_node_id": "Id_febfcfab-7199-445f-ac65-16405d5968d7"
+                },
+                {
+                  "direction": "predecessor",
+                  "reference_node_id": "Id_00c1c0de-a945-4c67-8347-f9569d10f77f",
+                  "variant_node_id": "Id_00c1c0de-a945-4c67-8347-f9569d10f77f"
+                },
+                {
+                  "direction": "successor",
+                  "reference_node_id": "Id_b2834f10-e7c5-4c97-92b1-ed0e4758ef8a",
+                  "variant_node_id": "Id_b2834f10-e7c5-4c97-92b1-ed0e4758ef8a"
+                }
+              ]
+            }
+          ],
+          "observations": [
+            {
+              "source": "alignment",
+              "description": "same element ID; empty label"
+            },
+            {
+              "source": "graph",
+              "description": "Direct predecessor and successor context for aligned nodes."
+            },
+            {
+              "source": "operation",
+              "description": "XOR -> AND",
+              "value": {
+                "before": {
+                  "id": "Id_6fe753e9-ea2f-4694-a19f-d7585b540d01",
+                  "name": "<exclusive gateway (XOR)>",
+                  "kind": "xor",
+                  "kind_label": "exclusive gateway (XOR)",
+                  "task_type": "abstract",
+                  "event_definition": "none",
+                  "marker": "none",
+                  "attached_to": null,
+                  "cancel_activity": true,
+                  "lane": "System",
+                  "pool": "Emergency room Triage"
+                },
+                "after": {
+                  "id": "Id_6fe753e9-ea2f-4694-a19f-d7585b540d01",
+                  "name": "<parallel gateway (AND)>",
+                  "kind": "and",
+                  "kind_label": "parallel gateway (AND)",
+                  "task_type": "abstract",
+                  "event_definition": "none",
+                  "marker": "none",
+                  "attached_to": null,
+                  "cancel_activity": true,
+                  "lane": "System",
+                  "pool": "Emergency room Triage"
+                }
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "behavior": {
+      "equivalent": true,
+      "inconclusive": false,
+      "method": "trace_equivalence (tau-closure + subset construction)",
+      "counterexample": null,
+      "dfa_states": {
+        "reference": 10,
+        "variant": 10
+      },
+      "truncated": false,
+      "reference_lts": {
+        "states": 23,
+        "transitions": 27,
+        "final_states": 1,
+        "deadlock_states": 0,
+        "truncated": false
+      },
+      "variant_lts": {
+        "states": 23,
+        "transitions": 27,
+        "final_states": 1,
+        "deadlock_states": 0,
+        "truncated": false
+      },
+      "trace_samples": {
+        "reference": {
+          "count": 8,
+          "traces": [
+            [
+              "Wants to create an Emergency room Triage",
+              "Displays the Emergency room Triage form",
+              "Enters register number of a patient",
+              "Sreads the Registration database",
+              "Displays the message \"data not found\".",
+              "Selects the condition button",
+              "Bad",
+              "Selects the save button",
+              "Invisible Task"
+            ],
+            [
+              "Wants to create an Emergency room Triage",
+              "Displays the Emergency room Triage form",
+              "Enters register number of a patient",
+              "Sreads the Registration database",
+              "Displays the message \"data not found\".",
+              "Selects the condition button",
+              "Bad",
+              "Selects the save button",
+              "Saves the triages"
+            ],
+            [
+              "Wants to create an Emergency room Triage",
+              "Displays the Emergency room Triage form",
+              "Enters register number of a patient",
+              "Sreads the Registration database",
+              "Displays the message \"data not found\".",
+              "Selects the condition button",
+              "Bad not emerfency",
+              "Selects the save button",
+              "Invisible Task"
+            ],
+            [
+              "Wants to create an Emergency room Triage",
+              "Displays the Emergency room Triage form",
+              "Enters register number of a patient",
+              "Sreads the Registration database",
+              "Displays the message \"data not found\".",
+              "Selects the condition button",
+              "Bad not emerfency",
+              "Selects the save button",
+              "Saves the triages"
+            ],
+            [
+              "Wants to create an Emergency room Triage",
+              "Displays the Emergency room Triage form",
+              "Enters register number of a patient",
+              "Sreads the Registration database",
+              "Displays the message \"data not found\".",
+              "Selects the condition button",
+              "Deceased",
+              "Selects the save button",
+              "Invisible Task"
+            ],
+            [
+              "Wants to create an Emergency room Triage",
+              "Displays the Emergency room Triage form",
+              "Enters register number of a patient",
+              "Sreads the Registration database",
+              "Displays the message \"data not found\".",
+              "Selects the condition button",
+              "Deceased",
+              "Selects the save button",
+              "Saves the triages"
+            ],
+            [
+              "Wants to create an Emergency room Triage",
+              "Displays the Emergency room Triage form",
+              "Enters register number of a patient",
+              "Sreads the Registration database",
+              "Displays the message \"data not found\".",
+              "Selects the condition button",
+              "Emerfency",
+              "Selects the save button",
+              "Invisible Task"
+            ],
+            [
+              "Wants to create an Emergency room Triage",
+              "Displays the Emergency room Triage form",
+              "Enters register number of a patient",
+              "Sreads the Registration database",
+              "Displays the message \"data not found\".",
+              "Selects the condition button",
+              "Emerfency",
+              "Selects the save button",
+              "Saves the triages"
+            ]
+          ],
+          "truncated": false
+        },
+        "variant": {
+          "count": 8,
+          "traces": [
+            [
+              "Wants to create an Emergency room Triage",
+              "Displays the Emergency room Triage form",
+              "Enters register number of a patient",
+              "Sreads the Registration database",
+              "Displays the message \"data not found\".",
+              "Selects the condition button",
+              "Bad",
+              "Selects the save button",
+              "Invisible Task"
+            ],
+            [
+              "Wants to create an Emergency room Triage",
+              "Displays the Emergency room Triage form",
+              "Enters register number of a patient",
+              "Sreads the Registration database",
+              "Displays the message \"data not found\".",
+              "Selects the condition button",
+              "Bad",
+              "Selects the save button",
+              "Saves the triages"
+            ],
+            [
+              "Wants to create an Emergency room Triage",
+              "Displays the Emergency room Triage form",
+              "Enters register number of a patient",
+              "Sreads the Registration database",
+              "Displays the message \"data not found\".",
+              "Selects the condition button",
+              "Bad not emerfency",
+              "Selects the save button",
+              "Invisible Task"
+            ],
+            [
+              "Wants to create an Emergency room Triage",
+              "Displays the Emergency room Triage form",
+              "Enters register number of a patient",
+              "Sreads the Registration database",
+              "Displays the message \"data not found\".",
+              "Selects the condition button",
+              "Bad not emerfency",
+              "Selects the save button",
+              "Saves the triages"
+            ],
+            [
+              "Wants to create an Emergency room Triage",
+              "Displays the Emergency room Triage form",
+              "Enters register number of a patient",
+              "Sreads the Registration database",
+              "Displays the message \"data not found\".",
+              "Selects the condition button",
+              "Deceased",
+              "Selects the save button",
+              "Invisible Task"
+            ],
+            [
+              "Wants to create an Emergency room Triage",
+              "Displays the Emergency room Triage form",
+              "Enters register number of a patient",
+              "Sreads the Registration database",
+              "Displays the message \"data not found\".",
+              "Selects the condition button",
+              "Deceased",
+              "Selects the save button",
+              "Saves the triages"
+            ],
+            [
+              "Wants to create an Emergency room Triage",
+              "Displays the Emergency room Triage form",
+              "Enters register number of a patient",
+              "Sreads the Registration database",
+              "Displays the message \"data not found\".",
+              "Selects the condition button",
+              "Emerfency",
+              "Selects the save button",
+              "Invisible Task"
+            ],
+            [
+              "Wants to create an Emergency room Triage",
+              "Displays the Emergency room Triage form",
+              "Enters register number of a patient",
+              "Sreads the Registration database",
+              "Displays the message \"data not found\".",
+              "Selects the condition button",
+              "Emerfency",
+              "Selects the save button",
+              "Saves the triages"
+            ]
+          ],
+          "truncated": false
+        }
+      }
+    },
+    "fragments": {
+      "count": 58,
+      "affected": [
+        {
+          "id": "R10",
+          "entry": "<exclusive gateway (XOR)>",
+          "exit": "<exclusive gateway (XOR)>",
+          "size": 4,
+          "nodes": [
+            "<exclusive gateway (XOR)>",
+            "<exclusive gateway (XOR)>",
+            "Displays patient information",
+            "Displays the message \"data not found\"."
+          ],
+          "node_ids": [
+            "Id_7bcfb632-b79c-4c0f-b3d7-4da10fd0b486",
+            "Id_8a71f31d-70b3-48c5-bc2c-eea96af4d56f",
+            "Id_b95890b5-92e4-432a-b709-a96b40733427",
+            "Id_d877f453-58b4-46a1-aa8c-b53c44b2a526"
+          ],
+          "status": "checked",
+          "equivalent": true,
+          "method": "trace_equivalence (tau-closure + subset construction)",
+          "counterexample": null,
+          "states": {
+            "reference": 5,
+            "variant": 5
+          }
+        },
+        {
+          "id": "R21",
+          "entry": "<exclusive gateway (XOR)>",
+          "exit": "Selects the save button",
+          "size": 7,
+          "nodes": [
+            "Deceased",
+            "Bad not emerfency",
+            "Bad",
+            "<exclusive gateway (XOR)>",
+            "Selects the save button",
+            "<exclusive gateway (XOR)>",
+            "Emerfency"
+          ],
+          "node_ids": [
+            "Id_00c1c0de-a945-4c67-8347-f9569d10f77f",
+            "Id_39e26069-902c-4ec6-84c8-f2431c97c4d8",
+            "Id_69abd614-343f-4d22-a7e2-5d546051dc02",
+            "Id_6fe753e9-ea2f-4694-a19f-d7585b540d01",
+            "Id_b2834f10-e7c5-4c97-92b1-ed0e4758ef8a",
+            "Id_c4d65e81-c03c-4448-b16e-30e66f1889ea",
+            "Id_febfcfab-7199-445f-ac65-16405d5968d7"
+          ],
+          "status": "checked",
+          "equivalent": true,
+          "method": "trace_equivalence (tau-closure + subset construction)",
+          "counterexample": null,
+          "states": {
+            "reference": 8,
+            "variant": 8
+          }
+        }
+      ]
+    },
+    "fusion": {
+      "overall": "unchanged",
+      "needs_review": false,
+      "element_verdicts": [
+        {
+          "a": "Deceased",
+          "b": "Deceased",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "unchanged",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "Sreads the Registration database",
+          "b": "Sreads the Registration database",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "unchanged",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "Enters register number of a patient",
+          "b": "Enters register number of a patient",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "unchanged",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "<exclusive gateway (XOR)>",
+          "b": "<exclusive gateway (XOR)>",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "unchanged",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "<exclusive gateway (XOR)>",
+          "b": "<exclusive gateway (XOR)>",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "unchanged",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "Bad not emerfency",
+          "b": "Bad not emerfency",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "unchanged",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "Bad",
+          "b": "Bad",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "unchanged",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "<exclusive gateway (XOR)>",
+          "b": "<parallel gateway (AND)>",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "R21",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "Selects the condition button",
+          "b": "Selects the condition button",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "unchanged",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "<exclusive gateway (XOR)>",
+          "b": "<exclusive gateway (XOR)>",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "unchanged",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "<exclusive gateway (XOR)>",
+          "b": "<exclusive gateway (XOR)>",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "unchanged",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "Wants to create an Emergency room Triage",
+          "b": "Wants to create an Emergency room Triage",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "unchanged",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "<start event>",
+          "b": "<start event>",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "unchanged",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "Invisible Task",
+          "b": "Invisible Task",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "unchanged",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "<end event>",
+          "b": "<end event>",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "unchanged",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "Selects the save button",
+          "b": "Selects the save button",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "unchanged",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "Displays patient information",
+          "b": "Displays patient information",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "unchanged",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "Displays the Emergency room Triage form",
+          "b": "Displays the Emergency room Triage form",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "unchanged",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "Saves the triages",
+          "b": "Saves the triages",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "unchanged",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "<exclusive gateway (XOR)>",
+          "b": "<exclusive gateway (XOR)>",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "unchanged",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "Displays the message \"data not found\".",
+          "b": "Displays the message \"data not found\".",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "unchanged",
+          "equivalent": true,
+          "needs_review": false
+        },
+        {
+          "a": "Emerfency",
+          "b": "Emerfency",
+          "label": "identical",
+          "verdict": "unchanged",
+          "behaviour_scope": "unchanged",
+          "equivalent": true,
+          "needs_review": false
+        }
+      ],
+      "verdict_counts": {
+        "unchanged": 22
+      },
+      "operation_counts": {
+        "FLOW_CONDITION_CHANGE": 1,
+        "GATEWAY_TYPE_CHANGE": 1
+      },
+      "legacy_operation_counts": {
+        "FLOW_CONDITION_CHANGE": 1,
+        "CHANGE_GATEWAY_TYPE": 1
+      }
+    }
+  }
+}
