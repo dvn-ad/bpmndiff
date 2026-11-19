@@ -53,6 +53,9 @@ Melakukan evaluasi ilmiah secara kuantitatif terhadap sistem yang dibangun maupu
 - [x] **Analisis Kegagalan (*Error Analysis*)**
   - Mengidentifikasi **3 pola kegagalan paling sering** yang terjadi pada sistem, dilengkapi **1 contoh kasus diagram** untuk masing-masing pola kegagalan.
   - Keluaran: `results/error_analysis.md`.
+- [x] **Visualisasi Hasil**
+  - Figure PNG dari `results/pilot.csv` dan `results/pilot_pairs.csv`: metrik agregat per mode, *heatmap* F1 per jenis perubahan, efek pergantian ID, distribusi F1 per pasangan, dan matriks korelasi antar mode.
+  - Implementasi: `bpmndiff/visualize.py` (lapisan opsional `pandas` + `matplotlib`), perintah `bpmndiff visualize`; keluaran `results/figures/` (termasuk `mode_correlation.csv`).
 
 ---
 

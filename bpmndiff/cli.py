@@ -392,6 +392,42 @@ def run_evaluate(args: argparse.Namespace) -> int:
     return 0
 
 
+def _build_visualize_parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(
+        prog="bpmndiff visualize",
+        description="Render PNG figures from the evaluation CSVs (requires pandas + matplotlib).",
+    )
+    parser.add_argument(
+        "--results",
+        default=str(_repo_root() / "results"),
+        help="folder with pilot.csv and pilot_pairs.csv (default: results)",
+    )
+    parser.add_argument(
+        "--out",
+        default=str(_repo_root() / "results" / "figures"),
+        help="figure output folder (default: results/figures)",
+    )
+    return parser
+
+
+def run_visualize(args: argparse.Namespace) -> int:
+    try:
+        from .visualize import VisualizationError, build_figures
+    except ImportError as exc:
+        print(f"error: {exc}", file=sys.stderr)
+        print("install with: pip install -e '.[viz]'", file=sys.stderr)
+        return 2
+
+    try:
+        figures = build_figures(args.results, args.out)
+    except VisualizationError as exc:
+        print(f"error: {exc}", file=sys.stderr)
+        return 2
+    for name, path in figures.files.items():
+        print(f"{name}: {path}")
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
     argv = list(sys.argv[1:] if argv is None else argv)
     if argv and argv[0] == "demo":
@@ -403,6 +439,9 @@ def main(argv: list[str] | None = None) -> int:
     if argv and argv[0] == "evaluate":
         args = _build_evaluate_parser().parse_args(argv[1:])
         return run_evaluate(args)
+    if argv and argv[0] == "visualize":
+        args = _build_visualize_parser().parse_args(argv[1:])
+        return run_visualize(args)
 
     parser = _build_parser()
     args = parser.parse_args(argv)

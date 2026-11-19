@@ -12,6 +12,9 @@ license = "MIT"
 authors = [{ name = "ES Final Project" }]
 dependencies = []
 
+[project.optional-dependencies]
+viz = ["pandas>=2.0", "matplotlib>=3.7"]
+
 [project.scripts]
 bpmndiff = "bpmndiff.cli:main"
 

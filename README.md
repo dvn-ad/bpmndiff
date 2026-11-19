@@ -51,6 +51,10 @@ python3 -m bpmndiff generate
 
 # Score all four alignment modes against the generated ground truth
 python3 -m bpmndiff evaluate
+
+# Render the result figures (needs the optional viz extra)
+pip install -e '.[viz]'
+python3 -m bpmndiff visualize
 ```
 
 Optional installation as a console command, in a local virtual environment:
@@ -63,6 +67,9 @@ python3 -m venv .venv
 
 The package has no runtime dependencies, so the virtual environment only keeps
 the `bpmndiff` entry point and its metadata isolated from the system Python.
+The analysis figures are the only optional install: `pip install -e '.[viz]'`
+adds `pandas` and `matplotlib`; the comparison engine, generator, and evaluation
+harness never import them.
 
 The only optional dependency is a reachable OpenAI-compatible endpoint for
 LLM adjudication of ambiguous label pairs (see below). Everything else is
@@ -146,6 +153,24 @@ detects renames well (F1 `1.000` for `RENAME_NODE`, `NODE_TYPE_CHANGE`,
 unnamed gateways, and `structure` alignment skips structurally symmetric
 nodes and therefore misses both the node edit and its incident flows.
 
+### Result figures
+
+`bpmndiff visualize` reads `results/pilot.csv` and `results/pilot_pairs.csv`
+and writes six PNGs plus a CSV to `results/figures/`:
+
+| Figure | What it shows |
+|---|---|
+| `mode_overall.png` | Precision / Recall / F1 per alignment mode over all 30 pairs. |
+| `type_mode_heatmap.png` | F1 per change type × alignment mode, with ground-truth support in the row labels. |
+| `id_churn.png` | F1 before and after full ID regeneration, one line per mode. |
+| `pair_mode_heatmap.png` | Per-pair F1 for every base variant, grouped by base diagram. |
+| `pair_f1_distribution.png` | Box plot and individual points of per-pair F1 per mode. |
+| `mode_correlation.png` | Pearson correlation between modes (per-pair F1 and predicted operation count). |
+| `mode_correlation.csv` | The correlation matrices as data. |
+
+They are a reporting layer only: no figure feeds back into the diff, and the
+engine still runs on the standard library alone.
+
 ---
 
 ## CLI reference
@@ -162,6 +187,7 @@ bpmndiff demo [--dataset PATH] [--out DIR]
 bpmndiff generate [--dataset DIR] [--out DIR] [--bases 56,57,58,63,65] [--seed SALT]
 bpmndiff evaluate [--manifest PATH] [--out DIR]
                   [--modes id,name,structure,hybrid] [--bisimulation]
+bpmndiff visualize [--results DIR] [--out DIR]
 ```
 
 | Option | Meaning |
@@ -177,6 +203,8 @@ bpmndiff evaluate [--manifest PATH] [--out DIR]
 | `generate --bases` | Comma-separated base diagram IDs (default: `56,57,58,63,65`). |
 | `evaluate --manifest` | Synthetic dataset manifest (default: `dataset/synthetic/manifest.json`). |
 | `evaluate --modes` | Alignment modes to score (default: all four). |
+| `visualize --results` | Folder with `pilot.csv` and `pilot_pairs.csv` (default: `results`). |
+| `visualize --out` | Figure output folder (default: `results/figures`). Requires the `[viz]` extra. |
 
 Exit codes: `0` success, `1` behavioural change with `--fail-on-change`,
 `2` parse/input error.
@@ -317,12 +345,13 @@ FP/
 │   ├── diff.py            # edit script, fragment checks, fusion verdicts
 │   ├── generator.py       # synthetic mutation dataset + change-v1 ground truth
 │   ├── evaluation.py      # P/R/F1 per change type and alignment mode
+│   ├── visualize.py       # optional pandas/matplotlib figures (the [viz] extra)
 │   ├── report.py          # text / Markdown / JSON renderers
-│   └── cli.py             # argparse CLI, dataset demo, generate/evaluate
+│   └── cli.py             # argparse CLI, dataset demo, generate/evaluate/visualize
 ├── tests/                 # unittest suite (no third-party test runner)
 ├── reports/               # generated demo artefacts
 ├── dataset/synthetic/     # generated reference/variant pairs + manifest
-├── results/               # pilot.csv, pair metrics, summary and error analysis
+├── results/               # pilot.csv, pair metrics, summary, error analysis, figures/
 ├── docs/                  # source specification documents
 └── pyproject.toml
 ```
